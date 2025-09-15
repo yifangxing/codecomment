@@ -1,0 +1,31 @@
+1 Retrieves an entry by key. Handles null keys by returning null. @param key the search key @return the matching ReferenceEntry or null if not found
+2 Checks if a cache entry is live. @param entry the cache entry to check @param now current time in nanoseconds @return true if the entry is live and valid, false otherwise
+3 Inserts a new LoadingValueReference for a key. @param key the key to insert @param hash the hash of the key @param checkTime whether to check refresh time @return LoadingValueReference or null if entry is already loading or recent
+4 Performs cleanup after a read operation. Triggers cleanup periodically based on read count threshold.
+5 Resolves a type variable to its actual type. @param var the type variable to resolve @param forDependants table for resolving dependent types @return resolved Type or original if unresolved
+6 Executes a combining callable with specified executor and manages resources. @param combiningCallable task to execute for combining results @param executor executor for task execution @return ClosingFuture representing the combined result with resource management
+7 Executes an asynchronous callable combining multiple futures. @param combiningCallable the callable to execute upon completion @param executor the executor for running the callable @return ClosingFuture representing the combined result
+8 Constructs a HostSpecifier from a string. @param specifier host specification string @return HostSpecifier object @throws ParseException if the specifier is invalid
+9 Validates a host specification string. @param specifier host specification string @return true if valid, false otherwise
+10 Retrieves the public suffix of the domain. @return InternetDomainName object representing the public suffix or null if none exists
+11 Returns the top private domain. @return InternetDomainName object representing the top private domain
+12 Retrieves the registry suffix of the domain. Uses cached index if available, returns null if no suffix exists. @return InternetDomainName object representing the registry suffix or null
+13 Returns the top-level domain under the registry suffix. @return InternetDomainName object representing the top-level domain
+14 Retrieves the parent domain of the current domain. Throws IllegalStateException if the domain has no parent. @return InternetDomainName object representing the parent domain
+15 Creates a Collector for grouping elements into an ImmutableListMultimap. @param keyFunction function to extract keys from elements @param valueFunction function to extract values from elements @return Collector that accumulates elements into an ImmutableListMultimap
+16 Creates an immutable multimap with a single key-value pair. @param k1 the key @param v1 the value associated with the key @return an ImmutableMultimap containing the key-value pair
+17 Creates an immutable multimap with two key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @return ImmutableMultimap containing specified key-value pairs
+18 Creates an ImmutableMultimap with three key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @param k3 third key @param v3 value associated with the third key @return an ImmutableMultimap containing the specified key-value pairs
+19 Creates an immutable multimap with four key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @param k3 third key @param v3 value associated with the third key @param k4 fourth key @param v4 value associated with the fourth key @return ImmutableMultimap containing the specified entries
+20 Creates an ImmutableMultimap from five key-value pairs. @param k1,k2,k3,k4,k5 keys for the multimap entries @param v1,v2,v3,v4,v5 values associated with each key @return ImmutableMultimap containing the specified key-value pairs
+21 Creates an immutable multimap from the given iterable of entries. @param entries iterable containing key-value pairs to add @return a new ImmutableMultimap instance with the provided entries
+22 Returns an inverted version of the multimap. Uses cached result if available to improve performance. @return a new ImmutableListMultimap with keys and values swapped
+23 Indexes iterable values by applying a key function. @param values iterable of values to index @param keyFunction function to extract keys from values @return ImmutableListMultimap with indexed values
+24 Adds a single parameter to the media type. @param attribute parameter name @param value parameter value @return new MediaType instance with added parameter
+25 Creates a new MediaType with additional parameters. @param parameters key-value pairs to add or update @return new MediaType instance with updated parameters
+26 Creates a MediaType instance without character set information. @param type primary MIME type (e.g., "application") @param subtype MIME subtype (e.g., "json") @return MediaType object with no parsed charset
+27 Parses a string into a MediaType. @param input the media type string to parse @return MediaType object representing the parsed type @throws IllegalArgumentException if parsing fails
+28 Initializes the ServiceManager with a collection of services. @param services iterable of services to manage Logs a warning if no services are provided and substitutes a placeholder service.
+29 Creates a collector to flatten elements into an ImmutableSetMultimap. @param keyFunction extracts the key from each element @param valuesFunction generates a stream of values for each key @return Collector that accumulates elements into an ImmutableSetMultimap
+30 Resolves a given Java Type to its actual representation. @param type the Type to resolve @return resolved TypeToken or original if not applicable
+31 Creates a MinMaxPriorityQueue with natural ordering. @param <E> type of elements, must extend Comparable @return configured MinMaxPriorityQueue instance

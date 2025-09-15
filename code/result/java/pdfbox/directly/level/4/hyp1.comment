@@ -1,0 +1,691 @@
+1 Adds a corner curl effect. @param anglePrev previous angle in radians @param angleCur current angle in radians @param radius curvature radius @param cx center x-coordinate @param cy center y-coordinate @param alpha angular offset @param alphaPrev previous angular offset @param addMoveTo flag to add move-to command @throws IOException if I/O error occurs
+2 Draws a basic ellipse on the graphics context. @param left x-coordinate of the left boundary @param bottom y-coordinate of the bottom boundary @param right x-coordinate of the right boundary @param top y-coordinate of the top boundary @throws IOException if an I/O error occurs
+3 Formats text content by processing paragraphs and lines. Throws IOException if an I/O error occurs during formatting.
+4 Calculates font size for text within a content rectangle. @param font PDFont used for rendering text @param contentRect PDRectangle defining the area for text @return Calculated font size or default if auto-sizing is enabled @throws IOException if an I/O error occurs
+5 Reads and sets the encoding for a font. Handles different types of encoding bases and provides fallbacks. @throws IOException if an I/O error occurs
+6 Determines if the font is symbolic. @return Boolean indicating if the font is symbolic, or null if uncertain
+7 Retrieves a TrueType font mapping. @param baseFont preferred base font name @param fontDescriptor PDF font descriptor for fallback @return FontMapping containing the TrueTypeFont or last resort font
+8 Retrieves a FontBoxFont for the given base font or descriptor. @param baseFont base font name @param fontDescriptor PDFontDescriptor containing font details @return FontMapping with found FontBoxFont or last resort font if none found
+9 Checks if XFA is dynamic. @return true if XFA is present and no fields are defined, false otherwise
+10 Retrieves rich content from annotation. @return Rich content as string or null if not available
+11 Writes XML representation of a field to the given writer. @param output Writer object to write XML data @throws IOException if an I/O error occurs
+12 Retrieves rich text value as a string. @return Rich text content or null if not available
+13 Initializes a Type 4 PDFunction from a COSBase stream. @param functionStream the PDF stream containing the function instructions @throws IOException if an I/O error occurs while reading the stream
+14 Recursively interpolates values based on coordinates. @param coord current coordinate array @param step current interpolation step @return interpolated float array
+15 Initializes a Type6ShadingContext. @param shading PDShadingType6 object @param colorModel ColorModel for rendering @param xform AffineTransform for coordinate mapping @param matrix transformation matrix @param deviceBounds bounding rectangle of the device @throws IOException if an I/O error occurs
+16 Constructs a Type7ShadingContext. @param shading PDShadingType7 instance @param colorModel ColorModel for rendering @param xform AffineTransform for coordinate conversion @param matrix Matrix defining the shading space @param deviceBounds Rectangle of the device area @throws IOException if an I/O error occurs
+17 Retrieves bytes from XFA. @return byte array of XFA content or empty if not found @throws IOException on I/O error
+18 Initializes a PDPageFitDestination. Sets up internal array and names it.
+19 Sets whether to use bounding box fitting. @param fitBoundingBox flag to enable or disable bounding box fitting
+20 Initializes a PDPageFitHeightDestination with specific settings.
+21 Sets the left value in the array. @param x integer value to set or -1 to clear
+22 Sets fit bounding box flag. @param fitBoundingBox true to set bounded type, false otherwise
+23 Initializes a new PDPageFitRectangleDestination with specific settings.
+24 Sets the left position in the array. @param x left position value or -1 to clear
+25 Sets the bottom position. @param y vertical coordinate or -1 to clear
+26 Sets the right value in the array. @param x integer value to set, or -1 to clear
+27 Sets the top position in the array. @param y vertical position value or -1 to clear
+28 Initializes a new PDPageFitWidthDestination. Sets up an array with specific size and type.
+29 Sets the top value in the array. @param y integer value to set or -1 to clear
+30 Sets the bounding box fitting option. @param fitBoundingBox true to fit, false otherwise
+31 Initializes a new PDPageXYZDestination with default settings.
+32 Sets the left value in the array. @param x the value to set, or -1 to clear
+33 Sets the top value in the array. @param y integer value to set or -1 to clear
+34 Sets zoom level in the array. @param zoom zoom factor to be set
+35 Retrieves decode parameters for the object. @return List of decode parameters or empty list if not found @throws IOException if an I/O error occurs
+36 Retrieves file decode parameters. @return List of decode parameters or empty list if none found @throws IOException if an I/O error occurs
+37 Loads ICC profile from stream or falls back to alternate color space. @throws IOException if an I/O error occurs
+38 Parses stamp annotation appearance XML and builds a COSDictionary. @param appearanceXML XML element representing the appearance @return COSDictionary containing parsed data or empty if not handled
+39 Constructs a PDF color space for grayscale. Initializes with COSName.CALGRAY.
+40 Constructs a new PDCalRGB instance.
+41 Constructs a new PDLab instance.
+42 Constructs a PDCalGray from a COSArray. @param array underlying COSArray
+43 Constructs a PDCalRGB object from a COSArray. @param rgb RGB color values array
+44 Constructs a PDLab object. @param lab COSArray containing lab data
+45 Sets the range for the first component. @param range PDRange object defining the new range
+46 Sets the B component range. @param range PDRange object representing the new range
+47 Sets the list of child nodes (kids) for a PDF tree node. @param kids list of PDNumberTreeNode objects representing child nodes
+48 Sets numbers and limits in the node. @param numbers map of COSObjectable values by integer keys
+49 Retrieves the crop box of a page. @return PDRectangle representing the crop box or media box if crop box is not set
+50 Determines the bounding box for a form field widget. @param fieldWidget the widget associated with the form field @param appearanceStream the appearance stream of the field @return PDRectangle representing the bounding box, or retranslated rectangle if null
+51 Sets the bounding box for the PDF object. @param bbox PDRectangle representing the new bounding box
+52 Sets the color for a named entry. @param name key for the color setting @param value PDGamma object representing the color
+53 Sets four colors for a PDF object. @param name key for the color setting @param value PDFourColours object representing the colors
+54 Creates a new instance of PDPage with letter size.
+55 Adds an object to the resources dictionary. @param kind type of resource (e.g., FONT) @param prefix prefix for the generated key @param object object to add @return COSName representing the key of the added or existing object
+56 Associates a font with a given name in the document. @param name the key under which to store the font @param font the PDFont object to be stored
+57 Sets a color space in the dictionary. @param name the key for the color space @param colorSpace the color space to set
+58 Associates an extended graphics state with a given name. @param name key for the graphics state @param extGState the graphics state to associate
+59 Adds a shading to the resource dictionary. @param name key under which to store the shading @param shading PDShading object to add
+60 Associates a pattern with a name in the dictionary. @param name the key under which to store the pattern @param pattern the pattern object to associate
+61 Adds or updates a property list under a specified name. @param name key for the property list @param properties PDPropertyList object to be stored
+62 Adds an XObject to the resources. @param name COSName key for the XObject @param xobject PDXObject to add
+63 Retrieves the FDF dictionary; creates a new one if none exists. @return FDFDictionary object
+64 Initializes a new FDFDocument with default settings.
+65 Retrieves the FDF catalog from a document. @return FDFCatalog object representing the catalog
+66 Retrieves or creates the fractional space allocation range. @return PDRange object representing the allocation
+67 Builds a CID set from a mapping of CIDs to GIDs. @param cidToGid map of CID to GID @throws IOException if an I/O error occurs
+68 Constructs a new PDTilingPattern. Initializes with a COSStream and sets necessary attributes.
+69 Retrieves or creates the appearance dictionary for an annotation. @return PDAppearanceDictionary object associated with the annotation
+70 Inserts a sibling before the current outline item. @param newSibling the new sibling to insert
+71 Inserts a sibling outline item after the current one. @param newSibling the new sibling to insert
+72 Adds a child to the outline. @param newChild item to be added as a child
+73 Prepends a child to the outline. @param newChild the new child item to add
+74 Sets the first bead in the thread. @param bead the first bead to set
+75 Initializes a new PDThreadBead with default settings.
+76 Appends a bead to the thread. @param append bead to be added
+77 Sets the role map dictionary. @param roleMap mapping of role names to values
+78 Sets a name-value pair in the COS object. @param name key for the dictionary entry @param value value to be set for the given key
+79 Sets the rendering intent. @param ri rendering intent string to be set
+80 Sets the name attribute. @param name the new name to be set
+81 Sets the style of the PDF element. @param s the style string to be applied
+82 Initializes page labels for a PDF document. @param document the PDDocument to apply labels to
+83 Constructs a new PDStructureElement with specified type and parent. @param structureType the type of the structure element @param parent the parent node in the structure hierarchy
+84 Constructs a new PDStructureTreeRoot with a specified type. @param TYPE the type of structure tree root
+85 Initializes a new shading pattern. Sets the pattern type to shading in the COS object.
+86 Initializes a new PDAction with a default COSDictionary. Sets the type of the action to a predefined constant.
+87 Retrieves document outline. @return PDDocumentOutline object or null if not found
+88 Retrieves the parent outline node. @return PDOutlineNode or null if no parent exists
+89 Sets value at specified index. @param index position in the export values list @throws IOException if an I/O error occurs
+90 Initializes a new PDRectlinearMeasureDictionary with a specific subtype.
+91 Constructs a PDTransition with default style R.
+92 Sets a date value in the document. @param key the key under which to store the date @param date the Calendar object representing the date
+93 Sets a date in the embedded dictionary. @param embedded name of the embedded dictionary @param key dictionary key for the date @param date Calendar object to set
+94 Sets the creation date of an object. @param date calendar instance representing the creation date
+95 Sets the modification date. @param date new modification date
+96 Sets the creation date of an annotation. @param date Calendar object representing the creation date
+97 Sets the modified date of the object. @param c Calendar instance representing the new modification date
+98 Sets the creation date of the COS object. @param creationDate Calendar representing the creation date
+99 Sets the signing date in the dictionary. @param cal Calendar object representing the signing date
+100 Sets custom metadata value. @param fieldName name of the field @param fieldValue value to be set
+101 Sets a string value in the COS object. @param name key for the dictionary entry @param value string to be set
+102 Sets the base string in the COS object. @param base the base string to be set
+103 Sets the application version in the dictionary. @param applicationVersion the version string to be stored
+104 Sets the units for the COS object. @param units the unit string to be set
+105 Sets the fractional display format. @param fractionalDisplay format type ("D", "F", "R", "T", or null)
+106 Sets the thousands separator for number formatting. @param thousandsSeparator character used to separate thousands
+107 Sets the decimal separator in the COS object. @param decimalSeparator the new decimal separator string
+108 Sets the label prefix string. @param labelPrefixString the prefix to be set
+109 Sets the label suffix string. @param labelSuffixString the suffix to be appended to labels
+110 Sets the label position to a specified value. @param labelPositionToValue "S" for suffix, "P" for prefix, or null
+111 Sets the MAC subtype in the PDF document. @param macSubtype the MAC subtype to set
+112 Sets the MAC creator in PDF parameters. @param macCreator MAC creator string to be set
+113 Sets the Mac resource fork in PDF parameters. @param macResFork the Mac resource fork string to set
+114 Constructs an FDFField from XML. @param fieldXML XML element representing the field @throws IOException if I/O error occurs during processing
+115 Creates an optional content group with a specified name. @param name the name of the content group
+116 Adds a PDF optional content group to the document. @param ocg the optional content group to add
+117 Retrieves base state from dictionary. @return BaseState enum value or null if not found
+118 Sets the base state in the dictionary. @param state BaseState object to be set
+119 Enables or disables a PDF group. @param group the group to enable/disable @param enable true to enable, false to disable @return true if the group was successfully toggled, false otherwise
+120 Sets an integer value in the COS dictionary. @param name key for the value @param value integer to set
+121 Sets an integer value in the COS object. @param name key for the dictionary entry @param value integer to set
+122 Sets the denominator value in the COS object. @param denominator the denominator to be set
+123 Sets the annotation visibility. @param invisible true to make annotation invisible, false otherwise
+124 Sets the annotation's visibility. @param hidden true to hide, false to show
+125 Sets the printed flag of an annotation. @param printed boolean indicating if the document is printed
+126 Sets zoom restriction. @param noZoom true to disable zooming, false otherwise
+127 Sets the no rotate flag for an annotation. @param noRotate true to disable rotation, false otherwise
+128 Sets the "no view" flag for an annotation. @param noView true to hide annotation, false otherwise
+129 Sets the read-only flag of an annotation. @param readOnly true to make the annotation read-only, false otherwise
+130 Sets the locked state of an annotation. @param locked true to lock, false to unlock
+131 Sets whether to toggle no view. @param toggleNoView flag indicating if no view should be toggled
+132 Sets the locked contents flag. @param lockedContents true to lock contents, false otherwise
+133 Sets the visibility of an object. @param invisible true to make the object invisible, false otherwise
+134 Sets the hidden flag of the PDF object. @param hidden true to hide, false to show
+135 Sets the printed flag of the PDF document. @param printed boolean indicating if the document is printed
+136 Sets the "no zoom" flag in the PDF document. @param noZoom true to disable zooming, false otherwise
+137 Sets the rotate flag. @param noRotate if true, disables rotation
+138 Sets the "no view" flag in the COS object. @param noView boolean indicating whether to set or clear the flag
+139 Sets the read-only flag of the COS object. @param readOnly true to make the object read-only, false otherwise
+140 Sets the locked status of the object. @param locked true to lock, false to unlock
+141 Sets the toggle no view flag. @param toggleNoView boolean value to enable or disable the flag
+142 Sets the locked contents flag. @param lockedContents true if contents are locked, false otherwise
+143 Sets whether filtering is required. @param flag true if filter is required, false otherwise
+144 Sets whether subfilter is required. @param flag true if subfilter is required, false otherwise
+145 Sets whether digest method is required. @param flag true if digest method is required, false otherwise
+146 Sets the required flag for validation. @param flag true if validation is required, false otherwise
+147 Sets whether reason is required. @param flag true if reason is required, false otherwise
+148 Sets legal attestation requirement. @param flag true to require legal attestation, false otherwise
+149 Sets whether to add revision information. @param flag true to enable, false to disable
+150 Sets whether the subject field is required. @param flag true if subject is required, false otherwise
+151 Sets whether issuer is required. @param flag true if issuer is required, false otherwise
+152 Sets whether OID is required. @param flag true if OID is required, false otherwise
+153 Sets whether subject DN is required. @param flag true if subject DN is required, false otherwise
+154 Sets key usage requirement. @param flag indicates if key usage is required
+155 Sets whether URL is required. @param flag true if URL is required, false otherwise
+156 Sets the italic style of the text. @param italic true to enable italic, false otherwise
+157 Sets the font to bold. @param bold true if the font should be bold, false otherwise
+158 Sets whether signatures exist in the document. @param signaturesExist true if signatures are present, false otherwise
+159 Sets the append-only flag. @param appendOnly true to enable, false to disable
+160 Sets sorting flag for form fields. @param sort true to enable sorting, false otherwise
+161 Sets whether the field supports multiple selections. @param multiSelect true if multiple selections are allowed, false otherwise
+162 Sets whether spell checking is disabled. @param doNotSpellCheck flag to disable spell checking
+163 Sets whether to commit on selection change. @param commitOnSelChange flag indicating if commit should occur on selection change
+164 Sets the combo flag in the COS object. @param combo boolean value to set the flag
+165 Sets the editable flag of a PDF form field. @param edit true to enable editing, false otherwise
+166 Sets the read-only flag of the dictionary. @param readonly true to make the dictionary read-only, false otherwise
+167 Sets whether the field is required. @param required true if the field must be filled out, false otherwise
+168 Sets export flag for the dictionary. @param noExport true to prevent export, false otherwise
+169 Creates a push button on a PDF form. @param acroForm the parent form containing the button
+170 Initializes a radio button with an AcroForm. @param acroForm the form containing this radio button
+171 Sets whether radio buttons are in unison. @param radiosInUnison true if radios should be synchronized, false otherwise
+172 Sets multiline flag for form field. @param multiline true to enable multiline, false otherwise
+173 Sets the password flag for the form field. @param password true to enable password protection, false otherwise
+174 Sets the file select flag. @param fileSelect true to enable file selection, false otherwise
+175 Sets whether to disable spell checking. @param doNotSpellCheck true to disable spell checking, false otherwise
+176 Sets whether scrolling is disabled. @param doNotScroll true to disable scrolling, false otherwise
+177 Sets the 'comb' flag in the COS object. @param comb true to enable comb mode, false otherwise
+178 Sets rich text flag. @param richText true to enable rich text, false otherwise
+179 Decodes JPX encoded image data. @param encoded input stream containing encoded data @param decoded output stream for decoded image data @param parameters decoding parameters @param index image index (not used) @param options decode options @return DecodeResult object with decoding info @throws IOException if an I/O error occurs
+180 Checks and rebuilds page objects in the PDF document. @param root the root dictionary of the PDF @throws IOException if page tree is missing or invalid
+181 Retrieves the page tree from the PDF document. @return PDPageTree containing all pages of the document
+182 Constructs a PDPageTree from a COSDictionary. @param root dictionary representing the page tree root
+183 Removes a page from the document. @param page PDPage object to be removed
+184 Inserts a new page before an existing page in a PDF document. @param newPage the page to be inserted @param nextPage the page after which the new page will be inserted
+185 Inserts a new page after an existing page in a PDF document. @param newPage the page to be inserted @param prevPage the existing page after which the new page is inserted
+186 Increments the revision number by one.
+187 Creates a PDImageXObject from a BufferedImage. @param document PDDocument to add the image to @param image 1-bit black and white BufferedImage @return PDImageXObject created from the image @throws IOException if an I/O error occurs
+188 Creates an image from a TIFF file. @param document PDF document to add the image @param reader RandomAccessRead for reading the TIFF file @param number page number in the TIFF file @return PDImageXObject or null if no data is extracted
+189 Sets bits per color component. @param bitsPerComponent number of bits per component
+190 Sets bits per color component. @param bitsPerComponent number of bits for each color component
+191 Sets bits per coordinate. @param bitsPerCoordinate number of bits for each coordinate
+192 Sets bits per coordinate. @param bitsPerCoordinate number of bits for each coordinate
+193 Sets a float value in the COS object. @param name key for the value @param value float value to set
+194 Sets intensity value. @param i intensity level to be set
+195 Sets the conversion factor in the COS object. @param conversionFactor the new conversion factor value to be set
+196 Searches for object streams using brute force. @param xrefTable map to store object keys and their offsets @throws IOException if an I/O error occurs
+197 Parses an XRef object stream. @param objByteOffset byte offset of the object @param isStandalone true if parsing a standalone XRef stream @return previous XRef byte offset or -1 if not found @throws IOException on I/O errors during parsing
+198 Updates page references in a PDF document. @param cloner utility for cloning PDF objects @param numberTreeAsMap map of number tree entries @param objMapping mapping of original to cloned objects @throws IOException if an I/O error occurs
+199 Parses a directory object from the input source. @return COSBase object or null if unknown type @throws IOException if an I/O error occurs
+200 Parses document with default settings. @return PDDocument instance representing parsed PDF @throws IOException if parsing fails
+201 Processes a transparency group in the current page. @param group PDTransparencyGroup to be processed @throws IOException if an I/O error occurs during processing
+202 Processes Type 3 character stream. @param charProc character procedure to process @param textRenderingMatrix text rendering matrix @throws IOException if an I/O error occurs
+203 Processes annotation appearance by adjusting transformation matrix. @param annotation PDF annotation to process @param appearance appearance stream associated with the annotation @throws IOException if an I/O error occurs
+204 Processes a tiling pattern with given color and matrix. @param tilingPattern the pattern to process @param color the color for non-colored patterns @param colorSpace the color space of the pattern @param patternMatrix the transformation matrix for the pattern @throws IOException if an I/O error occurs
+205 Processes a PDF content stream. @param contentStream the PDF content stream to process
+206 Writes PDF document to output. @param doc COSDocument to be written @throws IOException if an I/O error occurs
+207 Saves the document to an output stream with specified compression. @param output target output stream for saving @param compressParameters configuration for compression @throws IOException if an I/O error occurs or document is closed
+208 Retrieves the highest version from document and catalog. @return float representing the maximum version found
+209 Retrieves a page by index. @param index zero-based page index @return PDPage object or throws exception if not found
+210 Removes element at specified index. @param index position of element to remove
+211 Finds index of a page in the document hierarchy. @param page PDPage to search for @return Index of the page or -1 if not found
+212 Retrieves file specification from PDF stream. @return PDFileSpecification object representing the file
+213 Retrieves file specification from FDF document. @return PDFileSpecification object representing the file @throws IOException if an I/O error occurs while accessing the file
+214 Retrieves embedded FDF files. @return List of PDFileSpecification objects or null if none found
+215 Retrieves file specification from reference. @return PDFileSpecification object @throws IOException if an I/O error occurs
+216 Retrieves file specification from PDF object. @return PDFileSpecification object representing the file @throws IOException if an I/O error occurs
+217 Retrieves file specification from action dictionary. @return PDFileSpecification object representing the file @throws IOException if an I/O error occurs
+218 Retrieves file specification from PDF dictionary. @return PDFileSpecification object representing the file @throws IOException if an I/O error occurs while accessing the file
+219 Retrieves file specification from action dictionary. @return PDFileSpecification object representing the file @throws IOException if an I/O error occurs
+220 Retrieves file specification from action dictionary. @return PDFileSpecification object @throws IOException if an I/O error occurs
+221 Retrieves file specification from action dictionary. @return PDFileSpecification object @throws IOException if an I/O error occurs
+222 Retrieves file specification from COS object. @return PDFileSpecification object representing the file @throws IOException if an I/O error occurs
+223 Notifies change if values differ. @param oldBase the original base object @param newBase the updated base object
+224 Appends a child structure element. @param structureElement the child element to add
+225 Inserts a new structure element before a reference element. @param newKid the new PDStructureElement to insert @param refKid the reference PDStructureElement before which to insert
+226 Removes a child element from the structure. @param structureElement the child element to remove @return true if removal was successful, false otherwise
+227 Creates a new highlight annotation. Initializes the annotation with the subtype "Highlight".
+228 Creates a new FDFAnnotationSquiggly instance.
+229 Creates a new strike-out annotation.
+230 Creates a new underline annotation.
+231 Creates a new file attachment annotation.
+232 Constructs a new PDAnnotationInk annotation.
+233 Creates a new PDAnnotationLine. Initializes the annotation subtype and sets an arbitrary line.
+234 Creates a new polygon annotation.
+235 Constructs a new PDAnnotationPolyline instance. Sets the annotation subtype to "PolyLine".
+236 Creates a new rubber stamp annotation.
+237 Creates a square or circle annotation. @param subType subtype of the annotation ("Square" or "Circle")
+238 Creates a new text annotation. Sets the subtype to "Text" in the COS object.
+239 Creates a text markup annotation. @param subType specific subtype of text markup (e.g., "Highlight", "Underline")
+240 Constructs a new PDAnnotationCaret from a COSDictionary. @param field Dictionary containing annotation properties
+241 Constructs a file attachment annotation. @param field COSDictionary representing the annotation
+242 Constructs a free text annotation from a COS dictionary. @param field COS dictionary representing the annotation
+243 Constructs an ink annotation from a dictionary. @param dict COSDictionary containing annotation properties
+244 Constructs a PDAnnotationLine from a COSDictionary. @param field dictionary containing annotation properties
+245 Creates a polygon annotation from a COS dictionary. @param dict the COS dictionary containing the annotation data
+246 Constructs a new PDAnnotationPolyline from a COSDictionary. @param dict the COS dictionary that holds the annotation information
+247 Creates a rubber stamp annotation from a COS dictionary. @param field the COS dictionary representing the annotation
+248 Constructs a new sound annotation. @param field the COS dictionary representing the sound annotation
+249 Constructs a square/circle annotation from a COS dictionary. @param dict the COS dictionary representing the annotation
+250 Constructs a text annotation from a COS dictionary. @param field dictionary containing annotation properties
+251 Constructs a text markup annotation from a COS dictionary. @param field COS dictionary representing the annotation
+252 Retrieves the associated popup annotation. @return PDAnnotationPopup object or null if none exists
+253 Retrieves all annotation widgets. @return List of PDAnnotationWidget objects representing the widgets
+254 Sets the selected values for a multi-select list box. @param values List of selected option strings @throws IOException if an I/O error occurs
+255 Writes compressed body of the PDF document. @param document PDF document to write @throws IOException if an I/O error occurs
+256 Implements cloudy polygon rendering. @param vertices array of polygon vertices @param isEllipse flag indicating if shape is an ellipse @throws IOException if an I/O error occurs
+257 Checks if the font is symbolic. @return true if the font is symbolic, false otherwise
+258 Checks if the PDF form is dynamic XFA. @param acroForm the PDF form to check @return true if the form is dynamic XFA, false otherwise
+259 Creates a PDF function from a COSBase object. @param function the COSBase object representing the function @return PDFunction instance based on the function type @throws IOException if the function is invalid or unknown
+260 Interpolates values using recursive function. @return interpolated float array
+261 Extracts matte values from soft mask image. @param softMask the source image object @return float array of RGB matte values or null if invalid
+262 Parses and returns the document as an XML object. @return Document representing the parsed content @throws IOException if parsing fails
+263 Encodes image data using PNG predictors and compression. @return PDImageXObject containing encoded image or null if unsupported format
+264 Sets the destination to a specified page. @param page target PDF page
+265 Initializes ICC-based color space from PDF array. @param iccArray PDF array containing ICC profile data @throws IOException if an I/O error occurs during initialization
+266 Sets the parent node and recalculates limits. @param parentNode the parent node to be set
+267 Sets child nodes and updates parent references. @param kids list of child nodes to set
+268 Sets the names map in the PDF node. @param names map of string keys to T values
+269 Initializes the current page for processing. @param page the PDF page to be initialized
+270 Retrieves the bleed box of a PDF page. @return PDRectangle representing the bleed box or crop box if bleed box is not present
+271 Retrieves the trim box of a PDF page. @return PDRectangle representing the trim box or crop box if trim box is null
+272 Retrieves the art box of the page, clipping it to the media box if present. @return PDRectangle representing the art box or crop box if art box is not defined
+273 Returns the crop box of a page, rotated if necessary. @param page PDF page to process @return Rotated PDRectangle or original crop box
+274 Creates a content stream for a page. @param document PDF document @param sourcePage page to add content to @param appendContent mode to determine if content is appended or overwritten @param compress whether to compress the content @param resetContext whether to reset the graphics context @throws IOException if an I/O error occurs
+275 Adds a PDF font to the document. @param font the PDFont object to be added @return the COSName associated with the added font
+276 Adds a color space to the document. @param colorSpace the PDColorSpace object to be added @return the COSName associated with the added color space
+277 Adds an extended graphics state. @param extGState graphics state to add @return COSName of the added graphics state
+278 Adds a shading to the document. @param shading PDShading object to be added @return COSName representing the added shading
+279 Adds a pattern to the resources. @param pattern PDAbstractPattern object to be added @return COSName representing the added pattern
+280 Adds a property list to the document. @param properties PDPropertyList object to be added @return COSName key under which the property is stored
+281 Adds an image to the document. @param image PDImageXObject to be added @return COSName of the added image
+282 Adds a form as an XObject to the resources. @param form PDFormXObject to be added @return COSName representing the added form
+283 Adds an XObject with a specified prefix. @param xobject PDXObject to be added @param prefix naming prefix for the object @return COSName of the added object
+284 Exports form fields to an FDF document. @return FDFDocument containing exported fields @throws IOException if I/O error occurs
+285 Retrieves or creates the down appearance entry. @return PDAppearanceEntry for down state
+286 Retrieves or creates the rollover appearance entry. @return PDAppearanceEntry for rollover state
+287 Retrieves or creates the normal appearance entry. @return PDAppearanceEntry for normal state
+288 Adds a new outline item as the last child. @param newChild the new outline item to add
+289 Adds a new child node to the beginning of the list. @param newChild the PDOutlineItem to be added
+290 Initializes page labels for a document. @param document the PDDocument to set labels for @param dict dictionary containing label data @throws IOException if an I/O error occurs
+291 Constructs a new PDActionEmbeddedGoTo action.
+292 Initializes a new PDActionGoTo with a specific subtype. @param SUB_TYPE predefined subtype constant
+293 Initializes a new instance of PDActionHide. Sets the subtype to SUB_TYPE.
+294 Initializes a new instance of PDActionImportData with a specific subtype.
+295 Constructs a new PDActionJavaScript with a specified subtype.
+296 Initializes a new PDActionLaunch with a specific subtype.
+297 Initializes a new PDActionMovie with a predefined subtype.
+298 Constructs a PDActionNamed with a predefined subtype.
+299 Constructs a PDActionRemoteGoTo with a specific subtype.
+300 Initializes a reset form action. Sets the subtype to SUB_TYPE.
+301 Constructs a PDActionSound with a predefined subtype.
+302 Initializes a new PDActionSubmitForm with a specific subtype.
+303 Constructs a new PDActionThread with a predefined subtype.
+304 Constructs a PDActionURI with a predefined subtype.
+305 Updates the open count of parent nodes recursively. @param delta amount to adjust open count by
+306 Sets a new value, applying specific logic based on export values. @param value the new value to set @throws IOException if an I/O error occurs during setting
+307 Checks if a PDF group is enabled. @param group the PDOptionalContentGroup to check @return true if the group is enabled, false otherwise
+308 Enables or disables a group by name. @param groupName name of the group to modify @param enable true to enable, false to disable @return true if operation successful, false otherwise
+309 Retrieves the pages of the PDF document. @return PDPageTree containing all pages in the document
+310 Returns the number of pages in the document. @return integer count of pages
+311 Sets the fixed pitch flag. @param flag true to enable fixed pitch, false otherwise
+312 Sets serif font style. @param flag true to enable serif, false otherwise
+313 Sets the symbolic flag. @param flag true to enable symbolic mode, false otherwise
+314 Sets script execution flag. @param flag true to enable script execution, false otherwise
+315 Sets the non-symbolic flag. @param flag true to enable non-symbolic mode, false otherwise
+316 Sets the italic style. @param flag true to enable italic, false otherwise
+317 Sets the all capitalization flag. @param flag true to enable all caps, false otherwise
+318 Sets the small cap flag. @param flag true to enable small cap, false otherwise
+319 Sets force bold flag. @param flag true to enable, false to disable
+320 Creates an image object from a byte array. @param document PDF document to add the image to @param byteArray byte array containing image data @param number image number in the document @return PDImageXObject created from the byte array @throws IOException if there's an error processing the image
+321 Creates an image object from a file. @param document PDF document to add the image @param file source image file @param number image index in case of multi-image files @return PDImageXObject created from the file @throws IOException if file reading fails
+322 Initializes an FDFAnnotation from an XML element. @param element XML element containing annotation attributes @throws IOException if required attributes are missing or invalid
+323 Rebuilds the document's trailer using an xref table. @param xrefTable map of COSObjectKey to object offsets @return rebuilt COSDictionary trailer
+324 Parses a PDF object dynamically from the document. @param objKey key of the object to parse @param requireExistingNotCompressedObj flag to check for existing non-compressed objects @return parsed COSBase object or null if not found
+325 Parses XRef table and trailer in PDF document. @param document PDF document to parse @param startXRefOffset starting offset for XRef parsing @return COSDictionary containing parsed trailer @throws IOException if an I/O error occurs during parsing
+326 Parses a COSArray from the input source. @return COSArray object parsed from the source @throws IOException if an I/O error occurs during parsing
+327 Loads a PDF document from byte array. @param input PDF content as byte array @param password document password, may be null @param keyStore InputStream for keystore, may be null @param alias keystore alias, may be null @param streamCacheCreateFunction function to create cache, may be null @return PDDocument object @throws IOException if loading fails
+328 Loads a PDF document from a random access read source. @param randomAccessRead input source for the PDF @param password optional password for encrypted PDFs @param keyStore key store for decryption if needed @param alias alias for the key in the key store @param streamCacheCreateFunction function to create stream caches @return PDDocument representing the loaded PDF @throws IOException if an error occurs during loading
+329 Processes and displays a transparency group. @param form PDTransparencyGroup object to be processed @throws IOException if an I/O error occurs during processing
+330 Processes a soft mask for the given transparency group. @param group PDTransparencyGroup to be processed
+331 Renders a Type 3 glyph using the specified matrix and font. @param textRenderingMatrix transformation matrix for rendering @param font Type 3 font containing character procedures @param code character code to render @param displacement vector for additional positioning (unused)
+332 Displays an annotation using its appearance stream. @param annotation the PDF annotation to display @throws IOException if there is an error processing the annotation
+333 Processes a tiling pattern with specified color and colorspace. @param tilingPattern the tiling pattern to process @param color the color to apply @param colorSpace the colorspace for the color
+334 Displays a form on the current PDF page. @param form PDFormXObject to be displayed @throws IOException if an I/O error occurs
+335 Saves data to an OutputStream with default compression. @param output destination OutputStream @throws IOException if an I/O error occurs
+336 Saves data to a file with compression. @param file the target file to save to @param compressParameters parameters for compression @throws IOException if an I/O error occurs
+337 Creates a new PDF document with metadata and preferences copied from the source document. @return PDDocument object representing the newly created document
+338 Sets the document version. @param newVersion the new version to set
+339 Retrieves a page from the document by index. @param pageIndex zero-based index of the page @return PDPage object or null if index is out of bounds
+340 Writes XML representation of the FDF document. @param output Writer to write XML data @throws IOException if an I/O error occurs
+341 Prepares a PDF document for encryption. @param doc the PDDocument to encrypt @throws IOException if an I/O error occurs
+342 Constructs a new PDAnnotationHighlight. Initializes with the specified sub-type.
+343 Creates a new PDAnnotationSquiggly annotation.
+344 Creates a new instance of PDAnnotationStrikeout.
+345 Constructs a new underline annotation.
+346 Constructs a PDAnnotationCircle from a COSDictionary. @param field dictionary representing annotation properties
+347 Creates a new square annotation. @param field COSDictionary containing annotation properties
+348 Constructs a highlight annotation from a COS dictionary. @param dict the COS dictionary containing annotation data
+349 Creates a new PDAnnotationSquiggly from a COSDictionary. @param dict the COS dictionary representing the annotation
+350 Constructs a strikeout annotation from a dictionary. @param dict COSDictionary containing annotation properties
+351 Constructs an underline annotation from a dictionary. @param dict COSDictionary containing annotation properties
+352 Imports FDF field values and flags. @param fdfField the FDF field to import @throws IOException if an error occurs during import
+353 Draws an inline image at specified position and size. @param inlineImage the image to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+354 Creates a cloudy polygon from a path of points. @param path 2D float array representing the polygon's vertices @throws IOException if an I/O error occurs during polygon creation
+355 Draws a cloudy rectangle or ellipse. @param left x-coordinate of the rectangle's left edge @param bottom y-coordinate of the rectangle's bottom edge @param right x-coordinate of the rectangle's right edge @param top y-coordinate of the rectangle's top edge @param isEllipse true if drawing an ellipse, false for rectangle @throws IOException if output fails
+356 Returns an iterator over form fields. @return Iterator of PDField objects
+357 Evaluates input through a stitching function. @param input single-value input array @return evaluated result as float array @throws IOException on invalid partition or function evaluation
+358 Constructs a PDDeviceN with specified device N array and resources. @param deviceN COSArray representing the device N color space @param resources PDResources containing color space definitions @throws IOException if an error occurs during initialization
+359 Retrieves or creates the tint transformation function. @return PDFunction representing the tint transform @throws IOException if an I/O error occurs during creation
+360 Initializes a PDSeparation object. @param separation COSArray containing separation details @param resources PDResources for color space creation @throws IOException if tint transform has invalid output parameters
+361 Retrieves the PDF function. @return PDFunction object or null if not found @throws IOException if an I/O error occurs
+362 Retrieves the array of PDFunction objects. @return Array of PDFunction objects @throws IOException if mandatory /Function element is invalid
+363 Retrieves the transfer function for image processing. @return PDFunction object or null if not available @throws IOException if an error occurs during retrieval
+364 Initializes a PDIndexed color space. @param indexedArray the COS array representing the indexed color space @param resources the resources for creating the base color space @throws IOException if an error occurs during initialization
+365 Evaluates input using linear interpolation. @param input array of input values @return array of interpolated output values @throws IOException if range missing in function /Decode entry
+366 Retrieves an image from a PDF page. @param region the rectangular area to extract or null for full image @param subsampling level of detail (1 for full resolution) @return BufferedImage of the specified region and subsampling @throws IOException if an I/O error occurs during image processing
+367 Creates a PDImageXObject from a BufferedImage. @param document PDF document to add the image to @param image source BufferedImage @return PDImageXObject created from the image @throws IOException if an I/O error occurs
+368 Creates a PDICCBased color space from an ICC array. @param iccArray ICC profile as COSArray @param resources PDF document resources @return PDICCBased color space instance @throws IOException if an I/O error occurs
+369 Processes a PDF page. @param page the PDPage to be processed
+370 Processes child content stream for a given page. @param contentStream the PDContentStream to be processed @param page the PDPage associated with the content stream @throws IOException if an I/O error occurs during processing
+371 Initializes a new PDPageContentStream to overwrite page contents. @param document PDF document containing the page @param sourcePage page to modify @throws IOException if there's an issue writing to the page
+372 Initializes content stream for a page. @param document PDF document containing the page @param sourcePage page to add content to @param appendContent mode to determine if content is appended or overwritten @param compress flag to enable compression of content streams
+373 Sets the font and size for PDF text. @param font the PDFont to use @param fontSize the size of the font @throws IOException if an I/O error occurs
+374 Sets graphics state parameters. @param state PDExtendedGraphicsState object to apply @throws IOException if an I/O error occurs
+375 Applies a shading pattern to the current graphics state. @param shading PDShading object representing the shading pattern @throws IOException if an I/O error occurs
+376 Begins marked content with a tag and property list. @param tag the marked content identifier @param propertyList properties for the marked content @throws IOException if an I/O error occurs
+377 Writes marked content point with properties to PDF. @param tag COSName representing the mark tag @param propertyList PDPropertyList containing properties @throws IOException if I/O error occurs during writing
+378 Draws an image on the page. @param image PDImageXObject to be drawn @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+379 Draws an image on the PDF canvas. @param image PDImageXObject to be drawn @param matrix transformation matrix for positioning and scaling @throws IOException if an I/O error occurs
+380 Draws a PDF form on the current page. @param form PDFormXObject to be drawn @throws IOException if an I/O error occurs
+381 Retrieves normal appearance as content stream. @param compress indicates if the stream should be compressed @return PDAppearanceContentStream object @throws IOException if an I/O error occurs
+382 Retrieves page labels from the document. @return PDPageLabels object or null if not found @throws IOException if an I/O error occurs
+383 Constructs a PDActionJavaScript with the given JavaScript action. @param js JavaScript code to be executed
+384 Checks if a group is enabled by name. @param groupName the name of the group to check @return true if the group is enabled, false otherwise
+385 Checks if an optional content group is enabled. @param group the group to check @return true if enabled, false otherwise
+386 Fixes page destinations in a PDF document. Updates destination pages based on a mapping.
+387 Adds a new page to the document. @param page PDPage object to be added
+388 Removes a specified page from the document. @param page PDPage object to be removed
+389 Removes a page from the document by its number. @param pageNumber index of the page to be removed
+390 Initializes a new PDFPrintable instance. @param document PDDocument to be printed @param scaling scaling strategy for printing @param showPageBorder flag to indicate if page borders should be shown @param dpi dots per inch for rendering quality @param center flag to center the content on the page @param renderer PDFRenderer used for rendering pages
+391 Initializes a PDF renderer with a given document. @param document PDDocument to be rendered
+392 Initializes a PageExtractor with a given document. @param sourceDocument the PDF document to extract pages from
+393 Maps page labels to their respective indices. @return A map of page labels to page indices
+394 Retrieves labels for each page in the document. @return array of page labels
+395 Initializes a PDFPageable with specified document and rendering options. @param document the PDDocument to be rendered @param orientation page orientation (e.g., portrait, landscape) @param showPageBorder flag to indicate if page borders should be shown @param dpi dots per inch for rendering quality @param center flag to center content on pages
+396 Builds a font descriptor from a Type1Font. @param type1 the source Type1Font @return a new PDFontDescriptor with properties set from the Type1Font
+397 Builds a PDFontDescriptor from FontMetrics. @param metrics font metrics data @return PDFontDescriptor object configured with metrics
+398 Creates a PDFontDescriptor from TrueTypeFont. @param ttf TrueTypeFont object @return PDFontDescriptor object @throws IOException if required font tables are missing
+399 Creates an image from a byte array. @param document PDF document to add the image to @param byteArray byte array containing image data @return PDImageXObject created from the byte array @throws IOException if there is an error processing the image data
+400 Creates an image from a file. @param document PDF document to add the image to @param file source image file @return PDImageXObject representing the image @throws IOException if there's an issue reading the file
+401 Constructs a FDFAnnotationCaret from an XML Element. @param element XML element representing the annotation @throws IOException if there's an issue processing the element
+402 Constructs a circle annotation from an XML element. @param element XML element representing the annotation @throws IOException if an I/O error occurs during processing
+403 Constructs an FDF annotation from an XML element. @param element XML element representing the annotation @throws IOException if there is an error processing the element
+404 Constructs a FDFAnnotationFreeText object from an XML element. @param element XML element representing the annotation @throws IOException if an I/O error occurs
+405 Initializes FDFAnnotationInk from an XML element. @param element XML element representing the annotation @throws IOException if required elements are missing or parsing fails
+406 Initializes a line annotation from an XML element. @param element XML element containing annotation attributes @throws IOException if required attributes are missing or invalid
+407 Constructs a FDFAnnotationLink from an XML element. @param element the XML element representing the annotation @throws IOException if there is an error reading the XML or creating the action
+408 Constructs a polygon annotation from an XML element. @param element XML element representing the annotation @throws IOException if an I/O error occurs during processing
+409 Constructs a polyline annotation from an XML element. @param element XML element representing the annotation @throws IOException if there's an error processing the element
+410 Constructs an FDF annotation sound. @param element PDF element representing the annotation @throws IOException if an I/O error occurs
+411 Initializes a square annotation from an XML element. @param element XML element containing annotation data @throws IOException if I/O error occurs during initialization
+412 Initializes a FDFAnnotationStamp from an XML element. @param element XML element representing the stamp annotation @throws IOException if there's an error processing the appearance data
+413 Constructs an FDFAnnotationText from an XML Element. @param element the XML Element representing the annotation @throws IOException if an I/O error occurs during processing
+414 Initializes a text markup annotation from an XML element. @param element XML element representing the annotation @throws IOException if required attributes are missing or invalid
+415 Retrieves the PDF document's trailer dictionary. @return COSDictionary representing the trailer or null if rebuild is required @throws IOException if an I/O error occurs
+416 Loads a PDF document from byte array with optional encryption. @param input PDF data as byte array @param password decryption password (null if not encrypted) @param keyStore InputStream to keystore for decryption (optional) @param alias alias for the keystore entry (optional) @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs during loading
+417 Loads a PDF document from a file. @param file the input PDF file @param password the PDF password, if any @param keyStore the input stream for the keystore, if needed @param alias the keystore alias, if applicable @param streamCacheCreateFunction function to create stream cache @return PDDocument object @throws IOException if an I/O error occurs
+418 Loads a PDF document from a RandomAccessRead source. @param randomAccessRead the source of the PDF data @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs during loading
+419 Loads a PDF document from a random access source. @param randomAccessRead the source of the PDF data @param streamCacheCreateFunction function to create cache for streams @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs during loading
+420 Loads a PDF document from a RandomAccessRead source with a given password. @param randomAccessRead the source of the PDF data @param password the password for decrypting the PDF @return the loaded PDDocument object @throws IOException if an I/O error occurs
+421 Loads a PDF document from a RandomAccessRead source. @param randomAccessRead source of the PDF file @param password document password (optional) @param keyStore keystore for decryption (optional) @param alias key alias in the keystore (optional) @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs
+422 Loads a PDF document from a RandomAccessRead source. @param randomAccessRead the source of the PDF data @param password the password for encrypted PDFs (null if not encrypted) @param streamCacheCreateFunction function to create cache for streams (optional) @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs during loading
+423 Sets visual signature from file. @param file File containing the visual signature data @throws IOException if an I/O error occurs while reading the file
+424 Sets visual signature from input stream. @param is input stream containing visual signature data @throws IOException if an I/O error occurs
+425 Renders a glyph using the specified font and matrix. @param textRenderingMatrix transformation matrix for text rendering @param font PDFont object representing the font @param code character code of the glyph to render @param displacement vector for additional positioning @throws IOException if an I/O error occurs during rendering
+426 Builds a PDF document with a visible signature. @param properties design properties for the signature @return InputStream containing the generated PDF @throws IOException if an I/O error occurs
+427 Saves data to a file with default compression. @param file the target file for saving @throws IOException if an I/O error occurs
+428 Saves data to a file with specified compression parameters. @param fileName name of the file to save @param compressParameters parameters for compression @throws IOException if an I/O error occurs
+429 Creates a new document if necessary. @throws IOException if an I/O error occurs
+430 Writes the header to a PDF or FDF document. @param doc COSDocument object to write the header to @throws IOException if an I/O error occurs
+431 Sets optional content properties for the document. @param ocProperties properties to be set
+432 Retrieves and creates layout page from the first document page. @param doc PDF document object @return LayoutPage object representing the first page @throws IOException if an I/O error occurs during processing
+433 Calculates page size and properties for a given PDF page. @param document The PDF document to process. @param page Page number (1-based index).
+434 Finds the destination page in a PDF document. @param doc the PDF document to search within @return the destination PDPage or null if not found @throws IOException if an I/O error occurs
+435 Retrieves page format for a given index. @param pageIndex zero-based index of the page @return PageFormat object with normalized orientation and size
+436 Retrieves the page number from an array. @return the page number or -1 if not found
+437 Writes FDF data to XML format. @param output Writer object to write XML data @throws IOException if writing fails
+438 Prepares a PDF document for encryption. @param document the PDDocument to be encrypted @throws IOException if an I/O error occurs
+439 Creates a PDF annotation from a COSBase object. @param base the COSBase object representing the annotation @return PDAnnotation instance or throws IOException if unsupported
+440 Draws an image at a specified position. @param inlineImage the image to be drawn @param x the x-coordinate of the top-left corner @param y the y-coordinate of the top-left corner @throws IOException if an I/O error occurs
+441 Draws an inline image at specified position and size. @param inlineImage the image to draw @param x the x-coordinate of the top-left corner @param y the y-coordinate of the top-left corner @param width the width of the image @param height the height of the image @throws IOException if an I/O error occurs
+442 Draws an inline image at specified position and size. @param inlineImage the image to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+443 Draws an inline image at specified position and size. @param inlineImage the image to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+444 Draws an inline image at specified position and size. @param inlineImage the image to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+445 Draws a cloudy rectangle on the PDF. @param rd PDRectangle defining the boundary of the rectangle @throws IOException if an I/O error occurs
+446 Draws a cloudy ellipse with specified dimensions. @param leftOrig bottom-left x-coordinate @param bottomOrig bottom-left y-coordinate @param rightOrig top-right x-coordinate @param topOrig top-right y-coordinate @throws IOException if drawing fails
+447 Retrieves all signature fields from the document. @return List of PDSignatureField objects
+448 Refreshes appearances for all terminal fields. @throws IOException if an I/O error occurs
+449 Returns an iterator over all fields in the PDF document. @return Iterator of PDField objects
+450 Enables or disables caching of fields. @param cache true to enable caching, false to disable
+451 Retrieves a PDField by its fully qualified name. @param fullyQualifiedName the unique identifier of the field @return PDField object or null if not found
+452 Evaluates input through a series of functions. @param input float array representing the input values @return float array with evaluated results, clamped between 0 and 1 @throws IOException if an I/O error occurs during function evaluation
+453 Constructor initializes with COSArray and default color space. @param indexedArray array containing indexed data @throws IOException if an I/O error occurs
+454 Retrieves an image. @return BufferedImage object @throws IOException if an I/O error occurs
+455 Creates a PDColorSpace from a COSBase object. @param colorSpace the COSBase representing the color space @param resources PDF resources containing additional color spaces @param wasDefault flag indicating if this is a default color space @return PDColorSpace instance or throws IOException if invalid
+456 Builds a PDImageXObject from PNG data. @param document PDF document to add the image to @param state PNG conversion state containing image metadata @return PDImageXObject or null if creation fails @throws IOException on I/O errors during image processing
+457 Processes a PDF page, setting rotation and handling crop box. @param page the PDPage to process @throws IOException if an I/O error occurs
+458 Sets the font and size for text rendering. @param font PDFont object to be set @param fontSize size of the font @throws IOException if an I/O error occurs
+459 Sets the font and size for PDF text. @param font PDFont object representing the font @param fontSize float value specifying the font size @throws IOException if an I/O error occurs
+460 Sets the current font and size for PDF text. @param font the PDFont to use @param fontSize the font size in points @throws IOException if an I/O error occurs
+461 Sets the font and size for PDF text. @param font the PDFont to use @param fontSize the font size in points @throws IOException if an I/O error occurs
+462 Sets the stroking color for PDF graphics. @param color PDColor object representing the color to set @throws IOException if an I/O error occurs while writing to the stream
+463 Sets the non-stroking color for PDF content. @param color PDColor object to be set @throws IOException if an I/O error occurs
+464 Sets graphics state parameters. @param state PDExtendedGraphicsState object to apply @throws IOException if an I/O error occurs
+465 Sets graphics state parameters. @param state PDExtendedGraphicsState object to apply @throws IOException if an I/O error occurs
+466 Sets graphics state parameters. @param state graphics state configuration to apply @throws IOException if an I/O error occurs
+467 Sets graphics state parameters. @param state PDExtendedGraphicsState object to apply @throws IOException if an I/O error occurs
+468 Applies a shading fill to the current graphics state. @param shading PDShading object representing the shading pattern @throws IOException if an I/O error occurs
+469 Applies a shading pattern to the graphics context. @param shading PDShading object representing the gradient or pattern @throws IOException if an I/O error occurs while writing to the output stream
+470 Applies a shading pattern to the current graphics state. @param shading PDShading object representing the shading pattern @throws IOException if an I/O error occurs during processing
+471 Applies a shading pattern to the current graphics state. @param shading PDShading object representing the shading pattern @throws IOException if an I/O error occurs during processing
+472 Begins marked content with a tag and property list. @param tag COSName representing the tag @param propertyList PDPropertyList containing properties @throws IOException if an I/O error occurs
+473 Begins marked content with a tag and property list. @param tag the marked content identifier @param propertyList the properties associated with the content @throws IOException if an I/O error occurs
+474 Begins marked content with a tag and property list. @param tag the content tag @param propertyList properties associated with the content @throws IOException if an I/O error occurs
+475 Begins marked content with a tag and property list. @param tag the COSName tag for marking content @param propertyList the PDPropertyList containing properties @throws IOException if an I/O error occurs
+476 Sets marked content point with properties. @param tag COSName representing the tag @param propertyList PDPropertyList containing properties @throws IOException if an I/O error occurs
+477 Sets a marked content point with properties. @param tag COSName representing the tag @param propertyList PDPropertyList containing properties @throws IOException if writing fails
+478 Sets marked content point with properties. @param tag COSName representing the tag @param propertyList PDPropertyList containing properties @throws IOException if an I/O error occurs
+479 Sets marked content point with properties. @param tag COSName representing the tag @param propertyList PDPropertyList containing properties @throws IOException if an I/O error occurs
+480 Draws an image at specified coordinates. @param image PDImageXObject to be drawn @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @throws IOException if an I/O error occurs
+481 Draws an image at specified position and size. @param image PDImageXObject to be drawn @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+482 Draws an image on the PDF at specified coordinates and dimensions. @param image PDImageXObject to be drawn @param x horizontal coordinate of the top-left corner @param y vertical coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs during drawing
+483 Draws an image on the PDF page. @param image PDImageXObject to be drawn @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs while drawing the image
+484 Draws an image on the PDF at specified position and size. @param image PDImageXObject to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @param width width of the image @param height height of the image @throws IOException if an I/O error occurs
+485 Draws an image on the PDF canvas. @param image PDImageXObject to be drawn @param matrix transformation matrix for positioning and scaling @throws IOException if an I/O error occurs
+486 Draws an image at specified position. @param image PDImageXObject to draw @param matrix transformation matrix for positioning @throws IOException if error occurs during drawing
+487 Draws an image on the PDF canvas. @param image PDImageXObject to be drawn @param matrix transformation matrix for positioning and scaling @throws IOException if an I/O error occurs
+488 Draws an image using a specified transformation matrix. @param image the PDImageXObject to draw @param matrix the transformation matrix for positioning and scaling @throws IOException if an I/O error occurs
+489 Draws a PDF form. @param form PDFormXObject to be drawn @throws IOException if an I/O error occurs
+490 Draws a PDF form on the page. @param form PDFormXObject to be drawn @throws IOException if an I/O error occurs
+491 Draws a PDF form object. @param form PDFormXObject to be drawn @throws IOException if an I/O error occurs
+492 Draws a PDF form on the current page. @param form PDFormXObject to be drawn @throws IOException if an I/O error occurs
+493 Retrieves normal appearance content stream. @return PDAppearanceContentStream object @throws IOException if an I/O error occurs
+494 Opens a node if it's not already open.
+495 Closes the node if it is open.
+496 Imports a page from another PDF document. @param page the PDPage object to import @return the imported PDPage object @throws IOException if an I/O error occurs during import
+497 Creates a PDF template with a given page. @param page PDPage to be added to the template @throws IOException if an I/O error occurs
+498 Initializes a PDFPrintable with specified settings. @param document PDDocument to be printed @param scaling Scaling method for the document @param showPageBorder flag to indicate if page borders should be shown @param dpi dots per inch for rendering @param center flag to center the document
+499 Constructs a PDFPageable with default settings. @param document PDDocument to be paginated
+500 Initializes a new PDFPageable with specified document and orientation. @param document PDDocument to be used for printing @param orientation page orientation (e.g., PORTRAIT or LANDSCAPE)
+501 Constructs a PDFPageable object. @param document PDDocument to be processed @param orientation page orientation (e.g., portrait, landscape) @param showPageBorder flag to indicate if page borders should be shown
+502 Constructs a PDFPageable with specified parameters. @param document PDDocument object to be printed @param orientation page orientation (e.g., portrait or landscape) @param showPageBorder flag to indicate if page border should be shown @param dpi dots per inch for rendering
+503 Embeds a Type1 font into a PDF document. @param doc PDF document to embed the font into @param dict Font dictionary @param pfbStream InputStream containing PFB data @param encoding Font encoding @throws IOException if an I/O error occurs
+504 Initializes a PDFont with a base font. @param baseFont the base font to use
+505 Embeds TrueType font into PDF document. @param document PDF document to embed font into @param dict COSDictionary for font settings @param ttf TrueTypeFont object @param embedSubset whether to embed a subset of the font @throws IOException if embedding is not permitted or fails
+506 Creates PDImageXObject from file based on its extension. @param file the image file @param doc the PDDocument to add the image to @return PDImageXObject created from the file @throws IOException if an error occurs during file processing
+507 Creates a PDImageXObject from a file by content. @param file the image file to process @param doc the PDF document to add the image to @return PDImageXObject created from the file @throws IOException if there is an error reading the file or creating the image
+508 Creates a highlight annotation from an XML element. @param element XML element representing the annotation @throws IOException if there is an error processing the element
+509 Constructs a FDFAnnotationSquiggly from an XML element. @param element the XML element representing the annotation @throws IOException if there is an error processing the element
+510 Creates a strike-out annotation from an XML element. @param element XML element representing the annotation @throws IOException if there is an error processing the element
+511 Constructs an underline annotation. @param element PDF element to annotate @throws IOException if there is a problem with the input stream
+512 Loads a PDF document from byte array. @param input byte array containing PDF data @param password password for encrypted PDFs @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs
+513 Loads a PDF document from a file. @param file the PDF file to load @param streamCacheCreateFunction function to create cache for streams @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs during loading
+514 Loads a PDF document from a file with a given password. @param file the PDF file to load @param password the password for decrypting the PDF @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs during loading
+515 Loads a PDF document from a file. @param file the PDF file to load @param password the password for decrypting the PDF (null if not encrypted) @param streamCacheCreateFunction function to create stream cache (optional) @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs while loading the document
+516 Loads a PDF document from a file with optional encryption. @param file the PDF file to load @param password the decryption password (null if not encrypted) @param keyStore input stream for keystore (null if not using keystore) @param alias the alias for the keystore entry @return PDDocument representing the loaded PDF @throws IOException if an I/O error occurs
+517 Sets visual signature properties. @param visSignatureProperties object containing visual signature details @throws IOException if an I/O error occurs
+518 Constructs a PDF signature. @throws IOException if an I/O error occurs during the process
+519 Saves content to a file. @param fileName path to the file where content will be saved @throws IOException if an I/O error occurs during saving
+520 Imports optional content properties from a source document to a target document. @param srcDoc the source PDF document containing OC properties
+521 Builds a subset of a TrueType font. @param ttfSubset input stream for the font subset @param tag identifier for the subset @param gidToCid mapping from new GIDs to old CIDs @throws IOException if an I/O error occurs
+522 Initializes a visible signature designer. @param document PDF document to apply the signature @param imageStream input stream of the signature image @param page page number where the signature will be placed @throws IOException if there is an issue reading the image or document
+523 Initializes sign designer with document, image, and page number. @param document PDDocument to add the signature to @param image BufferedImage representing the signature @param page page index in the document where to place the signature
+524 Writes XML data to the specified writer. @param output Writer object to write XML to @throws IOException if an I/O error occurs
+525 Retrieves annotations from a PDF page based on a filter. @param annotationFilter criteria to select specific annotations @return List of filtered PDAnnotation objects @throws IOException if an I/O error occurs while accessing the PDF
+526 Retrieves the referenced object from a PDF document. @return COSObjectable instance or null if not found
+527 Retrieves annotation in reply to this one. @throws IOException if an I/O error occurs @return PDAnnotation object or null if none exists
+528 Retrieves the parent markup annotation. @return PDAnnotationMarkup object or null if not found or incorrect type
+529 Draws an image at specified coordinates. @param inlineImage the image to draw @param x the x-coordinate of the top-left corner @param y the y-coordinate of the top-left corner @throws IOException if an I/O error occurs
+530 Draws an image at specified coordinates. @param inlineImage the PDInlineImage object to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner
+531 Draws an image at specified coordinates. @param inlineImage the image to draw @param x the x-coordinate @param y the y-coordinate @throws IOException if an I/O error occurs
+532 Draws an image at specified coordinates. @param inlineImage the image to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner
+533 Creates a cloudy ellipse within the specified rectangle. @param rd bounding rectangle for the ellipse @throws IOException if an I/O error occurs
+534 Retrieves signature dictionaries from document. @return List of PDSignature objects representing signatures
+535 Imports FDF fields into the document. @param fdf the FDFDocument containing fields to import
+536 Evaluates function at given input. @param inputValue single input value @return array of results from function evaluation @throws IOException if an I/O error occurs
+537 Evaluates shading function and converts to RGB. @param values input color values @return RGB value as an integer @throws IOException if evaluation fails
+538 Retrieves non-stroking paint with soft mask applied. @return Paint object for non-stroking operations @throws IOException if an I/O error occurs
+539 Retrieves a color space by name. @param name the COSName of the color space @param wasDefault indicates if this is the default color space @return PDColorSpace object or null if not found @throws IOException if an I/O error occurs
+540 Processes a PDF page by setting rotation and adjusting the translation matrix. @param page PDPage object to process @throws IOException if an I/O error occurs
+541 Processes a PDF page within specified ranges. @param page PDPage to be processed @throws IOException if an I/O error occurs
+542 Sets the stroking color for drawing. @param color the desired stroke color @throws IOException if an I/O error occurs
+543 Sets the stroking color for PDF graphics. @param color PDColor object representing the color to be set @throws IOException if an I/O error occurs during operation
+544 Sets the stroking color for PDF graphics. @param color the new stroking color to apply @throws IOException if an I/O error occurs while writing to the output stream
+545 Sets stroking color in PDF. @param color PDColor object representing the color @throws IOException if an I/O error occurs
+546 Sets the stroking color for PDF graphics. @param color PDColor object representing the color to set @throws IOException if an I/O error occurs while writing to the output stream
+547 Sets non-stroking color for drawing. @param color Java Color object @throws IOException if an I/O error occurs
+548 Sets non-stroking color in PDF. @param color PDColor object to set @throws IOException if an I/O error occurs
+549 Sets non-stroking color for PDF graphics. @param color PDColor object representing the color to set @throws IOException if an I/O error occurs while writing to the PDF
+550 Sets non-stroking color for PDF graphics. @param color PDColor object representing the color to set @throws IOException if an I/O error occurs while writing
+551 Sets non-stroking color for PDF graphics. @param color PDColor object representing the color to set @throws IOException if an I/O error occurs while writing to the output stream
+552 Draws an image at specified coordinates. @param image PDImageXObject to be drawn @param x X coordinate of the top-left corner @param y Y coordinate of the top-left corner @throws IOException if an I/O error occurs
+553 Draws an image at specified coordinates. @param image PDImageXObject to draw @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner @throws IOException if an I/O error occurs
+554 Draws an image at specified coordinates. @param image PDImageXObject to be drawn @param x X coordinate of the top-left corner @param y Y coordinate of the top-left corner @throws IOException if an I/O error occurs
+555 Draws an image at specified coordinates. @param image PDImageXObject to be drawn @param x x-coordinate of the top-left corner @param y y-coordinate of the top-left corner
+556 Appends a form as a new layer to the target page. @param targetPage the page to append the form to @param form the form to append @param transform the transformation matrix for positioning the form @param layerName the name of the new layer @return the created optional content group (layer) @throws IOException if an I/O error occurs
+557 Displays a form object. @param form PDFormXObject to be displayed @throws IOException if an I/O error occurs
+558 Renders a transparency group on the given graphics. @param form PDTransparencyGroup to render @param graphics Graphics2D context for rendering @throws IOException if an I/O error occurs
+559 Begins a marked content sequence with properties. @param tag the content tag @param properties dictionary of properties for the content
+560 Initializes a new PDFPrintable with default settings. @param document PDDocument to be printed @param scaling scaling factor for printing @param showPageBorder flag to display page borders @param dpi dots per inch for print quality
+561 Constructs a PDType1Font from an InputStream. @param doc PDDocument to associate the font with @param pfbIn InputStream containing the font data @param encoding character encoding for the font @throws IOException if there's an issue reading the input stream
+562 Initializes a simple font. @param baseFont name of the base font to use
+563 Initializes a PDFont with a given dictionary. @param fontDictionary the COSDictionary containing font data
+564 Embeds a Type 2 CID font in a PDF document. @param document the PDF document to embed the font into @param dict the dictionary for the font @param ttf the TrueType font to embed @param embedSubset whether to subset the font @param parent the parent Type 0 font @param vertical whether the font is used vertically @throws IOException if an I/O error occurs
+565 Embeds a TrueType font in a PDF document. @param document PDF document to embed the font into @param dict dictionary for the font entry @param ttf TrueTypeFont object @param encoding character encoding for the font @throws IOException if an I/O error occurs
+566 Creates an image XObject from a file. @param imagePath path to the image file @param doc PDF document to add the image to @return PDImageXObject representing the image @throws IOException if unable to read the file
+567 Constructs an FDFDictionary from an XML Element. @param fdfXML the XML element representing FDF data
+568 Loads a PDF document from a byte array. @param input byte array containing the PDF data @return PDDocument object representing the loaded PDF @throws IOException if an error occurs during loading
+569 Loads a PDF document from a file with a given password. @param file the PDF file to load @param password the password for decrypting the PDF @return PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs
+570 Loads a PDF document from a file. @param file the PDF file to load @return a PDDocument object representing the loaded PDF @throws IOException if an I/O error occurs while loading the PDF
+571 Imports a page from a source document as a form. @param sourceDoc the document containing the page to import @param page the page to be imported @return PDFormXObject representing the imported page @throws IOException if an I/O error occurs
+572 Initializes a PDVisibleSignDesigner with a document source, image stream, and page number. @param documentSource the PDF document source @param imageStream the input stream for the signature image @param page the page number to apply the signature @throws IOException if an I/O error occurs
+573 Initializes a PDVisibleSignDesigner with a document source, image, and page number. @param documentSource the PDF document source @param image the visible signature image @param page the page number to apply the signature @throws IOException if an I/O error occurs
+574 Writes XFDF data to the specified output stream. @param output Writer object for writing XFDF data @throws IOException if an I/O error occurs
+575 Retrieves all annotations from the document. @return List of PDAnnotation objects @throws IOException if an I/O error occurs
+576 Retrieves the last signature dictionary. @return PDSignature object or null if no signatures exist
+577 Saves incremental PDF for external signing. @param output stream to write the modified PDF @return ExternalSigningSupport object for further signing steps @throws IOException if an I/O error occurs
+578 Draws a glyph using the specified path and font. @param path the GeneralPath representing the glyph shape @param font the PDFont used for rendering @param code the character code of the glyph @param displacement the vector displacement of the glyph @param at the AffineTransform for scaling and positioning @throws IOException if an I/O error occurs during rendering
+579 Builds an indexed image from a PNG document. @param doc PDF document to add the image to @param state PNG conversion state containing image data @return PDImageXObject or null if image cannot be built @throws IOException if I/O error occurs during processing
+580 Retrieves color space by COSName. @param name the COSName of the color space @return the PDColorSpace object @throws IOException if an I/O error occurs
+581 Processes each page in the document, setting bookmark page numbers and extracting text. @param pages PDPageTree containing all pages to be processed @throws IOException if an I/O error occurs during processing
+582 Sets the stroking color for drawing operations. @param color the desired stroke color @throws IOException if an I/O error occurs
+583 Sets the stroking color for drawing operations. @param color the desired color to use for stroking @throws IOException if an I/O error occurs
+584 Sets the stroking color for drawing operations. @param color desired stroke color @throws IOException if an I/O error occurs
+585 Sets the stroking color for drawing. @param color desired stroke color @throws IOException if an I/O error occurs
+586 Sets non-stroking color using a Color object. @param color the Color to be applied @throws IOException if an I/O error occurs
+587 Sets the non-stroking color in RGB. @param color Color object representing RGB values @throws IOException if an I/O error occurs
+588 Sets non-stroking color using a Color object. @param color the color to be used for non-stroking operations @throws IOException if an I/O error occurs
+589 Sets non-stroking color using a Color object. @param color Java AWT Color object @throws IOException if an I/O error occurs
+590 Initializes widget appearance with background and border. @param widget annotation widget to initialize @param appearanceCharacteristics visual characteristics @param appearanceStream stream for appearance content @throws IOException if an I/O error occurs
+591 Sets font and color for text appearance. @param contents stream to write to @param zeroFontSize default font size if current is zero
+592 Initializes a new PDFPrintable with specified settings. @param document PDDocument to be printed @param scaling page scaling option @param showPageBorder flag to indicate if page borders should be shown
+593 Constructs a PDType1Font from an input stream. @param doc PDDocument to associate the font with @param pfbIn InputStream containing the font data @throws IOException if there is an error reading the input stream
+594 Initializes a PDType1Font with the specified base font. @param baseFont the name of the base font
+595 Constructs a PDSimpleFont from a COSDictionary. @param fontDictionary dictionary containing font information
+596 Initializes a PDType0Font from a COSDictionary. @param fontDictionary the dictionary containing font data @throws IOException if font data is incomplete or invalid
+597 Initializes a PDType0Font with TrueType font details. @param document PDF document @param ttf TrueType font instance @param embedSubset flag to enable subset embedding @param closeTTF flag to close the TTF after processing @param vertical flag for vertical text support @throws IOException if an I/O error occurs
+598 Creates a PDTrueTypeFont from a TrueType font. @param document PDF document @param ttf TrueTypeFont object @param encoding character encoding @param closeTTF flag to close TTF after processing @throws IOException if an I/O error occurs
+599 Constructs an FDFCatalog from an XML Element. @param element XML Element containing FDF data
+600 Loads a PDF document from a file. @param file the PDF file to load @return the loaded PDF document @deprecated use another method instead
+601 Imports a page from a source document as a form object. @param sourceDoc the source PDF document @param pageNumber the 0-based index of the page to import @return PDFormXObject representing the imported page @throws IOException if an I/O error occurs
+602 Saves XFDF data to a file. @param fileName the file where XFDF data will be saved @throws IOException if an I/O error occurs during writing
+603 Updates structure parent entries for a PDF page. @param page the PDPage to update @param structParentOffset the offset to apply to struct parents @throws IOException if an I/O error occurs
+604 Clones the structure tree from a source document to a destination document. @param destinationDocument the document to which the structure tree is cloned @throws IOException if an I/O error occurs during cloning
+605 Processes and clones annotations from a PDF page. @param imported PDPage to process @throws IOException if an I/O error occurs
+606 Adds a signature to the PDF document. @param sigObject PDSignature object representing the signature @param signatureInterface interface for handling signature operations @param options SignatureOptions specifying additional settings @throws IOException if an I/O error occurs
+607 Builds a map of pages to widgets. @param fields list of form fields @param pages PDF page tree @return map from COSDictionary (page) to set of COSDictionary (widgets) @throws IOException if an I/O error occurs
+608 Calculates pixel table for shaded triangles. @param triangleList list of shaded triangles to process @param array 2D array to store pixel values @param deviceBounds bounds of the rendering device @throws IOException if an I/O error occurs
+609 Fills and strokes the current path using a specified winding rule. @param windingRule rule for determining the interior of the path
+610 Converts a PNG image to a PDImageXObject. @param doc PDF document to add the image @param state PNG conversion state containing image data @return PDImageXObject or null if conversion fails
+611 Processes color operators in PDF content stream. @param operator the PDF operator to process @param arguments list of COSBase objects representing operator arguments
+612 Writes text from a PDF document to an output stream. @param doc PDDocument containing the text @param outputStream Writer for the output @throws IOException if I/O error occurs
+613 Generates appearance for a form widget. @param widget PDAnnotationWidget to process @param appearanceStream PDAppearanceStream for appearance content @param output OutputStream for writing the appearance @throws IOException if an I/O error occurs
+614 Draws a PDF page using the provided Graphics2D context. @param g 2D graphics context for drawing @param pageSize size of the page to draw @throws IOException if an I/O error occurs
+615 Constructs a PDFPrintable with specified document and scaling. @param document PDDocument to be printed @param scaling Scaling option for the document
+616 Retrieves the default Helvetica font. @return PDFont object representing Helvetica font
+617 Retrieves or creates a mapped FontBoxFont for a given base name. @param baseName the font name to map @return the corresponding FontBoxFont
+618 Initializes a TrueType font from a PDF dictionary. @param fontDictionary the COS dictionary containing font data @throws IOException if there's an issue reading the font file
+619 Constructs a PDType1CFont from a COSDictionary. @param fontDictionary the dictionary containing font information @throws IOException if there's an error reading the font data
+620 Constructs a PDType1Font from a COSDictionary. @param fontDictionary the dictionary representing the Type1 font @throws IOException if an error occurs during font processing
+621 Constructs a PDType3Font from a dictionary and resource cache. @param fontDictionary the COS dictionary for the font @param resourceCache the resource cache for the font resources @throws IOException if an I/O error occurs while reading encoding
+622 Loads a Type 0 font from a PDF document. @param doc the PDF document @param randomAccessRead source of font data @param embedSubset whether to subset the font @param vertical whether the font is used for vertical text @return PDType0Font object @throws IOException if an I/O error occurs
+623 Loads a Type 0 font from a TrueType font. @param doc PDF document to associate the font with @param ttf TrueTypeFont object to load @param embedSubset flag indicating whether to subset the font @return PDType0Font object @throws IOException if an error occurs during loading
+624 Loads a vertical TrueType font. @param doc PDDocument to add the font to @param ttf TrueTypeFont object to load @param embedSubset whether to subset the embedded font @return PDType0Font configured for vertical text @throws IOException if an I/O error occurs
+625 Loads a true type font into a PDF document. @param doc the PDF document to add the font to @param ttf the TrueTypeFont object @param encoding the character encoding for the font @return PDTrueTypeFont instance representing the loaded font @throws IOException if an I/O error occurs during loading
+626 Loads a TrueType font from a document. @param doc PDF document to load the font into @param randomAccessRead source of the font data @param encoding character encoding for the font @return PDTrueTypeFont object representing the loaded font
+627 Constructs an FDFDocument from a given XML Document. @param doc XML document representing the FDF data @throws IOException if the root element is not 'xfdf'
+628 Initializes a new PDVisibleSignDesigner with an image. @param filename path to the PDF file @param imageStream input stream for the signature image @param page page number in the PDF @throws IOException if there's an issue reading the file or stream
+629 Initializes a new sign designer with a file, image, and page. @param filename path to the PDF file @param image BufferedImage for the signature @param page page number in the PDF @throws IOException if there's an issue reading the file
+630 Saves XFDF data to a file. @param fileName path to the output file @throws IOException if an I/O error occurs
+631 Processes a PDF page, importing it into the destination document. Handles resource import and annotation processing. @param page PDPage object to be processed
+632 Adds a signature to the document. @param sigObject PDSignature object representing the signature @param options SignatureOptions for additional configuration @throws IOException if an I/O error occurs
+633 Adds a signature with default options. @param sigObject PDSignature object to be added @param signatureInterface interface for handling the signature @throws IOException if an I/O error occurs
+634 Flattens PDF fields into the page content. @param fields list of PDField objects to flatten @param refreshAppearances whether to refresh field appearances @throws IOException if an I/O error occurs
+635 Appends source PDF to destination PDF. @param destination the target PDF document @param source the source PDF document to append @throws IOException if an I/O error occurs
+636 Converts PNG image data to a PDImageXObject. @param doc PDF document to add the image to @param imageData byte array containing PNG image data @return PDImageXObject or null if conversion fails
+637 Extracts text from a PDF document. @param doc PDDocument object representing the PDF @return String containing the extracted text @throws IOException if an I/O error occurs
+638 Renders a PDF page as an image. @param pageIndex index of the page to render @param scale scaling factor for rendering @param imageType desired image type (e.g., ARGB) @param destination where to draw the rendered content @return BufferedImage representation of the page or null if not found @throws IOException if an I/O error occurs during rendering
+639 Renders a PDF page to a Graphics2D object. @param pageIndex index of the page to render @param graphics target for rendering @param scaleX horizontal scaling factor @param scaleY vertical scaling factor @param destination where the rendered content is sent @throws IOException if an I/O error occurs during rendering
+640 Initializes a new PDFPrintable with default scaling. @param document PDDocument to be printed
+641 Renders text from a byte array using current graphics state. @param string byte array containing text data @throws IOException if an I/O error occurs
+642 Retrieves the glyph path for a given font and glyph name. @param baseName the base font name @param glyphName the name of the glyph @return GeneralPath object representing the glyph, or an empty path if not found @throws IOException if an I/O error occurs
+643 Constructs a PDMMType1Font from a COSDictionary. @param fontDictionary dictionary containing font data @throws IOException if there is an error creating the font
+644 Constructs a PDType3Font using a given dictionary. @param fontDictionary the COS dictionary containing font information @throws IOException if an error occurs during font creation
+645 Loads font from file into document. @param doc PDF document to add the font to @param file font file to load @return PDType0Font object @throws IOException if there's an issue reading the file
+646 Loads a font from an input stream. @param doc PDF document to associate the font with @param input stream containing font data @param embedSubset true if subset embedding is enabled @return PDType0Font object loaded from the input stream @throws IOException if there's an error reading the stream
+647 Loads a vertical PDType0Font from a file. @param doc PDF document to add the font to @param file font file to load @return loaded PDType0Font object @throws IOException if an I/O error occurs
+648 Loads vertical font from document. @param doc PDF document @param input font data stream @return PDType0Font object @throws IOException on I/O error
+649 Loads vertical font from InputStream. @param doc PDDocument to add the font to @param input InputStream containing font data @param embedSubset whether to subset the font @return PDType0Font object @throws IOException if an I/O error occurs
+650 Loads TrueType font from a file. @param doc PDF document to associate with the font @param file file containing the font data @param encoding character encoding for the font @return PDTrueTypeFont object @throws IOException if there is an error reading the file
+651 Loads TrueType font from an InputStream. @param doc PDDocument to associate the font with @param input stream containing the font data @param encoding character encoding to use @return PDTrueTypeFont object @throws IOException if there is an error reading the input
+652 Loads an XFDF document from an input stream. @param input InputStream containing XFDF data @return FDFDocument object representing the loaded document @throws IOException if an I/O error occurs during loading
+653 Applies overlays to specific pages of a PDF document. @param specificPageOverlayMap mapping of page numbers to overlay PDF paths @return the modified PDDocument with overlays applied @throws IOException if an I/O error occurs during processing
+654 Overlays PDF documents onto specific pages. @param specificPageOverlayDocumentMap map of page numbers to overlay documents @return modified input PDF document with overlays
+655 Processes pages within a specified range. @throws IOException if an I/O error occurs
+656 Adds a signature to the document. @param sigObject PDSignature object to be added @throws IOException if an I/O error occurs
+657 Flattens all interactive fields in the PDF. Throws IOException if an error occurs during flattening.
+658 Merges PDF documents from sources into a single document. @param streamCacheCreateFunction function to create stream cache, defaults to memory-only if null @param compressParameters parameters for compression during save @throws IOException if an I/O error occurs
+659 Creates a PDImageXObject from a byte array. @param document the PDDocument to add the image to @param byteArray the byte array containing the image data @param name the name of the image @param customFactory optional custom factory for specific image types @return PDImageXObject created from the byte array @throws IOException if an I/O error occurs or unsupported image type
+660 Renders an image of a specified page. @param pageIndex index of the page to render @param scale scaling factor for the rendered image @param imageType type of the image to render @return BufferedImage object representing the rendered page @throws IOException if rendering fails
+661 Renders a page to the specified graphics context. @param pageIndex index of the page to render @param graphics Graphics2D object for rendering @param scaleX horizontal scaling factor @param scaleY vertical scaling factor @throws IOException if an I/O error occurs
+662 Displays text from byte array. @param string byte array containing text data @throws IOException if an I/O error occurs during display
+663 Processes text strings and numbers from a COSArray. @param array containing text objects to process @throws IOException if an I/O error occurs
+664 Creates a PDFont from a COSDictionary. @param dictionary font dictionary @param resourceCache cache for resources @return PDFont object or throws IOException if unsupported type
+665 Loads a font from an input stream. @param doc PDF document to associate with the font @param input stream containing the font data @return PDType0Font object loaded from the stream @throws IOException if there's an error reading the stream
+666 Loads an XFDF document from a file. @param filename path to the XFDF file @return FDFDocument object representing the loaded document @throws IOException if an I/O error occurs during loading
+667 Loads an XFDF document from a specified file. @param file the File object representing the XFDF file to load @return FDFDocument object containing the loaded data @throws IOException if an I/O error occurs during loading
+668 Splits a PDF document into multiple documents. @param document the source PDF document to split @return List of PDDocument objects representing the split documents @throws IOException if an I/O error occurs during processing
+669 Merges documents based on the specified mode. @param streamCacheCreateFunction function to create a stream cache @param compressParameters parameters for compression @throws IOException if an I/O error occurs during merging
+670 Creates an image from a byte array. @param document PDF document to add the image to @param byteArray image data as bytes @param name image name @return PDImageXObject created from byte array @throws IOException if an I/O error occurs
+671 Renders an image from a specified page with scaling. @param pageIndex index of the page to render @param scale factor for image resizing @return BufferedImage object representing the rendered image @throws IOException if an I/O error occurs during rendering
+672 Renders an image from a page at specified DPI. @param pageIndex index of the page to render @param dpi desired dots per inch for rendering @return BufferedImage object of the rendered page @throws IOException if an I/O error occurs during rendering
+673 Renders an image from a PDF page with specified DPI. @param pageIndex index of the PDF page to render @param dpi desired dots per inch for rendering @param imageType type of image to generate @return BufferedImage object representing the rendered page @throws IOException if an I/O error occurs during rendering
+674 Renders a page to a graphics context with specified scaling. @param pageIndex index of the page to render @param graphics target graphics context for rendering @param scale scaling factor for rendering
+675 Retrieves a PDFont by name from the document. @param name the COSName of the font @return the PDFont object or null if not found @throws IOException if an I/O error occurs
+676 Creates a font from a COSDictionary. @param dictionary font dictionary @return PDFont object @throws IOException if an I/O error occurs
+677 Extracts a single page range from a PDF document. @return PDDocument containing the extracted pages @throws IOException if an error occurs during processing
+678 Merges documents using default compression. @param streamCacheCreateFunction function to create a stream cache @throws IOException if an I/O error occurs
+679 Renders an image from a specified page index. @param pageIndex zero-based index of the page to render @return BufferedImage object representing the rendered page @throws IOException if an I/O error occurs during rendering
+680 Renders page to specified graphics context. @param pageIndex index of the page to render @param graphics target graphics context for rendering @throws IOException if an I/O error occurs during rendering
+681 Processes operands to set a font in the PDF. @param operands list of COSBase operands for font setting @throws IOException if required operands are missing or font is not found
+682 Copies necessary resources to an appearance stream. @param appearanceStream the target appearance stream @throws IOException if an I/O error occurs
+683 Retrieves the font from a PDF setting. @return PDFont object or null if not found @throws IOException if an error occurs while creating the font
+684 Processes PDF operators to handle font settings and colors. @param operator the PDF operator to be processed @param operands list of operands associated with the operator
+685 Sets appearance content for a widget. @param widget annotation widget to modify @param appearanceStream stream for appearance data @throws IOException if an I/O error occurs
+686 Copies graphics state properties from a dictionary to a PDGraphicsState object. @param gs the target PDGraphicsState object to copy properties into @throws IOException if an I/O error occurs during property setting
+687 Processes appearance stream operators. @param content byte array of the PDF content stream @throws IOException if parsing fails
+688 Initializes PDF default appearance and resources. @param defaultAppearance PDF default appearance string @param defaultResources PDF default resources @throws IOException if processing fails
+689 Retrieves the default appearance string for the form field. @return PDDefaultAppearanceString object representing the default appearance @throws IOException if an error occurs while retrieving resources
+690 Sets the appearance value for a PDF field. @param apValue the appearance value to set @throws IOException if an I/O error occurs
+691 Initializes AppearanceGeneratorHelper with a PDVariableText field, validates resources, and sets default appearance. @param field the PDF variable text field to process @throws IOException if there is an issue processing the field's appearance string

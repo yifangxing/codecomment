@@ -1,0 +1,40 @@
+1 Attempts to safely drain reference queues for cache entries. Acquires a lock before draining and ensures it's released afterward.
+2 Resolves a given Java Type to its actual representation. @param type the Type to resolve @return resolved Type or original if not applicable
+3 Checks if the runtime type matches a formal type, handling wildcard types. @param formalType the formal type to compare against @param declaration type variable with declared bounds @return true if the runtime type is compatible with the formal type
+4 Canonicalizes a type argument. Handles wildcard types by removing redundant bounds; otherwise, recursively canonicalizes wildcards. @param declaration type variable with declared bounds @param typeArg the type argument to canonicalize @return canonicalized Type
+5 Creates a CacheBuilder instance from a specification string. @param spec cache configuration specification @return configured CacheBuilder object
+6 Disables caching by setting maximum size to zero. @return CacheBuilderSpec object with disabled caching
+7 Creates an InternetDomainName object from a string. @param domain raw domain name string to be processed @return InternetDomainName object
+8 Converts futures to complete in order. @param futures iterable of ListenableFutures @return immutable list of ListenableFutures that complete in order
+9 Computes the union of this range set with another. @param other RangeSet to be combined with this one @return ImmutableRangeSet containing all ranges from both sets
+10 Creates an immutable copy of the given multimap. @param multimap the multimap to copy @return a new ImmutableMultimap instance with the same key-value pairs
+11 Constructs an ImmutableMultimap from added entries. @return the constructed ImmutableMultimap instance
+12 Creates a collector that builds an ImmutableMap from elements. @param keyFunction function to extract keys from elements @param valueFunction function to extract values from elements @return Collector building an ImmutableMap with extracted keys and values
+13 Creates an ImmutableSetMultimap with a single key-value pair. @param k1 the key to add @param v1 the value associated with the key @return ImmutableSetMultimap containing the specified key-value pair
+14 Creates an ImmutableSetMultimap with two key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @return ImmutableSetMultimap containing the specified key-value pairs
+15 Creates an ImmutableSetMultimap from six key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @param k3 third key @param v3 value associated with the third key @return ImmutableSetMultimap containing the specified key-value pairs
+16 Creates an ImmutableSetMultimap from four key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @param k3 third key @param v3 value associated with the third key @param k4 fourth key @param v4 value associated with the fourth key @return ImmutableSetMultimap containing the specified entries
+17 Creates an ImmutableSetMultimap from five key-value pairs. @param k1 first key @param v1 value associated with the first key @param k2 second key @param v2 value associated with the second key @param k3 third key @param v3 value associated with the third key @param k4 fourth key @param v4 value associated with the fourth key @param k5 fifth key @param v5 value associated with the fifth key @return ImmutableSetMultimap containing the specified entries
+18 Creates an immutable set multimap from iterable of entries. @param entries iterable containing key-value pairs to add @return ImmutableSetMultimap instance with provided entries
+19 Creates an immutable set multimap from a given multimap with unordered values. @param multimap source multimap to copy entries from @return ImmutableSetMultimap instance containing the copied entries
+20 Creates an immutable map from iterable values with unique keys. @param values iterable of values to be indexed @param keyFunction function to extract keys from values @return ImmutableMap with unique keys or throws on duplicates
+21 Creates a new ArrayTable with specified row and column keys. @param rowKeys iterable providing row identifiers @param columnKeys iterable providing column identifiers @return initialized ArrayTable instance
+22 Generates the power set of the given set. @param set input set to generate subsets from @return a set containing all possible subsets of the input set
+23 Creates a RegularImmutableTable based on ordered components. @param cellList list of cells with row, column, and value @param rowSpace set of all possible rows @param columnSpace set of all possible columns @return DenseImmutableTable or SparseImmutableTable depending on density
+24 Constructs an immutable graph from the current mutable configuration. @return ImmutableGraph instance representing the finalized graph structure
+25 Creates an immutable copy of a given network. @param network the source network to copy @return an ImmutableNetwork instance; if input is already immutable, returns it directly
+26 Creates an immutable copy of a given ValueGraph. @param graph the source graph to copy from @return ImmutableValueGraph instance
+27 Creates a covariant TypeResolver for a given context type. @param contextType the Java type to analyze @return TypeResolver instance with mappings from the context type
+28 Creates a TypeResolver for the given type, capturing wildcards. @param contextType the Java type to resolve @return TypeResolver with captured wildcard types
+29 Creates a TypeResolver with type mappings between formal and actual types. @param formal source type @param actual target type @return new TypeResolver instance with populated mappings
+30 Converts the iterable to an ImmutableMap using a value function. @param valueFunction Function to compute values from elements @return ImmutableMap with elements as keys and computed values
+31 Creates a MinMaxPriorityQueue initialized with specified elements. @param initialContents initial elements to add to the queue @return configured MinMaxPriorityQueue instance
+32 Adds an element to the priority queue. @param element the element to add @return always true, as elements are always added with overflow handling
+33 Retrieves top-level classes by package name. @param packageName the package to filter classes by @return ImmutableSet of ClassInfo objects in the specified package
+34 Retrieves top-level classes within a specified package recursively. @param packageName the base package name to search under @return ImmutableSet of ClassInfo objects matching the package
+35 Performs a breadth-first traversal starting from a single node. @param startNode initial node to traverse from @return Iterable representing the traversal order
+36 Initiates pre-order depth-first traversal from a single node. @param startNode the starting node for traversal @return Iterable of nodes in pre-order sequence
+37 Initiates depth-first post-order traversal from a single node. @param startNode the starting node for traversal @return Iterable of traversed nodes in post-order
+38 Scans all resources without prior exclusions. @return ImmutableSet of ResourceInfo objects found @throws IOException if an I/O error occurs during scanning
+39 Constructs a ClassPath instance from the specified class loader. @param classloader the ClassLoader to inspect for resources @return ClassPath object containing all discovered resources @throws IOException if an I/O error occurs during resource scanning
+40 Specializes the invokable to a more specific return type. @param returnType the expected return type class @return specialized Invokable with the specified return type

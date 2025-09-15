@@ -1,0 +1,80 @@
+1 Returns an optimized version of this CharMatcher. @return optimized CharMatcher instance
+2 Computes the hash of a file using a specified hash function. @param file the source file to be hashed @param hashFunction the hashing algorithm to apply @return HashCode representing the computed hash @throws IOException if an I/O error occurs during processing
+3 Moves a file from one location to another. @param from source file @param to destination file @throws IOException if an I/O error occurs
+4 Reads lines from a URL and returns them as a mutable list. @param url the URL to read from @param charset character encoding for reading the URL @return List of strings representing the lines read from the URL @throws IOException if an I/O error occurs during reading
+5 Maps a file to a read-only memory-mapped buffer. @param file the target file @return MappedByteBuffer representing the mapped file region @throws IOException if an I/O error occurs or file is null
+6 Wraps an executor service with graceful shutdown capabilities. @param executor the ThreadPoolExecutor to enhance @param terminationTimeout timeout for service termination @param timeUnit unit of time for termination timeout @return ExecutorService configured for delayed shutdown
+7 Wraps a scheduled thread pool executor with an exiting service. @param executor the ScheduledThreadPoolExecutor to manage @param terminationTimeout timeout for service termination @param timeUnit unit of time for termination timeout @return ScheduledExecutorService configured with daemon threads and shutdown hooks
+8 Adds a delayed shutdown hook for an executor service with specified timeout. @param service the executor service to manage @param terminationTimeout duration for service termination
+9 Attempts to reclaim a cache entry by key. @param entry the cache entry to reclaim @param hash the hash code of the key @return true if the entry was successfully reclaimed, false otherwise
+10 Attempts to reclaim a cache entry by key and value reference. @param key the cache entry key @param hash the hash code of the key @param valueReference reference to the cache entry value @return true if the entry is successfully reclaimed, false otherwise
+11 Waits uninterruptibly for all managed services to reach a healthy state.
+12 Waits for all services to become healthy within a specified timeout. @param timeout maximum time to wait @param unit time unit of the input time @throws TimeoutException if not all services are healthy within the timeout
+13 Returns a map of services to their startup times. @return ImmutableMap with Service as key and Long (startup time in ms) as value
+14 Retrieves annotations of a specific type for this parameter. @param annotationType the class of the annotation to retrieve @return an array of annotations of the specified type, or empty if none found
+15 Creates an ImmutableSortedSet from a collection using natural ordering. @param elements source collection of comparable elements @return new ImmutableSortedSet instance in natural order
+16 Wraps a navigable map in a synchronized version. @param navigableMap the underlying navigable map to be wrapped @return synchronized NavigableMap instance using 'this' as mutex
+17 Converts a File to a string using the specified charset. @param file the source file to be converted @param charset character encoding to use @return the content of the file as a string @throws IOException if an I/O error occurs during reading
+18 Converts a URL to a string using the specified character set. @param url the URL to convert @param charset character encoding to use @return content of the URL as a string @throws IOException if an I/O error occurs during reading
+19 Creates a new CompactLinkedHashMap with default insertion order. @return an empty CompactLinkedHashMap instance
+20 Creates a TreeMultimap with natural ordering for keys and values. @param multimap source multimap to copy entries from @return TreeMultimap instance initialized with sorted data
+21 Creates a reentrant lock with cycle detection if enabled. @param lockName unique identifier for the lock @param fair true for fair locking, false otherwise @return ReentrantLock instance
+22 Creates a new reentrant read-write lock with cycle detection. @param lockName unique identifier for the lock @param fair indicates if the lock should use fair ordering policy @return ReentrantReadWriteLock instance based on current policy
+23 Creates and initializes lock graph nodes for an enum. @param clazz the enum class to create nodes for @return unmodifiable map of enum values to LockGraphNode instances
+24 Validates a domain part. @param part the domain part to validate @param isFinalPart indicates if it's the last part of the domain @return true if valid, false otherwise
+25 Converts an InetAddress to its integer representation. @param ip the input InetAddress (IPv4 or IPv6) @return integer value of the IP address
+26 Checks if the wrapped collection contains a specific element. @param object the element to look for @return true if element is found, false otherwise
+27 Removes an element from the wrapped collection. @param object element to be removed @return true if the element was found and removed; false otherwise
+28 Removes all elements from the wrapped collection that are contained in the specified collection. @param collection elements to remove @return true if any elements were removed, false otherwise
+29 Retains only elements in this collection that are contained in the specified collection. @param collection elements to retain @return true if any elements were removed, false otherwise
+30 Clears all elements from the wrapped collection.
+31 Checks if the wrapped collection is empty. @return true if the collection has no elements, false otherwise
+32 Converts collection to array using standard size and toArray logic. @return Object array containing all elements of the collection
+33 Schedules a task with a specified delay. @param command the task to execute @param delay time duration for delay @return ListenableScheduledFuture representing the scheduled task
+34 Finds all subscribers for a given listener. @param listener the object containing event handler methods @return a Multimap of event types to Subscribers
+35 Creates an induced subgraph from the specified network using given nodes. @param network source graph to extract subgraph from @param nodes iterable of nodes to include in the subgraph @return MutableNetwork containing only the specified nodes and their edges
+36 Creates a deep copy of the given network. @param network the source network to copy @return a new MutableNetwork instance with copied nodes and edges
+37 Builds and returns a mutable graph instance. @return MutableGraph object configured with current builder settings
+38 Creates an induced subgraph from the given graph. @param graph original ValueGraph to extract subgraph from @param nodes iterable of nodes to include in the subgraph @return MutableValueGraph containing only specified nodes and their edges
+39 Creates a deep copy of the given ValueGraph. @param graph the original ValueGraph to copy @return a new MutableValueGraph with identical nodes and edges
+40 Adds all key-value pairs from the specified map to the builder. @param map source map containing entries to add @return the Builder instance for method chaining
+41 Adds all key-value pairs from the specified map to the builder. @param map source map containing entries to add @return the Builder instance for method chaining
+42 Filters a navigable map with an additional predicate. @param map the original filtered navigable map @param entryPredicate the extra condition for entries to be included @return a new filtered navigable map with combined predicates
+43 Filters a filtered map with an additional predicate. @param map the original filtered map @param entryPredicate the additional condition for entries @return a new FilteredEntrySortedMap with combined predicates
+44 Filters map keys based on a predicate. @param unfiltered the original map to filter @param keyPredicate condition for keys to be included @return new map with filtered keys
+45 Filters entries of a map based on a predicate. @param unfiltered the original map to filter entries from @param entryPredicate the condition that entries must satisfy to be included @return a new Map with filtered entries
+46 Creates a collector for ImmutableSortedMap. @param comparator key comparator for sorting @param keyFunction function to extract keys @param valueFunction function to extract values @return Collector that collects elements into an immutable sorted map
+47 Creates a collector for immutable enum maps. @param keyFunction extracts enum keys from input elements @param valueFunction extracts values from input elements @return collector to build ImmutableMap from stream
+48 Creates a collector to accumulate elements into an immutable enum map. @param keyFunction function mapping elements to enum keys @param valueFunction function mapping elements to values @param mergeFunction function merging values for duplicate keys @return Collector that accumulates elements into an ImmutableMap
+49 Retrieves immutable type mappings for a given context type. @param contextType the Java type to analyze @return ImmutableMap of TypeVariableKey to Type mappings
+50 Concatenates multiple byte sources from an iterator into a single source. @param sources iterator of ByteSource instances to concatenate @return ByteSource representing the concatenated content
+51 Concatenates multiple character sources from an iterator. @param sources iterator providing CharSource instances to concatenate @return a single CharSource representing the concatenated input
+52 Creates an immutable range set from the given iterable of ranges. @param ranges iterable collection of Range objects to include @return ImmutableRangeSet containing the provided ranges, merged and made immutable
+53 Creates an ImmutableSortedMultiset from a collection of elements. @param comparator the comparator defining element order @param elements source of elements to add to the multiset @return ImmutableSortedMultiset instance or empty if input is empty
+54 Creates an immutable sorted multiset from a sorted multiset. @param sortedMultiset the source sorted multiset @return ImmutableSortedMultiset instance with elements from sortedMultiset
+55 Converts the collection to an immutable list. Handles different sizes by using appropriate constructors. @return ImmutableList containing all elements of the collection
+56 Creates a collector for an immutable sorted set. @param comparator defines the order of elements @return Collector for ImmutableSortedSet with sorted, unique elements
+57 Creates an immutable sorted set from an iterator using natural ordering. @param elements iterator providing elements to add @return ImmutableSortedSet containing unique, sorted elements
+58 Builds an ImmutableBiMap from the accumulated entries. Handles different sizes of entry arrays and sorts based on value comparator if present. @return ImmutableBiMap instance with specified entries
+59 Returns a submap from the start to the specified key. @param toKey upper bound of the keys in the returned map @param inclusive whether the upper bound is included @return ImmutableSortedMap with keys less than (or equal to if inclusive) toKey
+60 Returns a submap containing entries with keys greater than or equal to fromKey. @param fromKey the key to start retrieval from @param inclusive true if including fromKey in the result @return ImmutableSortedMap with specified range
+61 Checks if the domain has a public suffix. @return true if the domain has a public suffix at index 0, false otherwise
+62 Checks if the domain has a public suffix. @return true if a public suffix exists, false otherwise
+63 Checks if the domain is under a public suffix. @return true if the domain has a public suffix, false otherwise
+64 Checks if the domain is at the top level of its private registry. @return true if the domain is a top-level private domain, false otherwise
+65 Checks if the domain has a registry suffix. @return true if registry suffix index is 0, false otherwise
+66 Checks if the domain name has a registry suffix. @return true if registry suffix exists, false otherwise
+67 Checks if the domain has a registry suffix. @return true if the domain has a valid registry suffix, false otherwise
+68 Checks if the domain has no subdomains under its registry suffix. @return true if top-level, false otherwise
+69 Creates an ImmutableSortedMap from entries with a specified comparator. @param entries iterable of key-value pairs to include @param comparator key comparator for sorting @return ImmutableSortedMap with sorted and unique keys
+70 Creates an immutable sorted map from a given SortedMap. Uses the map's comparator or natural ordering if none is provided. @param map original SortedMap to copy @return ImmutableSortedMap with the same entries as the input map
+71 Creates an immutable copy of the set. @return ImmutableSet containing all elements from the current set
+72 Retrieves raw types associated with the generic type. @return ImmutableSet of raw types in descending order by hierarchy level
+73 Removes and returns the element at the specified index. Adjusts heap structure to maintain order. @param index position of the element to remove @return MoveDesc object describing changes or null if no swap occurs
+74 Computes the integer square root of a BigInteger with specified rounding mode. @param x non-negative BigInteger value to compute the square root for @param mode rounding mode to apply @return integer square root of x, rounded according to specified mode @throws IllegalArgumentException if x is negative @throws ArithmeticException if rounding is required but unnecessary
+75 Creates an immutable set from an iterator. Handles empty, single-element, and multi-element cases efficiently. @param elements the iterator providing elements for the set @return ImmutableSet containing all elements from the iterator
+76 Recursively scans a directory for resources. @param directory the directory to scan @param packagePrefix prefix for resource names @param currentPath set of visited directories to avoid cycles @param builder collects ResourceInfo objects @throws IOException if an I/O error occurs
+77 Extracts classpath files from a JAR's manifest. @param jarFile the JAR file to process @param manifest the manifest of the JAR, may be null @return ImmutableSet of File objects representing classpath entries
+78 Retrieves the raw supertype of the generic type. Uses getRawTypes() to determine the runtime type. @return Class representing the raw supertype
+79 Finds the greatest k elements from an iterable using a reversed comparator. @param iterable source of elements to compare @param k number of greatest elements to retrieve @return List containing the top k greatest elements sorted by comparator
+80 Waits for all services to stop within a specified timeout. Converts Duration to nanoseconds and handles overflow. @param timeout maximum time to wait as Duration @throws TimeoutException if not all services stop in time

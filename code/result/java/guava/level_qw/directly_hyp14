@@ -1,0 +1,31 @@
+1 Retrieves an entry by key without affecting recency. @param key the key to look up @return ReferenceEntry object or null if not found
+2 Checks if an entry is live. @param entry the reference entry to check @param now current time in milliseconds @return true if the entry is live, false otherwise
+3 Inserts a loading value reference for the given key. @param key the key to insert @param hash the hash of the key @param checkTime whether to check refresh time @return LoadingValueReference or null if already loading or recently refreshed
+4 Increments read count and triggers cleanup periodically.
+5 Resolves a type variable using bounds and a dependency table. @param var the type variable to resolve @param forDependants the dependency table for resolving dependent types @return resolved type or original if no new bounds are found
+6 Executes a callable with resources management. @param combiningCallable the callable to execute @param executor the executor for running the callable @return ClosingFuture object managing closeables
+7 Executes an asynchronous callable with a combiner. @param combiningCallable the callable to execute asynchronously @param executor the executor to run the callable @return ClosingFuture representing the result of the async operation
+8 Parses a string into a HostSpecifier. @param specifier string representation of the host specifier @return HostSpecifier object @throws ParseException if the specifier is invalid
+9 Validates host specifier string. @param specifier the string to validate @return true if valid, false otherwise
+10 Retrieves the public suffix of the domain. @return InternetDomainName object representing the public suffix, or null if none exists
+11 Retrieves the top private domain. @return InternetDomainName object representing the top private domain
+12 Retrieves the registry suffix of the domain. @return InternetDomainName object representing the registry suffix, or null if none exists
+13 Returns the top-level domain under the registry suffix. @return InternetDomainName representing the top domain
+14 Returns the parent domain of the current domain. @return InternetDomainName object representing the parent domain @throws IllegalStateException if the current domain has no parent
+15 Collects elements into an ImmutableListMultimap. @param keyFunction extracts keys from elements @param valueFunction extracts values from elements @return Collector for ImmutableListMultimap
+16 Creates an immutable multimap with one key-value pair. @param k1 the key @param v1 the value associated with the key @return an ImmutableMultimap containing the specified key-value pair
+17 Creates an immutable multimap with two key-value pairs. @param k1 first key @param v1 value for the first key @param k2 second key @param v2 value for the second key @return ImmutableMultimap containing the specified entries
+18 Creates an immutable multimap with three key-value pairs. @param <K> the type of keys @param <V> the type of values @param k1 first key @param v1 value for the first key @param k2 second key @param v2 value for the second key @param k3 third key @param v3 value for the third key @return an ImmutableMultimap containing the specified entries
+19 Creates an immutable multimap from key-value pairs. @param k1,k2,k3,k4 keys for the map entries @param v1,v2,v3,v4 values corresponding to the keys @return ImmutableMultimap containing specified key-value pairs
+20 Creates an immutable multimap from key-value pairs. @param k1,k2,k3,k4,k5 keys for the multimap entries @param v1,v2,v3,v4,v5 values corresponding to each key @return ImmutableMultimap containing specified key-value pairs
+21 Creates an immutable multimap from given entries. @param entries iterable of key-value pairs @return ImmutableMultimap containing the provided entries
+22 Returns the inverted multimap. @return inverted ImmutableListMultimap where keys and values are swapped
+23 Creates an immutable multimap from iterable values using a key function. @param values iterable of elements to index @param keyFunction function to extract keys from elements @return ImmutableListMultimap with indexed values
+24 Adds a parameter to the media type. @param attribute parameter name @param value parameter value @return new MediaType instance with added parameter
+25 Creates a new MediaType instance with additional parameters. @param parameters map of media type parameters @return new MediaType object with updated parameters
+26 Creates a MediaType object with specified type and subtype. @param type the primary MIME type @param subtype the secondary MIME subtype @return MediaType instance without parsed charset
+27 Parses a media type string into a MediaType object. @param input the media type string to parse @return a MediaType object representing the parsed media type
+28 Initializes ServiceManager with a collection of services. @param services iterable collection of Service instances
+29 Collects elements into an ImmutableSetMultimap. @param keyFunction extracts the key from each element @param valuesFunction extracts a stream of values from each element @return ImmutableSetMultimap with keys and collected values
+30 Resolves the type using an invariant type resolver. @param type the type to be resolved @return TypeToken representing the resolved type
+31 Creates a MinMaxPriorityQueue with natural ordering. @return MinMaxPriorityQueue instance

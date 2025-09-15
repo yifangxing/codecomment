@@ -1,0 +1,470 @@
+1 Constructs a new highlight annotation from a COSDictionary. @param a the underlying PDF dictionary representing the annotation
+2 Constructs a new tiling pattern with the given dictionary. @param dictionary COSDictionary containing pattern properties
+3 Constructs a new PDSignatureField instance. @param acroForm the AcroForm containing this field @param field the COSDictionary representing the field @param parent the parent PDNonTerminalField, if any
+4 Constructs a new PDVariableText instance. @param acroForm the AcroForm containing this field @param field the COSDictionary representing the field @param parent the parent PDNonTerminalField, if any
+5 Generates a string representation of the Revisions object. @return String listing objects with their revision numbers
+6 Generates a unique partial name for a signature field. @return Unique signature field name
+7 Default constructor for PublicKeySecurityHandler.
+8 Constructs a PDFormXObject with a given COSStream and resource cache. @param stream underlying COSStream object representing the form XObject @param cache resource cache for managing resources
+9 Initializes a new StandardSecurityHandler with a specified protection policy. @param standardProtectionPolicy the security policy to apply
+10 Constructs a PDFormXObject from a given COSStream. @param stream underlying COSStream object representing the form XObject
+11 Constructs a PostScript XObject from a given COSStream. @param stream underlying COSStream object containing PostScript data
+12 Constructs a COSDocument instance using a memory-only stream cache. @param parser parser for PDF document
+13 Creates a PDSoftMask from a dictionary. @param dictionary PDF dictionary containing mask properties @return PDSoftMask object or null if creation fails
+14 Constructs a new PDShadingType3 instance. @param shadingDictionary COSDictionary containing Type 3 shading properties
+15 Constructs a new instance of PDShadingType4. @param shadingDictionary COSDictionary containing triangle-based shading properties
+16 Constructs a new strikeout annotation from a COSDictionary. @param a the underlying PDF dictionary representing the annotation
+17 Initializes a new PublicKeySecurityHandler with a specified protection policy. @param publicKeyProtectionPolicy the security policy to apply using public key cryptography
+18 Constructs an underline annotation from a COSDictionary. @param a the underlying PDF dictionary representing the annotation
+19 Constructs a new PDButton instance. @param acroForm the AcroForm containing this button @param field the COSDictionary representing the button @param parent the parent PDNonTerminalField, if any
+20 Constructs a squiggly annotation from a COSDictionary. @param a PDF dictionary representing the annotation
+21 Constructs a new instance of PDShadingType5. @param shadingDictionary COSDictionary containing triangle-based shading properties
+22 Default constructor for SecurityHandler.
+23 Applies translation to the current text matrix. @param tx horizontal translation factor @param ty vertical translation factor
+24 Checks if a point is within the rectangle. @param x x-coordinate of the point @param y y-coordinate of the point @return true if the point is inside the rectangle, false otherwise
+25 Initializes a ShadedTriangle with vertices and colors. @param p array of Point2D representing triangle vertices @param c 2D float array representing colors at each vertex
+26 Sets the font provider and updates internal font mappings. @param fontProvider new FontProvider instance
+27 Saves font information to disk cache. @throws SecurityException if unable to create a writer for the cache file
+28 Retrieves or loads a FontBoxFont based on font format. @return loaded FontBoxFont or null if not found
+29 Encrypts or decrypts data using AES-256. @param data input stream of the data to process @param output output stream for processed data @param decrypt true if decrypting, false if encrypting @throws IOException on I/O errors during processing
+30 Encrypts or decrypts data using AES algorithm. @param finalKey encryption key bytes @param data input stream containing data to process @param output output stream for processed data @param decrypt true if decryption is required, false for encryption @throws IOException on I/O errors or security exceptions
+31 Processes a character sequence as a token. Converts to string and delegates to token processing method. @param text the character sequence to process
+32 Concatenates two matrices by multiplying them. @param a First matrix @param b Second matrix @return Resulting Matrix after concatenation
+33 Applies translation to the matrix using vector coordinates. @param vector the translation vector
+34 Constructs a PDFunctionType3 instance from a COSBase object. @param functionStream the underlying COSBase object representing the function stream
+35 Loads a glyph list from a specified resource file. @param filename name of the glyph list file @param numberOfEntries expected number of entries in the glyph list @return GlyphList object initialized with data from the file
+36 Sets the current clipping path on the graphics context. Compares with previous paths and updates if changed.
+37 Ends text clipping by applying buffered clip areas. @param none @return void
+38 Retrieves mapping of glyph IDs to character codes. @return Map with glyph ID as key and character code as value @throws IOException if an I/O error occurs during font processing
+39 Calculates rectangle width. @return width as a float
+40 Rotates the matrix by a specified angle around the origin. @param theta angle of rotation in radians
+41 Writes a COSFloat to the PDF stream. @param output the OutputStream to write to @param cosFloat the COSFloat object to write @throws IOException if an I/O error occurs
+42 Checks if the COSDictionaryMap is empty. @return true if no key-value pairs are present, false otherwise
+43 Writes an operator to the output stream followed by a newline. @param text operator string to be written @throws IOException if an I/O error occurs
+44 Writes an integer operand to the output stream. @param integer the integer value to write @throws IOException if an I/O error occurs
+45 Writes a float operand to the output stream. @param real the float value to write @throws IOException if an I/O error occurs
+46 Determines the file suffix based on image filters. @return File suffix string or null if no matching filter found
+47 Initializes a PDImageXObject with a PDStream and resources. @param stream the PDStream containing image data @param resources the PDResources associated with the image
+48 Creates an output stream for writing data to a PDF stream. @param filters optional filters to apply during writing @return OutputStream for writing filtered data @throws IOException if the stream or document is closed
+49 Retrieves the name of a COSName object at the specified index. @param index position in the array @return name of COSName or null if not found
+50 Retrieves an integer value from the array at a specified index. @param index the position of the element to retrieve @return the integer value at the specified index or -1 if not found
+51 Generates a string representation of the rectangle's coordinates. @return String in the format "[x1,y1,x2,y2]"
+52 Converts the rectangle to a GeneralPath object. @return GeneralPath representing the rectangle's boundary
+53 Transforms the rectangle using a matrix and returns a GeneralPath. @param matrix transformation matrix to apply @return transformed GeneralPath representing the rectangle
+54 Calculates the height of the rectangle. @return Height as a float
+55 Converts update state of a COS object to an increment. @return COSIncrement instance representing the update
+56 Initializes a new COSWriter instance with default compression. @param outputStream underlying OutputStream to write data to
+57 Computes the owner password for a PDF document. @param ownerPassword owner's password as byte array @param userPassword user's password as byte array @param encRevision encryption revision level @param length desired key length in bytes @return encrypted owner password as byte array
+58 Computes user password for PDF encryption. @param password user password bytes @param owner owner entry bytes @param permissions document access permissions @param id document identifier @param encRevision encryption revision number @param keyLengthInBytes desired key length in bytes @param encryptMetadata flag to encrypt metadata @return encrypted user password as byte array
+59 Sets the signature image from a file. @param path file path to the signature image @return PDVisibleSignDesigner instance for method chaining @throws IOException if an I/O error occurs while reading the file
+60 Initializes signature designer with an image stream. @param imageStream InputStream containing the signature image data @throws IOException if an I/O error occurs while reading the stream
+61 Initializes a COSString from a given text. @param text the input string to be encoded
+62 Retrieves the default appearance string for text fields. @return Default appearance string or null if not set
+63 Retrieves export values for the button. @return List of export values as strings
+64 Retrieves pairable items from a COSBase object. @param items the COSBase object containing key-value pairs @param pairIdx index specifying which element to retrieve (0 or 1) @return List of strings representing the retrieved items, empty if not applicable
+65 Retrieves the name of the named destination. @return The string representation of the named destination
+66 Retrieves the string representation of the file. @return String representation of the file content
+67 Retrieves a string from the array at the specified index. @param index position of the element in the array @param defaultValue value to return if the element is not found or is not a COSString @return String representation of the COSBase object at the given index, or default value
+68 Constructs a PDFunctionType0 from a COSBase object. @param function the underlying COSBase object representing the Type 0 PDF function
+69 Retrieves metadata associated with the image. @return PDMetadata object or null if no metadata exists
+70 Searches for the nearest cross-reference offset to a given xref offset. @param xrefOffset target offset value @return nearest cross-reference offset or -1 if not found @throws IOException if an I/O error occurs
+71 Parses the PDF header. @return true if header is successfully parsed, false otherwise @throws IOException if an I/O error occurs
+72 Parses the FDF (Forms Data Format) header. @return true if header is successfully parsed, false otherwise @throws IOException if an I/O error occurs
+73 Constructs a new PDDocument from a COSDocument. @param doc the underlying COSDocument representing the PDF @param source the source of the PDF data
+74 Reads a line from the PDF source. Handles end-of-line characters and returns the line as a string. Throws IOException if end-of-file is reached unexpectedly.
+75 Attempts to skip a line break in the PDF source. @return true if a valid line break is skipped, false otherwise
+76 Creates a new PDDocument instance. @return PDDocument object initialized with document, source, and access permissions
+77 Retrieves the COSBase representation of transition degrees. @return COSInteger object representing the degrees value
+78 Detects the file type from a BufferedInputStream. @param inputStream stream containing file data @return FileType object representing the detected file type @throws IOException if input stream does not support mark/reset or ends prematurely
+79 Writes an array of bytes as hexadecimal characters to a stream. @param bytes the byte array to convert and write @param output the OutputStream to write to @throws IOException if an I/O error occurs
+80 Writes the COSName to a PDF output stream. @param output OutputStream to write the name to @throws IOException if an I/O error occurs
+81 Writes an external signature to a PDF document. @param cmsSignature CMS signature bytes to be written @throws IOException if writing fails or PDF is not prepared for signing
+82 Converts byte array to hexadecimal string. @return Hexadecimal representation of the internal byte array
+83 Converts Calendar to ISO 8601 string. @param cal Calendar instance to convert @return ISO 8601 formatted date-time string
+84 Converts Calendar to string in PDF date format. @param cal Calendar instance to convert @return formatted date string or null if input is null
+85 Skips spaces and comments in the PDF source. @throws IOException if reading from the source fails
+86 Writes paragraph end marker to output. Ensures correct paragraph formatting by starting new paragraphs as needed. @throws IOException if an I/O error occurs during writing
+87 Starts an article in PDF text extraction with left-to-right text direction. @throws IOException if an I/O error occurs during writing
+88 Calculates adjusted width of text based on direction. @return Width considering text direction
+89 Retrieves the width of the text element based on its rotation. @return width of the rotated text element
+90 Adjusts Y-coordinate direction for PDF text positioning. @return Adjusted Y-coordinate based on page dimensions and rotation
+91 Initializes a TextPosition object with specified properties. @param pageRotation rotation of the page in degrees @param pageWidth width of the page @param pageHeight height of the page @param textMatrix transformation matrix for text @param endX ending X coordinate of the text @param endY ending Y coordinate of the text @param maxHeight maximum height of the text @param individualWidth width of an individual character @param spaceWidth width of a space character @param unicode Unicode representation of the text @param charCodes array of character codes @param font PDFont object representing the font @param fontSize font size in user space units @param fontSizeInPt font size in points
+92 Retrieves adjusted X direction based on text rotation. @return Adjusted X direction in degrees
+93 Checks if all permissions are granted, indicating owner rights. @return true if all permissions (assemble, extract, fill, modify, print) are enabled, false otherwise
+94 Skips leading whitespaces and line breaks in the PDF source. Reads characters until a non-whitespace or non-line break character is encountered.
+95 Checks if any revision 3 permissions are set. @return true if any of fill-in-form, extract for accessibility, assemble document, or faithful print is permitted
+96 Checks if a PDF object needs to be updated. @param base the PDF object to check @return true if the object needs updating, false otherwise
+97 Appends a child element to the PDF structure. @param mcid unique identifier for the media content @throws IllegalArgumentException if MCID is negative
+98 Parses and returns a COSNumber from a string. @param number string representation of the numeric value @return COSFloat or COSInteger based on input, or throws IOException if invalid
+99 Retrieves the extended object stream. @return PDObjectStream representing the extended stream or null if none exists
+100 Closes the ASCII85OutputStream, flushing any remaining data and releasing resources.
+101 Updates the document's state. @param updated flag indicating whether the document has been updated
+102 Constructs a COSObjectKey with default stream index. @param num object number, must be non-negative @param gen generation number, must be non-negative
+103 Retrieves font metrics for a given font name. @param fontName the name of the font to retrieve metrics for @return FontMetrics object or null if not found
+104 Writes an array of bytes to the output stream after encrypting each one. @param data array of bytes to be encrypted and written @param output OutputStream to write the encrypted bytes to @throws IOException if an I/O error occurs while writing
+105 Constructs a PDFormXObject with a given stream. @param stream the PDStream containing the form data
+106 Writes a portion of byte array to an output stream after encrypting it. @param data the byte array containing the data to be written @param offset the starting index in the data array @param len the number of bytes to write @param output the OutputStream to write the encrypted data to @throws IOException if an I/O error occurs while writing
+107 Closes all overlay resources and documents. Ensures all open overlays and PDF documents are properly closed and cleared.
+108 Initializes a new instance of PDPageAdditionalActions with an empty COSDictionary.
+109 Initializes a new instance of PDFormFieldAdditionalActions. Creates an empty COSDictionary to store additional form field actions.
+110 Initializes a new instance of PDDocumentCatalogAdditionalActions. Sets up the internal COSDictionary to manage document catalog actions.
+111 Initializes a new instance of PDAnnotationAdditionalActions. Creates an empty COSDictionary to store annotation actions.
+112 Initializes a new PDAdditionalActions instance with an empty COSDictionary.
+113 Initializes a new PDShading instance with an empty COSDictionary.
+114 Initializes a new PDDeviceNProcess with an empty COSDictionary.
+115 Initializes a new PDDeviceNAttributes with an empty COSDictionary.
+116 Constructs a new PDTargetDirectory with an associated COSDictionary.
+117 Initializes a new FDF template with an empty COSDictionary.
+118 Constructs a new FDFPage with an empty underlying COSDictionary.
+119 Initializes a new named page reference. Creates an underlying COSDictionary to manage page metadata.
+120 Constructs a new instance of FDFJavaScript. Initializes an associated COSDictionary for storing JavaScript data.
+121 Initializes a new FDFIconFit with an empty COSDictionary.
+122 Initializes a new FDFField with an empty COSDictionary.
+123 Constructs a new FDFDictionary instance. Initializes an underlying COSDictionary to manage FDF data.
+124 Initializes a new FDFCatalog with an empty COSDictionary.
+125 Initializes a new instance of FDFPageInfo with a default COSDictionary.
+126 Constructs a new PDCryptFilterDictionary. Initializes an underlying COSDictionary to manage cryptographic filters.
+127 Initializes a new PDURIDictionary with an empty COSDictionary.
+128 Initializes a new border effect dictionary. Creates an underlying COSDictionary to store properties.
+129 Retrieves metadata from the PDF stream. @return PDMetadata object or null if no metadata is present
+130 Constructs a PDOutlineItem from a COSDictionary. @param dic PDF dictionary representing the outline item
+131 Constructs a PDStandardAttributeObject wrapping a given COSDictionary. @param dictionary PDF dictionary to be wrapped
+132 Constructs a PDUserAttributeObject with a given COSDictionary. @param dictionary PDF dictionary to be wrapped
+133 Initializes a new PDWindowsLaunchParams with an empty COSDictionary.
+134 Constructs a PDDefaultAttributeObject wrapping the given COSDictionary. @param dictionary PDF dictionary to be wrapped
+135 Initializes viewer preferences with a new dictionary.
+136 Constructs a new PDViewportDictionary with an empty viewport dictionary.
+137 Constructs a new PDField instance with default settings. @param acroForm the AcroForm containing this field
+138 Initializes a new instance of PDSeedValueTimeStamp with an empty COSDictionary. The dictionary is set to be direct for efficient storage.
+139 Initializes a new PDSeedValueMDP with an associated update state.
+140 Initializes a new instance of PDPropBuildDataDict with an empty COSDictionary. Ensures that the dictionary uses direct objects as per the specification.
+141 Constructs a new PDPropBuild instance with a direct COSDictionary.
+142 Constructs a new PDBorderStyleDictionary. Initializes the internal dictionary to store border style properties.
+143 Initializes a COSObject with a given base object and key. @param object the underlying COSBase object @param objectKey unique identifier for the COS object
+144 Initializes a new PDBoxStyle with an empty COSDictionary.
+145 Initializes a new PDEncryption object with an empty COSDictionary.
+146 Initializes a new instance of PDMarkInfo with an empty COSDictionary.
+147 Initializes a new PDPropertyList with an associated COSDictionary.
+148 Initializes the LegacyPDFStreamEngine with various text operators. Sets up PDF processing for text extraction and rendering.
+149 Creates a new PDPageLabelRange with default settings.
+150 Initializes a new PDNameTreeNode with an empty COSDictionary.
+151 Constructs a new PDDictionaryWrapper with an empty COSDictionary.
+152 Initializes a new instance of PDResources. Constructs an empty COSDictionary for storing resources and sets up caches.
+153 Initializes a new PDDocumentInformation with an empty metadata dictionary.
+154 Creates a default DecodeResult instance. @return DecodeResult object initialized with an empty COSDictionary
+155 Wraps a COSDictionary in an unmodifiable view. @param dict the original COSDictionary to wrap
+156 Initializes a new COSStream with a specified cache. @param streamCache the cache for managing stream data
+157 Retrieves or creates a COSName instance for the given PDF name. @param aName PDF name string @return COSName object associated with the name
+158 Initializes an empty COSArray. @param new ArrayList<COSBase>(), true
+159 Constructs a COSString from a byte array. @param bytes the byte array to be stored
+160 Constructs a PDAppearanceStream from a COSStream. @param stream underlying COSStream object representing the appearance stream
+161 Initializes a PDTransparencyGroup with a COSStream and resource cache. @param stream underlying COSStream object representing the form XObject @param cache resource cache for managing resources
+162 Adds a TrueType collection font by processing its headers and computing checksum. @param ttcFile the TrueType collection file to add
+163 Adds a TrueType font to the list. @param fontHeaders headers of the font @param file font file @param hash font hash
+164 Adds a Type1 font from a PFB file. @param pfbFile PFB font file to add
+165 Initializes a COSArrayList with a given dictionary and key. @param dictionary the parent COSDictionary containing the list @param dictionaryKey the key in the dictionary for this list
+166 Constructs a PDPrintFieldAttributeObject wrapping a given COSDictionary. @param dictionary PDF dictionary to be wrapped
+167 Retrieves resources associated with the form XObject. @return PDResources object or null if no resources are found
+168 Retrieves the most recent decode result. @return DecodeResult object, either the last one or a default if none exist
+169 Returns an unmodifiable view of this dictionary. @return UnmodifiableCOSDictionary instance wrapping this dictionary
+170 Initializes a COSStream with cache and read view. @param streamCache the cache for managing stream data @param randomAccessReadView the view for reading stream data @throws IOException if an I/O error occurs
+171 Constructs a new COSStream with no initial cache.
+172 Creates a new COSStream and adds it to the document. @return the newly created COSStream
+173 Constructs a PDRectangle with specified dimensions. @param x top-left corner x-coordinate @param y top-left corner y-coordinate @param width rectangle width @param height rectangle height
+174 Initializes an empty PDPageDestination with a new COSArray.
+175 Initializes a new COSArrayList with empty underlying structures.
+176 Parses a hexadecimal string into a COSString. @param hex the input hexadecimal string @return COSString object representing the parsed data @throws IOException if parsing fails due to invalid characters
+177 Constructs a PDRectangle from a bounding box. @param box BoundingBox object containing rectangle coordinates
+178 Default constructor for PDAttributeObject.
+179 Constructs a new PDUserProperty with the specified user attribute object. @param userAttributeObject the user attribute object to encapsulate
+180 Constructs a PDListAttributeObject from a COSDictionary. @param dictionary PDF dictionary representing list attributes
+181 Constructs a PDLayoutAttributeObject wrapping a given COSDictionary. @param dictionary PDF dictionary to be wrapped
+182 Returns the current font provider, initializing with a default one if none is set. @return FontProvider instance
+183 Generates shaded triangles from coordinate-color pairs. @param patchCC 2D array of CoordinateColorPair objects @return List of ShadedTriangle objects representing the patch
+184 Constructs a CoonsPatch with given control points and corner colors. @param points array of control points defining the patch @param color 2D array representing corner colors
+185 Constructs a new terminal field within a PDF form. @param acroForm the AcroForm containing this field
+186 Converts a COSString to a GregorianCalendar. @param text COSString containing date information @return Calendar instance or null if input is null
+187 Constructs a new PDNonTerminalField instance. @param acroForm the AcroForm containing this field
+188 Initializes a new PDStructureElementNameTreeNode.
+189 Default constructor initializes an empty JavaScript name tree node.
+190 Constructs a new PDEmbeddedFilesNameTreeNode with an empty COSDictionary.
+191 Constructs a new PDDestinationNameTreeNode with an empty COSDictionary.
+192 Constructs a new outline node with an empty dictionary.
+193 Constructs a PDTableAttributeObject wrapping a given COSDictionary. @param dictionary PDF dictionary representing table attributes
+194 Begins a text block in the PDF content stream. @throws IOException if an I/O error occurs or if nested calls are attempted
+195 Sets the line join style in a PDF content stream. @param lineJoinStyle integer representing the line join style (0, 1, or 2) @throws IOException if an I/O error occurs during writing
+196 Sets the line width for drawing operations. @param lineWidth the desired line width in user space units @throws IOException if an I/O error occurs while writing to the stream
+197 Clips the current path using even-odd rule. Throws exception if called within text mode. @throws IOException if an I/O error occurs
+198 Clips the current path to the current clipping area. Throws an exception if called within a text block. @throws IOException if an I/O error occurs
+199 Closes the current path in the PDF content stream. Throws an exception if called within a text block. @throws IOException if an I/O error occurs while writing
+200 Closes path, fills and strokes it using even-odd rule. Throws exception if called within text mode. @throws IOException if an I/O error occurs
+201 Closes, fills, and strokes the current path. Throws exception if called within a text block. @throws IOException if an I/O error occurs
+202 Fills and strokes the current path using even-odd rule. Throws exception if called within a text block. @throws IOException if an I/O error occurs
+203 Fills and strokes the current path. Throws exception if called within text mode. @throws IOException if an I/O error occurs
+204 Fills the current path using even-odd rule. Throws exception if called in text mode. @throws IOException if an I/O error occurs
+205 Fills the current path using non-zero winding rule. Throws exception if called within text mode. @throws IOException if an I/O error occurs
+206 Closes the current path and strokes it. Throws exception if called within a text block. @throws IOException if an I/O error occurs
+207 Strokes the current path. Throws exception if called within text mode. @throws IOException if an I/O error occurs
+208 Draws a line to the specified coordinates. @param x x-coordinate of the endpoint @param y y-coordinate of the endpoint @throws IOException if an I/O error occurs or called within text mode
+209 Moves the graphics cursor to specified coordinates. @param x the X coordinate @param y the Y coordinate @throws IOException if an I/O error occurs @throws IllegalStateException if called within a text block
+210 Draws a cubic Bézier curve with the final control point replicated. @param x1 first control point's X coordinate @param y1 first control point's Y coordinate @param x3 end point's X coordinate (also used as second control point) @param y3 end point's Y coordinate @throws IOException if an I/O error occurs
+211 Draws a cubic Bézier curve with the second control point same as the end point of the previous curve. @param x2,y2 coordinates of the second control point @param x3,y3 coordinates of the end point @throws IOException if an I/O error occurs
+212 Draws a cubic Bezier curve. @param x1,y1 control point 1 coordinates @param x2,y2 control point 2 coordinates @param x3,y3 end point coordinates @throws IOException if an I/O error occurs
+213 Adds a rectangle to the PDF content stream. @param x x-coordinate of the lower-left corner @param y y-coordinate of the lower-left corner @param width width of the rectangle @param height height of the rectangle @throws IOException if an I/O error occurs
+214 Sets non-stroking color to grayscale. @param g grayscale value (0.0 to 1.0) @throws IOException if I/O error occurs
+215 Sets non-stroking color using CMYK values. @param c cyan component (0-1) @param m magenta component (0-1) @param y yellow component (0-1) @param k black component (0-1) @throws IOException if an I/O error occurs
+216 Sets the line cap style in the PDF content stream. @param lineCapStyle integer representing the cap style (0, 1, or 2) @throws IOException if an I/O error occurs during writing
+217 Sets non-stroking color using RGB values. @param r red component (0.0 to 1.0) @param g green component (0.0 to 1.0) @param b blue component (0.0 to 1.0) @throws IllegalArgumentException if any component is outside [0, 1] @throws IOException if an I/O error occurs
+218 Sets the line dash pattern. @param pattern array of float values representing dash lengths and gaps @param phase offset at which to start the dash pattern @throws IOException if an I/O error occurs
+219 Ends a marked content sequence in the PDF document. @throws IOException if an I/O error occurs while writing to the stream
+220 Computes user password for PDF encryption. @param ownerPassword document owner's password @param owner owner's identifier @param encRevision encryption revision level @param length desired key length in bytes @return computed user password as byte array or empty array if unsupported revision @throws IOException if an I/O error occurs
+221 Initializes a new TensorPatch with control points and colors. @param tcp array of control points (20 elements) @param color 2D array representing corner colors
+222 Sets the named destination. @param dest the destination string or null to clear @throws IOException if an error occurs during initialization
+223 Initializes a named destination with a given COSString. @param dest the COSString representing the destination
+224 Sets the file name for the specification. @param fileName the name of the file to be specified
+225 Initializes a PDSimpleFileSpecification with an empty file name.
+226 Retrieves the button's value, handling both COSName and export values. @return The string representation of the button's value
+227 Retrieves string from array at specified index. @param index position of the element in the array @return String representation of the COSBase object or null if not found
+228 Saves FDF document to specified output stream. @param output OutputStream to write FDF data to @throws IOException if I/O error occurs during saving
+229 Sets the text rise in the PDF content stream. @param rise the amount to raise or lower the text @throws IOException if an I/O error occurs
+230 Sets the text rendering mode. @param rm RenderingMode to be applied @throws IOException if an I/O error occurs
+231 Sets horizontal scaling for text. @param scale scaling factor to apply @throws IOException if I/O error occurs
+232 Sets word spacing in the PDF content stream. @param spacing the word spacing value to apply @throws IOException if an I/O error occurs
+233 Sets character spacing in the PDF content stream. @param spacing the character spacing value to apply @throws IOException if an I/O error occurs while writing to the stream
+234 Sets the miter limit for line joins. @param miterLimit the miter limit value to set @throws IOException if an I/O error occurs
+235 Sets the stroking color for grayscale. @param g gray level (0.0 to 1.0) @throws IOException if an I/O error occurs
+236 Sets CMYK stroking color. @param c cyan component [0..1] @param m magenta component [0..1] @param y yellow component [0..1] @param k black component [0..1] @throws IOException if I/O error occurs
+237 Sets the stroking color using RGB values. @param r red component (0 to 1) @param g green component (0 to 1) @param b blue component (0 to 1) @throws IOException if I/O error occurs or parameters are out of range
+238 Initializes COSDocument with memory-only stream cache and no encryption.
+239 Saves the current graphics stack and resets it with a cloned state. @return The original graphics stack before reset
+240 Saves the current graphics state by cloning and pushing it onto the stack.
+241 Constructs a new PDTextField instance. @param acroForm the AcroForm containing this field @param field the COSDictionary representing the field @param parent the parent PDNonTerminalField, if any
+242 Constructs a new PDChoice instance. @param acroForm the AcroForm containing this field @param field the COSDictionary representing the field @param parent the parent PDNonTerminalField, if any
+243 Constructs a new PDRadioButton instance. @param acroForm the AcroForm containing this button @param field the COSDictionary representing the button @param parent the parent PDNonTerminalField, if any
+244 Constructs a new PDPushButton instance. @param acroForm the AcroForm containing this button @param field the COSDictionary representing the button @param parent the parent PDNonTerminalField, if any
+245 Constructs a new PDCheckBox instance. @param acroForm the AcroForm containing this checkbox @param field the COSDictionary representing the checkbox @param parent the parent PDNonTerminalField, if any
+246 Clips the current graphics state to a transformed rectangle. @param rectangle PDRectangle to be used for clipping
+247 Calculates the transformed bounding box of an appearance stream. @param appearanceStream the appearance stream to transform @return Rectangle2D representing the transformed bounds
+248 Initializes graphics state with page boundaries. @param page PDRectangle representing the page dimensions
+249 Retrieves the left boundary of the destination. @return integer value representing the left coordinate
+250 Restores the previous graphics state in a PDF document. Throws an exception if called within text mode. Pops color space stacks and writes a restore operator to the output stream. @throws IOException if an I/O error occurs
+251 Saves the current graphics state to a stack. Throws an exception if called within text mode. Writes a save operator to the output stream.
+252 Moves the text cursor to a new position with specified offsets. @param tx horizontal offset @param ty vertical offset @throws IOException if an I/O error occurs
+253 Moves to the next line in text mode. @throws IOException if an I/O error occurs
+254 Sets the text leading in the PDF content stream. @param leading the spacing between lines of text @throws IOException if an I/O error occurs
+255 Ends text mode and writes the END_TEXT operator. @throws IOException if an I/O error occurs
+256 Writes an affine transformation matrix to the output stream. @param transform the AffineTransform object to write @throws IOException if an I/O error occurs
+257 Retrieves the soft mask image associated with this PDF image. @return PDImageXObject representing the soft mask or null if none exists
+258 Retrieves the mask associated with the image. @return PDImageXObject representing the mask or null if none exists
+259 Creates a thumbnail image from a COSStream. @param cosStream the COSStream containing image data @return PDImageXObject representing the thumbnail
+260 Creates an output stream with specified filter. @param filter optional filter to apply during writing @return OutputStream for writing filtered data @throws IOException if the stream or document is closed
+261 Checks if the bounding box fitting type is set. @return true if bounding box fitting is enabled; false otherwise
+262 Checks if the destination fits the bounding box. @return true if the destination type is bounded, false otherwise
+263 Checks if the destination fits the bounding box. @return true if the destination is bounded, false otherwise
+264 Retrieves the top coordinate of the destination. @return the y-coordinate value at index 3 of the internal array
+265 Retrieves the left position of the destination. @return integer value representing the left coordinate or -1 if not found
+266 Retrieves the top position of the bounding box. @return integer value representing the top coordinate
+267 Retrieves the top coordinate of the rectangle. @return the top coordinate value
+268 Retrieves the right coordinate of the rectangle. @return the right coordinate value
+269 Retrieves the bottom coordinate of the rectangle. @return the y-coordinate of the bottom edge
+270 Retrieves the left coordinate of the rectangle. @return left coordinate as an integer
+271 Creates an output stream for writing data to a PDF stream without filters. @return OutputStream for writing raw data @throws IOException if the stream or document is closed
+272 Prepares a string for SASL use with unassigned characters allowed. @param str input string to prepare @return normalized and validated string allowing unassigned characters
+273 Encrypts and writes data from an input stream to an output stream. @param data the InputStream containing plain bytes @param output the OutputStream to write encrypted data to @throws IOException if I/O error occurs during reading or writing
+274 Encrypts data using RC4 algorithm. @param finalKey encryption key (1-32 bytes) @param input array of bytes to encrypt @param output OutputStream for encrypted data @throws IOException if I/O error occurs
+275 Computes the PDF revision number based on version and permissions. @param version current PDF version @return computed revision number for security settings
+276 Retrieves or initializes the current access permissions for the document. @return AccessPermission object with full permissions
+277 Constructs a new PDDocument from a COSDocument. @param doc the underlying COSDocument representing the PDF
+278 Calculates the fixed offset for a cross-reference table/stream. @param objectOffset original object offset @return fixed offset or 0 if not found @throws IOException if an I/O error occurs
+279 Reads and parses a long value from the PDF source. @return parsed long value @throws IOException if parsing fails or I/O error occurs
+280 Reads and parses an integer from the PDF source. @return parsed integer value @throws IOException if reading fails or parsing error occurs
+281 Reads a string of specified length from the PDF source. @param length maximum number of characters to read @return parsed string or empty if no valid characters found @throws IOException if reading fails
+282 Reads and verifies an expected string from the PDF source. @param expectedString the string to be read @param skipSpaces flag to skip spaces before reading @throws IOException if the expected string does not match or on IO error
+283 Reads a string from the PDF source. @return the read string or an empty string if no valid characters are found @throws IOException if reading from the source fails
+284 Prepares a string for SASL use by normalizing and validating characters. @param str input string to prepare @return normalized and validated string
+285 Initializes a PDTransparencyGroup with a given stream. @param stream the PDStream containing transparency data
+286 Sets whether the COS object needs to be updated. @param flag true if update is needed, false otherwise
+287 Initializes a PDColor with components and color space. @param array COSArray containing color component values @param colorSpace the PDColorSpace for the color
+288 Parses a cross-reference table in a PDF. @param startByteOffset starting byte position of the xref section @return true if parsing is successful, false otherwise
+289 Parses cross-reference entries using the provided resolver. @param resolver object to handle parsed xref entries @throws IOException if an I/O error occurs during parsing
+290 Searches for object stream offsets in a PDF. @return Map of offsets to COSObjectKey @throws IOException if an I/O error occurs
+291 Searches for and records COS objects in a PDF. Uses EOF marker to limit search range. @throws IOException if an I/O error occurs
+292 Retrieves or creates a COSObjectKey for given object number and generation. Uses caching to improve performance for large PDFs. @param num object number @param gen generation number @return cached or newly created COSObjectKey
+293 Creates a PDMarkedContent instance based on the tag. @param tag COSName representing the content tag, can be null @param properties COSDictionary containing additional properties @return PDArtifactMarkedContent if tag is ARTIFACT, otherwise PDMarkedContent
+294 Writes CID to Unicode mappings to an output stream in CMap format. @param out destination for writing the CMap data @throws IOException if an I/O error occurs
+295 Updates the document's state to reflect changes. Calls update(boolean) with true indicating an update has occurred.
+296 Checks if the dictionary contains a key. @param name PDF name string @return true if the key is present, false otherwise
+297 Retrieves item by string key. @param key unique identifier for the item @return COSBase object or null if not found
+298 Initializes PDF text extraction with marked content operators.
+299 Initializes the PDFMarkedContentExtractor with specified encoding. Adds various operators for handling marked content sequences and objects. @param encoding character encoding for processing PDF content
+300 Retrieves a PDF filter by name. @param filterName the name of the filter to retrieve @return the Filter instance associated with the given name @throws IOException if the specified filter is invalid or not found
+301 Parses a PDF name from the source. @return COSName object representing the parsed name @throws IOException if an I/O error occurs during parsing
+302 Merges a diacritic into the text position. @param diacritic TextPosition object representing the diacritic
+303 Checks if the current TextPosition contains another TextPosition. @param tp2 the other TextPosition to check @return true if there is significant X and Y overlap, false otherwise
+304 Writes paragraph separator by ending and starting a new paragraph. @throws IOException if an I/O error occurs during writing
+305 Checks if the current TextPosition completely contains another. @param tp2 TextPosition to check against @return true if current TextPosition fully encloses tp2, otherwise false
+306 Writes a COSName to the PDF output stream. @param output OutputStream to write the name to @param cosName COSName object to be written @throws IOException if an I/O error occurs
+307 Writes a COSName operand to the PDF output stream. @param name the COSName to be written @throws IOException if an I/O error occurs
+308 Writes a byte array as a string to an OutputStream. @param bytes the byte array to write @param forceHex if true, forces writing in hexadecimal format @param output the OutputStream to write to @throws IOException if an I/O error occurs
+309 Retrieves data to be signed from the PDF document. @return InputStream containing data to sign or null if not prepared for signing @throws IOException if an I/O error occurs
+310 Applies a transformation matrix to the content stream. @param matrix the transformation matrix to apply @throws IOException if an I/O error occurs
+311 Sets the text matrix for current text state. @param matrix transformation matrix to apply @throws IOException if an I/O error occurs
+312 Initializes a new content stream for PDF appearance with optional compression. @param appearance the PDAppearanceStream to manage @param compress whether to enable compression on the output stream @throws IOException if an I/O error occurs
+313 Constructs a new PDListBox instance. @param acroForm the AcroForm containing this field @param field the COSDictionary representing the field @param parent the parent PDNonTerminalField, if any
+314 Default constructor for PDStandardAttributeObject.
+315 Constructs a new outline node with an empty dictionary.
+316 Initializes a new variable text field within a PDF form. @param acroForm the AcroForm containing this field
+317 Constructs a PDExportFormatAttributeObject wrapping a given COSDictionary. @param dictionary PDF dictionary to be wrapped
+318 Retrieves the appearance stream. @throws IllegalStateException if the entry is not a stream @return PDAppearanceStream object
+319 Adds a TrueType or OpenType font to the system. @param ttfFile file representing the font
+320 Writes byte data to a PDF appearance stream. @param data the byte array to write @param appearanceStream the target appearance stream @throws IOException if I/O operations fail
+321 Constructs a new instance of PDShadingType6. @param shadingDictionary COSDictionary containing mesh-based shading properties
+322 Constructs a new PDComboBox instance. @param acroForm the AcroForm containing this field @param field the COSDictionary representing the field @param parent the parent PDNonTerminalField, if any
+323 Initializes PDF parsing with encryption details. @param source input stream of the PDF document @param password decryption password for the PDF @param keyStore input stream of the keystore file @param keyAlias alias for the encryption key in the keystore
+324 Creates an output stream for writing data to a PDF stream without filters. @return OutputStream for writing raw data @throws IOException if the stream or document is closed
+325 Constructs Type 7 shading from dictionary. @param shadingDictionary COSDictionary with shading properties
+326 Initializes user attribute object with default owner.
+327 Default constructor for PDAttributeObject.
+328 Encrypts data using RC4 algorithm. @param finalKey encryption key for RC4 cipher @param input InputStream containing plain bytes @param output OutputStream to write encrypted data @throws IOException if I/O error occurs during processing
+329 Reads and validates an object number from the PDF source. @return parsed object number @throws IOException if parsing fails, object number is invalid, or I/O error occurs
+330 Reads and validates the generation number from a PDF. @return parsed generation number @throws IOException if reading fails or number is invalid
+331 Computes encryption key for PDF based on revision. @param password user or owner password bytes @param o owner entry bytes @param u user entry bytes @param oe owner encryption key @param ue user encryption key @param permissions document access permissions @param id document identifier @param encRevision PDF encryption revision number @param keyLengthInBytes desired key length in bytes @param encryptMetadata flag to encrypt metadata @param isOwnerPassword flag indicating if it's the owner password @return encrypted key as byte array @throws IOException if required entries are missing or encryption fails
+332 Validates user password for PDF encryption based on revision. @param password user password bytes @param user stored user entry bytes @param owner owner entry bytes @param permissions document access permissions @param id document identifier @param encRevision encryption revision number @param keyLengthInBytes desired key length in bytes @param encryptMetadata flag to encrypt metadata @return true if password matches, false otherwise @throws IOException if hash computation fails or unknown revision
+333 Finds a font by format and PostScript name, handling various naming conventions. @param format the font format to match @param postScriptName the original PostScript name of the font @return FontBoxFont instance or null if not found
+334 Converts a COSString to a Calendar instance. @param text COSString containing date information @return Calendar instance or null if input is null
+335 Sets the origin document state for this object. @param originDocumentState the new origin document state @param dereferencing indicates if dereferencing is required
+336 Sets the underlying base object to null. Updates document state if baseObject is not null.
+337 Updates the state of a COSUpdate object if its origin document state differs. @param updateState The state to be updated.
+338 Removes an item by key from the dictionary. @param key the COSName key of the item to remove
+339 Clears all key-value pairs and marks the dictionary as updated.
+340 Removes a COSBase object from the array. @param o the COSBase object to remove @return true if the object was successfully removed, false otherwise
+341 Removes and returns the element at the specified index. @param i index of the element to remove @return the removed COSBase object or null if index is out of bounds
+342 Clears all COSBase objects in the array and updates the document state.
+343 Retrieves COS object offsets from a PDF. Triggers search if not already performed. @return Map of COSObjectKey to their offsets in the PDF @throws IOException if an I/O error occurs during search
+344 Processes a TextPosition, handling duplicates and diacritics. @param text TextPosition object to process
+345 Processes a TextPosition object, handling Unicode setting and suppression of duplicate overlapping text. @param text TextPosition to be processed
+346 Creates a raw COSStream from an input stream. @param document PDDocument to add the stream to @param rawInput InputStream containing data for the stream @return COSStream with transferred data @throws IOException if I/O operations fail
+347 Initializes a PDStream with data from an InputStream. @param doc PDDocument to associate the stream with @param input InputStream containing PDF data @param filters optional COSBase filters for stream data @throws IOException if I/O operations fail
+348 Constructs a new PDStream instance by creating a COSStream in the given document. @param document the PDF document to add the stream to
+349 Initializes a new PDStream associated with a given PDDocument. @param document PDDocument to which the stream belongs
+350 Creates a new PDObjectStream within the given PDDocument. @param document PDDocument to contain the stream @return PDObjectStream instance initialized with a new COSStream
+351 Initializes a new PDFXRefStream with a given COSDocument. @param cosDocument the document to which the cross-reference stream belongs
+352 Applies padding to a rectangle. @param box original PDRectangle @param padding amount of padding to add @return new PDRectangle with applied padding
+353 Adjusts a rectangle's dimensions by applying difference values. @param rectangle the original PDRectangle to adjust @param differences array of four floats representing adjustments to x, y, width, height @return new PDRectangle with adjusted dimensions or original if differences are invalid
+354 Adjusts a rectangle's position and size based on given differences. @param rectangle original PDRectangle to modify @param differences array of 4 floats representing adjustments [left, bottom, right, top] @return new PDRectangle with adjusted dimensions or original if input is invalid
+355 Returns a new PDRectangle with added padding. @param rectangle original PDRectangle to pad @param padding amount of padding to add around the rectangle @return new PDRectangle with increased padding
+356 Calculates the difference rectangle between annotation bounds and bounding box. @return PDRectangle representing the difference or a default rectangle if annotRect is null
+357 Creates a PDRectangle from bounding box coordinates. @return PDRectangle object representing the border's dimensions
+358 Encodes an input stream using specified parameters. @param input source data stream to be encoded @param encoded destination stream for encoded output @param parameters configuration options for encoding process @param index not used in this method, likely a placeholder for future use
+359 Constructs a PDRectangle with specified dimensions at origin. @param width rectangle width @param height rectangle height
+360 Parses a hexadecimal string from the PDF source. @return COSString object representing the parsed hex data @throws IOException if parsing fails due to invalid characters or missing closing bracket
+361 Sets an integer value at a specified index. @param index position in the array @param intVal new integer value to set
+362 Initializes PDFTextStripperByArea with default settings. Disables text separation by beads.
+363 Default constructor initializes with null encoding. Uses default settings for handling marked content sequences.
+364 Initializes PDF graphics rendering engine for a given page. @param page PDPage instance to render graphics on
+365 Writes a byte array as a string to an OutputStream. @param bytes the byte array to write @param output the OutputStream to write to @throws IOException if an I/O error occurs
+366 Writes a COSString to an OutputStream. @param string the COSString to write @param output the OutputStream to write to @throws IOException if an I/O error occurs
+367 Sets a marked content point in the PDF with a given tag. @param tag COSName representing the mark tag @throws IOException if an I/O error occurs
+368 Begins a marked content sequence in the PDF. @param tag COSName identifier for the marked content @param mcid unique mark identifier, must not be negative @throws IOException if an I/O error occurs
+369 Begins marked content with a specified tag. @param tag COSName representing the content tag @throws IOException if an I/O error occurs
+370 Constructs a PDRectangle with default dimensions. Initializes rectangle at origin (0,0) with zero width and height.
+371 Parses a PDF COS dictionary value. Handles numbers and generation checks. @return parsed COSBase object or null on error @throws IOException if parsing fails due to I/O errors
+372 Saves FDF document to a file. @param fileName destination file for saving the FDF document @throws IOException if I/O error occurs during saving
+373 Initializes content stream for PDF appearance. @param appearance the PDAppearanceStream to manage @throws IOException if I/O operations fail
+374 Removes an element at the specified index. @param index position of the element to remove @throws UnsupportedOperationException if list is filtered @return removed element or null if not found
+375 Clears all entries from both the map and actuals collections.
+376 Removes an entry by key from the dictionary. Converts key to PDF name and removes from both dictionary and backing map. @param key String representation of the key to remove @return Value associated with the removed key, or null if not found
+377 Initializes PDF parsing without encryption details. @param source input stream of the PDF document @throws IOException if an I/O error occurs during initialization
+378 Initializes a content stream for an appearance stream. @param doc the PDDocument containing the appearance @param appearance the PDAppearanceStream to write to @throws IOException if initialization fails
+379 Removes an element from the list. @param o element to be removed @return true if the element was successfully removed, false otherwise @throws UnsupportedOperationException if removing from a filtered list
+380 Constructs a PDFParser for decrypting PDFs. @param source input source of the PDF document @param decryptionPassword password for decrypting the PDF @param keyStore Java KeyStore containing certificates and keys @param alias alias for the key in the KeyStore @throws IOException if an I/O error occurs
+381 Initializes a new content stream for a PDF form XObject. @param form the PDFormXObject to write to @throws IOException if an I/O error occurs
+382 Sets line width on demand, avoiding default value. @param lineWidth desired line width @throws IOException if an I/O error occurs
+383 Draws a paperclip shape on the PDF content stream. @param contentStream the appearance content stream for rendering
+384 Draws a circle on the PDF appearance content stream. @param cs the content stream to draw on @param x the center x-coordinate of the circle @param y the center y-coordinate of the circle @param r the radius of the circle @throws IOException if an I/O error occurs while drawing
+385 Draws a circle on the PDF appearance content stream. @param cs content stream to draw on @param x center x-coordinate of the circle @param y center y-coordinate of the circle @param r radius of the circle @throws IOException if an I/O error occurs
+386 Draws a diamond shape on the PDF appearance content stream. @param cs the content stream for rendering @param x the center x-coordinate of the diamond @param y the center y-coordinate of the diamond @param r the radius of the diamond @throws IOException if an I/O error occurs
+387 Draws a shape with specified line width and optional stroke/fill. @param lineWidth thickness of the shape's outline @param hasStroke whether to apply a stroke @param hasFill whether to fill the shape @throws IOException if an I/O error occurs during drawing
+388 Draws an arrow on a PDF content stream. @param cs PDF appearance content stream for rendering @param x starting x-coordinate of the arrow @param y starting y-coordinate of the arrow @param len length of the arrow @throws IOException if an I/O error occurs while drawing
+389 Validates and corrects PDF cross-reference offsets. Uses brute force if initial validation fails. @throws IOException if an I/O error occurs during processing
+390 Initializes a new PDPrintFieldAttributeObject. Sets the owner to OWNER_PRINT_FIELD by default.
+391 Writes a COSString to an OutputStream with a trailing space. @param output the OutputStream to write to @param cosString the COSString to write @throws IOException if an I/O error occurs
+392 Encrypts or decrypts PDF object data. @param objectNumber unique identifier of the PDF object @param genNumber generation number of the PDF object @param data input stream containing data to process @param output output stream for processed data @param decrypt true if decryption is required, false for encryption @throws IOException on I/O errors during processing
+393 Collects and processes COSBase objects from a COSArray. @param array the COSArray to process @return true if any descendant demands parent update, false otherwise
+394 Sets the origin document state without dereferencing. @param originDocumentState new state for the origin document
+395 Renders text in the current PDF content stream. @param text string to be rendered @throws IOException if an I/O error occurs during rendering
+396 Initializes a new PageDrawer with specified parameters. @param parameters configuration settings for rendering @throws IOException if an I/O error occurs during initialization
+397 Sets the high value in the color space array. @param high the high value to set at index 2
+398 Constructs a PDListAttributeObject with list owner.
+399 Initializes layout attributes with default owner.
+400 Constructs a PDImageXObject from an encoded stream. @param document PDF document to add the image to @param encodedStream input stream containing encoded image data @param cosFilter COSBase object representing filter @param width image width in pixels @param height image height in pixels @param bitsPerComponent number of bits per color component @param initColorSpace initial color space for the image @throws IOException if I/O operations fail
+401 Initializes a PDStream with data from an InputStream. @param doc PDDocument to associate the stream with @param input InputStream containing PDF data @param filters COSArray of filters for stream data @throws IOException if I/O operations fail
+402 Initializes a PDStream with data from an InputStream and a specific filter. @param doc PDDocument to associate the stream with @param input InputStream containing PDF data @param filter COSName specifying the filter for stream data @throws IOException if I/O operations fail
+403 Constructs a PDStream from an InputStream. @param doc PDDocument to associate the stream with @param input InputStream containing PDF data @throws IOException if I/O operations fail
+404 Initializes a PDXObject with the given document and subtype. @param document PDDocument to which the object belongs @param subtype COSName representing the subtype of the XObject
+405 Creates a new embedded file within a PDF document. @param document the PDF document to which the embedded file belongs
+406 Initializes a new PDMetadata instance for the given PDF document. @param document PDDocument to which the metadata belongs
+407 Retrieves the bounding box rectangle of the border. @return PDRectangle representing the border's dimensions
+408 Constructs an immutable rectangle with specified dimensions. @param width rectangle width @param height rectangle height
+409 Parses a COS string from the PDF source. Handles different types of strings including hex and literal. @return COSString object representing the parsed data @throws IOException if parsing fails due to invalid characters or syntax
+410 Sets the page number for the destination. @param pageNumber target page number to set
+411 Initializes table attribute object with default owner.
+412 Constructs a PDImageXObject from a PDDocument. Initializes with a new PDStream and no resources. @param document the PDDocument containing image data
+413 Validates user password for PDF encryption. @param password user password string @param user stored user entry bytes @param owner owner entry bytes @param permissions document access permissions @param id document identifier @param encRevision encryption revision number @param keyLengthInBytes desired key length in bytes @param encryptMetadata flag to encrypt metadata @return true if password matches, false otherwise @throws IOException if hash computation fails or unknown revision
+414 Saves FDF document to specified file path. @param fileName destination file path for saving the FDF document @throws IOException if I/O error occurs during saving
+415 Writes the content of a PDF page to an output stream, handling text extraction and layout. This method processes each article on the page, sorts text positions if required, and then iterates through the sorted or unsorted list of TextPositions. It uses various strategies to determine word boundaries, including space character width, average character width, and position overlap checks. The extracted text is organized into lines and paragraphs, which are then written out using the provided writeLine and writeParagraphStart methods. The method also handles special cases such as superscript/subscript text and RTL (right-to-left) text direction. @throws IOException If an I/O error occurs during text extraction or writing.
+416 Parses input text into an instruction sequence. @param text the text to be parsed @return the resulting InstructionSequence object
+417 Validates PDF owner password based on encryption revision. @param ownerPassword document owner's password bytes @param user stored user entry bytes @param owner owner entry bytes @param permissions document access permissions @param id document identifier @param encRevision encryption revision number @param keyLengthInBytes desired key length in bytes @param encryptMetadata flag to encrypt metadata @return true if password matches, false otherwise @throws IOException for unknown encryption revision
+418 Finds a FontBoxFont by PostScript name, checking various font formats. @param postScriptName the original PostScript name of the font @return FontBoxFont instance or null if not found
+419 Initializes a PDEmbeddedFile with data from an InputStream. @param doc PDDocument to associate the embedded file with @param input InputStream containing file data @param filter COSName specifying the filter for stream data @throws IOException if I/O operations fail
+420 Constructs a PDEmbeddedFile from an InputStream. @param doc PDDocument to associate the embedded file with @param str InputStream containing the embedded file data @throws IOException if I/O operations fail
+421 Displays text at the current position in the PDF. @param text string to be displayed @throws IOException if an I/O error occurs during display
+422 Constructs a PDFormXObject. @param document PDDocument to which the form XObject belongs
+423 Creates a PageDrawer with specified parameters and annotation filter. @param parameters configuration settings for rendering @return configured PageDrawer instance @throws IOException if an I/O error occurs during initialization
+424 Writes text with positioning to PDF content stream. @param textWithPositioningArray array of Float and String objects representing text and positions @throws IOException if an I/O error occurs during writing
+425 Writes a COSBase object as a token to the PDF output stream. @param base the COSBase object to write @throws IOException if an I/O error occurs
+426 Initializes PDMetadata with a PDF document and input stream. @param doc PDDocument to associate the metadata with @param str InputStream containing metadata XML data @throws IOException if I/O operations fail
+427 Prepares a PDImageXObject from byte array. @param document PDF document to add the image to @param byteArray input image data @param width image width in pixels @param height image height in pixels @param bitsPerComponent number of bits per color component @param initColorSpace initial color space for the image @return PDImageXObject instance ready for PDF inclusion @throws IOException if I/O operations fail
+428 Initializes FDF parsing with specified input source. @param source input stream of the FDF document @throws IOException if an I/O error occurs during initialization
+429 Constructs a PDFParser for decrypting PDFs using a password. @param source input source of the PDF document @param decryptionPassword password for decrypting the PDF @throws IOException if an I/O error occurs
+430 Draws annotation style on PDF content stream. @param style type of annotation style to draw @param cs PDF appearance content stream for rendering @param x starting x-coordinate @param y starting y-coordinate @param width size factor for shape dimensions @param hasStroke whether to apply a stroke @param hasBackground whether to fill the background @param ending direction flag for arrow styles @throws IOException if an I/O error occurs during drawing
+431 Writes text from defined regions in a PDF page. Iterates over each region, extracts and writes corresponding text. @throws IOException If an I/O error occurs during processing
+432 Validates PDF owner password. @param password document owner's password as string @param user stored user entry bytes @param owner owner entry bytes @param permissions document access permissions @param id document identifier @param encRevision encryption revision number @param keyLengthInBytes desired key length in bytes @param encryptMetadata flag to encrypt metadata @return true if password matches, false otherwise @throws IOException for unknown encryption revision
+433 Constructs a PDExportFormatAttributeObject with specified owner. @param owner the owner of the export format attributes
+434 Initializes the FileSystemFontProvider with a given FontCache. Scans for font files, loads cached info if available, otherwise builds and saves cache. @param cache FontCache to manage font information
+435 Decrypts a COSString using specified PDF object details. @param string the encrypted COSString to decrypt @param objNum unique identifier of the PDF object @param genNum generation number of the PDF object @return decrypted COSBase object or original if decryption fails
+436 Encrypts a PDF string. @param string the COSString to encrypt @param objNum unique identifier of the PDF object @param genNum generation number of the PDF object @return encrypted COSString @throws IOException on I/O errors during encryption
+437 Updates the document state and handles child updates. @param child object to be updated
+438 Collects and processes COSBase objects for PDF updates. @param base the COSBase object to process @return true if processed, false otherwise
+439 Retrieves the underlying COSBase object. Handles dereferencing and update state management. @return COSBase object or null if not available
+440 Sets the document's trailer dictionary. @param newTrailer the new trailer dictionary to set
+441 Encrypts a PDF COSStream. @param stream the COSStream to encrypt @param objNum unique identifier of the PDF object @param genNum generation number of the PDF object @throws IOException on I/O errors during encryption
+442 Decrypts a PDF stream. @param stream the COSStream to decrypt @param objNum object number @param genNum generation number @throws IOException if decryption fails
+443 Initializes a new PDTransparencyGroup with the given PDDocument. @param document The PDDocument to associate with this transparency group.
+444 Retrieves the key associated with a given value in the dictionary. @param value the value to look up @return COSName key or null if not found
+445 Adds a COSBase object at the specified index. Wraps in COSObject if it's a dictionary or array and not direct. @param i index where to add the object @param object COSBase object to be added
+446 Checks if the dictionary contains a mapping for the specified value. Handles both direct and indirect (COSObject) references. @param value value whose presence in this map is to be tested @return true if this map maps one or more keys to the specified value
+447 Constructs a PDAppearanceStream. @param document PDDocument to which the appearance stream belongs
+448 Updates document state using an array of child objects. @param children COSArray containing child objects to be updated
+449 Sets an item in the dictionary with a specified key and value. @param key unique identifier for the item @param value data to store in the dictionary
+450 Sets an element at the specified index. @param index position in the array @param object COSBase object to set
+451 Adds a COSBase object to the array. Handles direct and indirect objects, updating document state accordingly. @param object the COSBase object to add
+452 Creates a PDImageXObject from a BufferedImage encoded as JPEG. @param document PDF document to add the image to @param image source image to encode @param quality compression quality (0-100) @param dpi dots per inch for metadata @return PDImageXObject containing the encoded JPEG image @throws IOException if I/O operations fail
+453 Constructs a PDFParser for parsing PDFs without decryption. @param source input source of the PDF document @throws IOException if an I/O error occurs
+454 Collects and processes COSObjects for PDF updates. @param object the COSObject to process @return false, always (does not affect collection status)
+455 Retrieves the set of COSBase objects. Initializes by collecting objects from origin if not already done. @return Set of COSBase objects managed by this instance
+456 Prepares a stream object for writing. @param key unique identifier for the object @param object the COSBase object to prepare
+457 Checks if the pool contains a specified COSBase object. @param object the COSBase object to check @return true if the object is in the pool, false otherwise
+458 Retrieves the COSObjectKey for a given COSBase object. @param object the COSBase object to find the key for @return COSObjectKey associated with the object or null if not found
+459 Constructs a NormalXReference instance. @param byteOffset byte offset of the referenced object @param key unique identifier for the COSObject @param object the underlying COSBase object
+460 Checks if a COSBase object has a self-reference. @param parent the parent COSBase object @param value the COSBase value to check @return true if self-reference exists, otherwise false
+461 Accepts a visitor to process the underlying COSBase object. @param visitor ICOSVisitor instance for processing @throws IOException if an I/O error occurs during processing
+462 Closes the document and all associated streams. Ensures resources are released and logs any exceptions.
+463 Retrieves the linearized dictionary from the PDF document. @return COSDictionary representing the linearization info or null if not found
+464 Retrieves a value from the dictionary by key. Handles dereferencing and null conversion. @param key the key for the desired object @return the COSBase object or null if not found
+465 Retrieves a COSBase object by index. Handles dereferencing and null conversion. @param index position of the object in the array @return COSBase object or null if not available
+466 Retrieves the length as a COSNumber from the given base object. Handles direct and referenced objects, logging warnings for null lengths. @param lengthBaseObj the base object containing the length information @return COSNumber representing the length or null if not found @throws IOException if the length object is of an incorrect type
+467 Finds the index of a COSBase object in the array. @param object the COSBase object to search for @return index of the object or -1 if not found
+468 Collects COSDictionary objects for updates. @param dictionary the COSDictionary to process @return true if child demands parent update, false otherwise
+469 Removes a COSBase object from the array, handling indirect references. @param o the COSBase object to remove @return true if the object was successfully removed, false otherwise
+470 Retrieves or generates a unique key for a given PDF object. Handles COSObject references and updates keys if necessary. @param obj the PDF object to process @return the unique COSObjectKey associated with the object

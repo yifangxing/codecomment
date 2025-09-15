@@ -1,0 +1,160 @@
+1 Finds the first element matching the predicate. @param predicate condition to test elements @return Optional containing the first matching element or empty if none found
+2 Creates a precomputed character matcher. Uses BitSet to efficiently represent character sets. Returns a positive or negated matcher based on character count.
+3 Rethrows a throwable as a runtime exception. @param e the throwable to rethrow @param declaredType1 first checked exception type @param declaredType2 second checked exception type @throws IOException if the original throwable is an IOException @throws X1 if the original throwable matches declaredType1 @throws X2 if the original throwable matches declaredType2
+4 Writes byte array to an output stream. @param bytes data to be written @throws IOException if an I/O error occurs
+5 Writes data from an InputStream to this output. @param input the stream to read from @return number of bytes copied @throws IOException if an I/O error occurs
+6 Checks if the stream is empty. @return true if the stream has no content, false otherwise @throws IOException if an I/O error occurs
+7 Returns the size of the stream, first by skipping if possible, then by reading. @throws IOException if an I/O error occurs
+8 Copies contents to an OutputStream. @param output the target OutputStream @return number of bytes copied @throws IOException if I/O error occurs
+9 Copies content to a sink. @param sink destination for the copied bytes @return number of bytes copied @throws IOException if an I/O error occurs
+10 Reads data from an input stream and returns it as a byte array. @return byte array containing the read data @throws IOException if an I/O error occurs
+11 Reads bytes using a processor. @param processor to process the bytes @return result of processing or null if not applicable @throws IOException on I/O error
+12 Compares content of this source with another. @param other the ByteSource to compare against @return true if contents are equal, false otherwise @throws IOException if an I/O error occurs
+13 Writes a character sequence to an output stream. @param charSequence the sequence of characters to write @throws IOException if an I/O error occurs
+14 Writes content from a Readable to an output stream. @param readable source of characters to write @return number of characters copied @throws IOException if an I/O error occurs
+15 Returns the length of the stream. @return length in bytes @throws IOException if an I/O error occurs
+16 Copies content to an Appendable. @param appendable destination for copied content @return number of characters copied @throws IOException if an I/O error occurs
+17 Copies content to a sink. @param sink destination for the copied content @return number of characters copied @throws IOException if an I/O error occurs
+18 Reads the first line from a resource. @return the first line of the resource or null if empty @throws IOException if an I/O error occurs
+19 Reads lines using a LineProcessor. @param processor processes each line and returns a result @return result from the processor or null if not applicable @throws IOException if an I/O error occurs
+20 Checks if the stream is empty. @return true if the stream has no content, false otherwise @throws IOException if an I/O error occurs
+21 Expands the hash table by doubling its capacity. Reclassifies entries to new bins with power-of-two offset.
+22 Filters keys in a multimap based on a predicate. @param <K> key type @param <V> value type @param unfiltered original multimap to filter @param keyPredicate predicate for key filtering @return new multimap with filtered keys
+23 Filters entries in a multimap by value. @param unfiltered the original multimap to filter @param valuePredicate predicate for filtering values @return a new multimap with filtered entries
+24 Filters entries in a multimap based on a predicate. @param unfiltered the original multimap to filter @param entryPredicate predicate for filtering entries @return a new multimap with filtered entries
+25 Creates an iterator for unique column keys sorted by comparator. @return Iterator of unique column keys
+26 Creates an immutable bimap from an iterable of entries. @param entries iterable containing key-value pairs @return ImmutableBiMap created from the entries
+27 Creates an immutable map from iterable entries. @param entries iterable of key-value pairs @return ImmutableMap containing the provided entries
+28 Converts an Iterable to a typed array. @param iterable source Iterable @param type array element class @return array containing elements of the Iterable
+29 Creates an immutable sorted set from elements with a specified comparator. @param comparator the comparator to use for ordering elements @param elements the iterable source of elements @return an ImmutableSortedSet containing the sorted elements
+30 Performs binary search on a list using a key function and comparator. @param list the list to search @param keyFunction extracts key from elements @param key the key to find @param keyComparator comparator for keys @param presentBehavior behavior when key is found @param absentBehavior behavior when key is not found @return index of key or insertion point if not found
+31 Removes all values associated with the given key. @param key the key whose mappings are to be removed @return list of removed values, or empty list if key not found
+32 Transforms values of a NavigableMap using a given function. @param fromMap original map with keys of type K and values of type V1 @param function transformation function mapping V1 to V2 @return new NavigableMap with transformed values
+33 Removes a mapping from the data structure. @param rowKey key identifying the row @param columnKey key identifying the column @param value value to be removed @return true if removed, false if not found
+34 Creates a synchronized list multimap. @param multimap the original list multimap to wrap @return a synchronized version of the input multimap
+35 Returns a thread-safe set multimap backed by the specified multimap. @param multimap the multimap to be wrapped @return synchronized SetMultimap instance
+36 Converts Readable to String. @param r Readable object to convert @return String representation of Readable content @throws IOException if an I/O error occurs
+37 Catches exceptions and provides a fallback value. @param exceptionType type of exception to catch @param fallback function to compute fallback result @param executor executor for fallback computation @return FluentFuture with result or fallback value
+38 Transforms the future's result using a given function. @param function to apply to the future's result @param executor for executing the transformation @return FluentFuture with transformed result
+39 Creates a directed graph builder. @return GraphBuilder configured for directed graphs
+40 Creates an undirected graph builder. @return GraphBuilder configured for undirected graphs
+41 Creates a GraphBuilder from an existing Graph. @param graph the source graph to copy properties from @return GraphBuilder with copied properties
+42 Creates a directed network builder. @return NetworkBuilder configured for directed networks
+43 Creates an undirected network builder. @return NetworkBuilder configured for undirected networks
+44 Creates a NetworkBuilder from an existing network. @param network the source network to copy properties from @return NetworkBuilder with copied configuration and orders
+45 Creates a builder for a directed value graph. @return ValueGraphBuilder configured for directed graphs
+46 Creates an undirected graph builder. @return ValueGraphBuilder configured for undirected graphs
+47 Creates a ValueGraphBuilder from an existing graph. @param graph the source graph to copy properties from @return a new ValueGraphBuilder with the same properties as the input graph
+48 Adds a listener with an associated executor. @param listener the listener to be added @param executor the executor to run the listener on
+49 Creates an empty CompactLinkedHashSet. @return An empty CompactLinkedHashSet instance
+50 Creates a CompactHashSet from the given collection. @param collection elements to add to the set @return CompactHashSet containing all elements from the input collection
+51 Creates a CompactLinkedHashSet with an initial capacity. @param expectedSize the expected number of elements in the set @return a new CompactLinkedHashSet instance
+52 Creates a new SortedSetMultimap from a given map and supplier. @param map initial map with keys and collections of values @param factory supplier for creating sorted sets @return SortedSetMultimap instance
+53 Creates an immutable multiset collector. @return Collector that accumulates elements into an ImmutableMultiset
+54 Converts a stream to an ImmutableMultiset. @param elementFunction extracts elements from input objects @param countFunction determines the count for each element @return ImmutableMultiset containing elements and their counts
+55 Creates a new instance of Builder. @param <E> element type for the builder @return Builder instance
+56 Joins array elements into a single string. @param parts array of objects to be joined @return concatenated string of array elements
+57 Joins elements using provided Joiner. @param joiner object to handle joining logic @return joined string result
+58 Simplifies a given pathname. @param pathname the path to simplify @return simplified canonical path
+59 Parses encoded trie data into a builder map. @param stack used to track path in the trie @param encoded input string containing trie data @param start index to begin parsing from @param builder map to store parsed suffixes and types @return number of characters processed
+60 Creates a concurrent map. @return ConcurrentMap instance based on configuration
+61 Transforms elements and concatenates results. @param function transformation function converting each element to an iterable @return concatenated FluentIterable of transformed elements
+62 Concatenates multiple Iterables into one. @param inputs variable number of Iterable objects @return a single Iterable containing all elements from inputs
+63 Retrieves value with a timeout. @param timeout time to wait before timing out @param unit unit of time for the timeout @return value if available within timeout, otherwise throws exception @throws InterruptedException if interrupted while waiting @throws TimeoutException if operation times out @throws ExecutionException if execution fails
+64 Adds a node to the graph. @param node node to be added @return GraphConnections for the added node
+65 Enters if condition is met within specified time. @param guard condition to evaluate @param time maximum wait time @return true if entered, false otherwise
+66 Converts string to specified case format. @param format target case format @param s input string to convert @return converted string in the specified format
+67 Converts a string to a specified case format. @param format target case format @param s input string to convert @return converted string in the specified case format
+68 Converts a string from one case format to another. @param format target case format for conversion @param s input string to be converted @return converted string in the specified case format
+69 Converts a string from one case format to another. @param format target case format @param str input string @return converted string in the specified format
+70 Checks if none of the patterns match the given sequence. @param sequence the input string to check @return true if no pattern matches, false otherwise
+71 Removes all occurrences of matching characters from the input sequence. @param sequence the input character sequence @return a new string with matched characters removed
+72 Replaces first occurrence and all matching characters in a sequence. @param sequence the input character sequence @param replacement the character to replace matches with @return modified string with replacements
+73 Extracts embedded IPv4 address from an IPv6 address. @param ip the IPv6 address to process @return the embedded Inet4Address or throws exception if none found
+74 Reads bytes into a buffer and updates a hasher. @param bytes destination buffer @param off starting offset in the buffer @param len maximum number of bytes to read @return number of bytes read, or -1 if end of stream @throws IOException if an I/O error occurs
+75 Reads fully from input stream into byte array. @param in InputStream to read from @param b byte array to store data
+76 Rotates elements of the boolean array. @param array the array to be rotated @param distance number of positions to rotate
+77 Rotates elements of the byte array. @param array the array to be rotated @param distance number of positions to rotate
+78 Sorts byte array in descending order. @param array the array to be sorted
+79 Sorts characters in an array in descending order. @param array char array to be sorted
+80 Rotates elements of a character array. @param array the array to be rotated @param distance the number of positions to rotate
+81 Sorts an array of doubles in descending order. @param array array to be sorted
+82 Rotates elements of an array by a specified distance. @param array the array to be rotated @param distance number of positions to rotate elements
+83 Sorts an array of floats in descending order. @param array the float array to be sorted
+84 Rotates elements of an array. @param array the array to be rotated @param distance number of positions to rotate
+85 Sorts an integer array in descending order. @param array the array to be sorted
+86 Rotates elements of the array to the right by the given distance. @param array the array to be rotated @param distance number of positions to rotate
+87 Sorts an array in descending order. @param array the array to be sorted
+88 Rotates elements of the array to the right by the given distance. @param array the array to be rotated @param distance number of positions to rotate elements
+89 Sorts short array in descending order. @param array array of shorts to be sorted
+90 Rotates elements of the array to the right by the given distance. @param array the array to be rotated @param distance number of positions to rotate the array
+91 Sets the key-value separator. @param separator character used to separate keys and values @return MapSplitter instance with specified separator
+92 Creates a rate limiter with specified permits per second and warmup period. @param permitsPerSecond number of permits issued per second @param warmupPeriod duration of the warmup period for new permits @param unit time unit for the warmup period @return RateLimiter instance configured with given parameters
+93 Returns an unmodifiable view of the specified sorted multiset. @param sortedMultiset the sorted multiset to wrap @return an unmodifiable SortedMultiset backed by the specified multiset
+94 Returns an unmodifiable view of the specified navigable set. @param set the navigable set to wrap @return an unmodifiable navigable set
+95 Returns an unmodifiable view of the specified collection of map entries. @param entries collection of map entries to be made unmodifiable @return unmodifiable collection of map entries
+96 Returns an unmodifiable view of the specified sorted set multimap. @param delegate the original sorted set multimap to wrap @return an unmodifiable SortedSetMultimap instance
+97 Wraps a future to ensure its resource is closed. @param future the original ListenableFuture @param closingExecutor executor for closing resources @return ClosingFuture that will close the resource
+98 Adds a callback to be executed upon completion. @param callback the callback to execute @param executor the executor to use for running callbacks
+99 Creates an EnumBiMap with specified key and value types. @param keyType the Enum class for keys @param valueType the Enum class for values @return a new EnumBiMap instance
+100 Creates an EnumHashBiMap with specified key type. @param keyType enum class for keys @return EnumHashBiMap instance
+101 Creates a TreeMultiset from an iterable of comparable elements. @param elements the iterable containing elements to add @return a TreeMultiset with the provided elements
+102 Constructs a new builder with a specified comparator. @param comparator the comparator to use for ordering elements
+103 Replaces values associated with a key. @param key the key to update @param values new values to associate with the key @return the previous set of values associated with the key
+104 Replaces all values associated with a key. @param key key whose values are to be replaced @param values new values to associate with the key @return previous values associated with the key or empty set if none
+105 Creates a HashMultiset from an iterable of elements. @param elements the iterable to add to the multiset @return a new HashMultiset containing the elements
+106 Creates a new ArrayListMultimap with specified key and value capacities. @param expectedKeys estimated number of unique keys @param expectedValuesPerKey estimated average number of values per key @return an empty ArrayListMultimap with the given capacity estimates
+107 Creates a HashMultimap with specified capacity. @param expectedKeys number of keys expected @param expectedValuesPerKey average number of values per key @return initialized HashMultimap instance
+108 Creates a HashMultimap from another Multimap. @param multimap source Multimap to copy keys and values from @return a new HashMultimap containing the same key-value pairs as the input
+109 Creates a LinkedListMultimap with an initial capacity. @param expectedKeys estimated number of keys to store @return LinkedListMultimap instance
+110 Creates a LinkedHashMultiset from an iterable of elements. @param elements the source of elements to add to the multiset @return a new LinkedHashMultiset containing the elements
+111 Creates a new LinkedHashMultimap with default capacities. @return LinkedHashMultimap instance initialized with default settings
+112 Creates a LinkedHashMultimap with specified capacities. @param expectedKeys expected number of keys @param expectedValuesPerKey expected number of values per key @return new LinkedHashMultimap instance
+113 Constructs a new network using the provided builder. @param builder NetworkBuilder instance to configure the network
+114 Constructs a graph with specified properties. @param builder configuration for graph creation
+115 Adds a cell to the table. @param cell the cell to add @return the builder instance
+116 Adds an entry to the map. @param entry key-value pair to add @return current builder instance for chaining
+117 Adds all entries from the given iterable to the builder. @param entries iterable of key-value pairs to add @return this builder instance
+118 Adds an entry to the map. @param entry key-value pair to add @return this builder instance for method chaining
+119 Returns an immutable multimap view of the map. @return ImmutableSetMultimap representation of the map
+120 Builds and returns an immutable sorted map. @return ImmutableSortedMap containing key-value pairs
+121 Adds all entries from another RangeMap. @param rangeMap source of entries to add @return this Builder instance
+122 Adds all ranges from an iterable to the builder. @param ranges iterable of Range objects to add @return current Builder instance
+123 Finds intersections of given range with stored ranges. @param range the range to intersect with stored ranges @return list of intersecting ranges or empty list if none found
+124 Creates a contiguous set from a range and domain. @param <C> type of elements, must extend Comparable @param range the range defining the set bounds @param domain the discrete domain for the set @return ContiguousSet representing the specified range within the domain
+125 Combines a range with an existing map entry if conditions are met. @param range the range to potentially combine @param value the value to match in the entry @param entry the map entry to check for combination @return combined Range or original range if not combinable
+126 Converts to an ImmutableSortedSet of values within the discrete domain. @param domain discrete domain defining value bounds @return ImmutableSortedSet containing all values in the range set
+127 Creates an immutable map from the given map using Enum keys. @param map input map with Enum keys and values @return ImmutableEnumMap containing entries from the input map
+128 Returns an immutable map of rows. @return ImmutableMap where key is row type R and value is a map of column C to value V
+129 Returns an unmodifiable iterator over elements in reverse order. @return Iterator<E> iterating from last to first element
+130 Builds an immutable list from contents. @return ImmutableList containing elements or empty if none
+131 Converts an array to an immutable list. @param elements array of elements to convert @return ImmutableList containing the elements
+132 Builds an immutable sorted set from elements. @return ImmutableSortedSet containing sorted unique elements
+133 Creates an immutable map from entries. @param n number of entries @param entryArray array of key-value entries @param throwIfDuplicateKeys flag to throw exception on duplicate keys @return ImmutableMap with entries or nulls for deleted duplicates
+134 Finds suffix index matching desired type. @param desiredType the PublicSuffixType to match @return index of matching suffix or NO_SUFFIX_FOUND if none found
+135 Creates an immutable set from iterable elements. @param elements the source of enum elements @return ImmutableSet containing the enum elements
+136 Returns an unmodifiable iterator over elements. @return Iterator providing access to elements without modification
+137 Posts an event to all registered subscribers. @param event the event to be posted
+138 Attempts to crossover and bubble up an element. @param removeIndex index of the element to be removed @param vacated index of the vacated position @param toTrickle element to be bubbled up @return MoveDesc with moved element and parent, or null if no move occurs
+139 Returns the comparator for row keys. @deprecated Use requireNonNull(this.rowKeySet().comparator()) instead
+140 Returns a synchronized (thread-safe) navigable set. @param navigableSet the navigable set to be wrapped @return a synchronized navigable set
+141 Creates a Bloom filter with the specified parameters. @param funnel defines how to "funnel" elements into bits @param expectedInsertions estimated number of insertions @param fpp false positive probability @return BloomFilter instance
+142 Creates a Bloom filter with default error rate. @param funnel defines how to extract bytes from items @param expectedInsertions estimated number of insertions @return BloomFilter instance with 3% error rate
+143 Estimates the number of elements added to a Bloom filter. @return Approximate count of unique elements
+144 Collects the k smallest elements based on a comparator. @param k number of least elements to collect @param comparator comparator for element ordering @return Collector that gathers least k elements
+145 Returns the k smallest elements from the iterator. @param iterator source of elements to process @param k number of smallest elements to return @return list containing the k smallest elements
+146 Adds all elements from the given iterable to this collection. @param elements iterable containing elements to add
+147 Converts value to string representation. @return String representation of unsigned long value
+148 Prepares to acquire a lock. @param lock the lock to be acquired
+149 Transforms the result of the future using the given function. @param function transformation function applied to the future's result @param executor executor for asynchronous execution @return ClosingFuture with transformed result
+150 Transforms the future's result asynchronously. @param function transformation function to apply @param executor executor for asynchronous execution @return ClosingFuture with transformed result
+151 Retrieves result from a Future, throwing an exception if necessary. @param future the Future to retrieve the result from @param exceptionClass class of the exception to throw on failure @return result of the Future @throws X if the Future fails with an exception of type X
+152 Retrieves the result of a future with a specified timeout. @param future the Future object to retrieve the result from @param exceptionClass class of the exception to throw if the future fails @param timeout maximum time to wait for the future to complete @return the result of the future or throws an exception @throws X if the future fails or times out
+153 Reschedules a task and returns a cancellable future. @return Cancellable object representing the scheduled task
+154 Notifies the service has started. Updates state and handles shutdown if necessary.
+155 Starts all services asynchronously. @return this ServiceManager instance
+156 Attempts to acquire a permit within a specified duration. @param guard condition to check before acquiring the permit @param time maximum time to wait for the permit @return true if permit acquired, false otherwise @throws InterruptedException if interrupted while waiting
+157 Attempts to acquire a lock uninterruptibly within a specified time. @param guard the lock object to attempt acquisition on @param time maximum duration to wait for the lock @return true if the lock was acquired, false otherwise
+158 Waits for a condition defined by a Guard within a specified time. @param guard the condition to wait for @param time the maximum time to wait @return true if the condition is met, false otherwise @throws InterruptedException if the current thread is interrupted
+159 Waits uninterruptibly until the guard condition is met or timeout expires. @param guard condition to wait for @param time maximum duration to wait @return true if guard condition is met, false on timeout
+160 Applies a timeout to the future. @param timeout duration for the timeout @param scheduledExecutor executor service for scheduling @return FluentFuture with applied timeout

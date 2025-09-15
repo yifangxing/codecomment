@@ -1,0 +1,46 @@
+1 Wraps ThreadPoolExecutor with exiting behavior. @param executor existing ThreadPoolExecutor instance @return ExecutorService with enhanced shutdown capabilities
+2 Wraps an ExecutorService with a termination timeout. @param executor the ThreadPoolExecutor to wrap @param terminationTimeout maximum time to wait for tasks to complete @return ExecutorService that exits after timeout
+3 Wraps a ScheduledThreadPoolExecutor to create an exiting scheduled executor service. @param executor the ScheduledThreadPoolExecutor to wrap @return ScheduledExecutorService with enhanced shutdown behavior
+4 Wraps a ScheduledThreadPoolExecutor with an exiting service. @param executor the executor to wrap @param terminationTimeout maximum time to wait for termination @return ScheduledExecutorService that exits on shutdown
+5 Evicts entries to maintain segment weight limit. @param newest the most recently added entry
+6 Waits until the system is healthy within a specified timeout. @param timeout maximum time to wait @throws TimeoutException if health check times out
+7 Converts service startup times to durations. @return Immutable map of services to their startup durations
+8 Retrieves annotations of a specific type. @param annotationType the Class object corresponding to the annotation type @return an array of annotations of the specified type, or an empty array if none found
+9 Creates a new reentrant lock with the specified name. @param lockName name of the lock @return ReentrantLock instance
+10 Creates a new ReentrantReadWriteLock with the specified name. @param lockName identifier for the lock @return ReentrantReadWriteLock instance
+11 Validates syntax of command parts. @param parts list of command components @return true if all parts are syntactically correct, false otherwise
+12 Registers a listener for specific events. @param listener object with methods annotated as subscribers
+13 Unregisters listener from all subscribed events. @param listener object whose subscriptions are to be removed
+14 Returns an ImmutableNetwork builder. @param <N1> node type extending N @param <E1> edge type extending E @return ImmutableNetwork.Builder instance
+15 Creates an induced subgraph from the given graph using specified nodes. @param graph original graph to extract subgraph from @param nodes iterable of nodes to include in the subgraph @return MutableGraph containing only the specified nodes and their edges
+16 Creates a mutable copy of the given graph. @param graph original graph to be copied @return new MutableGraph instance with same nodes and edges
+17 Creates an immutable value graph builder. @param <N1> node type extending N @param <V1> value type extending V @return ImmutableValueGraph.Builder instance
+18 Filters a bi-map based on an additional entry predicate. @param map the original filtered bi-map @param entryPredicate the predicate to apply for filtering entries @return a new filtered bi-map with combined predicates
+19 Filters entries in a navigable map based on a predicate. @param unfiltered the original navigable map @param entryPredicate predicate to filter entries @return a new navigable map with filtered entries
+20 Filters entries in a sorted map based on a predicate. @param unfiltered the original sorted map @param entryPredicate predicate to test each entry @return a filtered sorted map with only matching entries
+21 Filters map entries by value predicate. @param unfiltered input map to filter @param valuePredicate predicate for filtering values @return new map with filtered entries
+22 Converts a stream to an ImmutableMap. @param keyFunction function extracting map keys @param valueFunction function extracting map values @param mergeFunction resolves conflicts between duplicate keys @return Collector for ImmutableMap
+23 Converts a stream of objects to an ImmutableRangeMap. @param keyFunction function to extract the range key from each object @param valueFunction function to extract the value from each object @return ImmutableRangeMap with ranges as keys and corresponding values
+24 Creates an immutable sorted multiset from iterable elements using natural ordering. @param elements the iterable source of elements @return ImmutableSortedMultiset with sorted elements
+25 Builds an immutable sorted multiset from contents. @return ImmutableSortedMultiset containing elements from contents
+26 Creates a wildcard type with an upper bound. @param upperBound the upper bound of the wildcard @return a WildcardType instance representing <? extends upperBound>
+27 Creates a wildcard type with a specified lower bound. @param lowerBound the lower bound of the wildcard @return WildcardType representing '? super lowerBound'
+28 Generates ordered permutations of elements. @param elements iterable collection of elements to permute @param comparator defines the order of elements @return collection of lists representing ordered permutations
+29 Converts delegate collection to a sorted immutable list. @param comparator sorting criteria for elements @return ImmutableList of sorted elements
+30 Creates an immutable list from the given collection. @param elements the collection of elements to copy @return an ImmutableList containing the elements
+31 Builds an immutable bimap. @return ImmutableBiMap instance
+32 Builds an immutable map. Throws an exception if any builder constraints are violated. @return ImmutableMap instance
+33 Builds an immutable map keeping only the last occurrence of each key. @return ImmutableMap with unique keys, preferring later values
+34 Returns entries with keys less than specified key. @param toKey upper bound (exclusive) @return ImmutableSortedMap containing entries up to but not including toKey
+35 Returns a submap from fromKey (inclusive) to toKey (inclusive). @param fromKey lower bound key @param fromInclusive true if fromKey is inclusive @param toKey upper bound key @param toInclusive true if toKey is inclusive @return ImmutableSortedMap containing the specified range of keys
+36 Returns a view of the portion of this map whose keys are greater than or equal to fromKey. @param fromKey lower bound key (inclusive) @return ImmutableSortedMap containing keys >= fromKey
+37 Creates an immutable sorted map from iterable entries using natural ordering. @param entries iterable of key-value pairs @return ImmutableSortedMap with entries sorted by keys
+38 Creates an immutable sorted map from the given map using natural ordering. @param map source map to be copied @return ImmutableSortedMap with entries sorted by natural order
+39 Creates an immutable sorted map from the given map and comparator. @param map the input map to copy entries from @param comparator the comparator for ordering keys @return an ImmutableSortedMap with entries sorted by the comparator
+40 Computes the Cartesian product of given sets. @param sets list of sets to compute the product @return set of lists representing the Cartesian product
+41 Removes the first occurrence of the specified element. @param target the element to be removed @return true if the element is found and removed, false otherwise
+42 Removes and returns the element at the specified index. @param index position of the element to remove @return removed element
+43 Creates an immutable set from the given iterable. @param elements the iterable to copy elements from @return an ImmutableSet containing the elements of the iterable
+44 Creates an Invokable for a constructor. @param constructor the Constructor to wrap @return Invokable representing the constructor with resolved types
+45 Checks if the current type is a subtype of the specified supertype. @param supertype the type to compare against @return true if this type is a subtype, false otherwise
+46 Creates an Invokable for a given method. @param method the Method to be wrapped @return Invokable object representing the method

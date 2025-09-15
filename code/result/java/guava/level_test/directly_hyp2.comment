@@ -1,0 +1,588 @@
+1 Creates an Optional instance with the given non-null reference value. @param reference non-null object to be wrapped @return Optional containing the reference or empty if null
+2 Creates an unstarted stopwatch instance tied to the specified Ticker. @param ticker Ticker instance associated with the stopwatch
+3 Finds index of first element in iterable that satisfies given predicate. @param iterable collection of elements to search @param predicate condition for element to match @return index of matching element or -1 if not found
+4 Finds if at least one element in an iterator matches a given predicate. @param iterator iterable source of elements @param predicate condition to test each element against @return true if any element satisfies the predicate, false otherwise
+5 Creates a multimap builder with natural ordering for values. @return SortedSetMultimapBuilder instance
+6 Converts a collection to an immutable table with specified functions. @param rowFunction function to map each element to its row key @param columnFunction function to map each element to its column key @param valueFunction function to map each element to its table value @param mergeFunction function to merge table values in case of duplicate keys
+7 Creates a predicate that checks equivalence to the given target object. @param target object to compare against
+8 Creates a function from a map with default values. @param map input map @param defaultValue value to return for missing keys
+9 Composes two functions, applying the first (f) to input A and then passing result to second function (g). @param g second function in composition @param f first function in composition @return composed function with signature Function<A, C>
+10 Converts a map to a function. @param map input map @return Function that applies the map's key-value pairs
+11 Configures splitter with custom pattern. @param separatorPattern regular expression pattern for splitting.
+12 Creates a new Joiner instance with specified string separator. @param separator string to separate joined elements
+13 Creates a Joiner instance with the specified character as separator. @param separator single character to separate joined strings
+14 Creates a MapJoiner instance with custom null text. @param nullText text to display when a map value is null
+15 Creates a splitter with a regular expression pattern. @param separatorPattern regular expression to split by
+16 Creates predicate that matches CharSequence based on provided regular expression. @param pattern regular expression to match
+17 Inverts the given predicate to its logical opposite. @param predicate input predicate to invert @return inverted predicate or null if null input
+18 Creates a composed predicate that evaluates to true if all provided predicates are true. @param components iterable of predicates to be combined @return a new predicate instance combining the input predicates
+19 Combines multiple predicates into a single "or" predicate. @param components iterable of component predicates
+20 Splits input sequence into key-value pairs and returns as a read-only Map. @param sequence input string to split
+21 Converts CharSequence to a stream of individual strings. @param sequence input string sequence
+22 Wraps a supplier to memoize its results. @param delegate original supplier to wrap
+23 Composes a function with a supplier to create a new supplier. @param function the function to apply @param supplier supplier of input for the function @return a supplier that applies the function to the supplied output
+24 Wraps a supplier with thread-safe functionality, ensuring consistent results. @param delegate the original supplier to be wrapped
+25 Throws a specific exception type if the given Throwable instance is an instance of it. @param throwable the Throwable to check @param declaredType the expected exception type
+26 Propagates unchecked exceptions to the caller, if possible. @param throwable exception to be propagated or null for no action
+27 Throws a runtime exception wrapping the given Throwable. @param throwable the underlying exception to be thrown
+28 Creates a lazily initialized stack trace from the given Throwable. @param throwable the source Throwable
+29 Creates a new entry in the specified segment with the given key and hash. @param key unique key for the entry @param hash hash value of the key @param next reference to the next entry, or null if none
+30 Creates a removal notification with specified key, value and cause. @param key object being removed (or null for no key) @param value associated value (or null if not applicable) @param cause reason for removal
+31 Converts a stream of elements to a multiset. @param elementFunction maps each element to its type @param countFunction maps each element to its frequency @param multisetSupplier creates the multiset instance
+32 Converts stream to multimap using provided key and value functions. @param keyFunction maps each element to its key @param valueFunction maps each element to its value @param multimapSupplier provides a new multimap instance @return Multimap with elements grouped by key and values
+33 Converts a stream of objects to a multimap using provided functions. @param keyFunction maps each object to its key @param valueFunction maps each object to its values as a stream @param multimapSupplier creates the target multimap
+34 Transforms a collection of objects by applying a given function to each element. @param fromCollection input collection to transform @param function mapping function to apply to each element @return transformed collection with mapped elements
+35 Checks if an iterable contains a specified element. @param iterable the collection to search @param element the object to look for @return true if found, false otherwise
+36 Returns a contiguous subset of this set containing all elements less than the given element. @param toElement upper bound (inclusive if true, exclusive otherwise) @param inclusive whether to include the toElement in the result
+37 Returns a contiguous set containing elements greater than or equal to 'fromElement'. @param fromElement element to start the set from @param inclusive true if the set should include the 'fromElement'
+38 Offers an element to this collection by adding it. @param e element to be added @return true if addition was successful, false otherwise
+39 Orders keys by specified comparator. @param keyComparator Comparator for ordering keys @return Builder instance for method chaining
+40 Orders keys by specified comparator. @param keyComparator comparator to sort keys with @return updated builder instance
+41 Orders map values by specified comparator. @param valueComparator comparator to use for ordering @return Builder instance for method chaining
+42 Adds an element to the collection and returns this builder.
+43 Adds copies of an element to this builder. @param element element to copy @param occurrences number of copies to add @return this Builder instance for method chaining
+44 Sets count for the given element. @param element object to update count for @param count new count value
+45 Converts a stream into an immutable sorted multiset. @param comparator comparator for sorting elements @return Collector that returns an ImmutableSortedMultiset
+46 Retrieves all elements less than the given element. @param toElement the upper bound (exclusive)
+47 Returns the sorted set of elements greater than or equal to the specified element. @param fromElement the lower bound (inclusive)
+48 Wraps the underlying iterable in an infinite cycle. @return a new FluentIterable with cyclic behavior
+49 Filters this iterable based on the given predicate. @param predicate condition to apply to each element
+50 Filters an iterable to only include elements of a specified type. @param unfiltered iterable to be filtered @param desiredType class of the desired element type @return filtered iterable or null if input is invalid
+51 Transforms elements in this iterable to a new type using the provided function. @param function mapping function from original type E to new type T
+52 Creates a PeekingIterator instance from the given Iterator. @param iterator input Iterator to wrap
+53 Removes all specified elements from the given iterable. @param removeFrom iterable to remove elements from @param elementsToRemove collection of elements to remove @return true if any elements were removed, false otherwise
+54 Removes elements from an iterable that match a given predicate. @param removeFrom collection to modify @param predicate condition for removal @return true if any elements were removed, false otherwise
+55 Removes all elements not present in the 'elementsToRetain' collection from the given iterable. @param removeFrom target iterable to modify @param elementsToRetain collection of elements to retain @return true if any elements were removed, false otherwise
+56 Adds all elements from the given collection to this collection. @param collection Collection of elements to add
+57 Adds all elements from the given iterable to the specified collection. @param addTo target collection @param elementsToAdd iterable of elements to add @return true if elements were added, false otherwise
+58 Creates an ArrayList from the given iterator of elements. @param elements iterator containing elements to add
+59 Creates a new hash set from an iterator of elements. @param elements iterable collection of objects to add
+60 Filters an iterator to only include elements of a specific type. @param unfiltered original iterator @param desiredType class of elements to keep @return filtered iterator or null if no matches
+61 Checks if all elements in an iterable satisfy a given condition. @param iterable collection of objects to check @param predicate condition to evaluate each object against
+62 Finds first element in an iterable that matches a given predicate. @param iterable collection of elements to search @param predicate condition to match @return first matching element or null if not found
+63 Removes all nodes with the given key. @param key unique identifier to remove
+64 Creates a list iterator at the specified index. @param list the backing list @param index the starting index
+65 Creates a list with given elements. @param first first element in the list @param rest remaining elements (may be empty)
+66 Transforms a list of objects by applying a function to each element. @param fromList input list of objects @param function transformation function @return transformed list of objects
+67 Creates a list with the specified elements. @param first first element @param second second element @param rest remaining elements in an array
+68 Converts a set of keys to a map with values computed by the provided function. @param set Set of keys @param function Function to compute values for each key
+69 Converts a navigable set to a map using the provided function. @param set navigable key set @param function function to apply to each key
+70 Transforms entries in a map using the provided transformer. @param fromMap original map @param transformer entry transformation function @return transformed map with new values
+71 Checks if the given object is an entry in the specified collection. @param c Collection of entries to search @param o Object to check for membership (must be an Entry instance) @return true if the object is found, false otherwise
+72 Removes a specific entry from the collection. @param c collection of entries @param o entry to be removed (null returns false)
+73 Retrieves and returns the current count of a given object. @param element Object to fetch count for @return Count as an integer or 0 if not found
+74 Removes exactly the specified occurrences of an element from the collection. @param element object to remove @param occurrences number of occurrences to remove @return true if removal was successful, false otherwise
+75 Updates or inserts the count for an element in the map, using atomic operations to maintain consistency. @param element unique element identifier @param count new count value (0 to remove) @return old count value if updated, 0 if removed
+76 Updates element's count in the map to newCount if expected old count matches. @param element unique identifier for the element @param expectedOldCount previous count value @param newCount new count value @return true if update was successful, false otherwise
+77 Removes values associated with the given key from the map and updates the total size. @param key unique identifier to remove
+78 Creates a new MultimapBuilder instance with natural ordering keys.
+79 Converts a Map to a Multimap. @param map input map @return SetMultimap instance wrapping the map
+80 Transforms entries in a multimap using an entry transformer. @param fromMap source multimap @param transformer transformation function @return new multimap with transformed entries
+81 Adds all elements from the given iterable to the set. @param elements iterable of elements to add @return this builder instance for method chaining
+82 Adds all elements from the given multiset to this one. @param elements multiset containing elements to be added
+83 Modifies the first multiset to retain elements from the second. @param multisetToModify multiset to be modified @param multisetToRetain multiset whose occurrences are retained
+84 Removes specified elements from a multiset. @param multisetToModify the multiset to modify @param occurrencesToRemove elements to remove, may be a Multiset or Iterable of elements @return true if any elements were removed, false otherwise
+85 Retains all specified elements in the collection. @param elementsToRetain Collection of elements to retain
+86 Removes and returns at most <code>numElements</code> elements from the queue within the specified <code>timeout</code>. @param q the BlockingQueue to drain @param buffer collection to store drained elements @param numElements maximum number of elements to remove @param timeout duration to wait for draining @return actual number of elements removed, or -1 if timed out
+87 Drains a specified number of elements from the blocking queue into the provided collection. @param q BlockingQueue to drain from @param buffer Collection to store drained elements @param numElements Number of elements to retrieve @param timeout Timeout duration in nanoseconds
+88 Checks if the container contains the specified element. @param input element to search for
+89 Checks if all elements in the provided iterable are contained within this collection. @param values Iterable of elements to check
+90 Processes pairs of elements from two streams in parallel or sequentially. @param streamA first input stream @param streamB second input stream @param consumer callback to process each pair
+91 Converts a stream of objects to a table with custom row, column, and value functions. @param rowFunction function to map each object to its row identifier @param columnFunction function to map each object to its column identifier @param valueFunction function to map each object to its table cell value @param mergeFunction function to combine values for duplicate cells @param tableSupplier factory method to create a new table instance
+92 Maps values in a table to new values using a provided function. @param fromTable original table with values of type V1 @param function transformation function returning values of type V2 @return a new table with transformed values of type V2
+93 Transposes a Table instance by swapping row and column types. @param table input Table to transpose @return the transposed Table or original if already transposed
+94 Creates an escaper map from a replacement character array. @param replacements Map of characters to escape and their corresponding values
+95 Adds escapes for the specified characters. @param cs array of characters to escape @param r replacement string @return this builder instance for chaining
+96 Finds the next character index that requires escaping. @param csq input character sequence @param start starting index to search from @param end ending index to search up to @return next escape index or start if no escapes found
+97 Creates a SubscriberExceptionContext instance. @param event event object
+98 Creates a sequential funnel that aggregates elements processed by the given element funnel. @param elementFunnel funnel to process individual elements @return a new sequential funnel instance
+99 Converts PrimitiveSink to an OutputStream. @param sink primitive sink instance @return OutputStream wrapping the sink
+100 Creates a funnel that parses strings from any source into CharSequence objects. @param charset character set to use when parsing strings
+101 Wraps an Appendable object as a Writer, or returns it directly if already a Writer. @param target the Appendable object to wrap
+102 Decodes a CharSequence into a byte array. @throws DecodingException if decoding fails
+103 Creates a new instance of Closer with suppressing suppressor. @return Closer object
+104 Compiles a string into a regular expression pattern used for filtering file names. @param patternStr input string to compile
+105 Calculates the base-2 logarithm of a BigInteger, with optional rounding. @param x input number @param mode rounding mode (e.g. UNNECESSARY, DOWN, etc.) @return integer log value or throws AssertionError if invalid input
+106 Parses an unsigned byte value from the given string representation. @param string string representation of the unsigned byte (base 10 assumed)
+107 Parses an unsigned integer from the given string. @param s input string to parse
+108 Retrieves a TypeVariableKey for the given type, or null if not applicable. @param t the input type to process
+109 Retrieves the value from a ListenableFuture instance. @param future the ListenableFuture to get the value from
+110 Converts duration to nanoseconds and creates new schedule with specified delay. @param delay duration to convert and use in scheduling
+111 Creates an empty AtomicLongMap instance. @return A new AtomicLongMap with a backing ConcurrentHashMap.
+112 Accumulates a value using the provided function and returns the result. @param key unique key identifier @param x value to accumulate @return accumulated long value
+113 Accumulates a value using the provided function and returns the new value. @param key unique identifier @param x value to accumulate @param accumulatorFunction LongBinaryOperator to apply to old/new values @return accumulated long value
+114 Updates value associated with given key to new value. @param key unique key identifier @param newValue new value to be stored @return previous value before update (or 0L if not initialized)
+115 Adds a closable object to the list for eventual closure. @param closeable object that may be closed @param closingExecutor executor to use when closing @return original closable object (or null if input was null)
+116 Creates a new instance of CycleDetectingLockFactory with specified Policy. @param policy locking policy to be used
+117 Creates a sequential executor that wraps the provided delegate executor. @param delegate executor instance to be wrapped
+118 Creates a SimpleTimeLimiter instance with the given ExecutorService. @param executor Executor service to use for timeouts
+119 Waits for the specified thread to finish without interruption. @param toJoin target thread @param timeout maximum wait duration in nanoseconds
+120 Creates an unordered element order instance. @return ElementOrder instance with type UNORDERED
+121 Creates an instance of ElementOrder with STABLE sorting type.
+122 Creates an instance of ElementOrder with INSERTION type and no secondary order.
+123 Creates a natural ordering for elements of type S. @return ElementOrder object for natural ordering
+124 Creates an ElementOrder instance with data sorted by the specified comparator. @param comparator comparison function for sorting elements
+125 Returns a count down latch to wait on when all closeable resources are closed.
+126 Converts CharSequence to lowercase. @param chars input string or character sequence
+127 Converts input CharSequence to uppercase. @param chars input string or char sequence @return uppercase version of input as a string
+128 Converts object data to byte array representation. @return Byte array containing object's stats and sum of products
+129 Converts object data into a byte array. @return Byte array representation of the object
+130 Initializes internal metadata with the specified expected array size. @param expectedSize minimum number of elements to be stored
+131 Initializes internal metadata with given expected array size. @param expectedSize the anticipated size of the arrays
+132 Combines this matcher with another to create an AND operation. @param other the other matcher to combine with
+133 Creates a CharMatcher from a predicate function. @param predicate function to apply to each character
+134 Combines this matcher with another into an OR operation. @param other the other matcher to combine
+135 Creates a character matcher that matches characters within a specified inclusive range. @param startInclusive starting character (inclusive) @param endInclusive ending character (inclusive)
+136 Subtracts the stats of another cache from this one. @param other CacheStats object to subtract @return new CacheStats with result of subtraction
+137 Merges two cache statistics objects into a new one. @param other CacheStats object to add to this instance
+138 Constructs an instance of AbstractListMultimap from a given map. @param map multimap data in key-value pairs format
+139 Constructs an instance of AbstractSetMultimap from a multimap represented as a Map. @param map a map where keys are collection of values
+140 Returns a contiguous subset of this set within the specified bounds. @param fromElement start element (inclusive if trueInclusive) @param fromInclusive whether start is inclusive @param toElement end element (inclusive if trueInclusive) @param toInclusive whether end is inclusive @return ContiguousSet object or null if not found
+141 Creates an EnumMultiset instance for the specified enum type. @param type Class of the enum to be used in the multiset @return Newly created EnumMultiset instance
+142 Returns an immutable sorted set of elements within the specified range. @param fromElement start element (inclusive) @param toElement end element (exclusive)
+143 Partitions the given iterator into chunks of a specified size. @param iterator input iterator to be partitioned @param size chunk size @return UnmodifiableIterator over List partitions or null if empty
+144 Partitions an iterator into lists of a specified size. @param iterator input data stream @param size number of elements per list
+145 Creates a builder for ordering objects by natural order, with pre-allocated size. @param expectedSize the expected number of elements in the ordering @return Builder object to construct Ordering instance
+146 Creates a builder for the maximum size comparator. @param maximumSize the maximum allowed size
+147 Initializes hasher with specified chunk size. @param chunkSize size of each streaming hash chunk
+148 Calculates population variance, ensuring non-negativity and handling edge cases. @return Variance value or NaN if sum of squares of deltas is NaN
+149 Calculates sample variance. @return Variance value or NaN if sum of squares is NaN
+150 Calculates the population variance of the dataset. @return Population variance or NaN if sum of squares is invalid
+151 Calculates the sample variance. @return Sample variance or NaN if sum of squares is NaN
+152 Creates a CharMatcher for any of the specified characters. @param sequence sequence of characters to match
+153 Trims leading and trailing sequences of a specific character from the input CharSequence, collapsing any remaining sequences in between. @param sequence input string to process @param replacement character to remove and collapse
+154 Creates an equivalence relation based on the result of a given function. @param function function to compute the equivalence value
+155 Returns an equivalence relation for pairwise iterables of type S (where S is a subtype of T). @return Equivalence object for comparing iterable pairs
+156 Compares two iterables for element equality. @param iterable1 first iterable to compare @param iterable2 second iterable to compare @return true if all elements are equal, false otherwise
+157 Compares two lists for equality. @param thisList the list to compare @param other the object to compare against (may be a list or null) @return true if the lists are equal, false otherwise
+158 Creates a new instance of ConcurrentHashMultiset with a ConcurrentHashMap backing map.
+159 Creates a concurrent multiset from a map of element counts. @param countMap map associating elements with their respective counts
+160 Converts iterable of objects to string and appends it to the specified Appendable. @param appendable target Appendable for appending the result @param parts iterable of objects to convert and append @return the same Appendable instance as input (since @CanIgnoreReturnValue)
+161 Appends iterator of objects to a StringBuilder. @param builder StringBuilder instance @param parts Iterator containing elements to append @return the modified StringBuilder instance
+162 Appends key-value pairs from the given map to the provided StringBuilder. @param builder StringBuilder to append to @param map Map containing key-value pairs to be appended
+163 Joins an iterable of entries into a string. @param entries iterable of entries to be joined
+164 Adds a value to the current holder and returns this helper. @param value object to be added (may be null)
+165 Adds a named value to the builder. @param name property name @param value property value or null for omission
+166 Adds boolean value to the toString representation. @param value true or false value to be added
+167 Adds a character value to the toString helper. @return this instance of ToStringHelper for chaining.
+168 Adds a double value to the builder. @param value the numerical value to be added
+169 Adds float value to the current object representation. @param value float value to be included
+170 Adds an integer value to the builder.
+171 Adds a long value to the string representation. @param value the value to be added
+172 Adds a boolean property to the helper with the specified name and value. @param name property name @param value true or false value
+173 Adds a single character to the builder. @param name property name @param value character value
+174 Adds a numeric field with the specified name and value. @param name field name @param value numeric field value
+175 Adds a float value to the builder with the specified name. @param name unique identifier @param value numerical value
+176 Adds an integer property with the given name and value. @param name property name @param value integer value to be added
+177 Adds a long value to the builder with the specified name. @param name name of the property @param value long value to be added
+178 Wraps a nullable reference into an Optional, returning absent if null. @param nullableReference the object to wrap or null @return Optional containing the object or empty if null
+179 Initializes a new FluentIterable instance with no underlying iterable.
+180 Returns the total size in bytes if known, otherwise absent. @return Optional<Long> containing size or null if unknown
+181 Returns the length of this object (if known), as an optional Long value. @return Optional Long value containing the length if it can be determined, otherwise empty.
+182 Returns the input string as is, unless it's null or empty, in which case returns null.
+183 Parses a string into a HostAndPort object. @param hostPortString input string in various formats (e.g., "host:port", "[host]:port")
+184 Skips specified number of elements in iterable and returns remaining elements. @param numberToSkip number of elements to skip
+185 Returns an iterable that limits the number of elements to the specified maximum size. @param maxSize maximum number of elements to include
+186 Retrieves an element from a collection at a specified index. @param iterable input collection (Iterable) @param position index of the desired element @param defaultValue value to return if element not found or null in collection @return T element at position, or defaultValue if not found
+187 Retrieves an element from an Iterator at a specified position. @param iterator input Iterator containing elements to retrieve @param position index of desired element, must be non-negative
+188 Retrieves an object from the iterator at a specified position. @param iterator iterator to navigate @param position index of desired object (0-based) @param defaultValue default value if iteration ends prematurely @return object at specified position or default value
+189 Returns a traverser instance for navigating FILE_TREE. @return Traverser instance for FILE_TREE
+190 Creates an input stream with a size limit. @param in original input stream @param limit maximum byte count to read from the stream
+191 Converts BigInteger to IPv4 Inet4Address. @param address BigInteger representation of IP address
+192 Converts IPv6 BigInteger to InetAddress object. @param address IPv6 address as BigInteger
+193 Creates a SIP-24 hash function instance with specified key values. @param k0 first key value @param k1 second key value @return HashFunction object for cryptographic hashing
+194 Initializes a new FileBackedOutputStream instance with the given file threshold. @param fileThreshold minimum file size to begin storing data in a file
+195 Converts an integer IPv4 address to an Inet4Address object. @param address integer representation of IPv4 address
+196 Reserves a specified number of permits and returns wait time. @param permits the number of permits to reserve
+197 Tries to acquire specified permits with a timeout. @param permits number of permits to acquire @param timeout maximum time to wait in the specified unit @param unit TimeUnit for the timeout (e.g. seconds, milliseconds) @return true if acquired within the timeout, false otherwise
+198 Writes strategy and hash data to OutputStream. @param out output stream where the data will be written
+199 Creates a fixed-delay schedule with specified initial and subsequent delays. @param initialDelay initial wait time @param delay subsequent wait time
+200 Creates a fixed-rate schedule with specified initial delay and execution period. @param initialDelay time before first execution @param period time between subsequent executions in nanoseconds
+201 Converts a duration from a specified unit to safe nanoseconds. @param time duration value @param unit TimeUnit enumeration (e.g., SECONDS, MILLISECONDS) @return converted duration in nanoseconds, constrained within valid range
+202 Creates and starts a stopwatch instance. @param ticker Ticker object used to initialize the stopwatch
+203 Orders entries by their values using a custom comparator. @param valueComparator comparator to compare entry values @return Builder instance for method chaining
+204 Sets the concurrency level for the map. @param concurrencyLevel desired concurrency level
+205 Configures cache to evict entries after specified write time. @param duration time to wait before expiring entries in seconds
+206 Configures the cache to expire entries after a specified access time. @param duration duration of inactivity before expiration
+207 Configures cache to be refreshed after write operations. @param duration time interval before refreshing the cache
+208 Sets key strength to Weak, allowing cache to hold keys without preventing GC. @return updated CacheBuilder instance
+209 Sets cache value strength to Weak. @return updated CacheBuilder instance
+210 Sets the value strength to SOFT.
+211 Configures the map to use weak keys.
+212 Sets map values to be held in WeakReferences. @return this MapMaker instance for chaining
+213 Returns the cause of the last failure. @return The root cause of the failure or null if not applicable
+214 Validates an element index within a given array size. @param index the index to validate @param size the array size @return the validated index or -1 if invalid
+215 Validates position index within given collection size. @param index position to be validated @param size collection size
+216 Validates array indices within specified bounds. @param start starting index @param end ending index @param size array size
+217 Creates a predicate that checks for equality to the specified target value. @param target object to compare against, can be null
+218 Filters a multimap based on the provided entry filter. @param multimap unfiltered multimap to filter @param entryPredicate predicate for each entry in the multimap @return filtered multimap containing entries that pass both filters
+219 Filters a Multiset using the given predicate. @param unfiltered Multiset to filter @param predicate condition for inclusion in filtered result @return filtered Multiset or null if input is FilteredMultiset
+220 Creates a Splitter instance with the specified character matcher as separator. @param separatorMatcher CharMatcher to match the separator character
+221 Creates a Splitter for fixed-length splits. @param length minimum split chunk size (must be > 0)
+222 Trims whitespace from results. @return Splitter instance with trimmed results
+223 Creates an unstarted stopwatch instance.
+224 Creates and starts a new stopwatch instance. @return started Stopwatch object
+225 Calculates the encoded length of a CharSequence in UTF-8. @param sequence input string @return encoded length as an integer, or throws exception if too large
+226 Waits indefinitely for the ExecutorService to terminate.
+227 Continuously cleans up and removes elements from the queue until cleanup fails.
+228 Initializes a new Builder instance.
+229 Creates a CacheLoader instance wrapping the given function. @param function a transformation function to load cache values
+230 Creates a cache loader from a supplier. @param supplier provides values to be cached
+231 Throws exception when loading all key-value pairs, forcing fallback to individual gets. @throws Exception if unsupported operation is encountered
+232 Calculates the hit rate as hits per request. @return Hit rate value or 1.0 if no requests have been made
+233 Calculates the miss rate by dividing missed requests by total requests. @return Miss rate as a double value, or 0.0 if no requests were made
+234 Creates an empty forwarding cache instance. @see com.google.common.cache.CacheLoader for loading values into the cache.
+235 Initializes an empty forwarding list. This constructor is used to create an instance of ForwardingList without any initial elements.
+236 Creates an empty forwarding multiset instance. @see ForwardingMultiset#delegate
+237 Initializes an empty forwarding queue.
+238 Creates an empty forwarding set. @see ForwardingSet#forwardingSet()
+239 Initializes an empty ForwardingListIterator instance.
+240 Initializes a new bi-map instance with provided maps. @param backward map of values to keys @param forward map of keys to values
+241 Initializes an empty forwarding concurrent map. @see ForwardingConcurrentMap#forwardingConcurrentMap()
+242 Initializes an empty forwarding sorted map.
+243 Initializes an empty map to store type instances.
+244 Initializes an empty ForwardingListMultimap instance.
+245 Initializes an empty multimap with default forwarding behavior.
+246 Creates an instance of this class.
+247 Constructs an empty ForwardingListenableFuture instance. This constructor is intended to be used by subclasses that need to wrap other types of futures.
+248 Creates a new reference entry. @param segment backing segment @param key unique key value @param hash computed hash code for the key @param next optional previous entry in the chain
+249 Creates a new reference entry with the given key and hash. @param segment the segment to store this entry in @param key the unique key for this entry @param hash the hash code of the key @param next the next entry in the chain, or null if this is the first entry
+250 Retrieves the result of an asynchronous computation. @return computed value or null if not available
+251 Performs cleanup tasks after write operation.
+252 Creates a weighted reference to a map value. @param segment the map segment @param entry the reference entry @param value the referenced value @param weight the value's weight in this reference
+253 Creates a weighted value reference. @param segment segment to add reference to @param entry entry containing the referenced value @param value referenced value @param weight weight of this reference
+254 Creates a weighted reference to a mapped value. @param segment segment containing the reference @param entry reference entry for the key-value pair @param value associated value with the reference @param weight weight of the reference in the segment
+255 Records access time and adds reference entry to recency queue. @param entry ReferenceEntry object with updated access time @param now current timestamp in milliseconds
+256 Records a locked read operation on the specified map entry. @param entry the affected ReferenceEntry @param now the current timestamp
+257 Records a write operation for the given map entry. @param entry ReferenceEntry object @param weight write operation weight @param now current timestamp
+258 Retrieves the live value associated with a given reference entry. @param entry ReferenceEntry object @param now current timestamp @return non-null V object or null if expired or invalid entry
+259 Calculates the size of an iterable. @param iterable collection or iterator to measure @return number of elements in the iterable
+260 Calculates the size of the multisets in this collection. @return The number of elements in the multisets
+261 Reads input into a sequence of buffers and returns as a byte array. @param in input stream @param bufs queue of buffers @param totalLen current total length of data read @return combined byte array or throws exception if too large
+262 Initializes this object with a bijective mapping from keys to values and back. @param forward key-value mapping @param backward value-key mapping, must be the inverse of forward
+263 Creates an empty range with a given comparator. @param comparator comparison function for the range
+264 Creates a GeneralRange object with the specified endpoint and direction. @param comparator comparison function for elements @param endpoint the end point of the range (inclusive) @param boundType specifies whether the range is inclusive or exclusive at the endpoint
+265 Creates a GeneralRange instance for values up to the specified endpoint. @param comparator comparison function @param endpoint target value @param boundType type of boundary (e.g. inclusive, exclusive)
+266 Creates a GeneralRange instance with specified bounds and comparator. @param comparator comparison function for range values @param lower lower bound value @param lowerType type of the lower bound (inclusive or exclusive) @param upper upper bound value @param upperType type of the upper bound (inclusive or exclusive)
+267 Computes the intersection of two ranges. @param other The range to intersect with @return A new range representing their intersection or null if empty
+268 Retrieves the next element without removing it from the iteration. @return The next element, or null if no elements are present
+269 Removes all values associated with a given key from the map. @param key unique identifier to remove @return Collection of removed values or empty unmodifiable collection if not found
+270 Validates iterator state and throws exception on concurrent modification. @throws ConcurrentModificationException if iterator has been modified concurrently
+271 Calls superclass put operation to store a new entry. @param key unique identifier for the stored object @param value associated data for the entry
+272 Inserts or updates a mapping from the specified key to the specified value. @param key unique identifier for the entry @param value associated data for the entry
+273 Retrieves a list of objects by key. @param key unique identifier @return List of V objects or null if not found
+274 Retrieves a set of values associated with the given key. @param key unique identifier or key
+275 Returns a set of map entries. @return Set of key-value pairs or null if not supported by map implementation
+276 Serializes the map's state to the given ObjectOutputStream. @throws IOException if serialization fails
+277 Converts a collection to a human-readable string representation. @param collection the collection to convert
+278 Converts a Map to a formatted string representation. @param map input map @return string in the format "{key=value, ...}"
+279 Creates an ArrayList with the specified estimated size. @param estimatedSize expected number of elements
+280 Creates a new HashMap with an initial capacity based on the expected size. @param expectedSize estimated number of key-value pairs
+281 Creates a linked hash map with an expected size. @param expectedSize the anticipated number of key-value pairs
+282 Creates a new HashSet with the specified expected size. @param expectedSize initial capacity and load factor for the set
+283 Creates a LinkedHashSet with the specified expected size. @param expectedSize estimated number of elements
+284 Returns an ArrayListMultimapBuilder with default expected values per key.
+285 Returns a multimap builder with hash set values. @return MultimapBuilder instance
+286 Returns a multimap builder with linked hash sets as values.
+287 Returns a new MultimapBuilder instance with hashed keys.
+288 Creates a MultimapBuilder with linked hash keys. @return MultimapBuilder instance with linked hash keys
+289 Creates an immutable multiset entry with a specified count. @param e element to be included in the entry @param n number of occurrences of the element
+290 Calculates set count based on the given element and count. @param element the element to consider @param count the initial count value @return updated set count value
+291 Updates set count by adding or removing an element. @param element the element to add or remove @param oldCount current set size @param newCount updated set size after modification
+292 Calculates hash code based on internal map state. @return unique integer representing this object's state
+293 Returns a string representation of this object's properties.
+294 Returns a set of multiset entries. @return Set of Multiset.Entry objects.
+295 Computes hash code based on the set of key-value pairs in this map. @return The hash code as an integer
+296 Returns a string representation of this map. @return A string containing key-value pairs in the format {key=value, ...} or an empty string if empty.
+297 Retrieves the first entry from this map's entry set. @return First Entry object or null if empty
+298 Returns the smallest element in the tail set of the given value. @param e the input value @return the ceiling value or null if not found
+299 Retrieves the next (higher) element in this set relative to the given element. @param e the reference element @return the next higher element or null if not found
+300 Creates an empty {@link TreeRangeSet} instance with a custom comparator.
+301 Checks if a given value is within the bounds of the interval. @param value the value to check
+302 Checks if the provided comparator is the same as the one used to sort the given iterable. @param comparator the comparator to compare @param elements the iterable to check @return true if comparators are equal, false otherwise
+303 Inserts all data from another table into this one. @param table Table to copy data from
+304 Returns an unmodifiable set of cells in this data structure. @return Unmodifiable set of Cell objects or empty set if none exist.
+305 Returns the set of cells in this data structure. @return Unmodifiable set of Cell objects.
+306 Returns an unmodifiable Collection of all values in this map.
+307 Returns a collection of values associated with this map. @return Unmodifiable collection of values or null if not found
+308 Creates an ordering based on the result of applying a given function. @param function Function to apply to elements for ordering
+309 Creates an ordering instance from a comparator. @param comparator the input comparator to use for ordering
+310 Combines this ordering with the given secondary comparator. @param secondaryComparator additional ordering criteria @return a new CompoundOrdering instance
+311 Creates an immutable cell with the specified key-value pair. @param rowKey row identifier @param columnKey column identifier @param value cell value
+312 Checks if a table cell exists by combining row and column key existence checks. @param rowKey unique row identifier (can be null) @param columnKey unique column identifier (can be null) @return true if the cell exists, false otherwise
+313 Creates an immutable map entry with the given key and value. @param key unique key of type K @param value associated value of type V
+314 Creates an immutable map entry from a given entry or builds a new one. @param entry existing entry to reuse (if possible) @param key unique key for the new entry @param value associated value for the new entry @return ImmutableMapEntry instance
+315 Inserts key-value pair into the map as a single operation. @param entry non-null Entry object containing key and value
+316 Sets a value associated with a given key and returns this builder. @param key unique key identifier @param value associated value
+317 Dynamically resizes array of entries based on provided size. @param newSize desired size
+318 Inserts a new entry at the specified index with given key and value. @param entryIndex position to insert the entry @param key unique key for the entry @param value associated value for the entry @param hash combined hash value @param mask combined mask value
+319 Resizes the internal entry array if necessary to accommodate a new size. @param newSize desired capacity
+320 Inserts a new entry at the specified index with given hash and mask. @param entryIndex position where entry will be inserted @param object data to store in the entry @param hash unique identifier for the entry @param mask bit mask to apply during insertion
+321 Allocates and initializes arrays for storing key-value entries. @return the expected size of the allocated arrays
+322 Allocates arrays for storing entries and elements. @return Expected size of the allocated arrays
+323 Checks if this range encloses another. @param other Range to check, must not be null
+324 Checks if two ranges overlap. @param other Range object to check for overlap @return true if ranges intersect, false otherwise
+325 Writes object graph to ObjectOutputStream. This method serializes the object's internal state and associated data structures. @throws IOException if write operation fails
+326 Creates a new instance of the Builder class. @return A new Builder object with default settings.
+327 Creates a new instance of Builder with specified type constraint C. @param none @return Builder instance with type parameter C
+328 Creates a new instance of the Builder class. @return Builder object
+329 Returns an unmodifiable iterator over elements of this collection.
+330 Calculates the frequency of a given element in an iterable. @param iterable input collection (set, multiset, or other iterable) @param element target object to count occurrences @return frequency of element in iterable
+331 Checks if this map contains a specific key. @param key the key to search for (may be null)
+332 Checks if this map contains a specific value. @param value object to search in the map
+333 Returns lower entry key after applying standard lower case conversion. @param key input key to convert and find lower entry for @return converted key or null if not found
+334 Returns the standard floor key from the given key. @param key the input key @return Standard floor key or null if not found
+335 Returns the smallest ceiling key in the map. @param key the input key @return the smallest ceiling key or null if not found
+336 Returns the higher key in the map or null if no such entry exists. @param key the key to find a higher entry for @return higher key or null
+337 Returns the key of the first entry in this map.
+338 Retrieves and returns the key of the last entry in this map. @return the key of the last entry or throws NoSuchElementException if empty
+339 Returns the last entry in this map. @return the last entry or null if empty
+340 Retrieves and removes the last entry from the map. @return Entry object or null if empty
+341 Returns a set of keys in descending order. @return Set of keys in descending order
+342 Returns a sorted sub-map of key range [fromKey, toKey]. @param fromKey start of key range (inclusive) @param toKey end of key range (exclusive)
+343 Retrieves the lowest-mapped entry with a key less than or equal to the specified value. @param key the upper bound of the search range @return the lowest-mapped entry or null if not found
+344 Retrieves the last entry in the submap of keys less than or equal to the specified key. @param key key to determine the submap @return Entry object or null if map is empty
+345 Returns a view of the map's portion that maps only keys greater than {@code toKey}. @param toKey key value up to which the map is truncated @return a new SortedMap instance or null if map is empty
+346 Retrieves the entry with the smallest value greater than or equal to the specified key. @param key the reference key @return Entry object or null if not found
+347 Retrieves the entry with a higher key than the given key. @param key key to start searching from @return Entry object or null if no entries found
+348 Returns a view of this map's portion of the range [fromKey, ) to the end. @param fromKey key from which to start the view
+349 Creates a sub-multiset with elements within the specified bounds. @param lowerBound lower bound of the range (inclusive) @param lowerBoundType type of the lower bound @param upperBound upper bound of the range (inclusive) @param upperBoundType type of the upper bound
+350 Creates a new instance of HashBasedTable with default settings. @return empty HashBasedTable object
+351 Deserializes an EnumMultiset object from the given ObjectInputStream. @throws IOException on serialization errors @throws ClassNotFoundException if unknown class is read
+352 Moves the last entry to a specified index in the table. @param dstIndex target index @param mask hash mask used for pointer updates
+353 Moves the last entry to a specified location in the table and updates associated pointers. @param dstIndex index where the last entry will be moved @param mask used for hash calculations
+354 Checks if a specified object value is present in the map. @param value target object to search for @return true if found, false otherwise
+355 Creates a builder with an expected size. @param expectedSize the anticipated number of elements
+356 Initializes a new instance of Builder.
+357 Creates a new instance of the Builder class. @return A Builder object with default configuration
+358 Initializes the builder with a custom key comparator. @param comparator key comparison function
+359 Creates an immutable bi-map with a single entry. @param k1 key @param v1 value
+360 Adds a unique element to the collection. @param e unique element to be added
+361 Initializes builder with default capacity. @param initialCapacity initial size of the collection
+362 Creates an Immutable List Builder with specified initial capacity. @param expectedSize the anticipated size of the list
+363 Adds all elements from an iterable to the builder. @param elements iterable of elements to be added
+364 Adds all elements from an iterator to the builder. @param elements iterable of elements to be added
+365 Adds all elements from an iterator to the builder. @param elements iterator containing elements to add
+366 Creates a serialized form of this object. @return Serialized representation or null if not applicable
+367 Creates an immutable table with a single entry. @param rowKey unique row identifier @param columnKey unique column identifier @param value the table's value
+368 Returns a string representation of this instance, delegated to its underlying object.
+369 Adds a collection of values to the map under a given key. @param key unique key identifier @param values iterable of values to store
+370 Retrieves the single element from an iterable. If empty or null, returns default value. @param iterable collection of elements @param defaultValue to return if iterable is empty or null @return single element from iterable or default value
+371 Retrieves the last element from an iterable, or a default value if empty. @param iterable input collection (may be null) @param defaultValue returned when iterable is empty @return T last element of iterable, or defaultValue
+372 Inserts or updates a key-value pair into the map. @param key unique key for the entry @param value associated value for the entry
+373 Partitions a list into chunks of specified size. @param list input list to partition @param size chunk size @return List of sub-lists or null if invalid parameters
+374 Finds index of specified element in list. @param element object to search for @return non-negative index if found, -1 otherwise
+375 Returns the standard last index of the given element in this list. @param element object to search for
+376 Performs locked cleanup before writing.
+377 Creates an empty TreeRangeMap instance. @return A new, uninitialized instance of TreeRangeMap.
+378 Finds the minimum element in a sorted subarray within a larger array. @param index starting index of the subarray @param len length of the subarray @return index of the minimum element or -1 if out of bounds
+379 Returns index of maximum element in queue or max heap.
+380 Returns the first element without removing it from the collection. @return First element of the collection or null if empty
+381 Moves an element up the heap by alternating between parent and grandparent indices. @param index current index in the heap @param x element to be moved up @return new index of the moved element
+382 Returns an iterator over the elements in this multiset.
+383 Concatenates a single element with an array. @param element the element to insert @param array the original array @return new array containing all elements from the original array and the inserted element
+384 Converts a Collection to an array of specified type. @param c the collection to convert @param array the target array (will be resized if necessary) @return the converted array or null if array was unsoundly covariant
+385 Finds the smallest element in an iterable collection. @param iterable collection of elements to search
+386 Returns maximum element from an iterable. @param iterable collection of elements to search
+387 Returns string representation of this object based on its contained range. @return formatted string representing the range
+388 Creates a GeneralRange from an existing Range, preserving bounds and types. @param range the input Range to transform
+389 Extracts a sub-map from the given NavigableMap, based on the provided Range. @param map input map @param range bounds to extract @return sub-map or original map if no bounds are specified
+390 Extracts a subset from the given navigable set within the specified range. @param set NavigableSet to extract from @param range Range defining the subset boundaries @return Subset of K values or null if input set is null and empty
+391 Returns a sorted map of rows with column maps. @return a SortedMap containing Row keys and Column-based Map values
+392 Wraps a Queue in a synchronized implementation. @param queue the original Queue to synchronize. @return synchronized Queue instance
+393 Initializes escaper with replacement array and safe character range. @param escaperMap ArrayBasedEscaperMap instance @param safeMin minimum safe character value @param safeMax maximum safe character value
+394 Initializes an ArrayBasedUnicodeEscaper with a given escaper map and range limits. @param escaperMap the array-based escape map @param safeMin minimum safe code point value @param safeMax maximum safe code point value @param unsafeReplacement replacement string for unsafe characters (may be null)
+395 Creates a PercentEscaper with specified safe characters and plus-for-space behavior. @param safeChars string of allowed characters @param plusForSpace true to escape '+' as '%2B', false otherwise
+396 Escapes special characters in the input string. @param string the input string to be escaped
+397 Creates a subscriber to the event bus with the given listener and method. @param bus EventBus instance @param listener Object listening for events @param method Method to invoke on event reception @return Subscriber or synchronized subscriber based on thread safety
+398 Returns a string representation of the graph, including its directed status, self-loop allowance, number of nodes and edges.
+399 Returns a set of graph edges as EndpointPairs. @return Set of EndpointPairs representing graph connections
+400 Returns a set of all edges in the graph. @return Set of EndpointPair objects representing graph edges
+401 Adds a double value to the hash. @param d the value to be added @return this hasher instance
+402 Configures a collector for generating a Bloom filter with default error rate. @param funnel funnel function to process elements @param expectedInsertions estimated number of unique elements
+403 Calculates the expected False Positive Probability (FPP). @return FPP value as a decimal
+404 Checks if two Bloom filters are identical in structure and strategy. @param that the other Bloom filter to compare with
+405 Converts an unsigned byte value to its decimal string representation. @param x unsigned byte value @return decimal string representation or null if invalid input
+406 Combines the underlying bit arrays of two BloomFilters. @param that the BloomFilter to combine with
+407 Creates an immutable hash code from the provided byte array. @param bytes input byte array
+408 Creates a hash code instance from an integer value. @param hash int value to be wrapped
+409 Creates a HashCode instance from a given long hash value. @param hash unique identifier represented as a long integer
+410 Converts the underlying long value to a floating-point number. @return The numeric value as a float.
+411 Returns the double value representation of this number. @return the numeric value as a double
+412 Converts long value to BigInteger representation. @return BigInteger equivalent of the long value
+413 Generates a concatenated hash function with the specified minimum bits. @param minimumBits minimum number of bits in the resulting hash function
+414 Calculates consistent hash bucket index. @param hashCode HashCode object @param buckets number of buckets in the ring @return index of the bucket where the key should reside
+415 Creates an HMAC-MD5 hash function instance. @param key secret key for the HMAC operation
+416 Creates an HMAC-SHA1 hash function with the given secret key. @param key secret key for HMAC calculation
+417 Creates an HMAC-SHA-256 hash function instance. @param key secret key for the hash function
+418 Creates an HMAC-SHA-512 hash function instance. @param key secret key for the HMAC algorithm
+419 Concatenates multiple byte sources into a single source. @param sources iterable of byte sources to concatenate
+420 Concatenates an iterable of CharSources into a single source. @param sources iterable of CharSources to concatenate
+421 Creates a new ByteArrayDataInput instance from the given byte array. @param bytes input byte array
+422 Creates a new byte output stream with default settings. @return ByteArrayDataOutput instance
+423 Creates a new byte output stream with the specified initial buffer size. @param size the initial buffer size
+424 Initializes a new ReaderInputStream with the specified reader, character set, and buffer size. Malformed input is replaced.
+425 Counts the number of bytes in the input stream by skipping up to max value. @param in InputStream to read from @return total byte count or -1 on IOException
+426 Skips fully up to the specified number of bytes in the input stream. @param in InputStream to skip from @param n number of bytes to skip @throws IOException if an I/O error occurs or EOF is reached early
+427 Writes an iterable of lines to the output stream using the specified line separator.
+428 Writes an iterable of character sequences to the underlying output stream using the specified line separator. @param lines iterable of text lines @param lineSeparator string used to separate lines in output
+429 Iterates over each line of a file, executing the provided action. @param action Consumer function to process each line
+430 Reads all lines from a readable source into a list. @param r the source to read from @return list of strings, one per line
+431 Reads lines from a readable source and processes them using the given processor. @param readable source of text to read @param processor LineProcessor instance to process each line @return result object returned by the processor, or null if not applicable
+432 Expands or shifts the character buffer to read more input characters.
+433 Reads an unsigned short integer value from the input stream. @return unsigned short integer value as a short
+434 Reads and returns a single character from the input stream.
+435 Reads and converts an integer value to a floating-point number. @return the read float value or NaN if conversion fails
+436 Reads and converts a long value from input into a double. @throws IOException if an I/O error occurs during reading
+437 Writes a string of characters to output stream. @param s input string to be written
+438 Writes double value to output stream. @param v double value to be written
+439 Recursively deletes directory contents and returns any encountered IOExceptions. @param dir DirectoryStream of entries to delete @return Collection of IOExceptions or null if no errors occurred
+440 Recursively deletes a directory and its contents in a secure manner. @param dir SecureDirectoryStream to the top-level directory @param path Path to the directory/file to delete @return Collection of IOExceptions that occurred during deletion, or null if successful
+441 Constructs a new MultiInputStream from an iterator of byte sources. @param it iterator of byte sources to combine
+442 Converts to a CharSource representation with specified charset. @param charset character encoding to use
+443 Calculates permutations of input list using given comparator. @param sortedInputList input list to calculate permutations for @param comparator comparator to determine order relationships @return number of permutations or Integer.MAX_VALUE if overflow occurs
+444 Calculates the arithmetic mean of a sequence of numbers. @param values iterator over numbers to average
+445 Checks if a given double value is a power of two. @param x the input value to check
+446 Checks if a double value represents a mathematical integer. @param x the input double value to check @return true if x is an integer, false otherwise
+447 Rounds a long value to a double using the specified rounding mode. @param x value to be rounded @param mode rounding mode (e.g. HALF_UP, FLOOR, CEILING)
+448 Compares two doubles with a given tolerance, returning an integer indicating their relative order. @param a first double value @param b second double value @param tolerance allowed difference between values @return -1 if a < b, 0 if a == b within tolerance, 1 if a > b
+449 Calculates optimal number of runs before fallback based on table size. @param tableSize total rows in the table
+450 Trims the sorted array to contain only the k smallest elements. @param k number of desired elements
+451 Computes base-10 logarithm of an integer with specified rounding mode. @param x input value (must be positive) @param mode rounding mode (e.g. FLOOR, CEILING, etc.) @return log10(x) as an integer
+452 Computes square root of a number with specified rounding mode. @param x the input value @param mode the rounding mode (e.g. UNNECESSARY, FLOOR)
+453 Calculates a new capacity for the queue based on its current size. @return New capacity with growth strategy (doubling for small sizes, halving and tripling for large sizes) capped at the maximum allowed size.
+454 Creates a horizontal linear transformation with specified y-value. @param y vertical position of the line
+455 Creates a LinearTransformation with the specified slope. @param slope the desired slope (must be finite) @return a new LinearTransformation instance
+456 Creates a vertical linear transformation with given scale factor. @param x scale factor
+457 Calculates the factorial of a given integer using efficient multiplication techniques. @param n non-negative integer input value @return BigInteger representation of the factorial result or null if not found
+458 Computes base-10 logarithm of a long value with specified rounding mode. @param x the input value (must be positive) @param mode RoundingMode to apply @return integer part of log10(x) or throws AssertionError if invalid mode
+459 Simplifies fraction multiplication by reducing the input values using GCD. @param x number to multiply @param numerator and @param denominator input fraction
+460 Computes the power of a long value using exponentiation by squaring. @param b base value @param k exponent (non-negative integer) @return result as a long (may overflow for very large bases and exponents)
+461 Calculates population covariance by dividing sum of products of deltas by count of data points. @return Population covariance value or NaN if count is zero.
+462 Calculates sample covariance as the sum of products of deltas divided by count minus one. @return Sample covariance value
+463 Calculates Pearson's correlation coefficient. @return double value in range [-1, 1] or NaN if invalid input
+464 Calculates the mean of a sequence of numbers. @param values iterator over values @return calculated mean or NaN if non-finite values present
+465 Updates running statistics with a new data point. @param value the new data point
+466 Calculates sample covariance between data points and their mean. @return Covariance value or NaN if count is zero
+467 Calculates sample covariance. @return Sample covariance value or NaN if count < 2
+468 Calculates Pearson's correlation coefficient. @return Correlation value or NaN if invalid data
+469 Partitions the array around a pivot element using QuickSelect algorithm. @param array input array to be partitioned @param from starting index of the slice @param to ending index of the slice @return partition point around which the array is sorted
+470 Creates PairedStats object from a byte array. @param byteArray input data in little-endian format
+471 Creates a Stats object from the given byte array. @param byteArray byte representation of Stats data
+472 Creates a PairedStats object by snapshotting x and y stats.
+473 Returns current statistics snapshot. @return Stats object containing current data
+474 Retrieves current statistics snapshot.
+475 Creates a collector that accumulates numbers into a stats object. @return Collector instance
+476 Converts InetAddress object to URI string. @param ip the address to convert @return URI string representation of the address, or null if invalid
+477 Extracts the IPv4 address from an IPv6 address that is IPv4-compatible. @param ip IPv6 address @return Inet4Address object representing the embedded IPv4 address
+478 Extracts IPv4 address from a given 6to4 IPv6 address. @param ip 6to4 IPv6 address
+479 Extracts the embedded IPv4 address from an ISATAP address. @param ip Inet6Address containing the ISATAP address @return Inet4Address representing the embedded IPv4 address
+480 Computes average value of numbers in the provided collection. @param dataset collection of numeric values @return computed average value
+481 Computes statistics and returns a map of key-value pairs. @return Map with keys as integers and values as doubles
+482 Adds a double value to the builder's capacity. @param value the value to be added
+483 Adds all elements from the specified array to the builder's collection. @param values array of double values to add
+484 Adds all specified double values to the builder's array. @param values collection of double values
+485 Adds all elements from the given double array to this builder. @param values double array to add elements from
+486 Creates an immutable array containing a single double value. @param e0 the value to be contained in the array
+487 Creates an immutable array containing two specified double values. @param e0 first double value @param e1 second double value
+488 Creates an ImmutableDoubleArray with three elements. @param e0 first element value @param e1 second element value @param e2 third element value
+489 Creates an ImmutableDoubleArray instance with four elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element
+490 Creates an immutable array of doubles with the specified elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element @param e4 fifth element
+491 Creates an immutable array of doubles with the specified values. @param e0 first value @param e1 second value @param e2 third value @param e3 fourth value @param e4 fifth value @param e5 sixth value
+492 Creates an immutable double array from a given array. @param values the input array to copy (may be empty)
+493 Creates an immutable double array from a collection of doubles. @param values collection of doubles to copy
+494 Copies a DoubleStream into an ImmutableDoubleArray. @param stream input stream of doubles @return ImmutableDoubleArray representation or EMPTY if empty
+495 Returns a trimmed version of this array, or itself if not partial view.
+496 Checks if a specified value exists in this collection. @param target the value to search for
+497 Adds an integer value to the builder's collection. @param value integer value to be added
+498 Adds all elements from the provided array to this builder's collection. @param values array of integers to add
+499 Adds all integers from a collection to the builder's array. @param values collection of integers to add
+500 Adds all elements from the specified ImmutableIntArray to this builder. @param values ImmutableIntArray containing elements to add
+501 Creates an immutable array containing a single element. @param e0 the initial element value
+502 Creates an ImmutableIntArray with two elements. @param e0 first element value @param e1 second element value
+503 Creates an immutable array with three elements. @param e0 first element @param e1 second element @param e2 third element
+504 Creates an immutable array with four integer elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element
+505 Creates an ImmutableIntArray with the specified elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element @param e4 fifth element
+506 Creates an immutable array with the specified elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element @param e4 fifth element @param e5 sixth element
+507 Creates an immutable integer array from a given array. @param values input array to be copied
+508 Creates a copy of the given IntStream as an immutable int array. @param stream input IntStream to be copied
+509 Returns a trimmed view of this array, or a copy if it's a partial view. @return ImmutableIntArray instance with updated size
+510 Adds an integer value to the builder's underlying data structure. @param value long integer value to be added
+511 Adds all specified values to the builder's array. @param values array of long values to add
+512 Adds all specified IDs to the builder's collection. @param values Collection of unique long identifiers
+513 Adds all elements from the given immutable long array to this builder. @param values long array to append
+514 Creates an ImmutableLongArray with a single element. @param e0 the value to be stored in the array
+515 Creates an immutable array with two elements. @param e0 first element value @param e1 second element value
+516 Creates an immutable array with three elements. @param e0 first element @param e1 second element @param e2 third element
+517 Creates an array with four elements from the given values. @param e0 first element value @param e1 second element value @param e2 third element value @param e3 fourth element value
+518 Creates an ImmutableLongArray from five individual elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element @param e4 fifth element
+519 Creates an ImmutableLongArray instance with the specified elements. @param e0 first element @param e1 second element @param e2 third element @param e3 fourth element @param e4 fifth element @param e5 sixth element
+520 Creates an immutable long array from the given long array. @param values original long array
+521 Creates an immutable long array by copying a LongStream into it. @param stream the input LongStream to copy from
+522 Returns a trimmed version of the array, or the original if not partial view.
+523 Creates a ScaleAndIndexes object from a collection of integer indexes. @param indexes collection of integer indexes to scale
+524 Creates an immutable integer array from the given collection of integers. @param values Collection of integers to be copied @return ImmutableIntArray object or EMPTY if input is empty
+525 Creates an immutable long array from a collection of long values. @param values collection of long values
+526 Tries to parse a string into an integer with specified radix. @param string input string to parse @param radix base of the number in the input string @return parsed int value or null if parsing fails or is invalid
+527 Tries to parse a string into a long value using base 10. @param string input string to be parsed
+528 Decodes a string representation of an unsigned integer. @param stringValue string to parse, must conform to ParseRequest format
+529 Creates an UnsignedInteger from a long value. @param value long value to convert, must be within unsigned int range
+530 Converts BigInteger to UnsignedInteger. @param value arbitrary-precision integer @return UnsignedInteger object or throws if invalid
+531 Parses unsigned integer from string representation in specified radix. @param string string representation of unsigned integer @param radix base of the number in the string (e.g. 10 for decimal) @return UnsignedInteger value or throws exception on parsing error
+532 Adds two unsigned integers together. @param val integer to be added @return result of addition as UnsignedInteger
+533 Subtracts another unsigned integer value. @param val value to subtract @return result of subtraction (or null if input is invalid)
+534 Computes the product of two unsigned integers. @param val value to multiply with @return product as an UnsignedInteger object
+535 Divides this UnsignedInteger by another. @param val divisor value @return quotient as UnsignedInteger or throws if division is zero
+536 Computes remainder of this unsigned integer value divided by another. @param val the divisor
+537 Returns a string representation of the object using the default formatting. @return A formatted string with a maximum length of 10 characters.
+538 Compares this UnsignedInteger with another. @param other UnsignedInteger to compare with @return negative/positive/zero if this < / > / == other
+539 Converts a non-negative long to an UnsignedLong. @param value non-negative long value
+540 Converts a BigInteger to an UnsignedLong, checking for valid range. @param value BigInteger value to convert
+541 Adds an unsigned long value to this instance. @param val value to add @return new UnsignedLong result
+542 Subtracts another unsigned long value and returns the result. @param val value to subtract @return resulting unsigned long value
+543 Multiplies two unsigned long values. @param val value to be multiplied @return product as an UnsignedLong object
+544 Computes the division of two 64-bit integers. @param dividend number to be divided @param divisor non-zero integer divisor @return quotient as a long value
+545 Calculates the remainder of two integers. @param dividend number to get remainder from @param divisor non-zero divisor value @return remainder as a long integer
+546 Parses unsigned long integer from string representation. @param string input string to parse @param radix base of the input number (e.g., 10 for decimal)
+547 Converts a string to an unsigned long integer using base 10. @param string input string to parse
+548 Decodes a string representation of an unsigned long integer. @param stringValue string to parse
+549 Checks if the access level of this member is package-private.
+550 Wraps the TypeToken in a non-primitive type, if applicable. @return the wrapped TypeToken or itself, if already non-primitive
+551 Unwraps the TypeToken, returning its underlying primitive type if it's a wrapper. @return the unwrapped TypeToken or the original token if not a wrapper
+552 Retrieves the component type of this type token, or null if none.
+553 Retrieves the computed value, blocking until completion. @throws InterruptedException if interrupted while waiting @throws ExecutionException if computation failed
+554 Submits a task to the executor service and adds its result to a blocking queue. @param executorService ListeningExecutorService instance @param task Callable task to be executed @param queue BlockingQueue of Future objects @return ListenableFuture representing the submitted task's result
+555 Awaits the service to be running with optional timeout. @param timeout maximum time to wait, may throw TimeoutException if exceeded
+556 Waits until service is running within specified duration. @param timeout maximum waiting time
+557 Waits until service is running within specified time limit. @param timeout maximum duration to wait
+558 Awaits service running with specified timeout. @param timeout maximum duration to wait
+559 Waits until the service has terminated or times out. @param timeout maximum time to wait before throwing a TimeoutException
+560 Awaits termination of this service instance within a specified time duration. @param timeout maximum wait time before throwing TimeoutException
+561 Waits for service termination within specified duration. @param timeout maximum time to wait in Duration format
+562 Awaits termination of service instance within specified time duration. @param timeout maximum waiting period @throws TimeoutException if termination not achieved within given time
+563 Collects and processes a non-cancelled future's value. @param index position of the future in the collection @param future completed input to process
+564 Accumulates and adds the given delta to the current value. @param delta value to add to the current value
+565 Adds a value to an accumulated sum and returns the new sum. @param delta value to be added @return updated sum or NaN if previous sum was NaN
+566 Adds delta to value at index i and returns new sum. @param i unique index identifier @param delta value to add
+567 Accumulates and adds a delta to an integer value, returning the result. @param i initial value @param delta value to be added @return accumulated value as a double
+568 Cancels the asynchronous operation and closes associated resources. @param mayInterruptIfRunning whether to interrupt running tasks @return true if cancellation was successful, false otherwise
+569 Recursively finds a path of allowed prior locks from the given node. @param node current lock graph node @param seen set of nodes already traversed @return ExampleStackTrace object or null if no valid path found
+570 Creates a ListenableFutureTask from a Callable. @param callable user-provided task to execute
+571 Creates an asynchronous task with a specified result. @param runnable the task to be executed @param result the expected result of the task
+572 Executes a list of tasks upon completion.
+573 Creates a new instance of ExecutionSequencer.
+574 Converts a ListenableFuture into a FluentFuture. @param future the future to convert, may be null
+575 Propagates non-cancellation status from input future to output. @param future input future to propagate non-cancellation from @return a new future with non-cancellation propagated or the original if already done
+576 Reloads the value associated with the given key. @param key unique key identifier @param oldValue previously loaded value (for comparison) @return ListenableFuture containing new value or null if not updated
+577 Adds an event to the queue, where L is the type of data associated with the event. @param event Event object to be queued
+578 Enqueues an event with the specified label. @param event Event object to be enqueued @param label Unique identifier or label for the event
+579 Dispatches events to registered listeners if currently not occupied by this thread.
+580 Dispatches listener events while ensuring exclusive access is not held.
+581 Signals the next waiting thread that its condition is satisfied. @param lock object that guards this method
+582 Submits an asynchronous task to the specified executor. @param callable asynchronous operation to execute @param executor execution context for the task @return ListenableFuture representing the outcome of the task
+583 Schedules an asynchronous operation with a specified delay and executor service. @param callable asynchronous operation to execute @param delay time to wait before execution, in specified time unit @param timeUnit time unit for delay (e.g. milliseconds) @return ListenableFuture representing the scheduled task
+584 Creates a future task for the given callable, wrapping it in a trust-enabled future. @param callable user-provided computation to be executed
+585 Submits a blocking task for execution on the specified executor. @param callable the task to execute @param executor the executor to use @return ListenableFuture representing the result of the task, or null if cancelled.
+586 Creates a new task for the given Runnable and result. @param runnable the task to be executed @param value the result of the task @return RunnableFuture containing the task and result
+587 Executes a Runnable asynchronously using the provided Executor. @param runnable task to be executed @param executor thread pool for execution @return ListenableFuture representing the asynchronous task
+588 Tries to acquire the semaphore uninterruptibly within the specified time-out. @param semaphore the semaphore to acquire @param timeout duration to wait for acquisition

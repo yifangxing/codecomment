@@ -1,0 +1,31 @@
+1 Retrieves a map entry for the specified key. @param key the lookup key or null to return null @return Entry object associated with the key, or null if not found
+2 Checks if an entry is live based on its hash and current time. @param entry the entry to check @param now the current timestamp @return true if the entry is live, false otherwise
+3 Inserts a loading value reference for the given key. @param key unique key identifier @param hash hash code of the key @param checkTime whether to check if refresh is still needed after acquiring the lock @return LoadingValueReference object or null if an existing entry exists and needs no refresh
+4 Periodically cleans up resources based on read count threshold. @param none
+5 Resolves a TypeVariable's bounds to their concrete types. @param var TypeVariable to resolve @param forDependants TypeTable for dependent types @return resolved Type or the original TypeVariable if no resolution is needed
+6 Combines a callable with provided closeables and executes it on the specified executor. @param combiningCallable function to combine with closeables @param executor execution context @return ClosingFuture object representing combined result
+7 Asynchronously calls an AsyncCombiningCallable with provided Executor. @param combiningCallable the callable to execute @param executor execution context @return ClosingFuture containing result and closeable resources
+8 Parses a string into a HostSpecifier object. @param specifier input string to be parsed @throws ParseException if the input is invalid
+9 Validates host specifier string. @param specifier host specifier to validate @return true if valid, false otherwise
+10 Returns the internet domain's public suffix if present. @return PublicSuffix object or null if not set
+11 Returns the top private domain in the hierarchy. @return InternetDomainName object representing the top private domain
+12 Returns the registry suffix of the internet domain name. @return InternetDomainName object or null if not set
+13 Returns the top domain under the current registry suffix. @return InternetDomainName object or null if not found
+14 Retrieves the immediate parent domain. @return InternetDomainName object representing the parent domain or null if none exists
+15 Converts a collection of objects to an immutable multimap. @param keyFunction function to extract key from each object @param valueFunction function to extract value from each object
+16 Creates an immutable multimap with a single entry. @param k1 key @param v1 value
+17 Creates an ImmutableMultimap with two key-value pairs. @param k1 first key @param v1 value associated with k1 @param k2 second key @param v2 value associated with k2
+18 Creates an ImmutableMultimap with the given key-value pairs. @param k1 first key @param v1 value for key k1 @param k2 second key @param v2 value for key k2 @param k3 third key @param v3 value for key k3
+19 Creates an ImmutableMultimap from individual key-value pairs. @param k1,k2,k3,k4 keys @param v1,v2,v3,v4 values
+20 Creates an ImmutableMultimap from a collection of key-value pairs. @param k1 first key @param v1 value associated with k1 @param k2 second key @param v2 value associated with k2 @param k3 third key @param v3 value associated with k3 @param k4 fourth key @param v4 value associated with k4 @param k5 fifth key @param v5 value associated with k5
+21 Creates an immutable multimap from an iterable of key-value pairs. @param entries the input collection of entries
+22 Returns an inverted multimap copy or computes a new one if not cached. @return Inverted Multimap object
+23 Creates an indexed multimap from an iterable of values and a function to extract keys. @param values iterable of values @param keyFunction function to map each value to its corresponding key
+24 Adds a single parameter to the media type. @param attribute name of the parameter @param value value of the parameter
+25 Creates media type with specified parameters. @param parameters multimap of parameter key-value pairs
+26 Creates a MediaType instance with the specified type and subtype. @param type the top-level media type (e.g., "text") @param subtype the sub-type of the media type (e.g., "plain")
+27 Parses a MediaType string into its constituent parts. @param input the input MediaType string to parse
+28 Initializes ServiceManager with a collection of services. If no services are provided, substitutes a placeholder service to ensure proper behavior. Adds listeners to each service. @param services iterable of services to manage
+29 Converts a stream of objects to an immutable multimap. @param keyFunction maps each object to its key @param valuesFunction maps each object to a stream of its values
+30 Resolves the given type into a TypeToken, while ensuring type safety in invariant contexts. @param type type to be resolved
+31 Creates a min-max priority queue with natural ordering. @return MinMaxPriorityQueue instance

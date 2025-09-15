@@ -1,0 +1,926 @@
+1 Constructor. @param aValue The boolean value.
+2 Private constructor. This will limit the number of COSName objects that are created. @param aName The name of the COSName object.
+3 Constructor.
+4 Creates a new PDF string from a byte array. This method can be used to read a string from an existing PDF file, or to create a new byte string. @param bytes The raw bytes of the PDF text string or byte string. @param forceHex forces the hexadecimal presentation of the string if set to true
+5 Constructor.
+6 Constructor. @param object The object that this encapsulates.
+7 Constructor. @param object The object that this encapsulates. @param parser The parser to be used to load the object on demand
+8 Constructor. @param key The object number of the encapsulated object. @param parser The parser to be used to load the object on demand
+9 Constructs an instance specifying the region of the image that should be decoded. The actual region will be clipped to the dimensions of the image. @param x x-coordinate of the top-left corner of the region to be decoded @param y y-coordinate of the top-left corner of the region to be decoded @param width Width of the region to be decoded @param height Height of the region to be decoded
+10 Sets the given {@link COSObjectKey} as a free reference in a PDF's crossreference stream ({@link PDFXRefStream}). @param key The key, that shall be set as the free reference of the document. @param nextFreeObject The object number of the next free object.
+11 Prepares a object stream entry reference for the given {@link COSObject} in a PDF's crossreference stream ({@link PDFXRefStream}). @param objectStreamIndex The index of the {@link COSObject} in the containing object stream. @param key The {@link COSObjectKey}, that is represented by this entry. @param object The {@link COSObject}, that is represented by this entry. @param parentKey The {@link COSObjectKey} of the object stream, that is containing the object.
+12 Default constructor.
+13 Creates a new instance with a given COS dictionary. @param dictionary the dictionary
+14 Creates a new attribute object with a given dictionary. @param dictionary the dictionary
+15 Creates a user property with a given dictionary. @param dictionary the dictionary @param userAttributeObject the user attribute object
+16 @param dict The dictionary storage.
+17 creates a new transition for an existing dictionary @param dictionary the dictionary to be used for the new transition
+18 Constructor. @param dic The COS dictionary.
+19 Constructor. @param dic The COS dictionary.
+20 Constructor. @param dic The COS dictionary.
+21 Constructor. @param dic The COS dictionary.
+22 Create a child node object. @param dic The dictionary for the child node object to refer to. @return The new child node object.
+23 Constructor. This will <b>not</b> set up the /Type and /Subtype entries. @param str The stream parameter.
+24 Constructor. @param str The stream parameter.
+25 {@inheritDoc}
+26 Constructor. @param function The function stream.
+27 Creates a new XObject from the given stream and subtype. @param stream The stream to read. @param subtype the subtype to be used for this XObject
+28 Constructor for an existing structure element. @param dic The existing dictionary.
+29 Constructor for an existing structure element. @param dic The existing dictionary.
+30 Constructor.
+31 Constructor used for encryption. @param protectionPolicy The protection policy.
+32 Constructor. @param a An existing FDF Annotation.
+33 Constructor. @param a An existing FDF Annotation.
+34 Constructor. @param a An existing FDF Annotation.
+35 Constructor. @param a An existing FDF Annotation.
+36 Constructor. @param a An existing FDF Annotation.
+37 Constructor. @param a An existing FDF Annotation.
+38 Constructor. @param a An existing FDF Annotation.
+39 Constructor. @param a An existing FDF Annotation.
+40 Constructor. @param a An existing FDF Annotation.
+41 Constructor. @param a An existing FDF Annotation.
+42 Constructor. @param a An existing FDF Annotation.
+43 Constructor. @param a An existing FDF Annotation.
+44 Constructor. @param a An existing FDF Annotation.
+45 Constructor. @param a An existing FDF Annotation.
+46 Ten bytes for the PANOSE classification number for the font. @see <a href="http://www.monotype.com/services/pan1">http://www.monotype.com/services/pan1</a> @return the PANOSE classification number
+47 Creates a blend composite @param blendMode Desired blend mode @param constantAlpha Constant alpha, must be in the inclusive range [0.0...1.0] or it will be clipped. @return a blend composite. @throws IllegalArgumentException if blendMode is null.
+48 Returns the transparency group attributes dictionary. @return the transparency group attributes dictionary, never null.
+49 Creates a new shading pattern from the given COS dictionary. @param resourceDictionary The COSDictionary for this pattern resource.
+50 Creates a new tiling pattern from the given COS dictionary. @param dictionary The COSDictionary for this pattern. @param resourceCache The resource cache, may be null
+51 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+52 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+53 Constructor. @param shadingType2 the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+54 Constructor. @param shading the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+55 Constructor. @param shading the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+56 Constructor. @param shading the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+57 Constructor. @param shading the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+58 Constructor. @param shading the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+59 Constructor. @param shading the shading resources @param matrix the pattern matrix concatenated with that of the parent content stream
+60 Create a graphics state from an existing dictionary. @param dictionary The existing graphics state.
+61 Creates a new soft mask. @param dictionary The soft mask dictionary.
+62 Construct the text block from a single value. Constructs the text block from a single value splitting into individual {@link Paragraph} when a new line character is encountered. @param textValue the text block string.
+63 Constructor. @param a The action dictionary.
+64 Constructor. @param a The action dictionary.
+65 Constructor @param a the action dictionary
+66 Constructor. @param a The action dictionary.
+67 Constructor #2. @param a The action dictionary.
+68 Constructor. @param a The action dictionary.
+69 Constructor. @param a The action dictionary.
+70 Constructor. @param a The action dictionary.
+71 Constructor. @param a The action dictionary.
+72 Constructor. @param a The action dictionary.
+73 Constructor. @param a The action dictionary.
+74 Constructor @param a the action dictionary
+75 Constructor. @param a The action dictionary.
+76 Constructor. @param a The action dictionary.
+77 Return two related lists as a single list with key value pairs. @param key the key elements @param value the value elements @return a sorted list of KeyValue elements.
+78 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node to be created
+79 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+80 Constructor. @param dictionary the corresponding dictionary
+81 Clones this object. @return cloned matrix as an object.
+82 Convenience method to create a scaled instance. Produces the following matrix: x 0 0 0 y 0 0 0 1 @param x The xscale operator. @param y The yscale operator. @return A new matrix with just the x/y scaling
+83 Convenience method to create a translating instance. Produces the following matrix: 1 0 0 0 1 0 x y 1 @param x The x translating operator. @param y The y translating operator. @return A new matrix with just the x/y translating.
+84 Convenience method to create a rotated instance. @param theta The angle of rotation measured in radians @param tx The x translation. @param ty The y translation. @return A new matrix with the rotation and the x/y translating.
+85 Transforms the given vector by this matrix. @param vector 2D vector @return the transformed vector.
+86 Returns a new vector scaled by both x and y. @param sxy x and y scale @return a new vector scaled by both x and y
+87 Return the field tree representing all form fields @return the field tree representing all form fields
+88 Sets the default value to use in {@link ByteTrie#find(byte[])} when no path matches. @param defaultValue
+89 Returns the object at the specified position. @param index the position @return the object @throws IndexOutOfBoundsException if the index is out of range
+90 Returns the size. @return the size
+91 Returns the revision number at the specified position. @param index the position @return the revision number @throws IndexOutOfBoundsException if the index is out of range
+92 Adds an object with a specified revision number. @param object the object @param revisionNumber the revision number
+93 Sets the revision number of a specified object. @param object the object @param revisionNumber the revision number
+94 This will get an encoding by name. May return null. @param name The name of the encoding to get. @return The encoding that matches the name.
+95 Creates a new soft mask. @param dictionary SMask @param resourceCache Resource cache, may be null. @return the newly created instance of PDSoftMask
+96 This will get the selected index. <p> A RadioButton might have multiple same value options which are not selected jointly if they are not set in unison {@link #isRadiosInUnison()}.</p> <p> The method will return the first selected index or -1 if no option is selected.</p> @return the first selected index or -1.
+97 Add a source file to the list of files to merge. @param source Full path and file name of source document. @throws FileNotFoundException If the file doesn't exist
+98 This will parse the trailer from the stream and add it to the state. @return false on parsing error @throws IOException If an IO error occurs.
+99 Returns the {@link COSBase}, that is registered for the given {@link COSObjectKey} in this compression pool. @param key The {@link COSObjectKey} a {@link COSBase} is registered for in this compression pool. @return The {@link COSBase}, that is registered for the given {@link COSObjectKey} in this compression pool, if such an object is contained.
+100 Executes the instruction sequence. @param context the execution context
+101 Constructor that will use the provided function to create a stream cache for the storage of the PDF streams. @param streamCacheCreateFunction a function to create an instance of a stream cache @param parser Parser to be used to parse the document on demand
+102 This is used to handle an operation. @param operator The operation to perform. @param operands The list of arguments. @throws IOException If there is an error processing the operation.
+103 @return Returns the textLineMatrix.
+104 @param value The textLineMatrix to set.
+105 @return Returns the textMatrix.
+106 @param value The textMatrix to set.
+107 Transforms a width using the CTM. @param width the width to be transformed @return the transformed width
+108 Returns the non-stroking color. @return The non-stroking color.
+109 Sets the non-stroking color. @param color The new non-stroking color.
+110 Returns the non-stroking color space. @return The non-stroking color space.
+111 Returns the stroking color. @return The stroking color.
+112 Sets the stroking color. @param color The new stroking color.
+113 Returns the stroking color space. @return The stroking color space.
+114 Returns a new InputStream which reads the encoded PDF stream data. Experts only! @return InputStream containing raw, encoded PDF stream data. @throws IOException If the stream could not be read.
+115 Returns a new OutputStream for writing encoded PDF data. Experts only! @return OutputStream for raw PDF stream data. @throws IOException If the output stream could not be created.
+116 Finds a suitable image reader for an image format. @param formatName The image format to search for. @param errorCause The probably cause if something goes wrong. @return The image reader for the format. @throws MissingImageReaderException if no image reader is found.
+117 Finds a suitable image raster reader for an image format. @param formatName The image format to search for. @param errorCause The probably cause if something goes wrong. @return The image reader for the format. @throws MissingImageReaderException if no image reader is found.
+118 This is used to create/cache operators in the system. @param operator The operator for the system. @return The operator that matches the operator keyword.
+119 {@inheritDoc}
+120 Whether the for control points are on a line. @param ctl an edge's control points, the size of ctl is 4 @return true when 4 control points are on a line, otherwise false
+121 This will get the lower left x coordinate. @return The lower left x.
+122 This will get the lower left y coordinate. @return The lower left y.
+123 This will get the upper right x coordinate. @return The upper right x .
+124 This will get the upper right y coordinate. @return The upper right y.
+125 This will get the size of the font. @return The size of the font.
+126 Returns the r value of the tristimulus. @return the R value.
+127 Returns the g value of the tristimulus. @return the g value
+128 Returns the b value of the tristimulus. @return the B value
+129 Returns the x value of the tristimulus. @return the X value
+130 Returns the y value of the tristimulus. @return the Y value
+131 Returns the z value of the tristimulus. @return the Z value
+132 Get the value of the array as an integer, return the default if it does not exist. @param index The value of the array. @param defaultValue The value to return if the value is null. @return The value at the index or the defaultValue.
+133 Get an entry in the array that is expected to be a COSName. @param index The index into the array. @param defaultValue The value to return if it is null. @return The value at the index or defaultValue if none is found.
+134 This will return the index of the entry or -1 if it is not found. @param object The object to search for. @return The index of the object or -1.
+135 Returns the list of filters.
+136 Create the COSArrayList specifying the List and the backing COSArray. <p>User of this constructor need to ensure that the entries in the List and the backing COSArray are matching i.e. the COSObject of the List entry is included in the COSArray. <p>If the number of entries in the List and the COSArray differ it is assumed that the List has been filtered. In that case the COSArrayList shall only be used for reading purposes and no longer for updating. @param actualList The list of standard java objects @param cosArray The COS array object to sync to.
+137 Performs exponential interpolation {@inheritDoc}
+138 This will get the list of filters that are associated with this stream. @return A (possibly empty) list of all encoding filters to apply to this stream, never null.
+139 This will get the list of filters that are associated with this stream. The list is empty if there are none. @return A list of all encoding filters to apply to this stream.
+140 Write the given {@link COSBoolean} to the given stream. @param output The stream, that shall be written to. @param cosBoolean The content, that shall be written.
+141 Writes a string to the content stream as ASCII. @param text the text to be added to the content stream @throws IOException If the underlying stream has a problem being written to.
+142 Write the given {@link COSDictionary} to the given stream. @param output The stream, that shall be written to. @param cosDictionary The content, that shall be written.
+143 Notifies the user attribute object if the user property is changed. @param oldEntry old entry @param newEntry new entry
+144 {@inheritDoc}
+145 This is a convenience method that will get the dictionary object that is expected to be a COSObject. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The COSObject.
+146 This is a special case of getItem that takes multiple keys, it will handle the situation where multiple keys could get the same value, ie if either CS or ColorSpace is used to get the colorspace. This will get an object from this dictionary. @param firstKey The first key to try. @param secondKey The second key to try. @return The object that matches the key.
+147 Returns the number of recipients contained in the Recipients field of the dictionary. @return the number of recipients contained in the Recipients field.
+148 returns the COSString contained in the Recipients field at position i. @param i the position in the Recipients field array. @return a COSString object containing information about the recipient number i.
+149 @return the direction in which the specified transition effect shall move. It can be either a {@link COSInteger} or {@link COSName#NONE}. Default to {@link COSInteger#ZERO} @see PDTransitionDirection
+150 This will get the keys of all metadata information fields for the document. @return all metadata key strings. @since Apache PDFBox 1.3.0
+151 Gets the attribute names. @return the attribute names
+152 Copy all Trailer Information to this file. @param trailerDict dictionary to be added as trailer info
+153 Copy Constructor. This will make a shallow copy of this dictionary. @param dict The dictionary to copy.
+154 Tell if the dictionary is an info dictionary. @param dictionary the dictionary to be checked @return true if the given dictionary is an info dictionary
+155 Returns true if widths are present in the font descriptor. @return true if widths are present in the font descriptor
+156 Returns true if the missing widths entry is present in the font descriptor. @return true if the missing widths entry is present in the font descriptor
+157 This will tell if the AcroForm has XFA content. @return true if the AcroForm is an XFA form
+158 Signals that a new XRef object (table or stream) starts. @param startBytePos the offset to start at @param type the type of the Xref object
+159 Constructor. @param aFloat The primitive float object that this object wraps. @throws IOException If aFloat is not a float.
+160 {@inheritDoc}
+161 This will output this string as a PDF object. @param output The stream to write to. @throws IOException If there is an error writing to the stream.
+162 Uses the managed {@link #updateInfo} as the base object of a new {@link COSIncrement}. @return A {@link COSIncrement} based on the managed {@link #updateInfo}. @see COSUpdateInfo @see COSIncrement
+163 Creates a new instance. @param targetDoc the PDF document to modify
+164 Default constructor.
+165 Convenience method, so that we get false for types that can't be updated. @param base @return
+166 Appends a marked-content sequence kid. @param mcid the marked-content id (MCID). @throws IllegalArgumentException if the mcid is negative.
+167 @return the value for this direction
+168 Write the given {@link COSInteger} to the given stream. @param output The stream, that shall be written to. @param cosInteger The content, that shall be written.
+169 Write a comment line. @param comment the comment to be added to the content stream @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the comment contains a newline. This is not allowed, because the next line could be ordinary PDF content.
+170 Write a comment line. @param comment the comment to be added to the content stream @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the comment contains a newline. This is not allowed, because the next line could be ordinary PDF content.
+171 Write a comment line. @param comment the comment to be added to the content stream @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the comment contains a newline. This is not allowed, because the next line could be ordinary PDF content.
+172 Write a comment line. @param comment the comment to be added to the content stream @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the comment contains a newline. This is not allowed, because the next line could be ordinary PDF content.
+173 Constructor. @param num The object number. @param gen The object generation number.
+174 Compares this object with the specified object for order. Returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object. @param xReferenceEntry the object to be compared. @return a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
+175 This will get the X scaling factor. This is dependent on the current transformation matrix (set by the "cm" operator), the text matrix (set by the "Tm" operator) and the font size (set by the "Tf" operator). @return The X scaling factor.
+176 This will get the Y scaling factor. This is dependent on the current transformation matrix (set by the "cm" operator), the text matrix (set by the "Tm" operator) and the font size (set by the "Tf" operator). @return The Y scaling factor.
+177 COSWriter constructor. @param outputStream The output stream to write the PDF. @param compressParameters The configuration for the document's compression.
+178 COSWriter constructor for incremental updates. There must be a path of objects that have {@link COSUpdateInfo#isNeedToBeUpdated()} set, starting from the document catalog. For signatures this is taken care by PDFBox itself. @param outputStream output stream where the new PDF data will be written. @param inputData random access read containing source PDF data @throws IOException if something went wrong
+179 Sets the {@link #updated} state of the managed {@link #updateInfo} to the given state.<br> This shall only then have an effect, if {@link #isAcceptingUpdates()} returns {@code true}. @param updated The state to set for {@link #updated}. @see #update(boolean) @see #updated @see #isAcceptingUpdates()
+180 Returns the content of this string as a PDF <i>text string</i>. @return the PDF string representation of the COSString
+181 Creates a new <i>text string</i> from a Java String. @param text The string value of the object. @param forceHex forces the hexadecimal presentation of the string if set to true
+182 Returns true if this font is one of the "Standard 14" fonts and receives special handling. @return true if this font is one of the "Standard 14" fonts
+183 This will read a chunk of data. @param data The buffer to write data to. @param offset The offset into the data stream. @param len The number of byte to attempt to read. @return The number of bytes actually read. @throws IOException If there is an error reading data from the underlying stream.
+184 This will close the stream. @throws IOException If there is an error closing the wrapped stream.
+185 Close the content stream. This must be called when you are done with this object. @throws IOException If the underlying stream has a problem being written to.
+186 Close the content stream. This must be called when you are done with this object. @throws IOException If the underlying stream has a problem being written to.
+187 Close the content stream. This must be called when you are done with this object. @throws IOException If the underlying stream has a problem being written to.
+188 Close the content stream. This must be called when you are done with this object. @throws IOException If the underlying stream has a problem being written to.
+189 This will read the next byte from the stream. @return The next byte read from the stream. @throws IOException If there is an error reading from the wrapped stream.
+190 This will read a chunk of data. @param data The buffer to write data to. @param offset The offset into the data stream. @param length The number of byte to attempt to read. @return The number of bytes actually read. @throws IOException If there is an error reading data from the underlying stream.
+191 Read the image stream of the signature and set height and width. @param stream stream of your visible signature image @throws IOException If we can't read, flush, or close stream of image
+192 {@inheritDoc}
+193 We look which row encoding is the "best" one, ie. has the lowest sum. We don't implement anything fancier to choose the right row encoding. This is just the recommend algorithm in the spec. The get the perfect encoding you would need to do a brute force check how all the different encoded rows compress in the zip stream together. You have would have to check 5*image-height permutations... @return the "best" row encoding of the row encodings
+194 Reset all data so that it can be used to rebuild the trailer.
+195 Close all input documents which were used for the overlay and opened by this class. @throws IOException if something went wrong
+196 Creates a Form XObject for reading. @param stream The XObject stream
+197 Constructor. @param pdContentstream The content stream to parse. @throws IOException If there is an error initializing the stream.
+198 Constructor. @param bytes the bytes to parse.
+199 Search for/parse the object with the given object number. The stream is closed after parsing the object with the given number. @param objectNumber the number of the object to b e parsed @return the parsed object or null if the object with the given number can't be found @throws IOException if there is an error while parsing the stream
+200 Read all object numbers from the compressed object stream. The stream is closed after reading the object numbers. @return a map off all object numbers and the corresponding offset within the object stream. @throws IOException if there is an error while parsing the stream
+201 Constructor. @param codeToName the given code to name mapping
+202 Creates an encoding from the given FontBox encoding. @param encoding FontBox encoding @return the encoding created from the given FontBox encoding
+203 Skip the upcoming CRLF or LF which are supposed to follow a stream. Trailing spaces are removed as well. @throws IOException if something went wrong
+204 Skip one line break, such as CR, LF or CRLF. @return true if a line break was found and removed. @throws IOException if something went wrong
+205 This will read bytes until the first end of line marker occurs. NOTE: The EOL marker may consists of 1 (CR or LF) or 2 (CR and CL) bytes which is an important detail if one wants to unread the line. @return The characters between the current position and the end of the line. @throws IOException If there is an error reading from the stream.
+206 This will skip all spaces and comments that are present. @throws IOException If there is an error reading from the stream.
+207 The number of color components of this shading. @return number of color components of this shading @throws IOException if the data could not be read
+208 The number of color components of this shading. @return number of color components of this shading @throws IOException if the data could not be read
+209 Search for the offset of the given xref table/stream among those found by a brute force search. @param xrefOffset the given offset to be searched for @return the offset of the xref entry @throws IOException if something went wrong
+210 Parse the header of a pdf. @return true if a PDF header was found @throws IOException if something went wrong
+211 Parse the header of a fdf. @return true if a FDF header was found @throws IOException if something went wrong
+212 Parse all compressed objects. The stream is closed after parsing. @return a map containing all parsed objects using the object number as key @throws IOException if there is an error while parsing the stream
+213 Calculate the key to be used for RC4 and AES-128. @param objectNumber The data object number. @param genNumber The data generation number. @return the calculated key.
+214 Create a new appearance stream. @param appearance The appearance stream to add to. @param outputStream The appearances output stream to write to.
+215 Create a new appearance stream. Note that this is not actually a "page" content stream. @param doc The document the appearance is part of. @param appearance The appearance stream to add to. @param outputStream The appearances output stream to write to.
+216 Transforms a point using the CTM. @param x the x-coordinate of the point to be transformed @param y the y-coordinate of the point to be transformed @return the transformed point
+217 Not called in TexturePaint subclasses, which is why we wrap TexturePaint.
+218 Concatenates (premultiplies) the given matrix to this matrix. @param matrix The matrix to concatenate.
+219 Translates this matrix by the given amount. @param tx x-translation @param ty y-translation
+220 Scales this matrix by the given factors. @param sx x-scale @param sy y-scale
+221 This method multiplies this Matrix with the specified other Matrix, storing the product in a new instance. It is allowed to have (other == this). @param other the second operand Matrix in the multiplication; required @return the product of the two matrices.
+222 Retrieve the encoded glyph IDs for the characters in the specified text, after applying any relevant GSUB rules. The glyph IDs used are also added to the specified glyph ID set. @param gsubWorker The GSUB worker which defines the GSUB transformations to apply. @param glyphIds The set of glyph IDs which is to be populated with the glyph IDs found in the text. @param font The font whose cmap table will be used to map characters to glyph IDs. @param text The text which is being converted from characters to glyph IDs. @return The encoded glyph IDs for the characters in the specified text, after applying any relevant GSUB rules. @throws IOException If there is an error during encoding. @throws IllegalStateException If we cannot find a glyph ID for any characters in the specified text.
+223 Create the resulting document. Maybe overwritten if the parser uses another class as document. @return the resulting document @throws IOException if the method is called before parsing the document
+224 Constructor that uses an existing document. The COSDocument that is passed in must be valid. @param doc The COSDocument that this document wraps. @param source input representing the pdf
+225 Returns a new security handler for the given protection policy, or null none is available. @param policy the protection policy for which to create a security handler @return a new SecurityHandler instance, or null if none is available
+226 Returns a new security handler for the given Filter name, or null none is available. @param name the Filter name from the PDF encryption dictionary @return a new SecurityHandler instance, or null if none is available
+227 Set the stroking color. <p> The command is only emitted if the color is not null and the number of components is &gt; 0. @param color The colorspace to write. @return true if the stroking color was set successfully @throws IOException If there is an error writing to the content stream. @see PDAbstractContentStream#setStrokingColor(PDColor)
+228 Set the non stroking color. <p> The command is only emitted if the color is not null and the number of components is &gt; 0. @param color The colorspace to write. @return true if the non stroking color was set successfully @throws IOException If there is an error writing to the content stream. @see PDAbstractContentStream#setNonStrokingColor(PDColor)
+229 Constructor.
+230 This will tell if the access permission corresponds to owner access permission (no restriction). @return true if the access permission does not restrict the use of the document
+231 Indicates if any revision 3 access permission is set or not. @return true if any revision 3 access permission is set
+232 This will encrypt and write the data. @param data The data to encrypt. @param output The stream to write to. @throws IOException If there is an error writing to the output stream.
+233 This will encrypt and write the data. @param data The data to encrypt. @param offset The offset into the array to start reading data from. @param len The number of bytes to attempt to read. @param output The stream to write to. @throws IOException If there is an error writing to the output stream.
+234 Inserts the diacritic TextPosition to the str of this TextPosition and updates the widths array to include the extra character width. @param i current character @param diacritic The diacritic TextPosition
+235 Write a Java string to the output stream. The default implementation will ignore the <code>textPositions</code> and just calls {@link #writeString(String)}. @param text The text to write to the stream. @param textPositions The TextPositions belonging to the text. @throws IOException If there is an error when writing the text.
+236 Constructor of class Line. @param p0 one end of a line @param p1 the other end of the line @param c0 color of point p0 @param c1 color of point p1
+237 Creates a new soft mask paint. @param paint underlying paint. @param mask soft mask @param bboxDevice bbox of the soft mask in the underlying Graphics2D device space @param backdropColor the color to be used outside the transparency group’s bounding box; if null, black will be used. @param transferFunction the transfer function, may be null.
+238 Computes backdrop removal. The backdrop removal equation is given in section 11.4.4 in the PDF 32000-1:2008 standard. It returns the final color <code>C</code> for each pixel in the group:<br> <code>C = Cn + (Cn - C0) * (alpha0 / alphagn - alpha0)</code><br> where<br> <code>Cn</code> is the group color including backdrop (read from <code>groupImage</code>),<br> <code>C0</code> is the backdrop color,<br> <code>alpha0</code> is the backdrop alpha,<br> <code>alphagn</code> is the group alpha excluding backdrop (read the alpha channel from <code>groupAlphaImage</code>)<br> <p> The alpha of the result is equal to <code>alphagn</code>, i.e., the alpha channel of <code>groupAlphaImage</code>. <p> The <code>backdrop</code> image may be much larger than <code>groupImage</code> if, for example, the current page is used as the backdrop. Only a specific rectangular region of <code>backdrop</code> is used in the backdrop removal: upper-left corner is at <code>(offsetX, offsetY)</code>; width and height are equal to those of <code>groupImage</code>. @param backdrop group backdrop @param offsetX backdrop left X coordinate @param offsetY backdrop upper Y coordinate
+239 Returns the metrics for font specified by fontName. Loads the font metrics if not already loaded. @param fontName name of font; either a base name or alias @return the font metrics or null if the name is not one of the known names @throws IllegalArgumentException if no metrics exist for that font.
+240 Creates a new GlyphList from a glyph list file. @param numberOfEntries number of expected values used to preallocate the correct amount of memory @param input glyph list in Adobe format @throws IOException if the glyph list could not be read
+241 Creates a new GlyphList from multiple glyph list files. @param glyphList an existing glyph list to be copied @param input glyph list in Adobe format @throws IOException if the glyph list could not be read
+242 Returns the GID for the given character code. @param code character code @return GID (glyph index) @throws IOException if the data could not be read
+243 Maps a PostScript glyph name to the name in the underlying font, for example when using a TTF font we might map "W" to "uni0057".
+244 Maps a PostScript glyph name to the name in the underlying font, for example when using a TTF font we might map "W" to "uni0057".
+245 Lazy load the ICC profile, because it's slow. @throws IOException if the ICC profile could not be initialized
+246 @param image The image to apply the mask to as alpha channel. @param mask A mask image in 8 bit Gray. Even for a stencil mask image due to {@link #getOpaqueImage()} and {@link SampledImageReader}'s {@code from1Bit()} special handling of DeviceGray. @param interpolateMask interpolation flag of the mask image. @param isSoft {@code true} if a soft mask. If not stencil mask, then alpha will be inverted by this method. @param matte an optional RGB matte if a soft mask. @return an ARGB image (can be the altered original image)
+247 Check if the chunk is sane, i.e. CRC matches and offsets and lengths in the byte array
+248 Constructor of CubicBezierCurve @param ctrlPnts 4 control points [p0, p1, p2, p3] @param l dividing level, if l = 0, one cubic Bezier curve is divided into 2^0 = 1 segments, if l = n, one cubic Bezier curve is divided into 2^n segments
+249 Whether a point is contained in this ShadedTriangle. @param p the target point @return false if p is outside of this triangle, otherwise true
+250 Calculate the color of a point. @param p the target point @return an array denotes the point's color
+251 Modify the current clipping path by intersecting it with the given path. @param path path to intersect with the clipping path
+252 Modify the current clipping path by intersecting it with the given path. @param area area to intersect with the clipping path
+253 Transfer clip to the destination device. Override this if you want to avoid to do slow intersecting operations but want the destination device to do this (e.g. SVG). You can get the individual clippings via {@link PDGraphicsState#getCurrentClippingPaths()}. See <a href="https://issues.apache.org/jira/browse/PDFBOX-5258">PDFBOX-5258</a> for sample code. @param graphics graphics device
+254 Draws the pattern stream to the requested context. @param g The graphics context to draw onto. @param pattern The tiling pattern to be used. @param colorSpace color space for this tiling. @param color color for this tiling. @param patternMatrix the pattern matrix @throws IOException If there is an IO error while drawing the page.
+255 This will get the text direction adjusted x position of the character. This is adjusted based on text direction so that the first character in that direction is in the upper left at 0,0. This method ignores the page rotation but takes the text rotation (see {@link #getDir() getDir()}) and adjusts the coordinates to awt. This is useful when doing text extraction, to compare the glyph positions when imagining these to be horizontal. See also <a href="https://stackoverflow.com/questions/57067372/">this answer by Michael Klink</a> for further details and <a href="https://issues.apache.org/jira/browse/PDFBOX-4597">PDFBOX-4597</a> for a sample file. @return The x coordinate of the text.
+256 Constructor. @param pageRotation rotation of the page that the text is located in @param pageWidth width of the page that the text is located in @param pageHeight height of the page that the text is located in @param textMatrix text rendering matrix for start of text (in display units) @param endX x coordinate of the end position @param endY y coordinate of the end position @param maxHeight Maximum height of text (in display units) @param individualWidth The width of the given character/string. (in text units) @param spaceWidth The width of the space character. (in display units) @param unicode The string of Unicode characters to be displayed. @param charCodes An array of the internal PDF character codes for the glyphs in this text. @param font The current font for this text position. @param fontSize The new font size. @param fontSizeInPt The font size in pt units (see {@link #getFontSizeInPt()} for details).
+257 This will get the y position of the text, adjusted so that 0,0 is upper left and it is adjusted based on the text direction. This method ignores the page rotation but takes the text rotation and adjusts the coordinates to awt. This is useful when doing text extraction, to compare the glyph positions when imagining these to be horizontal. See also <a href="https://stackoverflow.com/questions/57067372/">this answer by Michael Klink</a> for further details and <a href="https://issues.apache.org/jira/browse/PDFBOX-4597">PDFBOX-4597</a> for a sample file. @return The adjusted y coordinate of the character.
+258 This will get the width of the string when page rotation adjusted coordinates are used. @return The width of the text in display units.
+259 This will get the width of the string when text direction adjusted coordinates are used. @return The width of the text in display units.
+260 Start a new article, which is typically defined as a column on a single page (also referred to as a bead). This assumes that the primary direction of text is left to right. Default implementation is to do nothing. Subclasses may provide additional information. @throws IOException If there is any error writing to the stream.
+261 Write something (if defined) at the end of a paragraph. @throws IOException if something went wrong
+262 returns the list item Pattern object that matches the text at the specified PositionWrapper or null if the text does not match such a pattern. The list of Patterns tested against is given by the {@link #getListItemPatterns()} method. To add to the list, simply override that method (if sub-classing) or explicitly supply your own list using {@link #setListItemPatterns(List)}. @param pw position @return the matching pattern
+263 Normalize certain Unicode characters. For example, convert the single "fi" ligature to "f" and "i". Also normalises Arabic and Hebrew presentation forms. @param word Word to normalize @return Normalized word
+264 Converts a Calendar to a string formatted as: D:yyyyMMddHHmmss#hh'mm' where # is Z, +, or -. @param cal The date to convert to a string. May be null. The DST_OFFSET is included when computing the output time zone. @return The date as a String to be used in a PDF document, or null if the cal value is null
+265 Converts the date to ISO 8601 string format: yyyy-mm-ddThh:MM:ss#hh:mm (where '#" is '+' or '-'). @param cal The date to convert. Must not be null. The DST_OFFSET is included in the output value. @return The date represented as an ISO 8601 string.
+266 This will take this string and create a hex representation of the bytes that make the string. @return A hex string representing the bytes in this string.
+267 Write externally created signature of PDF data obtained via {@link #getDataToSign()} method. @param cmsSignature CMS signature byte array @throws IllegalStateException if PDF is not prepared for external signing @throws IOException if source data stream is closed
+268 This will output this string as a PDF object. @param output The stream to write to. @throws IOException If there is an error writing to the stream.
+269 Writes the given byte array as hex value to the given output stream. @param bytes the byte array to be written @param output the output stream to be written to @throws IOException exception if anything went wrong
+270 Sorts the array using iterative (bottom-up) merge sort. @param <T> the class of the objects in the list @param arr the array of objects to be sorted. @param cmp the comparator to determine the order of the list.
+271 This will parse an XML stream and create a DOM document. @param is The stream to get the XML from. @return The DOM document. @throws IOException It there is an error creating the dom.
+272 Examines the a file's first bytes and estimates the file's type. <p> Requires a {@link BufferedInputStream} in order to mark and reset the stream to the position at which it was provided to this method once completed. <p> Requires the stream to contain at least eight bytes. @param inputStream a buffered input stream of the file to examine. @return the file type. @throws IOException if an IO error occurred or the input stream ended unexpectedly.
+273 Constructor.
+274 This will get a COSName object with that name. @param aName The name of the object. @return A COSName with the specified name.
+275 Creates a new PDF string from a byte array. This method can be used to read a string from an existing PDF file, or to create a new byte string. @param bytes The raw bytes of the PDF text string or byte string.
+276 Constructor.
+277 Use the given list to initialize the COSArray. @param cosObjectables the initial list of COSObjectables
+278 Creates a new stream with an empty dictionary. Data is stored in the given scratch file. @param streamCache Stream cache for writing stream data.
+279 {@inheritDoc}
+280 Return a default DecodeResult. @return a default instance of DecodeResult
+281 Default Constructor.
+282 Constructor for embedding.
+283 This will take a map&lt;java.lang.String,org.apache.pdfbox.pdmodel.COSObjectable&gt; and convert it into a COSDictionary. @param someMap A map containing COSObjectables @return A proper COSDictionary
+284 Default constructor
+285 Constructor.
+286 Constructor. @param valueClass The PD Model type of object that is the value.
+287 Creates a new empty page label range object.
+288 Default Constructor.
+289 Constructor for subclasses.
+290 Default Constructor.
+291 creates a new empty crypt filter dictionary.
+292 creates a new empty encryption dictionary.
+293 Default constructor.
+294 Default constructor.
+295 Default constructor.
+296 Default constructor.
+297 Default constructor.
+298 Default constructor.
+299 Default constructor.
+300 Default constructor.
+301 Default constructor.
+302 Creates a new DeviceN colour space attributes dictionary.
+303 Creates a new DeviceN Process Dictionary.
+304 Default constructor.
+305 Default constructor.
+306 Default constructor.
+307 Default constructor.
+308 Default constructor.
+309 Default constructor.
+310 Default constructor, creates target directory.
+311 Constructor.
+312 Default constructor.
+313 Constructor.
+314 Constructor.
+315 Default constructor.
+316 Default constructor.
+317 Default constructor.
+318 Default constructor.
+319 Constructor. @param acroForm The form that this field is part of.
+320 Constructor.
+321 Constructor.
+322 Constructor. @param object The object that this encapsulates. @param objectKey The COSObjectKey of the encapsulated object
+323 Creates a default attribute object with a given dictionary. @param dictionary the dictionary
+324 Constructor @param dictionary the dictionary
+325 Creates a new standard attribute object with a given dictionary. @param dictionary the dictionary
+326 Constructor for an existing outline item. @param dic The storage dictionary.
+327 Get the metadata that is part of the document catalog. This will return null if there is no meta data for this object. @return The metadata for this object. @throws IllegalStateException if the value of the metadata entry is different from a stream or null
+328 Returns the metadata associated with this XObject, or null if there is none. @return the metadata associated with this object.
+329 A reference to an object stream, of which the current object stream is considered an extension. @return The object that this stream is an extension.
+330 Constructor. @param function The function.
+331 Constructor. @param functionStream The function .
+332 Creates a PostScript XObject. @param stream The XObject stream
+333 Creates a Form XObject for reading. @param stream The XObject stream
+334 Creates a Form XObject for reading. @param stream The XObject stream @param cache the cache to be used for the resources
+335 Constructor.
+336 Constructor.
+337 Constructor used for encryption. @param publicKeyProtectionPolicy The protection policy.
+338 Constructor used for encryption. @param standardProtectionPolicy The protection policy.
+339 Constructor. @param a An existing FDF Annotation.
+340 Constructor. @param a An existing FDF Annotation.
+341 Constructor. @param a An existing FDF Annotation.
+342 Constructor. @param a An existing FDF Annotation.
+343 Creates a new tiling pattern from the given COS dictionary. @param dictionary The COSDictionary for this pattern.
+344 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+345 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+346 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+347 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+348 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node to be created
+349 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+350 Generate a unique name for the signature. @return the signature's unique name
+351 {@inheritDoc}
+352 Creates a new soft mask. @param dictionary SMask @return the newly created instance of PDSoftMask
+353 Constructor. Uses main memory to buffer PDF streams. @param parser Parser to be used to parse the document on demand
+354 Constructor that will use the provided function to create a stream cache for the storage of the PDF streams. @param streamCacheCreateFunction a function to create an instance of a stream cache
+355 This is used to handle an operation. @param operation The operation to perform. @param arguments The list of arguments. @throws IOException If there is an error processing the operation.
+356 Creates a marked-content sequence. @param tag the tag @param properties the properties @return the marked-content sequence
+357 This will get the width of this rectangle as calculated by upperRightX - lowerLeftX. @return The width of this rectangle.
+358 Method to determine if the x/y point is inside this rectangle. @param x The x-coordinate to test. @param y The y-coordinate to test. @return True if the point is inside this rectangle.
+359 This will get the height of this rectangle as calculated by upperRightY - lowerLeftY. @return The height of this rectangle.
+360 Returns a path which represents this rectangle having been transformed by the given matrix. Note that the resulting path need not be rectangular. @param matrix the matrix to be used for the transformation @return the transformed rectangle
+361 Returns a general path equivalent to this rectangle. This method avoids the problems caused by Rectangle2D not working well with -ve rectangles. @return a general path equivalent to this rectangle
+362 This will return a string representation of this rectangle. @return This object as a string.
+363 Get the value of the array as an integer. @param index The index into the list. @return The value at that index or -1 if does not exist.
+364 Get the value of the array as a string. @param index The index into the array. @return The name converted to a string or null if it does not exist.
+365 Returns a new OutputStream for writing stream data, using and the given filters. @param filters COSArray or COSName of filters to be used. @return OutputStream for un-encoded stream data. @throws IOException If the output stream could not be created.
+366 Creates an Image XObject with the given stream as its contents and current color spaces. This constructor is for internal PDFBox use and is not for PDF generation. Users who want to create images should look at {@link #createFromFileByExtension(File, PDDocument) }. @param stream the XObject stream to read @param resources the current resources
+367 This will get the suffix for this image type, e.g. jpg/png. @return The image suffix or null if not available.
+368 Writes a real number to the content stream. @param real the real number to be added to the content stream @throws IOException If the underlying stream has a problem being written to. @throws IllegalArgumentException if the parameter is not a finite number
+369 Writes an integer number to the content stream. @param integer the integer to be added to the content stream @throws IOException If the underlying stream has a problem being written to.
+370 Writes a string to the content stream as ASCII. @param text the text to be added to the content stream followed by a newline @throws IOException If the underlying stream has a problem being written to.
+371 {@inheritDoc}
+372 This factory method will get the appropriate number object. @param number The string representation of the number. @return A number object, either float or int. @throws IOException If the string is not a number.
+373 Write the given {@link COSFloat} to the given stream. @param output The stream, that shall be written to. @param cosFloat The content, that shall be written.
+374 Uses this {@link COSUpdateInfo} as the base object of a new {@link COSIncrement}. @return A {@link COSIncrement} based on this {@link COSUpdateInfo}. @see COSIncrement
+375 Returns the object key for the given combination of object and generation number. The object key from the cross reference table/stream will be reused if available. Otherwise a newly created object will be returned. @param num the given object number @param gen the given generation number @return the COS object key
+376 Brute force search for every object in the pdf. @throws IOException if something went wrong
+377 Search for all offsets of object streams within the given pdf @return a map of all offsets for object streams @throws IOException if something went wrong
+378 Parses through the unfiltered stream and populates the xrefTable HashMap. @param resolver resolver to read the xref/trailer information @throws IOException If there is an error while parsing the stream.
+379 Check if the given object can be found at the given offset. Returns the provided object key if everything is ok. If the generation number differs it will be fixed and a new object key is returned. @param objectKey the key of object we are looking for @param offset the offset where to look @param xrefOffset a map with with all known xref entries @return returns the found/fixed object key @throws IOException if something went wrong
+380 This will parse the xref table from the stream and add it to the state The XrefTable contents are ignored. @param startByteOffset the offset to start at @return false on parsing error @throws IOException If an IO error occurs.
+381 COSWriter constructor. @param outputStream The output stream to write the PDF.
+382 Constructor for incremental updates with a list of objects to write. This allows to include objects even if there is no path of objects that have {@link COSUpdateInfo#isNeedToBeUpdated()} set so the incremental update gets smaller. Only dictionaries are supported; if you need to update other objects classes, then add their parent dictionary. @param outputStream output stream where the new PDF data will be written. @param inputData random access read containing source PDF data. @param objectsToWrite objects that <b>must</b> be part of the incremental saving. @throws IOException if something went wrong
+383 Set the update state of the dictionary for the COSWriter. This indicates whether an object is to be written when there is an incremental save. @param flag the update state.
+384 Calls {@link #update(boolean)} with {@code true} as the new update state.<br> This shall only then have an effect, if {@link #isAcceptingUpdates()} returns {@code true}. @see #update(boolean) @see #updated @see #isAcceptingUpdates()
+385 Get an entry in the array that is expected to be a COSName. @param index The index into the array. @param defaultValue The value to return if it is null. @return The value at the index or defaultValue if none is found.
+386 This will get the file name. @return The file name.
+387 This will get the name of the destination. @return The name of the destination.
+388 Return either one of a list which can have two-element arrays entries. <p> Some entries in a dictionary can either be an array of elements or an array of two-element arrays. This method will either return the elements in the array or in case of two-element arrays, the element designated by the pair index </p> <p> An {@link IllegalArgumentException} will be thrown if the items contain two-element arrays and the index is not 0 or 1. </p> @param items the array of elements or two-element arrays @param pairIdx the index into the two-element array @return a List of single elements
+389 This will get the (optional) export values. <p>The export values are defined in the field dictionaries /Opt key.</p> <p>The option values are used to define the export values for the field to <ul> <li>hold values in non-Latin writing systems as name objects, which represent the field value, are limited to PDFDocEncoding </li> <li>allow radio buttons having the same export value to be handled independently </li> </ul> @return List containing all possible export values. If there is no /Opt entry an empty list will be returned. @see #getOnValues()
+390 Get the default appearance. This is an inheritable attribute. The default appearance contains a set of default graphics and text operators to define the field’s text size and color. @return the DA element of the dictionary object
+391 Creates a new <i>text string</i> from a Java String. @param text The string value of the object.
+392 Constructor usable for signing existing signature fields. @param imageStream image as a stream @throws IOException if the new instance of PDVisibleSignDesigner could not be created
+393 Set the image for the signature. @param path Path of the image file. @return Visible Signature Configuration Object @throws IOException if the image for the signature could not be set
+394 Creates a Transparency Group for reading. @param stream The XObject stream
+395 This will parse a PDF dictionary. @param isDirect indicates whether the dictionary to be read is a direct object @return The parsed dictionary, never null. @throws IOException If there is an error reading the stream.
+396 This will read the next string from the stream. @return The string that was read from the stream, never null. @throws IOException If there is an error reading from the stream.
+397 Reads given pattern from {@link #source}. Skipping whitespace at start and end if wanted. @param expectedString pattern to be skipped @param skipSpaces if set to true spaces before and after the string will be skipped @throws IOException if pattern could not be read
+398 This will read the next string from the stream up to a certain length. @param length The length to stop reading at. @return The string that was read from the stream of length 0 to length. @throws IOException If there is an error reading from the stream.
+399 This will read an integer from the stream. @return The integer that was read from the stream. @throws IOException If there is an error reading from the stream.
+400 This will read an long from the stream. @return The long that was read from the stream. @throws IOException If there is an error reading from the stream.
+401 Try to find a fixed offset for the given xref table/stream. @param objectOffset the given offset where to look at @return the fixed offset @throws IOException if something went wrong
+402 This will compute the user password hash. @param password The plain text password. @param owner The owner password hash. @param permissions The document permissions. @param id The document id. @param encRevision The revision of the encryption. @param keyLengthInBytes The length of the encryption key in bytes. @param encryptMetadata The encryption metadata @return The user password. @throws IOException if the password could not be computed
+403 Compute the owner entry in the encryption dictionary. @param ownerPassword The plaintext owner password. @param userPassword The plaintext user password. @param encRevision The revision number of the encryption algorithm. @param length The length of the encryption key. @return The o entry of the encryption dictionary. @throws IOException if the owner password could not be computed
+404 Rotates this matrix by the given factors. @param theta The angle of rotation measured in radians
+405 Applies a text position adjustment from the TJ operator. May be overridden in subclasses. @param tx x-translation @param ty y-translation
+406 Translates this matrix by the given vector. @param vector 2D vector
+407 Produces a copy of the first matrix, with the second matrix concatenated. @param a The matrix to copy. @param b The matrix to concatenate. @return a copy of the first matrix with the second matrix concatenated
+408 Constructor that uses an existing document. The COSDocument that is passed in must be valid. @param doc The COSDocument that this document wraps.
+409 {@inheritDoc}
+410 Returns the access permissions granted when the document was decrypted. If the document was not decrypted this method returns the access permission for a document owner (ie can do everything). The returned object is in read only mode so that permissions cannot be changed. Methods providing access to content should rely on this object to verify if the current user is allowed to proceed. @return the access permissions for the current user on the document.
+411 Computes the revision version of the StandardSecurityHandler to use regarding the version number and the permissions bits set. See PDF Spec 1.6 p98 @param version The version number. @return The computed revision number.
+412 Encrypt or decrypt data with AES with key length other than 256 bits. @param finalKey The final key obtained with via {@link #calcFinalKey(long, long)}. @param data The data to encrypt. @param output The output to write the encrypted data to. @param decrypt true to decrypt the data, false to encrypt it. @throws IOException If there is an error reading the data.
+413 Encrypt or decrypt data with AES256. @param data The data to encrypt. @param output The output to write the encrypted data to. @param decrypt true to decrypt the data, false to encrypt it. @throws IOException If there is an error reading the data.
+414 Encrypt or decrypt data with RC4. @param finalKey The final key obtained with via {@link #calcFinalKey(long, long)}. @param input The data to encrypt. @param output The output to write the encrypted data to. @throws IOException If there is an error reading the data.
+415 This will encrypt and write the data. @param data The data to encrypt. @param output The stream to write to. @throws IOException If there is an error writing to the output stream.
+416 Return the {@code SASLPrep}-canonicalised version of the given {@code str} for use as a query string. This implements the {@code SASLPrep} algorithm defined in <a href="https://tools.ietf.org/html/rfc4013">RFC 4013</a>. @param str The string to canonicalise. @return The canonicalised string. @throws IllegalArgumentException if the string contained prohibited codepoints, or broke the requirements for bidirectional character handling. @see <a href="https://tools.ietf.org/html/rfc3454#section-7">RFC 3454, Section 7</a> for discussion of what a query string is.
+417 Return the {@code SASLPrep}-canonicalised version of the given @code str} for use as a stored string. This implements the {@code SASLPrep} algorithm defined in <a href="https://tools.ietf.org/html/rfc4013">RFC 4013</a>. @param str The string to canonicalise. @return The canonicalised string. @throws IllegalArgumentException if the string contained prohibited codepoints, or broke the requirements for bidirectional character handling. @see <a href="https://tools.ietf.org/html/rfc3454#section-7">RFC 3454, Section 7</a> for discussion of what a stored string is.
+418 Write a list of string containing a whole line of a document. @param line a list with the words of the given line @throws IOException if something went wrong
+419 {@inheritDoc} <p> The method returns null if there is there was an error opening the font.
+420 Saves the font metadata cache to disk.
+421 Loads the font metadata cache from disk.
+422 Sets the font service provider.
+423 Constructor. @param p an array of the 3 vertices of a triangle @param c an array of color corresponding the vertex array p
+424 Writes the CMap as ASCII to the given output stream. @param out ASCII output stream @throws IOException if the stream could not be written
+425 Loads a glyph list from disk.
+426 Inverts the font's code -&gt; GID mapping. Any duplicate (GID -&gt; code) mappings will be lost. @return the GID for the given code @throws IOException if the data could not be read
+427 Check if the converter state is sane. @param state the parsed converter state @return true if the state seems plausible
+428 End buffering the text clipping path, if any.
+429 Sets the clipping path using caching for performance. We track lastClip manually because {@link Graphics2D#getClip()} returns a new object instead of the same one passed to {@link Graphics2D#setClip(java.awt.Shape) setClip()}. You may need to call this if you override {@link #showGlyph(Matrix, PDFont, int, Vector) showGlyph()}. See <a href="https://issues.apache.org/jira/browse/PDFBOX-5093">PDFBOX-5093</a> for more.
+430 Return the stream of PDF data to be signed. Clients should use this method only to create signatures externally. {@link #write(PDDocument)} method should have been called prior. The created signature should be set using {@link #writeExternalSignature(byte[])}. <p> When {@link SignatureInterface} instance is used, COSWriter obtains and writes the signature itself. </p> @return data stream to be signed @throws IllegalStateException if PDF is not prepared for external signing @throws IOException if input data is closed
+431 Merge a single character TextPosition into the current object. This is to be used only for cases where we have a diacritic that overlaps an existing TextPosition. In a graphical display, we could overlay them, but for text extraction we need to merge them. Use the contains() method to test if two objects overlap. @param diacritic TextPosition to merge into the current TextPosition.
+432 Determine if this TextPosition logically contains another (i.e. they overlap and should be rendered on top of each other). @param tp2 The other TestPosition to compare against @return True if tp2 is contained in the bounding box of this text.
+433 Determine if this TextPosition perfectly contains another (i.e. the other TextPosition overlaps 100% with this one and fits entirely inside its bounding box when they are rendered on top of each other). @param tp2 The other TestPosition to compare against @return True if tp2 is contained completely inside the bounding box of this text.
+434 writes the paragraph separator string to the output. @throws IOException if something went wrong
+435 tests the relationship between the last text position, the current text position and the last text position that followed a line separator to decide if the gap represents a paragraph separation. This should <i>only</i> be called for consecutive text positions that first pass the line separation test. <p> This base implementation tests to see if the lastLineStartPosition is null OR if the current vertical position has dropped below the last text vertical position by at least 2.5 times the current text height OR if the current horizontal position is indented by at least 2 times the current width of a space character. </p> <p> This also attempts to identify text that is indented under a hanging indent. </p> <p> This method sets the isParagraphStart and isHangingIndent flags on the current position object. </p> @param position the current text position. This may have its isParagraphStart or isHangingIndent flags set upon return. @param lastPosition the previous text position (should not be null). @param lastLineStartPosition the last text position that followed a line separator, or null. @param maxHeightForLine max height for text positions since lasLineStartPosition.
+436 Used within {@link #normalize(List)} to create a single {@link WordWithTextPositions} entry.
+437 Write the given {@link COSName} to the given stream. @param output The stream, that shall be written to. @param cosName The content, that shall be written.
+438 Writes a COSName to the content stream. @param name the name to be added to the content stream @throws IOException If the underlying stream has a problem being written to.
+439 This will output the given text/byte string as a PDF object. @param output The stream to write to. @throws IOException If there is an error writing to the stream.
+440 Sorts this list according to the order induced by the specified {@link Comparator}. @param <T> the class of the objects in the list @param list the list to be sorted. @param cmp the comparator to determine the order of the list.
+441 Constructor. Will apply encoding-specific conversions to the output text. @param encoding The encoding that the output will be written in.
+442 Instantiate a new PDFTextStripper object.
+443 This will do a lookup into the dictionary. @param key The key to the object. @return The item that matches the key.
+444 @see java.util.Map#containsKey(Object) @param name The key to find in the map. @return true if the map contains this key.
+445 Returns a filter instance given its name as a string. @param filterName the name of the filter to retrieve @return the filter that matches the name @throws IOException if the filter name was invalid
+446 This will parse a PDF name from the stream. @return The parsed PDF name. @throws IOException If there is an error reading from the stream.
+447 Creates a PDColor containing the given color value. @param array a COS array containing the color value @param colorSpace color space in which the color value is defined
+448 This will create a COS string from a string of hex characters. @param hex A hex string. @return A cos string with the hex characters converted to their actual bytes. @throws IOException If there is an error with the hex string.
+449 This will take a list of integer objects and return a COSArray of COSInteger objects. @param integer A list of integers @return An array of COSInteger objects
+450 This will take a list of string objects and return a COSArray of COSName objects. @param strings A list of strings @return An array of COSName objects
+451 This will take a list of string objects and return a COSArray of COSName objects. @param strings A list of strings @return An array of COSName objects
+452 Default constructor.
+453 This constructor is to be used if the array doesn't exist, but is to be created and added to the parent dictionary as soon as the first element is added to the array. @param dictionary The dictionary that holds the item, and will hold the array if an item is added. @param dictionaryKey The key into the dictionary to set the item.
+454 Constructor to create empty page destination.
+455 Constructor. @param x the x coordinate of the rectangle @param y the y coordinate of the rectangle @param width The width of the rectangle. @param height The height of the rectangle.
+456 Constructor. @param box the bounding box to be used for the rectangle
+457 This will set the filters that are part of this stream. @param filters The filters that are part of this stream.
+458 Sets the list of alternateColorSpace color spaces. @param list the list of color space objects
+459 Creates a new COSStream using the current configuration for scratch files. @return the new COSStream
+460 Creates a new stream with an empty dictionary. <p> Try to avoid using this constructor because it creates a new scratch file in memory. Instead, use {@link COSDocument#createCOSStream() document.getDocument().createCOSStream()} which will use the existing scratch file (in memory or in temp file) of the document. </p>
+461 Creates a new stream with an empty dictionary. Data is read from the given random accessview. Written data is stored in the given scratch file. @param streamCache Stream cache for writing stream data. @param randomAccessReadView source for the data to be read @throws IOException if the length of the random access view isn't available
+462 Returns an unmodifiable view of this dictionary. @return an unmodifiable view of this dictionary
+463 Returns the result of the last filter, for use by repair mechanisms. @return the result of the last filter
+464 This will get the resources for this Form XObject. This will return null if no resources are available. @return The resources for this Form XObject.
+465 Default constructor.
+466 Creates a new user property. @param userAttributeObject the user attribute object
+467 Default Constructor.
+468 Constructor.
+469 Constructor.
+470 Constructor.
+471 Constructor.
+472 Constructor. @param acroForm The form that this field is part of.
+473 Constructor. @param acroForm The form that this field is part of.
+474 Creates a new Layout attribute object with a given dictionary. @param dictionary the dictionary
+475 Creates a new List attribute object with a given dictionary. @param dictionary the dictionary
+476 Creates a new PrintField attribute object with a given dictionary. @param dictionary the dictionary
+477 Creates a new Table attribute object with a given dictionary. @param dictionary the dictionary
+478 Creates a Form XObject for reading. @param stream The XObject stream
+479 Creates a Transparency Group for reading. @param stream The XObject stream @param cache the cache to be used for the resources
+480 Adds a TTC or OTC to the file cache. To reduce memory, the parsed font is not cached.
+481 Adds an OTF or TTF font to the file cache. To reduce memory, the parsed font is not cached.
+482 Adds a Type 1 font to the file cache. To reduce memory, the parsed font is not cached.
+483 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+484 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+485 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+486 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+487 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+488 Pushes the current graphics state to the stack.
+489 Saves the entire graphics stack. @return the saved graphics state stack.
+490 Constructor. Uses main memory to buffer PDF streams.
+491 Constructor for encrypted pdfs. @param source input representing the pdf. @param password password to be used for decryption. @param keyStore key store to be used for decryption when using public key security @param keyAlias alias to be used for decryption when using public key security @param streamCacheCreateFunction a function to create an instance of the stream cache @throws IOException if the source data could not be read
+492 Transforms the given rectangle using the CTM and then intersects it with the current clipping area.
+493 Calculate the transformed appearance box. Apply the Matrix (or an identity transform) to the BBox of the appearance stream @param appearanceStream @return the transformed rectangle
+494 Constructor with a given page size to initialize the clipping path. @param page the size of the page
+495 Get the left x coordinate. A return value of -1 implies that the current x-coordinate will be used. @return The left x coordinate.
+496 Get the left x coordinate. A return value of -1 implies that the current x-coordinate will be used. @return The left x coordinate.
+497 Get the bottom y coordinate. A return value of -1 implies that the current y-coordinate will be used. @return The bottom y coordinate.
+498 Get the right x coordinate. A return value of -1 implies that the current x-coordinate will be used. @return The right x coordinate.
+499 Get the top y coordinate. A return value of -1 implies that the current y-coordinate will be used. @return The top y coordinate.
+500 Get the top y coordinate. A return value of -1 implies that the current y-coordinate will be used. @return The top y coordinate.
+501 Get the left x coordinate. Return values of 0 or -1 imply that the current x-coordinate will be used. @return The left x coordinate.
+502 Get the top y coordinate. Return values of 0 or -1 imply that the current y-coordinate will be used. @return The top y coordinate.
+503 A flag indicating if this page destination should just fit bounding box of the PDF. @return true If the destination should fit just the bounding box.
+504 A flag indicating if this page destination should just fit bounding box of the PDF. @return true If the destination should fit just the bounding box.
+505 A flag indicating if this page destination should just fit bounding box of the PDF. @return true If the destination should fit just the bounding box.
+506 Returns a new OutputStream for writing stream data, using the current filters. @return OutputStream for un-encoded stream data. @throws IOException If the output stream could not be created.
+507 This will get a stream that can be written to, with the given filter. @param filter the filter to be used. @return An output stream to write data to. @throws IOException If an IO error occurs during writing.
+508 Creates a thumbnail Image XObject from the given COSBase and name. @param cosStream the COS stream @return an XObject
+509 Returns the Mask Image XObject associated with this image, or null if there is none. @return Mask Image XObject
+510 Returns the Soft Mask Image XObject associated with this image, or null if there is none. @return the SMask Image XObject, or null.
+511 Writes an AffineTransform to the content stream as an array. @param transform AffineTransfrom to be added to the content stream @throws IOException If the underlying stream has a problem being written to.
+512 Begin some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest beginText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+513 End some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest endText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+514 Sets the text leading. @param leading The leading in unscaled text units. @throws IOException If there is an error writing to the stream.
+515 Move to the start of the next line of text. Requires the leading (see {@link #setLeading}) to have been set. @throws IOException If there is an error writing to the stream.
+516 The Td operator. Move to the start of the next line, offset from the start of the current line by (tx, ty). @param tx The x translation. @param ty The y translation. @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+517 q operator. Saves the current graphics state. @throws IOException If an error occurs while writing to the stream.
+518 Q operator. Restores the current graphics state. @throws IOException If an error occurs while writing to the stream.
+519 Set the stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+520 Set the stroking color in the DeviceCMYK color space. Range is 0..1 @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+521 Set the stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+522 Set the non-stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+523 Set the non-stroking color in the DeviceCMYK color space. Range is 0..1. @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream.
+524 Set the non-stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+525 Add a rectangle to the current path. @param x The lower left x coordinate. @param y The lower left y coordinate. @param width The width of the rectangle. @param height The height of the rectangle. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+526 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+527 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bézier control points. @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IllegalStateException If the method was called within a text block. @throws IOException If the content stream could not be written.
+528 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+529 Move the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+530 Draw a line from the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+531 Stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+532 Close and stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+533 Fills the path using the nonzero winding number rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+534 Fills the path using the even-odd winding rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+535 Fill and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fill() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+536 Fill and then stroke the path, using the even-odd rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fillEvenOdd() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+537 Close, fill, and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+538 Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStrokeEvenOdd() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+539 Closes the current subpath. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+540 Intersects the current clipping path with the current path, using the nonzero rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+541 Intersects the current clipping path with the current path, using the even-odd rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+542 Set line width to the given value. @param lineWidth The width which is used for drawing. @throws IOException If the content stream could not be written
+543 Set the line join style. @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line join style.
+544 Set the line cap style. @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line cap style.
+545 Set the line dash pattern. @param pattern The pattern array @param phase The phase of the pattern @throws IOException If the content stream could not be written.
+546 Set the miter limit. @param miterLimit the new miter limit. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is \u2264 0.
+547 End a marked content sequence. @throws IOException If the content stream could not be written
+548 Set the character spacing. The value shall be added to the horizontal or vertical component of the glyph's displacement, depending on the writing mode. @param spacing character spacing @throws IOException If the content stream could not be written.
+549 Set the word spacing. The value shall be added to the horizontal or vertical component of the ASCII SPACE character, depending on the writing mode. <p> This will have an effect only with Type1 and TrueType fonts, not with Type0 fonts. The PDF specification tells why: "Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when using a simple font or a composite font that defines code 32 as a single-byte code. It shall not apply to occurrences of the byte value 32 in multiple-byte codes." @param spacing word spacing @throws IOException If the content stream could not be written.
+550 Set the horizontal scaling to scale / 100. @param scale number specifying the percentage of the normal width. Default value: 100 (normal width). @throws IOException If the content stream could not be written.
+551 Set the text rendering mode. This determines whether showing text shall cause glyph outlines to be stroked, filled, used as a clipping boundary, or some combination of the three. @param rm The text rendering mode. @throws IOException If the content stream could not be written.
+552 Set the text rise value, i.e. move the baseline up or down. This is useful for drawing superscripts or subscripts. @param rise Specifies the distance, in unscaled text space units, to move the baseline up or down from its default location. 0 restores the default location. @throws IOException If the content stream could not be written.
+553 Returns all found objects of a brute force search. @return map containing all found objects of a brute force search @throws IOException if something went wrong
+554 This will save the document to an output stream. @param output The stream to write to. @throws IOException If there is an error writing the document.
+555 This will remove all of the objects in the collection.
+556 This will remove all of the objects in the collection. @param objectsList The list of objects to remove from the collection.
+557 This will retain all of the objects in the collection. @param objectsList The list of objects to retain from the collection.
+558 This will set an object at a specific index. @param index zero based index into array. @param intVal The object to set.
+559 This will remove an element from the array. @param i The index of the object to remove. @return The object that was removed.
+560 This will remove an element from the array. @param o The object to remove. @return <code>true</code> if the object was removed, <code>false</code> otherwise
+561 This will clear all items in the map.
+562 This will remove an item for the dictionary. This will do nothing of the object does not exist. @param key The key to the item to remove from the dictionary.
+563 Check whether the given {@link COSUpdateState}´s {@link COSDocumentState} differs from the {@link COSIncrement}´s known {@link #incrementOrigin}.<br> Should that be the case, the {@link COSUpdateState} originates from another {@link COSDocument} and must be added to the {@link COSIncrement}, hence call {@link COSUpdateState#update()}. @param updateState The {@link COSUpdateState} that shall be updated, if it's originating from another {@link COSDocument}. @see #incrementOrigin
+564 Sets the referenced object to COSNull and removes the initially assigned parser.
+565 <p> Links the given {@link COSDocumentState} to the {@link #updated} state of the managed {@link #updateInfo}.<br> </p> <p> This shall also initialize {@link #updated} accordingly and will also set the same {@link COSDocumentState} for all possibly contained substructures. </p> <p> Should {@link #originDocumentState} already have been set, by a prior call to this method, this shall deny to overwrite it. </p> <p> {@link COSDocumentState#isAcceptingUpdates()} shall determine, whether updates to {@link #updateInfo} are allowed. </p> <p> As long as no {@link COSDocumentState} is linked to this {@link COSUpdateState}, it shall not accept updates. </p> <p> Additionally to {@link #setOriginDocumentState(COSDocumentState)}, this shall also deny changing {@link #updated}, should the flag {@code dereferencing} indicate, that this is caused by dereferencing a {@link COSObject}. </p> @param originDocumentState The {@link COSDocumentState} that shall be linked to this {@link COSUpdateState}. @param dereferencing {@code true}, if this update of the {@link COSDocumentState} is caused by dereferencing a {@link COSObject}. @see #originDocumentState @see #updated
+566 Get the value of the array as a string. @param index The index into the array. @return The string or null if it does not exist.
+567 Returns the selected value. <p>Off is the default value which will also be returned if the value hasn't been set at all. @return A non-null string.
+568 Constructor.
+569 This will set the file name. @param fileName The name of the file.
+570 Default constructor. @param dest The named destination.
+571 Set the named destination. @param dest The new named destination. @throws IOException If there is an error setting the named destination.
+572 This will read a integer from the Stream and throw an {@link IllegalArgumentException} if the integer value has more than the maximum object revision (i.e. : bigger than {@link #GENERATION_NUMBER_THRESHOLD}) @return the generation number being read. @throws IOException if an I/O error occurs
+573 This will read a long from the Stream and throw an {@link IOException} if the long value is negative or has more than 10 digits (i.e. : bigger than {@link #OBJECT_NUMBER_THRESHOLD}) @return the object number being read. @throws IOException if an I/O error occurs
+574 Get the user password based on the owner password. @param ownerPassword The plaintext owner password. @param owner The o entry of the encryption dictionary. @param encRevision The encryption revision number. @param length The key length. @return The u entry of the encryption dictionary. @throws IOException If there is an error accessing data while generating the user password.
+575 Constructor of a patch for type 7 shading. @param tcp 16 control points @param color 4 corner colors
+576 Encrypt or decrypt data with RC4. @param finalKey The final key obtained with via {@link #calcFinalKey(long, long)}. @param input The data to encrypt. @param output The output to write the encrypted data to. @throws IOException If there is an error reading the data.
+577 Returns the font service provider. Defaults to using FileSystemFontProvider.
+578 An assistant method to accomplish type 6 and type 7 shading. @param patchCC all the crossing point coordinates and color of a grid @return a ShadedTriangle list which can compose the grid patch
+579 Constructor of a patch for type 6 shading. @param points 12 control points @param color 4 corner colors
+580 This will process a TextPosition object and add the text to the list of characters on a page. It takes care of overlapping text. @param text The text to process.
+581 This will process a TextPosition object and add the text to the list of characters on a page. It takes care of overlapping text. @param text The text to process.
+582 Remove all space characters if contained within the adjacent letters
+583 handles the line separator for a new line given the specified current and previous TextPositions. @param current the current text position @param lastPosition the previous text position @param lastLineStartPosition the last text position that followed a line separator. @param maxHeightForLine max height for positions since lastLineStartPosition @return start position of the last line @throws IOException if something went wrong
+584 Used within {@link #normalize(List)} to handle a {@link TextPosition}. @return The StringBuilder that must be used when calling this method.
+585 Returns the Calendar for a given string containing a date, or {@code null} if it cannot be parsed. The returned value will have 0 for DST_OFFSET. @param text A COS string containing a date. @return The Calendar that the text string represents, or {@code null} if it cannot be parsed.
+586 Begin a marked content sequence. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+587 Begin a marked content sequence with a reference to the marked content identifier (MCID). @param tag the tag to be added to the content stream @param mcid the marked content identifier (MCID) @throws IOException If the content stream could not be written
+588 set a marked content point. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+589 This will output the given byte getString as a PDF object. @param string COSString to be written @param output The stream to write to. @throws IOException If there is an error writing to the stream.
+590 This will output the given text/byte getString as a PDF object. @param bytes byte array representation of a string to be written @param output The stream to write to. @throws IOException If there is an error writing to the stream.
+591 Constructor. @param page the page the content stream belongs to
+592 Instantiate a new PDFMarkedContentExtractor object.
+593 Constructor. @throws IOException If there is an error loading properties.
+594 This will parse a PDF HEX string with fail fast semantic meaning that we stop if a not allowed character is found. This is necessary in order to detect malformed input and be able to skip to next object start. We assume starting '&lt;' was already read. @return The parsed PDF string. @throws IOException If there is an error reading from the stream.
+595 This will set the filters that are part of this stream. @param filters The filters that are part of this stream.
+596 Constructor. Initializes to 0,0,0,0
+597 Constructor. @param width The width of the rectangle. @param height The height of the rectangle.
+598 Returns the updated <code>Rect</code> entry for the annotation. The rectangle completely contains the cloudy border. @return Annotation <code>Rect</code>.
+599 Returns the updated <code>RD</code> entry for Square and Circle annotations. @return Annotation <code>RD</code> value.
+600 Get a padded rectangle. <p>Creates a new rectangle with padding applied to each side. . @param rectangle the rectangle. @param padding the padding to apply. @return the padded rectangle.
+601 Get a rectangle enlarged by the differences. <p> Creates a new rectangle with differences added to each side. If there are no valid differences, then the original rectangle is returned. @param rectangle the rectangle. @param differences the differences to apply. @return the padded rectangle.
+602 Get a rectangle with the differences applied to each side. <p> Creates a new rectangle with differences added to each side. If there are no valid differences, then the original rectangle is returned. @param rectangle the rectangle. @param differences the differences to apply. @return the padded rectangle.
+603 Apply padding to a box. @param box box @return the padded box.
+604 Create a fresh XRef stream like for a fresh file or an incremental update. @param cosDocument the COSDocmernt to be used to create a new COSStream
+605 This will create a new PDObjectStream object. @param document The document that the stream will be part of. @return A new stream object.
+606 Creates a new empty PDStream object. @param document The document that the stream will be part of.
+607 Creates a new empty PDStream object. @param document The document that the stream will be part of.
+608 Constructor. Reads all data from the input stream and embeds it into the document with the given filters applied, if any. This method closes the InputStream.
+609 Creates a COS stream from raw (encoded) data.
+610 Encodes data. @param input the byte stream to encode @param encoded the stream where encoded data will be written @param parameters the parameters used for encoding @param index the index to the filter being encoded @throws IOException if the stream cannot be encoded
+611 Default constructor.
+612 Default constructor
+613 Default constructor.
+614 Default Constructor.
+615 @see PDTerminalField#PDTerminalField(PDAcroForm) @param acroForm The acroform.
+616 Creates a new ExportFormat attribute object with a given dictionary. @param dictionary the dictionary
+617 Returns the entry as an appearance stream. @return the entry as an appearance stream @throws IllegalStateException if this entry is not an appearance stream
+618 Adds an OTF or TTF font to the file cache. To reduce memory, the parsed font is not cached.
+619 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+620 Constructor using the given shading dictionary. @param shadingDictionary the dictionary for this shading
+621 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+622 Constructor. @param acroForm The form that this field is part of. @param field the PDF object to represent as a field. @param parent the parent node of the node
+623 Constructor for encrypted pdfs. @param source input representing the pdf. @param password password to be used for decryption. @param keyStore key store to be used for decryption when using public key security @param keyAlias alias to be used for decryption when using public key security @throws IOException if the source data could not be read
+624 Constructor. @param source input representing the pdf. @param decryptionPassword password to be used for decryption. @param keyStore key store to be used for decryption when using public key security @param alias alias to be used for decryption when using public key security @param streamCacheCreateFunction a function to create an instance of the stream cache @throws IOException If something went wrong.
+625 This will get a stream that can be written to. @return An output stream to write data to. @throws IOException If an IO error occurs during writing.
+626 Writes the stream to the actual stream in the COSStream. @throws IOException If there is an error writing to the stream
+627 Create a new appearance stream. @param appearance The appearance stream to write to. @param compress whether the content stream is to be compressed. Set this to true when creating long content streams. @throws IOException If there is an error writing to the content stream.
+628 The Tm operator. Sets the text matrix to the given values. A current text matrix will be replaced with the new one. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+629 The cm operator. Concatenates the given matrix with the current transformation matrix (CTM), which maps user space coordinates used within a PDF content stream into output device coordinates. More details on coordinates can be found in the PDF 32000 specification, 8.3.2 Coordinate Spaces. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream.
+630 Begin some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest beginText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+631 Begin some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest beginText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+632 Begin some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest beginText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+633 Begin some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest beginText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+634 End some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest endText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+635 End some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest endText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+636 End some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest endText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+637 End some text operations. @throws IOException If there is an error writing to the stream or if you attempt to nest endText calls. @throws IllegalStateException If the method was not allowed to be called at this time.
+638 Sets the text leading. @param leading The leading in unscaled text units. @throws IOException If there is an error writing to the stream.
+639 Sets the text leading. @param leading The leading in unscaled text units. @throws IOException If there is an error writing to the stream.
+640 Sets the text leading. @param leading The leading in unscaled text units. @throws IOException If there is an error writing to the stream.
+641 Sets the text leading. @param leading The leading in unscaled text units. @throws IOException If there is an error writing to the stream.
+642 Move to the start of the next line of text. Requires the leading (see {@link #setLeading}) to have been set. @throws IOException If there is an error writing to the stream.
+643 Move to the start of the next line of text. Requires the leading (see {@link #setLeading}) to have been set. @throws IOException If there is an error writing to the stream.
+644 Move to the start of the next line of text. Requires the leading (see {@link #setLeading}) to have been set. @throws IOException If there is an error writing to the stream.
+645 Move to the start of the next line of text. Requires the leading (see {@link #setLeading}) to have been set. @throws IOException If there is an error writing to the stream.
+646 The Td operator. Move to the start of the next line, offset from the start of the current line by (tx, ty). @param tx The x translation. @param ty The y translation. @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+647 The Td operator. Move to the start of the next line, offset from the start of the current line by (tx, ty). @param tx The x translation. @param ty The y translation. @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+648 The Td operator. Move to the start of the next line, offset from the start of the current line by (tx, ty). @param tx The x translation. @param ty The y translation. @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+649 The Td operator. Move to the start of the next line, offset from the start of the current line by (tx, ty). @param tx The x translation. @param ty The y translation. @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+650 q operator. Saves the current graphics state. @throws IOException If an error occurs while writing to the stream.
+651 q operator. Saves the current graphics state. @throws IOException If an error occurs while writing to the stream.
+652 q operator. Saves the current graphics state. @throws IOException If an error occurs while writing to the stream.
+653 q operator. Saves the current graphics state. @throws IOException If an error occurs while writing to the stream.
+654 Q operator. Restores the current graphics state. @throws IOException If an error occurs while writing to the stream.
+655 Q operator. Restores the current graphics state. @throws IOException If an error occurs while writing to the stream.
+656 Q operator. Restores the current graphics state. @throws IOException If an error occurs while writing to the stream.
+657 Q operator. Restores the current graphics state. @throws IOException If an error occurs while writing to the stream.
+658 Set the stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+659 Set the stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+660 Set the stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+661 Set the stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+662 Set the stroking color in the DeviceCMYK color space. Range is 0..1 @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+663 Set the stroking color in the DeviceCMYK color space. Range is 0..1 @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+664 Set the stroking color in the DeviceCMYK color space. Range is 0..1 @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+665 Set the stroking color in the DeviceCMYK color space. Range is 0..1 @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+666 Set the stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+667 Set the stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+668 Set the stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+669 Set the stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+670 Set the non-stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+671 Set the non-stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+672 Set the non-stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+673 Set the non-stroking color in the DeviceRGB color space. Range is 0..1. @param r The red value. @param g The green value. @param b The blue value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameters are invalid.
+674 Set the non-stroking color in the DeviceCMYK color space. Range is 0..1. @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream.
+675 Set the non-stroking color in the DeviceCMYK color space. Range is 0..1. @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream.
+676 Set the non-stroking color in the DeviceCMYK color space. Range is 0..1. @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream.
+677 Set the non-stroking color in the DeviceCMYK color space. Range is 0..1. @param c The cyan value. @param m The magenta value. @param y The yellow value. @param k The black value. @throws IOException If an IO error occurs while writing to the stream.
+678 Set the non-stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+679 Set the non-stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+680 Set the non-stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+681 Set the non-stroking color in the DeviceGray color space. Range is 0..1. @param g The gray value. @throws IOException If an IO error occurs while writing to the stream. @throws IllegalArgumentException If the parameter is invalid.
+682 Add a rectangle to the current path. @param x The lower left x coordinate. @param y The lower left y coordinate. @param width The width of the rectangle. @param height The height of the rectangle. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+683 Add a rectangle to the current path. @param x The lower left x coordinate. @param y The lower left y coordinate. @param width The width of the rectangle. @param height The height of the rectangle. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+684 Add a rectangle to the current path. @param x The lower left x coordinate. @param y The lower left y coordinate. @param width The width of the rectangle. @param height The height of the rectangle. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+685 Add a rectangle to the current path. @param x The lower left x coordinate. @param y The lower left y coordinate. @param width The width of the rectangle. @param height The height of the rectangle. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+686 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+687 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+688 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+689 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+690 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bézier control points. @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IllegalStateException If the method was called within a text block. @throws IOException If the content stream could not be written.
+691 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bézier control points. @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IllegalStateException If the method was called within a text block. @throws IOException If the content stream could not be written.
+692 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bézier control points. @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IllegalStateException If the method was called within a text block. @throws IOException If the content stream could not be written.
+693 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bézier control points. @param x2 x coordinate of the point 2 @param y2 y coordinate of the point 2 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IllegalStateException If the method was called within a text block. @throws IOException If the content stream could not be written.
+694 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+695 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+696 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+697 Append a cubic Bézier curve to the current path. The curve extends from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points. @param x1 x coordinate of the point 1 @param y1 y coordinate of the point 1 @param x3 x coordinate of the point 3 @param y3 y coordinate of the point 3 @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+698 Move the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+699 Move the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+700 Move the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+701 Move the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+702 Draw a line from the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+703 Draw a line from the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+704 Draw a line from the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+705 Draw a line from the current position to the given coordinates. @param x The x coordinate. @param y The y coordinate. @throws IOException If the content stream could not be written. @throws IllegalStateException If the method was called within a text block.
+706 Stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+707 Stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+708 Stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+709 Stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+710 Close and stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+711 Close and stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+712 Close and stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+713 Close and stroke the path. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+714 Fills the path using the nonzero winding number rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+715 Fills the path using the nonzero winding number rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+716 Fills the path using the nonzero winding number rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+717 Fills the path using the nonzero winding number rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+718 Fills the path using the even-odd winding rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+719 Fills the path using the even-odd winding rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+720 Fills the path using the even-odd winding rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+721 Fills the path using the even-odd winding rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+722 Fill and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fill() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+723 Fill and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fill() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+724 Fill and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fill() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+725 Fill and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fill() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+726 Fill and then stroke the path, using the even-odd rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fillEvenOdd() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+727 Fill and then stroke the path, using the even-odd rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fillEvenOdd() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+728 Fill and then stroke the path, using the even-odd rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fillEvenOdd() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+729 Fill and then stroke the path, using the even-odd rule to determine the region to fill. This shall produce the same result as constructing two identical path objects, painting the first with {@link #fillEvenOdd() } and the second with {@link #stroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+730 Close, fill, and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+731 Close, fill, and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+732 Close, fill, and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+733 Close, fill, and then stroke the path, using the nonzero winding number rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStroke() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+734 Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStrokeEvenOdd() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+735 Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStrokeEvenOdd() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+736 Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStrokeEvenOdd() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+737 Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill. This shall have the same effect as the sequence {@link #closePath() } and then {@link #fillAndStrokeEvenOdd() }. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+738 Closes the current subpath. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+739 Closes the current subpath. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+740 Closes the current subpath. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+741 Closes the current subpath. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+742 Intersects the current clipping path with the current path, using the nonzero rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+743 Intersects the current clipping path with the current path, using the nonzero rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+744 Intersects the current clipping path with the current path, using the nonzero rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+745 Intersects the current clipping path with the current path, using the nonzero rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+746 Intersects the current clipping path with the current path, using the even-odd rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+747 Intersects the current clipping path with the current path, using the even-odd rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+748 Intersects the current clipping path with the current path, using the even-odd rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+749 Intersects the current clipping path with the current path, using the even-odd rule. @throws IOException If the content stream could not be written @throws IllegalStateException If the method was called within a text block.
+750 Set line width to the given value. @param lineWidth The width which is used for drawing. @throws IOException If the content stream could not be written
+751 Set line width to the given value. @param lineWidth The width which is used for drawing. @throws IOException If the content stream could not be written
+752 Set line width to the given value. @param lineWidth The width which is used for drawing. @throws IOException If the content stream could not be written
+753 Set line width to the given value. @param lineWidth The width which is used for drawing. @throws IOException If the content stream could not be written
+754 Set the line join style. @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line join style.
+755 Set the line join style. @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line join style.
+756 Set the line join style. @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line join style.
+757 Set the line join style. @param lineJoinStyle 0 for miter join, 1 for round join, and 2 for bevel join. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line join style.
+758 Set the line cap style. @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line cap style.
+759 Set the line cap style. @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line cap style.
+760 Set the line cap style. @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line cap style.
+761 Set the line cap style. @param lineCapStyle 0 for butt cap, 1 for round cap, and 2 for projecting square cap. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is not a valid line cap style.
+762 Set the line dash pattern. @param pattern The pattern array @param phase The phase of the pattern @throws IOException If the content stream could not be written.
+763 Set the line dash pattern. @param pattern The pattern array @param phase The phase of the pattern @throws IOException If the content stream could not be written.
+764 Set the line dash pattern. @param pattern The pattern array @param phase The phase of the pattern @throws IOException If the content stream could not be written.
+765 Set the line dash pattern. @param pattern The pattern array @param phase The phase of the pattern @throws IOException If the content stream could not be written.
+766 Set the miter limit. @param miterLimit the new miter limit. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is \u2264 0.
+767 Set the miter limit. @param miterLimit the new miter limit. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is \u2264 0.
+768 Set the miter limit. @param miterLimit the new miter limit. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is \u2264 0.
+769 Set the miter limit. @param miterLimit the new miter limit. @throws IOException If the content stream could not be written. @throws IllegalArgumentException If the parameter is \u2264 0.
+770 End a marked content sequence. @throws IOException If the content stream could not be written
+771 End a marked content sequence. @throws IOException If the content stream could not be written
+772 End a marked content sequence. @throws IOException If the content stream could not be written
+773 End a marked content sequence. @throws IOException If the content stream could not be written
+774 Set the character spacing. The value shall be added to the horizontal or vertical component of the glyph's displacement, depending on the writing mode. @param spacing character spacing @throws IOException If the content stream could not be written.
+775 Set the character spacing. The value shall be added to the horizontal or vertical component of the glyph's displacement, depending on the writing mode. @param spacing character spacing @throws IOException If the content stream could not be written.
+776 Set the character spacing. The value shall be added to the horizontal or vertical component of the glyph's displacement, depending on the writing mode. @param spacing character spacing @throws IOException If the content stream could not be written.
+777 Set the character spacing. The value shall be added to the horizontal or vertical component of the glyph's displacement, depending on the writing mode. @param spacing character spacing @throws IOException If the content stream could not be written.
+778 Set the word spacing. The value shall be added to the horizontal or vertical component of the ASCII SPACE character, depending on the writing mode. <p> This will have an effect only with Type1 and TrueType fonts, not with Type0 fonts. The PDF specification tells why: "Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when using a simple font or a composite font that defines code 32 as a single-byte code. It shall not apply to occurrences of the byte value 32 in multiple-byte codes." @param spacing word spacing @throws IOException If the content stream could not be written.
+779 Set the word spacing. The value shall be added to the horizontal or vertical component of the ASCII SPACE character, depending on the writing mode. <p> This will have an effect only with Type1 and TrueType fonts, not with Type0 fonts. The PDF specification tells why: "Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when using a simple font or a composite font that defines code 32 as a single-byte code. It shall not apply to occurrences of the byte value 32 in multiple-byte codes." @param spacing word spacing @throws IOException If the content stream could not be written.
+780 Set the word spacing. The value shall be added to the horizontal or vertical component of the ASCII SPACE character, depending on the writing mode. <p> This will have an effect only with Type1 and TrueType fonts, not with Type0 fonts. The PDF specification tells why: "Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when using a simple font or a composite font that defines code 32 as a single-byte code. It shall not apply to occurrences of the byte value 32 in multiple-byte codes." @param spacing word spacing @throws IOException If the content stream could not be written.
+781 Set the word spacing. The value shall be added to the horizontal or vertical component of the ASCII SPACE character, depending on the writing mode. <p> This will have an effect only with Type1 and TrueType fonts, not with Type0 fonts. The PDF specification tells why: "Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when using a simple font or a composite font that defines code 32 as a single-byte code. It shall not apply to occurrences of the byte value 32 in multiple-byte codes." @param spacing word spacing @throws IOException If the content stream could not be written.
+782 Set the horizontal scaling to scale / 100. @param scale number specifying the percentage of the normal width. Default value: 100 (normal width). @throws IOException If the content stream could not be written.
+783 Set the horizontal scaling to scale / 100. @param scale number specifying the percentage of the normal width. Default value: 100 (normal width). @throws IOException If the content stream could not be written.
+784 Set the horizontal scaling to scale / 100. @param scale number specifying the percentage of the normal width. Default value: 100 (normal width). @throws IOException If the content stream could not be written.
+785 Set the horizontal scaling to scale / 100. @param scale number specifying the percentage of the normal width. Default value: 100 (normal width). @throws IOException If the content stream could not be written.
+786 Set the text rendering mode. This determines whether showing text shall cause glyph outlines to be stroked, filled, used as a clipping boundary, or some combination of the three. @param rm The text rendering mode. @throws IOException If the content stream could not be written.
+787 Set the text rendering mode. This determines whether showing text shall cause glyph outlines to be stroked, filled, used as a clipping boundary, or some combination of the three. @param rm The text rendering mode. @throws IOException If the content stream could not be written.
+788 Set the text rendering mode. This determines whether showing text shall cause glyph outlines to be stroked, filled, used as a clipping boundary, or some combination of the three. @param rm The text rendering mode. @throws IOException If the content stream could not be written.
+789 Set the text rendering mode. This determines whether showing text shall cause glyph outlines to be stroked, filled, used as a clipping boundary, or some combination of the three. @param rm The text rendering mode. @throws IOException If the content stream could not be written.
+790 Set the text rise value, i.e. move the baseline up or down. This is useful for drawing superscripts or subscripts. @param rise Specifies the distance, in unscaled text space units, to move the baseline up or down from its default location. 0 restores the default location. @throws IOException If the content stream could not be written.
+791 Set the text rise value, i.e. move the baseline up or down. This is useful for drawing superscripts or subscripts. @param rise Specifies the distance, in unscaled text space units, to move the baseline up or down from its default location. 0 restores the default location. @throws IOException If the content stream could not be written.
+792 Set the text rise value, i.e. move the baseline up or down. This is useful for drawing superscripts or subscripts. @param rise Specifies the distance, in unscaled text space units, to move the baseline up or down from its default location. 0 restores the default location. @throws IOException If the content stream could not be written.
+793 Set the text rise value, i.e. move the baseline up or down. This is useful for drawing superscripts or subscripts. @param rise Specifies the distance, in unscaled text space units, to move the baseline up or down from its default location. 0 restores the default location. @throws IOException If the content stream could not be written.
+794 Check the XRef table by dereferencing all objects and fixing the offset if necessary. @throws IOException if something went wrong.
+795 This will save this document to the filesystem. @param fileName The file to save as. @throws IOException If there is an error saving the document.
+796 Sets the highest value that is allowed. This cannot be higher than 255. @param high the highest value for the lookup table
+797 Set the page number for a remote destination. For an internal destination, call {@link #setPage(PDPage) setPage(PDPage page)}. @param pageNumber The page for a remote destination.
+798 {@inheritDoc}
+799 {@inheritDoc}
+800 {@inheritDoc}
+801 {@inheritDoc}
+802 Collect all updates made to the given {@link COSArray} and it's contained structures. @param array The {@link COSDictionary} updates shall be collected for. @return Returns {@code true}, if the {@link COSArray}´s elements changed. A {@link COSArray} shall always be treated as a direct structure, that would require it´s parent to be updated instead.
+803 <p> Links the given {@link COSDocumentState} to the {@link #updated} state of the managed {@link #updateInfo}.<br> </p> <p> This shall also initialize {@link #updated} accordingly and will also set the same {@link COSDocumentState} for all possibly contained substructures. </p> <p> Should {@link #originDocumentState} already have been set, by a prior call to this method, this shall deny to overwrite it. </p> <p> {@link COSDocumentState#isAcceptingUpdates()} shall determine, whether updates to {@link #updateInfo} are allowed. </p> <p> As long as no {@link COSDocumentState} is linked to this {@link COSUpdateState}, it shall not accept updates. </p> @param originDocumentState The {@link COSDocumentState} that shall be linked to this {@link COSUpdateState}. @see #originDocumentState @see #updated
+804 This shall {@link #setOriginDocumentState(COSDocumentState, boolean)} for the dereferenced child, initializing its {@link #originDocumentState}. <p> This shall have no effect for a child, that is not an instance of {@link COSUpdateInfo} and will never change the child´s {@link #updated} state. </p> @param child The child, that has been dereferenced. @see #setOriginDocumentState(COSDocumentState, boolean)
+805 Parses a Type 4 function and sends the syntactic elements to the given syntax handler. @param input the text source @param handler the syntax handler
+806 Encrypt or decrypt a set of data. @param objectNumber The data object number. @param genNumber The data generation number. @param data The data to encrypt. @param output The output to write the encrypted data to. @param decrypt true to decrypt the data, false to encrypt it. @throws IOException If there is an error reading the data.
+807 Compute the encryption key. @param password The password to compute the encrypted key. @param o The O entry of the encryption dictionary. @param u The U entry of the encryption dictionary. @param oe The OE entry of the encryption dictionary. @param ue The UE entry of the encryption dictionary. @param permissions The permissions for the document. @param id The document id. @param encRevision The revision of the encryption algorithm. @param keyLengthInBytes The length of the encryption key in bytes. @param encryptMetadata The encryption metadata @param isOwnerPassword whether the password given is the owner password (for revision 6) @return The encrypted key bytes. @throws IOException If there is an error with encryption.
+808 Check if a plaintext password is the user password. @param password The plaintext password. @param user The u entry of the encryption dictionary. @param owner The o entry of the encryption dictionary. @param permissions The permissions set in the PDF. @param id The document id used for encryption. @param encRevision The revision of the encryption algorithm. @param keyLengthInBytes The length of the encryption key in bytes. @param encryptMetadata The encryption metadata. @return true If the plaintext password is the user password. @throws IOException If there is an error accessing data.
+809 Finds a font with the given PostScript name, or a suitable substitute, or null. @param postScriptName PostScript font name
+810 Normalize the given list of TextPositions. @param line list of TextPositions @return a list of strings, one string for every word
+811 Returns the Calendar for a given COS string containing a date, or {@code null} if it cannot be parsed. The returned value will have 0 for DST_OFFSET. @param text A COS string containing a date. @return The Calendar that the text string represents, or {@code null} if it cannot be parsed.
+812 Begin a marked content sequence. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+813 Begin a marked content sequence. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+814 Begin a marked content sequence. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+815 Begin a marked content sequence. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+816 Begin a marked content sequence with a reference to the marked content identifier (MCID). @param tag the tag to be added to the content stream @param mcid the marked content identifier (MCID) @throws IOException If the content stream could not be written
+817 Begin a marked content sequence with a reference to the marked content identifier (MCID). @param tag the tag to be added to the content stream @param mcid the marked content identifier (MCID) @throws IOException If the content stream could not be written
+818 Begin a marked content sequence with a reference to the marked content identifier (MCID). @param tag the tag to be added to the content stream @param mcid the marked content identifier (MCID) @throws IOException If the content stream could not be written
+819 Begin a marked content sequence with a reference to the marked content identifier (MCID). @param tag the tag to be added to the content stream @param mcid the marked content identifier (MCID) @throws IOException If the content stream could not be written
+820 set a marked content point. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+821 set a marked content point. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+822 set a marked content point. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+823 set a marked content point. @param tag the tag to be added to the content stream @throws IOException If the content stream could not be written
+824 Write the given {@link COSString} to the given stream. @param output The stream, that shall be written to. @param cosString The content, that shall be written.
+825 Outputs a string using the correct encoding and subsetting as required. @param text The Unicode text to show. @throws IOException If an io exception occurs.
+826 Constructor. @param parameters Parameters for page drawing. @throws IOException If there is an error loading properties from the file.
+827 This will parse a PDF string. @return The parsed PDF string. @throws IOException If there is an error reading from the stream.
+828 Constructor for immutable rectangle. @param width The width of the rectangle. @param height The height of the rectangle.
+829 Returns the <code>BBox</code> entry (bounding box) for the appearance stream form XObject. @return Bounding box for appearance stream form XObject.
+830 This will create a new PDMetadata object with the /Type and /Subtype entries for a document level metadata object. @param document The document that the stream will be part of.
+831 {@inheritDoc}
+832 Creates a new XObject of the given subtype for writing. @param document The document in which to create the XObject. @param subtype The subtype of the new XObject.
+833 Creates an Image XObject in the given document. This constructor is for internal PDFBox use and is not for PDF generation. Users who want to create images should look at {@link #createFromFileByExtension(File, PDDocument) }. @param document the current document
+834 Constructor. Reads all data from the input stream and embeds it into the document. This method closes the InputStream. @param doc The document that will hold the stream. @param input The stream parameter. @throws IOException If there is an error creating the stream in the document.
+835 Constructor. Reads all data from the input stream and embeds it into the document with the given filter applied. This method closes the InputStream. @param doc The document that will hold the stream. @param input The stream parameter. @param filter Filter to apply to the stream. @throws IOException If there is an error creating the stream in the document.
+836 Constructor. Reads all data from the input stream and embeds it into the document with the given filters applied. This method closes the InputStream. @param doc The document that will hold the stream. @param input The stream parameter. @param filters Filters to apply to the stream. @throws IOException If there is an error creating the stream in the document.
+837 Creates an Image XObject in the given document using the given filtered stream. This constructor is for internal PDFBox use and is not for PDF generation. Users who want to create images should look at {@link #createFromFileByExtension(File, PDDocument) }. @param document the current document @param encodedStream an encoded stream of image data @param cosFilter the filter or a COSArray of filters @param width the image width @param height the image height @param bitsPerComponent the bits per component @param initColorSpace the color space @throws IOException if there is an error creating the XObject.
+838 Default constructor.
+839 Default constructor.
+840 Default constructor.
+841 Default constructor.
+842 Default constructor. @param source input representing the pdf. @throws IOException if something went wrong
+843 Constructor. Unrestricted main memory will be used for buffering PDF streams. @param source input representing the pdf. @param decryptionPassword password to be used for decryption. @param keyStore key store to be used for decryption when using public key security @param alias alias to be used for decryption when using public key security @throws IOException If something went wrong.
+844 Create a new appearance stream. @param appearance The appearance stream to write to. @throws IOException If there is an error writing to the content stream.
+845 Create a new form XObject content stream. @param form The form XObject stream to write to. @throws IOException If there is an error writing to the form contents.
+846 Create a new appearance stream. Note that this is not actually a "page" content stream. @param doc The document the page is part of. @param appearance The appearance stream to write to. @throws IOException If there is an error writing to the page contents.
+847 The Tm operator. Sets the text matrix to the given values. A current text matrix will be replaced with the new one. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+848 The Tm operator. Sets the text matrix to the given values. A current text matrix will be replaced with the new one. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+849 The Tm operator. Sets the text matrix to the given values. A current text matrix will be replaced with the new one. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+850 The Tm operator. Sets the text matrix to the given values. A current text matrix will be replaced with the new one. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream. @throws IllegalStateException If the method was not allowed to be called at this time.
+851 The cm operator. Concatenates the given matrix with the current transformation matrix (CTM), which maps user space coordinates used within a PDF content stream into output device coordinates. More details on coordinates can be found in the PDF 32000 specification, 8.3.2 Coordinate Spaces. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream.
+852 The cm operator. Concatenates the given matrix with the current transformation matrix (CTM), which maps user space coordinates used within a PDF content stream into output device coordinates. More details on coordinates can be found in the PDF 32000 specification, 8.3.2 Coordinate Spaces. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream.
+853 The cm operator. Concatenates the given matrix with the current transformation matrix (CTM), which maps user space coordinates used within a PDF content stream into output device coordinates. More details on coordinates can be found in the PDF 32000 specification, 8.3.2 Coordinate Spaces. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream.
+854 The cm operator. Concatenates the given matrix with the current transformation matrix (CTM), which maps user space coordinates used within a PDF content stream into output device coordinates. More details on coordinates can be found in the PDF 32000 specification, 8.3.2 Coordinate Spaces. @param matrix the transformation matrix @throws IOException If there is an error writing to the stream.
+855 Add the two arms of a horizontal arrow. @param cs Content stream @param x @param y @param len The arm length. Positive goes to the right, negative goes to the left. @throws IOException If the content stream could not be written
+856 Draw a shape. <p> Dependent on the lineWidth and whether or not there is a background to be generated there are different commands to be used for draw a shape. @param lineWidth the line width of the path. @param hasStroke shall there be a stroking color. @param hasFill shall there be a fill color. @throws IOException If there is an error writing to the content stream.
+857 Add a square diamond shape (corner on top) to the path. @param cs Content stream @param x @param y @param r Radius (to a corner) @throws IOException If the content stream could not be written
+858 Add a circle shape to the path in clockwise direction. @param cs Content stream @param x @param y @param r Radius @throws IOException If the content stream could not be written.
+859 Add a circle shape to the path in counterclockwise direction. You'll need this e.g. when drawing a doughnut shape. See "Nonzero Winding Number Rule" for more information. @param cs Content stream @param x @param y @param r Radius @throws IOException If the content stream could not be written.
+860 Draw a paperclip. Shape is from <a href="https://raw.githubusercontent.com/Iconscout/unicons/master/svg/line/paperclip.svg">Iconscout</a> (Apache licensed). @param contentStream @throws IOException
+861 Sets the line width. The command is only emitted if the lineWidth is different to 1. @param lineWidth the line width of the path. @throws IOException If there is an error writing to the content stream. @see PDAbstractContentStream#setLineWidth(float)
+862 This will save this document to the filesystem. @param fileName The file to save as. @throws IOException If there is an error saving the document.
+863 Collect all updates made to the given {@link COSBase} and it's contained structures.<br> This shall forward all {@link COSUpdateInfo} objects to the proper specialized collection methods. @param base The {@link COSBase} updates shall be collected for. @return Returns {@code true}, if the {@link COSBase} represents a direct child structure, that would require it´s parent to be updated instead. @see #collect(COSDictionary) @see #collect(COSArray) @see #collect(COSObject)
+864 // MIT added, maybe this should not be supported as trailer is a persistence construct. This will set the document trailer. @param newTrailer the document trailer dictionary
+865 <p> Shall call {@link #update()} for this {@link COSUpdateState} and shall {@link #setOriginDocumentState(COSDocumentState)} for the given child, initializing it´s {@link #updated} state and {@link #originDocumentState}. </p> <p> This shall have no effect for a child, that is not an instance of {@link COSUpdateInfo}. </p> @param child The child that shall also be updated. @see #update() @see #setOriginDocumentState(COSDocumentState)
+866 <p> Shall call {@link #update()} for this {@link COSUpdateState} and shall {@link #setOriginDocumentState(COSDocumentState)} for the given children, initializing their {@link #updated} state and {@link #originDocumentState}. </p> <p> This shall have no effect for a child, that is not an instance of {@link COSUpdateInfo}. </p> @param children The children that shall also be updated. @see #update() @see #setOriginDocumentState(COSDocumentState)
+867 This will get the object that this object encapsulates. @return The encapsulated object.
+868 Check for owner password. @param ownerPassword The owner password. @param user The u entry of the encryption dictionary. @param owner The o entry of the encryption dictionary. @param permissions The set of permissions on the document. @param id The document id. @param encRevision The encryption algorithm revision. @param keyLengthInBytes The encryption key length in bytes. @param encryptMetadata The encryption metadata @return True If the ownerPassword param is the owner password. @throws IOException If there is an error accessing data.
+869 Parses the given text into an instruction sequence representing a Type 4 function that can be executed. @param text the Type 4 function text @return the instruction sequence
+870 This will encrypt a stream, but not the dictionary as the dictionary is encrypted by visitFromString() in COSWriter and we don't want to encrypt it twice. @param stream The stream to decrypt. @param objNum The object number. @param genNum The object generation number. @throws IOException If there is an error getting the stream data.
+871 This will decrypt a string. @param string the string to decrypt. @param objNum The object number. @param genNum The object generation number. @return the decrypted COSString
+872 This will encrypt a string. @param string the string to encrypt. @param objNum The object number. @param genNum The object generation number. @return the encrypted COSString @throws IOException If an error occurs writing the new string.
+873 Check if a plaintext password is the user password. @param password The plaintext password. @param user The u entry of the encryption dictionary. @param owner The o entry of the encryption dictionary. @param permissions The permissions set in the PDF. @param id The document id used for encryption. @param encRevision The revision of the encryption algorithm. @param keyLengthInBytes The length of the encryption key in bytes. @param encryptMetadata The encryption metadata @return true If the plaintext password is the user password. @throws IOException If there is an error accessing data.
+874 Finds a font with the given PostScript name, or a suitable substitute, or null. @param postScriptName PostScript font name
+875 This will print the text of the processed page to "output". It will estimate, based on the coordinates of the text, where newlines and word spacings should be placed. The text will be sorted only if that feature was enabled. @throws IOException If there is an error writing the text.
+876 Writes a single operand token. @param base The operand to write to the stream. @throws IOException If there is an error writing to the stream.
+877 Shows the given text at the location specified by the current text matrix with the given interspersed positioning. This allows the user to efficiently position each glyph or sequence of glyphs. @param textWithPositioningArray An array consisting of String and Float types. Each String is output to the page using the current text matrix. Using the default coordinate system, each interspersed number adjusts the current text matrix by translating to the left or down for horizontal and vertical text respectively. The number is expressed in thousands of a text space unit, and may be negative. @throws IOException if an io exception occurs.
+878 Shows the given text at the location specified by the current text matrix. @param text The Unicode text to show. @throws IOException If an io exception occurs. @throws IllegalArgumentException if a character isn't supported by the current font
+879 Returns a new PageDrawer instance, using the given parameters. May be overridden. @param parameters parameters to be used when creating the PageDrawer instance @return a new PageDrawer instance @throws IOException id the PageDrawer instance could not be created
+880 Creates a Form Image XObject for writing, in the given document. @param document The current document
+881 Constructor. Reads all data from the input stream and embeds it into the document, this will close the InputStream. The /Type and /Subtype entries for a document level metadata object will be created. @param doc The document that will hold the stream. @param str The stream parameter. @throws IOException If there is an error creating the stream in the document.
+882 {@inheritDoc}
+883 {@inheritDoc}
+884 Create a PDImageXObject using the Flate filter. @param document The document. @param byteArray array with data. @param width the image width @param height the image height @param bitsPerComponent the bits per component @param initColorSpace the color space @return the newly created PDImageXObject with the data compressed. @throws IOException
+885 Default constructor. @param owner the owner of the attributes
+886 Constructor.
+887 Constructs parser for given file using memory buffer. @param source the source of the pdf to be parsed @throws IOException If something went wrong.
+888 Constructor. Unrestricted main memory will be used for buffering PDF streams. @param source input representing the pdf. @param decryptionPassword password to be used for decryption. @throws IOException If something went wrong.
+889 Draw a line ending style. @param style @param cs @param x @param y @param width @param hasStroke @param hasBackground @param ending false if left, true if right of an imagined horizontal line (important for arrows). @throws IOException
+890 Collect all updates made to the given {@link COSDictionary} and it's contained structures. @param dictionary The {@link COSDictionary} updates shall be collected for. @return Returns {@code true}, if the {@link COSDictionary} represents a direct child structure, that would require it´s parent to be updated instead.
+891 Returns all indirect {@link COSBase}s, that shall be written to an increment as top level {@link COSObject}s.<br> Calling this method will cause the increment to be initialized. @return All indirect {@link COSBase}s, that shall be written to an increment as top level {@link COSObject}s. @see #objects
+892 This will add an object to the array. @param object The object to add to the array.
+893 Add the specified object at the ith location and push the rest to the right. @param i The index to add at. @param object The object to add at that index.
+894 This will set an object at a specific index. @param index zero based index into array. @param object The object to set.
+895 This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ). @param key The key to the dictionary object. @param value The value to the dictionary object.
+896 This will add an object to the array. @param objectsList The object to add to the array.
+897 Add the specified object at the ith location and push the rest to the right. @param i The index to add at. @param objectList The object to add at that index.
+898 <p> Shall call {@link #update()} for this {@link COSUpdateState} and shall {@link #setOriginDocumentState(COSDocumentState)} for the given children, initializing their {@link #updated} state and {@link #originDocumentState}. </p> <p> This shall have no effect for a child, that is not an instance of {@link COSUpdateInfo}. </p> @param children The children that shall also be updated. @see #update() @see #setOriginDocumentState(COSDocumentState)
+899 This will get an object from the array. This will dereference the object. If the object is COSNull then null will be returned. @param index The index into the array to get the object. @return The object at the requested index.
+900 This will remove an element from the array. This method will also remove a reference to the object. @param o The object to remove. @return <code>true</code> if the object was removed, <code>false</code> otherwise
+901 This will return the index of the entry or -1 if it is not found. This method will also find references to indirect objects. @param object The object to search for. @return The index of the object or -1.
+902 @see java.util.Map#containsValue(java.lang.Object) @param value The value to find in the map. @return true if the map contains this value.
+903 Search in the map for the value that matches the parameter and return the first key that maps to that value. @param value The value to search for in the map. @return The key for the value in the map or null if it does not exist.
+904 This will get an object from this dictionary. If the object is a reference then it will dereference it and get it from the document. If the object is COSNull then null will be returned. @param key The key to the object that we are getting. @return The object that matches the key.
+905 Collects all indirect objects numbers within this dictionary and all included dictionaries. It is used to avoid mixed up object numbers when importing an existing page to another pdf. Expert use only. You might run into an endless recursion if choosing a wrong starting point. @param indirectObjects a collection of already found indirect objects.
+906 Get the dictionary containing the linearization information if the pdf is linearized. @return the dictionary containing the linearization information
+907 This will close all storage and delete the tmp files. @throws IOException If there is an error close resources.
+908 Collect all updates made to the given {@link COSObject} and it's contained structures. @param object The {@link COSObject} updates shall be collected for. @return Always returns {@code false}. {@link COSObject}s by definition are indirect and shall never cause a parent structure to be updated.
+909 visitor pattern double dispatch method. @param visitor The object to notify when visiting this object. @throws IOException If an error occurs while visiting this object.
+910 Check whether an element (of an array or a dictionary) points to its parent. @param parent COSArray or COSDictionary @param value an element
+911 Returns length value referred to or defined in given object.
+912 Prepares a normal reference for the given {@link COSObject} in a PDF's crossreference stream ({@link PDFXRefStream}). @param byteOffset The byte offset of the {@link COSObject} in the PDF file. @param key The {@link COSObjectKey}, that is represented by this entry. @param object The {@link COSObject}, that is represented by this entry.
+913 This will get the object key for the object. @param obj The object to get the key for. @return The object key for the object.
+914 Returns the {@link COSObjectKey} for a given registered {@link COSBase}. Returns null if such an object is not registered. @param object The {@link COSBase} a {@link COSObjectKey} shall be determined for. @return key The {@link COSObjectKey}, that matches the registered {@link COSBase}, or null if such an object is not registered.
+915 Returns true, if the given {@link COSBase} is a registered object of this pool. @param object The {@link COSBase} that shall be checked. @return True, if such a {@link COSBase} is registered in this pool.
+916 Prepares the given {@link COSObject} to be written to this object stream, using the given {@link COSObjectKey} as it's ID for indirect references. @param key The {@link COSObjectKey}, that shall be used for indirect references to the {@link COSObject}. @param object The {@link COSObject}, that shall be written to this object stream.
+917 Check for owner password. @param password The owner password. @param user The u entry of the encryption dictionary. @param owner The o entry of the encryption dictionary. @param permissions The set of permissions on the document. @param id The document id. @param encRevision The encryption algorithm revision. @param keyLengthInBytes The encryption key length in bytes. @param encryptMetadata The encryption metadata @return True If the ownerPassword param is the owner password. @throws IOException If there is an error accessing data.
+918 This will print the processed page text to the output stream. @throws IOException If there is an error writing the text.
+919 Shows the given text at the location specified by the current text matrix with the given interspersed positioning. This allows the user to efficiently position each glyph or sequence of glyphs. @param textWithPositioningArray An array consisting of String and Float types. Each String is output to the page using the current text matrix. Using the default coordinate system, each interspersed number adjusts the current text matrix by translating to the left or down for horizontal and vertical text respectively. The number is expressed in thousands of a text space unit, and may be negative. @throws IOException if an io exception occurs.
+920 Shows the given text at the location specified by the current text matrix with the given interspersed positioning. This allows the user to efficiently position each glyph or sequence of glyphs. @param textWithPositioningArray An array consisting of String and Float types. Each String is output to the page using the current text matrix. Using the default coordinate system, each interspersed number adjusts the current text matrix by translating to the left or down for horizontal and vertical text respectively. The number is expressed in thousands of a text space unit, and may be negative. @throws IOException if an io exception occurs.
+921 Shows the given text at the location specified by the current text matrix with the given interspersed positioning. This allows the user to efficiently position each glyph or sequence of glyphs. @param textWithPositioningArray An array consisting of String and Float types. Each String is output to the page using the current text matrix. Using the default coordinate system, each interspersed number adjusts the current text matrix by translating to the left or down for horizontal and vertical text respectively. The number is expressed in thousands of a text space unit, and may be negative. @throws IOException if an io exception occurs.
+922 Shows the given text at the location specified by the current text matrix with the given interspersed positioning. This allows the user to efficiently position each glyph or sequence of glyphs. @param textWithPositioningArray An array consisting of String and Float types. Each String is output to the page using the current text matrix. Using the default coordinate system, each interspersed number adjusts the current text matrix by translating to the left or down for horizontal and vertical text respectively. The number is expressed in thousands of a text space unit, and may be negative. @throws IOException if an io exception occurs.
+923 Shows the given text at the location specified by the current text matrix. @param text The Unicode text to show. @throws IOException If an io exception occurs. @throws IllegalArgumentException if a character isn't supported by the current font
+924 Shows the given text at the location specified by the current text matrix. @param text The Unicode text to show. @throws IOException If an io exception occurs. @throws IllegalArgumentException if a character isn't supported by the current font
+925 Shows the given text at the location specified by the current text matrix. @param text The Unicode text to show. @throws IOException If an io exception occurs. @throws IllegalArgumentException if a character isn't supported by the current font
+926 Shows the given text at the location specified by the current text matrix. @param text The Unicode text to show. @throws IOException If an io exception occurs. @throws IllegalArgumentException if a character isn't supported by the current font

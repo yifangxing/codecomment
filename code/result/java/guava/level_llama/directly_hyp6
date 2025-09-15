@@ -1,0 +1,160 @@
+1 Finds the first element matching a given predicate in an iterable sequence. @param predicate condition to match @return Optional containing the first matching element, or empty if none found
+2 Creates a fast CharMatcher instance with precomputed matches. @return Fast matcher or NegatedFastMatcher if total characters exceed DISTINCT_CHARS limit
+3 Re-throws a Throwable as a RuntimeException or its declared type. @param e the Throwable to rethrow @param declaredType1 first potential exception type @param declaredType2 second potential exception type
+4 Writes byte array to output stream. @param bytes data to be written
+5 Writes data from an InputStream to a newly opened OutputStream. @param input InputStream containing the data to be written @return the total number of bytes written or -1 on error
+6 Checks if the underlying stream is empty. @return true if the stream has no content, false otherwise
+7 Calculates the size of this resource. @return size in bytes, or -1 if unknown
+8 Copies user data to the specified OutputStream. @param output target stream for copying
+9 Copies data to the specified sink. @param sink target stream for copying
+10 Reads data from an underlying stream into a byte array. @return byte[] containing the read data or null if not known
+11 Reads data from the input stream using a specified byte processor. @param processor ByteProcessor to process the read bytes @return T object processed by the processor, or null if not found
+12 Compares byte content of this source to another. @param other ByteSource to compare with
+13 Writes CharSequence to underlying stream. @param charSequence sequence of characters to be written
+14 Writes data from a Readable source to the underlying output stream. @param readable input data source
+15 Calculates the length of a streamable entity. @return Length in bytes, or -1 if unknown
+16 Copies user profile data to the specified writable destination. @param appendable writable output target @return number of bytes written or -1 on error
+17 Copies user data to a specified sink. @param sink destination for the copy operation
+18 Reads the first line from a stream, handling exceptions and resource closure.
+19 Reads lines from the stream and processes them with the given processor. @param processor LineProcessor to apply to each line @return processed result or null if not applicable
+20 Checks if the underlying stream is empty. @return true if the stream has no content, false otherwise
+21 Expands the hash table to twice its current capacity. @GuardedBy("this")
+22 Filters keys in a multimap using the given predicate. @param unfiltered Multimap to filter @param keyPredicate Predicate to apply to each key @return New filtered multimap or existing one if already filtered
+23 Filters values in a multimap based on a predicate. @param unfiltered the original multimap @param valuePredicate predicate to apply to each value @return filtered SetMultimap with values matching the predicate
+24 Filters entries in a multimap based on the provided predicate. @param unfiltered original multimap @param entryPredicate filter criteria for entries @return filtered Multimap object or new instance if not filtered
+25 Creates an iterator for unique column keys, eliminating duplicates based on the configured comparator. @return Iterator over unique column keys or empty iterator if none found.
+26 Creates an Immutable Bi-Map from an iterable of key-value entries. @param entries iterable of entries to copy
+27 Creates an ImmutableMap from a collection of entries. @param entries Iterable of key-value pairs to copy into map
+28 Converts an iterable to a typed array. @param iterable input collection @param type expected element class @return array containing all elements or null if empty
+29 Creates a copy of the given sorted iterable with the specified comparator. If the original is an ImmutableSortedSet with the same comparator, returns it directly. Otherwise, constructs a new ImmutableSortedSet from the iterable's elements. @param comparator comparison function for the set @param elements iterable containing the set's elements
+30 Performs binary search on a list using a custom key function and comparator. @param list input list to search @param keyFunction function to extract the search key from each element @param key target search key @param keyComparator comparator for searching key @param presentBehavior behavior when search key is present in list @param absentBehavior behavior when search key is not present in list
+31 Removes all elements from this list that are contained in the given collection. @param key the collection of elements to remove
+32 Transforms the values in a navigable map using a given function. @param fromMap source map with keys and original values @param function transformation function applied to each value @return new map with transformed values, same keys as input map
+33 Removes mapping by key-value pair if present. @param rowKey unique row identifier @param columnKey unique column identifier @param value associated value to remove @return true if removed, false otherwise
+34 Returns a thread-safe wrapper for the provided list multimap. @param multimap list multimap to synchronize @return synchronized list multimap or null if input is null
+35 Returns a thread-safe version of the provided set multimap. @param multimap input multimap to synchronize
+36 Converts a Readable object to its string representation. @param r Readable object to convert
+37 Catches specific exceptions and returns a fallback value. @param exceptionType type of exception to catch @param fallback function to execute on caught exception @param executor executor service for fallback execution @return FluentFuture containing result or fallback value
+38 Transforms a Future into a new Future of type T using the provided function. @param function transformation function @param executor execution context for the transformation
+39 Creates a directed graph builder. @return GraphBuilder instance with directed graph capability
+40 Creates an undirected graph builder. @return GraphBuilder instance with directed=false
+41 Creates a new GraphBuilder instance from an existing graph. @param graph the original graph to copy settings from
+42 Creates a network builder with a directed topology. @return NetworkBuilder instance with directed topology
+43 Creates an undirected network builder. @return NetworkBuilder instance with directed=false property set
+44 Creates a NetworkBuilder instance from an existing network. @param network the original network to copy properties from
+45 Creates a directed ValueGraphBuilder instance.
+46 Creates an undirected graph builder.
+47 Creates a ValueGraphBuilder instance from an existing graph. @param graph the input graph
+48 Adds a listener to the internal state. @param listener Listener object to be added @param executor Executor instance for concurrent execution
+49 Creates an empty CompactLinkedHashSet instance. @return A new, empty CompactLinkedHashSet object.
+50 Creates a compact hash set from the given collection. @param collection input collection to convert
+51 Creates a compact linked hash set with expected size. @param expectedSize anticipated number of elements
+52 Creates a sorted set multimap from a backing map and a sorted set factory. @param map backing map of key-value collections @param factory supplier for creating sorted sets of values
+53 Converts a collection of elements into an immutable multiset.
+54 Converts a collection of elements with optional counts into an immutable multiset. @param elementFunction maps each element to its type @param countFunction extracts the count from each element @return ImmutableMultiset containing all elements with their respective counts
+55 Creates a new instance of the Builder class. @return A Builder object with default configuration.
+56 Joins an array of objects into a string using the join method. @param parts Array of objects to be joined, may be null
+57 Joins elements of this collection using the specified Joiner. @param joiner join strategy to apply
+58 Simplifies a Unix-style file path by resolving ., .., and //. @param pathname the path to simplify @return simplified path as a string or "." for an empty input
+59 Parses trie to builder, recursively processing encoded string and populating suffix map. @param stack Deque for building domain strings @param encoded encoded trie string @param start starting index in the encoded string @param builder map builder for public suffix entries @return number of characters processed
+60 Creates a concurrent map instance using either the default ConcurrentHashMap or a custom implementation. @return ConcurrentMap instance
+61 Concatenates iterables resulting from transforming input iterable using the given function. @param function transformation function for each element in the input iterable
+62 Concatenates multiple iterables into a single iterable. @param inputs variable-length parameter list of iterables to concatenate
+63 Retrieves a value with specified timeout and time unit. @param timeout maximum wait duration in specified time unit @param unit time unit for the timeout (e.g. TimeUnit.SECONDS) @throws InterruptedException if interrupted while waiting @throws TimeoutException if operation timed out @throws ExecutionException if underlying execution failed
+64 Adds a new node to the graph and returns its associated connections. @param node unique node identifier
+65 Enters a guarded region with specified duration. @param guard Guard object @param time duration in nanoseconds
+66 Converts the given string to the specified case format. @param format CaseFormat enum value @param s input string to convert
+67 Converts a string to the specified case format. @param format CaseFormat enum value @param s input string to convert
+68 Converts a string to the specified case format. @param format CaseFormat enum value @param s input string
+69 Converts string to specified case format. @param format target case format @param str input string @return converted string or original if format is default
+70 Checks if given CharSequence does not match any pattern. @return true if no match found, false otherwise
+71 Removes all occurrences of a specified character from the given sequence. @param sequence input CharSequence @return modified string with characters removed or original string if none found
+72 Replaces occurrences of a character in a string with a specified replacement. @param sequence input string-like object @param replacement the character to replace @return modified string or original if not found
+73 Resolves the embedded IPv4 client address for a given IPv6 address. @param ip IPv6 address to resolve @return Inet4Address object or throws exception if not found
+74 Reads bytes from input and updates hash with the read data. @param bytes buffer to store read data @param off offset in the buffer where data should be written @param len number of bytes to read @return number of bytes read, or -1 if end-of-input reached
+75 Copies data from InputStream to specified byte array. @param in input stream @param b target byte array
+76 Rotates elements in the given boolean array by specified distance. @param array boolean array to be rotated @param distance number of positions to shift elements
+77 Rotates elements in a byte array by specified distance. @param array byte array to be rotated @param distance number of positions to shift elements
+78 Sorts an array of bytes in descending order.
+79 Sorts an array of characters in descending order. @param array the input character array
+80 Rotates characters in the given array by the specified distance. @param array input character array to be rotated @param distance number of positions to shift elements
+81 Sorts an array of doubles in descending order. @param array input array to be sorted
+82 Rotates elements in the given array by the specified distance. @param array input array to be rotated @param distance number of positions to shift elements
+83 Sorts an array of floats in descending order. @param array input float array to be sorted
+84 Rotates elements in the given array by the specified distance. @param array input array to be rotated @param distance number of positions to shift each element
+85 Sorts an integer array in descending order. @param array input array to be sorted
+86 Rotates elements in an integer array by given distance. @param array input array to be rotated @param distance number of positions to shift elements
+87 Sorts an array of long integers in descending order.
+88 Rotates elements in the given array by specified distance. @param array input array @param distance rotation distance
+89 Sorts an array of shorts in descending order. @param array input array to be sorted
+90 Rotates the given short array by the specified distance. @param array the input array to be rotated @param distance the number of positions to shift elements
+91 Configures key-value splitter with a custom separator. @param separator string to use as separator in split operation
+92 Creates a RateLimiter with specified permits per second and warm-up period. @param permitsPerSecond rate limit in units of {@code unit} @param warmupPeriod initial warm-up duration @param unit time unit for permit rate (e.g. SECONDS, MILLISECONDS)
+93 Returns an unmodifiable view of the given sorted multiset. @param sortedMultiset original sorted multiset to wrap
+94 Wraps a navigable set in an unmodifiable interface. @param set original navigable set
+95 Returns an unmodifiable collection of map entries. @param entries input collection of entries
+96 Returns an unmodifiable view of the specified sorted set multimap. @param delegate original mutable sorted set multimap
+97 Wraps a ListenableFuture with eventual auto-closing functionality. @param future the original future to be wrapped @param closingExecutor executor for closing resources @return ClosingFuture object or null if not found
+98 Adds a callback to be executed when this future completes. @param callback callback to execute @param executor executor to use for running the callback
+99 Creates a bi-directional enum map between two types. @param keyType the type of enums to use as keys @param valueType the type of enums to use as values
+100 Creates an EnumHashBiMap instance with the specified enum type as keys. @param keyType the enum class to use as keys
+101 Creates a TreeMultiset from an iterable of comparable elements. @param elements Iterable of elements to populate the multiset with
+102 Initializes a new Builder with a custom comparator. @param comparator comparator to order elements in the multiset
+103 Replaces values associated with a given key in the map. @param key unique identifier for replacement @param values new values to associate with the key
+104 Replaces values in the set associated with the given key. @param key unique identifier of the set to modify @param values new values to store in the set
+105 Creates a HashMultiset from an iterable of elements. @param elements collection of elements to include in the multiset @return populated HashMultiset instance
+106 Creates a new ArrayListMultimap with specified key and value counts. @param expectedKeys total number of keys @param expectedValuesPerKey average values per key
+107 Creates a new HashMultimap with specified capacity. @param expectedKeys estimated number of unique keys @param expectedValuesPerKey estimated average values per key
+108 Creates a HashMultimap from an existing Multimap instance. @param multimap the original Multimap to clone @return a new HashMultimap with same key-value pairs as input
+109 Creates a LinkedListMultimap with the specified expected key count. @param expectedKeys desired number of keys in the multimap
+110 Creates a linked hash multiset from an iterable of elements. @param elements input collection of elements @return LinkedHashMultiset instance populated with unique elements and added duplicates
+111 Creates a new LinkedHashMultimap instance with default key and value set capacities.
+112 Creates a LinkedHashMultimap with estimated key and value capacities. @param expectedKeys number of unique keys @param expectedValuesPerKey average values per key
+113 Constructs a standard mutable network using the provided builder. @param builder NetworkBuilder instance to configure the network
+114 Initializes a new graph with the specified builder settings. @param builder Graph builder instance
+115 Adds a cell to the table, either as an immutable object or by individual key-value pairs. @param cell Cell object (may be immutable)
+116 Adds an entry to the map and returns this builder instance. @param entry Map entry to add
+117 Adds all entries from the given iterable to the map. @param entries collection of key-value pairs to add @return this Builder instance for method chaining
+118 Adds an entry to the map and returns the builder instance.
+119 Converts to a Set-based Multimap. @return ImmutableSetMultimap instance or creates one if not already built
+120 Builds and returns an immutable sorted map.
+121 Copies all entries from a RangeMap to this builder. @param rangeMap map of ranges and values to copy @return this Builder instance, allowing method chaining
+122 Adds multiple ranges to the builder. @param ranges iterable of Range objects to be added @return this Builder instance for method chaining
+123 Intersects the given range with a collection of ranges, returning an immutable list of intersecting sub-ranges. @param range Range to intersect with
+124 Creates a contiguous set of comparable elements within the specified range and domain. @param range the desired range of values @param domain the discrete domain that defines the set's bounds @return ContiguousSet containing the requested elements or an empty set if none exist
+125 Coalesces a range with a matching value from the given entry. @param range the initial range @param value the value to match @param entry optional RangeMapEntry containing the key and value @return updated range or original range if no match found
+126 Converts to an immutable sorted set of discrete values within a given domain. @param domain DiscreteDomain to constrain the set
+127 Converts a map to an immutable enum map. @param map input map @return ImmutableEnumMap object or empty map if input is empty
+128 Returns an immutable map of rows to their corresponding column maps. @return map where keys are row identifiers and values are column maps
+129 Returns an iterator over the elements in this set in reverse order. @return Descending iterator or null if empty
+130 Builds an immutable list from the current contents. @return ImmutableList of type E or null if contents are empty
+131 Converts an array of objects to an immutable list. @param elements the input array
+132 Builds an ImmutableSortedSet instance from internal elements. @return ImmutableSortedSet containing deduplicated and sorted elements
+133 Creates an immutable map from a sorted array of entries. @param n size of the input array @param entryArray array of key-value pairs to populate the map @param throwIfDuplicateKeys whether to throw an exception on duplicate keys @return ImmutableMap instance or null if duplicates are allowed and all values are deleted.
+134 Finds the index of the first matching suffix type. @param desiredType Optional PublicSuffixType to match
+135 Creates an immutable set of enums from the given iterable. @param elements iterable containing enum values
+136 Returns an unmodifiable iterator over elements in this collection. @return Iterator instance allowing iteration over elements
+137 Dispatches an event to subscribed listeners or posts a DeadEvent. @param event Event object to dispatch or post as DeadEvent if no listeners found
+138 Tries crossing over and bubbling up in the heap, returning a MoveDesc if successful. @param removeIndex index to remove @param vacated index that will be vacated @param toTrickle element to trickle up @return MoveDesc with new parent or null on failure
+139 Returns the comparator used for sorting rows in this collection. @return Comparator object or null if not set (not applicable)
+140 Returns a synchronized version of the provided NavigableSet. @param navigableSet original set to synchronize
+141 Creates a Bloom Filter with specified expected insertions and false positive probability. @param funnel serialization function for filter elements @param expectedInsertions estimated number of elements to be inserted @param fpp desired false positive probability
+142 Creates a Bloom Filter with the given funnel and expected insertions. @param funnel Funnel to use for hashing elements @param expectedInsertions Estimated number of elements to add
+143 Estimates the approximate number of elements stored. @return Element count based on hash function and bit statistics
+144 Returns a collector that selects the top K elements based on a given comparator. @param k number of top elements to select @param comparator for sorting and selecting top elements
+145 Retrieves the k smallest elements from an iterator. @param iterator input iterator @param k number of smallest elements to retrieve @return List of k smallest elements or empty list if not found
+146 Offers all elements from the given iterable to the underlying queue. @param elements iterable containing elements to be offered
+147 Returns a string representation of this unsigned long value. @return human-readable string representation of the value.
+148 Validates and records the lock acquisition for a CycleDetectingLock. @param lock the lock being acquired
+149 Transforms a ClosingFuture using the provided asynchronous function. @param function async transformation function @param executor Executor for executing the transformation @return transformed ClosingFuture or null if not found
+150 Transforms a future using an asynchronous closing function. @param function asynchronous closing function to apply @param executor Executor instance for async computation @return ClosingFuture object representing transformed result
+151 Retrieves a value from a future with checked exceptions. @param future the future containing the value @param exceptionClass class of expected exception @return the retrieved value or null if not available
+152 Retrieves a checked result from a future, throwing the specified exception type if timed out or failed. @param future Future containing the result @param exceptionClass Exception class to throw on timeout/failure @param timeout Maximum wait time in nanoseconds
+153 Reschedules this task with a new schedule, handling failures and locking. @return a Cancellable object or immediateCancelledFuture() on failure
+154 Notifies the service as started, potentially transitioning to STOPPING or RUNNING state. @throws IllegalStateException if service is not in STARTING state
+155 Starts all services asynchronously. Ensures all services are in NEW state before proceeding. @return This ServiceManager instance
+156 Enters the specified Guard when its timeout is reached. @param guard Guard object @param time duration in nanoseconds
+157 Enters the given Guard uninterruptibly for a specified duration. @param guard Guard object to enter @param time duration in nanoseconds
+158 Waits for a specified duration while monitoring a Guard. @param guard the Guard to monitor @param time the duration to wait in nanoseconds @return true if the Guard was satisfied within the given time, false otherwise
+159 Waits uninterruptibly for the Guard to be released within a specified duration. @param guard the Guard to wait on @param time the maximum waiting duration @return true if the Guard was released, false otherwise
+160 Executes the operation with a specified time limit. @param timeout time duration for execution @param scheduledExecutor executor service to use

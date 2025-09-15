@@ -1,0 +1,80 @@
+1 Wraps this CharMatcher instance with its internal precomputation. @return Precomputed CharMatcher instance
+2 Computes the hash of a File object using the specified hash function. @param file input File object @param hashFunction hash function instance @return computed hash value
+3 Moves a file from one location to another. @param from source File object @param to destination File object @throws IOException if an I/O error occurs during move or deletion process
+4 Reads lines from a resource URL and returns them as a list. @param url the URL of the resource @param charset target character set @return list of strings, one per line in the resource
+5 Maps a file to a MappedByteBuffer using READ_ONLY mode. @param file File object
+6 Returns an exiting executor service with a configured shutdown hook. @param executor underlying thread pool executor @param terminationTimeout timeout for shutdown in specified time unit @param timeUnit unit of time for shutdown timeout
+7 Configures and returns a scheduled executor service with immediate shutdown hook. @param executor ScheduledThreadPoolExecutor to be configured @param terminationTimeout timeout for shutdown in specified time unit @param timeUnit unit of time for shutdown timeout
+8 Adds a delayed shutdown hook to the given executor service with specified timeout. @param service executor service to be shut down @param terminationTimeout time interval for shutdown (converted from Duration)
+9 Reclaims a cache key by updating the access queue and table. @param entry ReferenceEntry to be removed @param hash hash value of the key @return true if key was successfully reclaimed, false otherwise
+10 Reclaims a cached value by key and hash, updating the access queue. @param key unique key identifier @param hash cache entry hash @param valueReference reference to the value to be removed @return true if the value was successfully reclaimed, false otherwise
+11 Waits uninterruptibly for services to become healthy.
+12 Waits for services managed by this ServiceManager to become healthy within the specified timeout. @param timeout maximum time to wait in the given unit @param unit TimeUnit object specifying the unit of time @throws TimeoutException if services do not become healthy within the timeout
+13 Returns a map of service startup times. @return Map with services as keys and their respective startup times in milliseconds as values
+14 Retrieves annotations of specified type from declared parameters. @param annotationType target annotation class @return array of annotations or empty array if none found
+15 Creates a new sorted set from the given collection using its natural ordering. @param elements input collection to copy
+16 Creates a synchronized navigable map from an existing one. @param navigableMap the underlying navigable map
+17 Converts a File to a string using the specified character set. @param file input File object @param charset target character set @return string representation of the file content or null if not found
+18 Converts URL to string using specified character set. @param url the URL of the resource @param charset target character set
+19 Creates an empty compact linked hash map with default size and order preference.
+20 Creates a TreeMultimap instance from an existing multimap. @param multimap pre-existing multimap to populate the TreeMultimap
+21 Creates a reentrant lock with cycle detection. @param lockName unique identifier of the lock @param fair true for fair locking, false otherwise
+22 Creates a reentrant read-write lock with cycle detection, or a standard reentrant read-write lock if policy is disabled. @param lockName unique identifier of the lock @param fair boolean indicating whether to use a fair locking mechanism
+23 Creates a map of LockGraphNode instances for the given enum class. @param clazz Enum class to associate with the map @return Unmodifiable Map of LockGraphNode instances or null if enum is empty
+24 Validates an individual part of a domain name. @param part the domain part to validate @param isFinalPart whether this is the final part in the domain
+25 Coerces an InetAddress to a coerced IPv4 address and then reads it as an integer. @param ip InetAddress object to coerce
+26 Checks if the underlying collection contains a specified element. @param object the object to find in the collection
+27 Removes the first occurrence of the specified element from this collection. @param object element to be removed @return true if element was found and removed, false otherwise
+28 Removes all elements from the underlying collection. @param collection collection of elements to remove @return true if any elements were removed, false otherwise
+29 Delegates retainAll operation to underlying iterator. @param collection target collection @return true if any elements were removed, false otherwise
+30 Clears the underlying iterator. @param iterator Iterator object to be cleared
+31 Checks if underlying collection is empty. @return true if empty, false otherwise
+32 Returns the size of the collection and creates an array of that size. Delegates array population to underlying collection's {@link #toArray(Object[]) toArray} method.
+33 Schedules a Runnable with specified delay in nanoseconds. @param command asynchronous operation to be executed @param delay execution delay in nanoseconds
+34 Retrieves all subscribers associated with the given listener object. @param listener Object to invoke subscriber methods on @return Multimap of event types to corresponding Subscriber instances
+35 Creates an induced subgraph with specified nodes from the given network. @param network original graph @param nodes subset of nodes to include in the subgraph @return MutableNetwork object representing the induced subgraph
+36 Creates a deep copy of the given Network instance. @param network the original network to copy @return a new MutableNetwork object with identical structure and data
+37 Creates a mutable graph instance based on the configured settings.
+38 Creates an induced subgraph from the given graph and nodes. @param graph the original graph @param nodes a collection of node IDs to include in the subgraph @return MutableValueGraph object representing the induced subgraph
+39 Creates a deep copy of the given ValueGraph. @param graph the original graph to copy @return MutableValueGraph instance with identical structure and data
+40 Adds all immutable entries from a given Map instance. @param map the map containing key-value pairs to be added
+41 Adds all immutable entries from a given Map instance. @param map the map containing key-value pairs to be added
+42 Filters a filtered map with an additional entry predicate. @param map the original filtered map @param entryPredicate condition for entries to be included in the map
+43 Filters a filtered map by combining the existing filter with a new predicate. @param map the original filtered map @param entryPredicate condition for additional entries to be included in the map
+44 Filters keys from a map based on the provided predicate. @param unfiltered the original map to filter @param keyPredicate condition for keys to be included in the map @return filtered Map with updated keys
+45 Filters entries from a map based on the given predicate. @param unfiltered original map to filter @param entryPredicate condition for entries to be included in the filtered map
+46 Converts a stream into an immutable sorted map. @param comparator Comparator for sorting keys @param keyFunction Function to extract key from each input element @param valueFunction Function to extract value from each input element
+47 Creates a collector to accumulate elements into an immutable EnumMap. @param keyFunction function to extract the enum key from each element @param valueFunction function to extract the map value from each element
+48 Creates an immutable enum map collector from a stream of data. @param keyFunction function to extract the enum key @param valueFunction function to extract the enum value @param mergeFunction binary operator to combine values in case of duplicates
+49 Computes type mappings for a given context type. @param contextType the type to analyze @return an immutable map of type mappings
+50 Concatenates multiple byte streams into one by creating an immutable list. @param sources iterable of ByteSources to concatenate
+51 Concatenates multiple character sources into one. @param sources iterable of sources to be concatenated
+52 Creates an ImmutableRangeSet from the given iterable of non-overlapping ranges. @param ranges iterable of non-empty ranges to add
+53 Copies an immutable sorted multiset from the given iterable. @param comparator comparison function for sorting elements @param elements Iterable of elements to add @return ImmutableSortedMultiset object representing the copied multiset
+54 Creates a copy of the immutable sorted multiset from a given SortedMultiset. @param sortedMultiset original multiset to copy
+55 Converts this immutable collection to a list. @return IList of elements or null if empty
+56 Creates a collector for an immutable sorted set. @param comparator Comparator to use when sorting the set
+57 Creates an immutable sorted set from a specified iterator of elements using the default sort order. @param elements Iterator of elements to be added
+58 Builds the ImmutableBiMap based on accumulated entries. @return ImmutableBiMap object or throws exception if invalid
+59 Returns a view of the sorted map from the beginning up to but not including the specified key (if inclusive is false). @param toKey key to stop at @param inclusive whether to include the key itself (true) or its predecessor (false)
+60 Returns a sublist view of the sorted map starting from the given key. @param fromKey key to start from @param inclusive whether to include the exact match
+61 Checks if the domain has no public suffix. @return true if no public suffix found, false otherwise
+62 Checks if domain has a public suffix. @return true if public suffix exists, false otherwise
+63 Checks if the domain is under a public suffix. @return true if the domain is under a public suffix, false otherwise
+64 Checks if domain is top-level private.
+65 Checks if the domain name has a registry suffix. @return true if at index 0, false otherwise
+66 Checks if domain name has registry suffix. @return true if domain has registry suffix, false otherwise
+67 Checks if domain name is under a registered suffix. @return true if under registry suffix, false otherwise
+68 Checks if top domain is under registry suffix. @return true if top domain is under registry suffix, false otherwise
+69 Creates a new ImmutableSortedMap instance from an iterable of key-value pairs. @param entries input iterable of map entries @param comparator comparison function for sorting elements; if null, uses natural ordering
+70 Creates an immutable sorted map copy of the given sorted map. @param map input sorted map
+71 Creates an immutable set instance with the same elements, ensuring no modification.
+72 Returns a set of raw types associated with the current type token. @return Set of Class objects representing raw types
+73 Removes the element at a specified index from the priority queue. @param index position of the element within the queue @return MoveDesc object describing the change or null if removed
+74 Computes the square root of a BigInteger with specified rounding mode. @param x input BigInteger value @param mode rounding mode (e.g. UNNECESSARY, FLOOR) @return square root value or rounded value based on mode
+75 Creates an immutable set by copying elements from the given iterator. @param elements Iterator of elements to be copied
+76 Scans a directory and its contents, recursively processing files and subdirectories. @param directory the File object representing the directory to scan @param packagePrefix the prefix for resource names in this directory @param currentPath the Set of directories currently being processed @param builder the ImmutableSet.Builder for ResourceInfo instances
+77 Retrieves the classpath from a JAR file's manifest. @param jarFile JAR file containing the manifest @param manifest Manifest object to parse for classpath attribute @return ImmutableSet of File objects representing classpath entries or an empty set if no valid entries are found
+78 Retrieves the raw type from the given runtime type, considering the first bound for wildcards or type variables. @return a Class object representing the raw type, with its upper bound being |T|
+79 Returns the greatest K elements from an iterable. @param iterable input iterable of elements to select @param k number of greatest elements to select (must be >= 0)
+80 Waits for all services to stop within the specified time duration. @param timeout maximum service stop time @throws TimeoutException if services do not stop within given time

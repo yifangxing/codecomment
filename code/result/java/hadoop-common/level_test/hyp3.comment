@@ -1,0 +1,959 @@
+1 Reads data from a PositionedReadable stream into a ByteBuffer. Uses direct or indirect reading based on the buffer type. @param stream source of file data @param range specifies the file section to read @param buffer destination for the read data @throws IOException if an I/O error occurs during reading
+2 Validates and sorts file ranges for vectored reading. @param ranges list of FileRange objects to process @throws EOFException if validation fails
+3 Sets the buffer state to CACHING and associates it with an asynchronous action. @param actionFuture future representing the asynchronous action
+4 Updates buffer state to a new value. @param newState the new state to set @param expectedCurrentState valid states for current buffer
+5 Validates that the given path exists and is a directory. @param path the Path to validate @param argName name of the argument for error message
+6 Validates that the given path exists and is a file. @param path the Path to validate @param argName name of the argument for error message
+7 Determines if the given block is the last block in the file. @param blockNumber the block number to check @return true if it's the last block, false otherwise
+8 Calculates the start offset of a block by its number. @param blockNumber the block number to calculate offset for @return starting offset in bytes
+9 Retrieves the state of a specified data block. @param blockNumber the block number to query @return the state of the block
+10 Sets the state of a specific data block. @param blockNumber unique identifier for the block @param blockState new state to be assigned to the block
+11 Calculates block number from given offset. @param offset file offset in bytes @return block number corresponding to the offset
+12 Aggregates I/O statistics from a source into a snapshot. @param snapshot the target snapshot to aggregate into @param statistics the source IOStatistics instance @return true if aggregation is successful, false otherwise
+13 Saves an I/O statistics snapshot to a specified file system path. @param snapshot the IOStatisticsSnapshot to save (nullable) @param fs the FileSystem where the snapshot will be saved @param path the Path in the file system to save the snapshot @param overwrite flag indicating whether to overwrite existing data at the path
+14 Retrieves counter statistics from an IOStatisticsSnapshot. @param source the source of the snapshot @return Unmodifiable map containing counter names and their values
+15 Retrieves gauge values from an I/O statistics snapshot. @param source the source of the snapshot @return a map of gauge names and their corresponding long values
+16 Retrieves minimum I/O statistics values. @param source the source of the snapshot @return Map containing metric names and their corresponding minimum values
+17 Computes maximum I/O statistics from a source. @param source the source of the snapshot @return Map containing metric names and their maximum values
+18 Computes mean statistics from IOStatisticsSnapshot. @param source the source of the snapshot @return a map with mean statistics, each entry containing sample count and sum
+19 Creates an immutable copy of the current flag set. @return A new FlagSet instance with the same configuration
+20 Creates a FlagSet with specified enum class, prefix, and optional flags. @param enumClass the class of the enum type representing the flags @param prefix the prefix to use for mapping enum names @param flags optional EnumSet of flags; if null, initializes an empty set @return a new FlagSet instance
+21 Closes the FileSystem instance and sets it to null. @throws IOException if an I/O error occurs during closing
+22 Closes all FileSystem instances in the cache. @param onlyAutomatic if true, only close automatically managed FileSystems @throws IOException if any FileSystem close operation fails
+23 Converts an IOStatisticsSnapshot to a JSON string. @param snapshot the snapshot to convert, may be null @return JSON string representation of the snapshot or null if input is null
+24 Writes bytes to a specified path using the given FileContext. @param fileContext context for file operations @param path target file path @param bytes data to write @return updated FileContext instance @throws IOException if an I/O error occurs
+25 Writes lines to a specified path in the Hadoop filesystem. @param fileContext FileContext instance for filesystem operations @param path Path where lines will be written @param lines Iterable of CharSequence containing lines to write @param cs Charset used for encoding lines @return FileContext used for writing @throws IOException if an I/O error occurs during writing
+26 Writes a character sequence to a file in the specified charset. @param fs FileContext instance for file operations @param path Path where the file will be written @param charseq Character sequence to write @param cs Charset to use for encoding @return FileContext instance after writing @throws IOException if an I/O error occurs
+27 Creates a data output stream builder for writing to a specified file path. @param path the file path where data will be written @return FSDataOutputStreamBuilder configured for creating and overwriting files
+28 Prepares to create or overwrite a file at the specified path. @param path location of the file in the file system @return FSDataOutputStreamBuilder configured for file creation
+29 Prepares to append data to a specified file. @param path the file path to append data to @return FSDataOutputStreamBuilder configured for appending
+30 Prepares to append data to a file. @param path the file path @return FSDataOutputStreamBuilder for appending
+31 Lists file statuses in a directory using a default filter. @param f directory path to list @return array of FileStatus objects @throws IOException on input/output errors
+32 Lists file statuses for multiple paths using default filter. @param files array of directory paths to list @return array of FileStatus objects or empty if none match @throws FileNotFoundException if any path does not exist @throws IOException on input/output errors
+33 Creates a new counter metric. @param info MetricsInfo object with counter details @param iVal initial integer value for the counter @return MutableCounterInt instance
+34 Creates a new mutable counter. @param info MetricsInfo object for the counter @param iVal initial value of the counter @return MutableCounterLong instance
+35 Creates a new mutable gauge metric. @param info MetricsInfo object containing gauge details @param iVal initial value of the gauge @return MutableGaugeLong instance
+36 Creates a new mutable gauge metric. @param info MetricsInfo object containing gauge details @param iVal initial floating-point value for the gauge @return MutableGaugeFloat instance representing the created gauge
+37 Creates a new mutable integer gauge. @param info MetricsInfo object containing gauge details @param iVal Initial integer value for the gauge @return MutableGaugeInt instance
+38 Resolves filesystem links using the provided function. @param fileContext Hadoop filesystem context @param path target path to resolve @param fn function to process filesystem links @return result of link resolution @throws UnresolvedLinkException if link cannot be resolved @throws IOException on I/O errors
+39 Creates a new GlobBuilder instance. @param fileContext the FileContext to use for filesystem operations @return a new GlobBuilder object
+40 Creates a new GlobBuilder instance. @param filesystem FileSystem object to be used, must not be null @return GlobBuilder object for pattern matching and path manipulation
+41 Determines if the async call is done. @return true if call is complete, false otherwise
+42 Retrieves and clears the asynchronous return value. @return AsyncGet object or null if not found
+43 Refreshes the used disk space by calculating the folder size. Updates the 'used' variable with the current folder's total size.
+44 Constructs a new MeanStatistic by copying from another instance. @param that source MeanStatistic to copy data from
+45 Converts I/O statistics from a source to a formatted string. @param source object containing or providing I/O statistics @return Formatted string representation of the statistics or empty string if error occurs
+46 Converts wrapped IOStatistics to string. @return Formatted string representation of IO statistics
+47 Converts I/O statistics to string representation. Uses ioStatisticsToString if statistics are available, otherwise returns NULL_SOURCE.
+48 Converts I/O statistics to a formatted string. @param statistics IOStatistics object containing various metrics @return Pretty-printed string of statistics or empty string if null
+49 Creates a duration tracker for a given statistic. Uses provided factory if available, otherwise returns a stub tracker. @param factory optional DurationTrackerFactory instance @param statistic key for the operation to track @return DurationTracker instance
+50 Deletes a block file and evicts the corresponding cache entry. @param elementToPurge Entry representing the block to be deleted
+51 Converts StorageStatistics to IOStatistics. @param storageStatistics source statistics object @return IOStatistics instance with aggregated metrics
+52 Adds an atomic long counter to the builder. @param key unique identifier for the counter @param source AtomicLong instance providing the count value @return current DynamicIOStatisticsBuilder instance
+53 Adds an AtomicInteger counter to the builder. @param key unique identifier for the counter @param source AtomicInteger instance providing the count value @return current DynamicIOStatisticsBuilder instance
+54 Adds a mutable counter to the builder. @param key unique identifier for the counter @param source MutableCounterLong instance providing the count value @return current DynamicIOStatisticsBuilder instance
+55 Adds an atomic long gauge to the builder. @param key unique identifier for the gauge @param source AtomicLong providing the metric value @return the current DynamicIOStatisticsBuilder instance
+56 Adds an AtomicInteger gauge to the builder. @param key unique identifier for the gauge @param source AtomicInteger providing the metric value @return the current DynamicIOStatisticsBuilder instance
+57 Adds an atomic long to calculate minimum values. @param key unique identifier for the evaluator @param source AtomicLong instance providing the value @return the current DynamicIOStatisticsBuilder instance
+58 Adds an AtomicInteger to calculate minimum values. @param key unique identifier for the evaluator @param source AtomicInteger providing the value @return the current DynamicIOStatisticsBuilder instance
+59 Adds an atomic long to calculate and store the maximum value. @param key unique identifier for the function @param source AtomicLong providing the current value @return the current DynamicIOStatisticsBuilder instance
+60 Adds an AtomicInteger to calculate and store its maximum value. @param key unique identifier for the AtomicInteger @param source AtomicInteger whose maximum value is tracked @return the current DynamicIOStatisticsBuilder instance
+61 Registers failure handling mechanisms for service interruptions. Sets up interrupt escalator and uncaught exception handler.
+62 Accepts a connection on the domain socket. @return accepted DomainSocket or null if not connected @throws IOException if an I/O error occurs
+63 Shuts down the domain socket. @throws IOException if an I/O error occurs during shutdown
+64 Sends file descriptors over a Unix domain socket. @param descriptors array of FileDescriptor objects to send @param jbuf buffer containing data to accompany the file descriptors @param offset starting offset in the buffer @param length number of bytes to send from the buffer @throws IOException if an I/O error occurs
+65 Receives file input streams over a domain socket. @param streams array to hold received FileInputStreams @param buf buffer to receive data @param offset starting offset in the buffer @param length number of bytes to read @return number of bytes received or -1 if no data is available @throws IOException if an I/O error occurs
+66 Creates a new IOStatisticsContext instance. @param key unique identifier for the context @return IOStatisticsContextImpl object with incremented ID
+67 Verifies checksums for chunked data. @param data ByteBuffer containing the data to verify @param checksums ByteBuffer containing expected checksum values @param fileName name of the file being verified @param basePos base position in the file for verification @throws ChecksumException if checksum verification fails
+68 Handles post-decryption processing. @param decryptor the Decryptor instance used for decryption @param inBuffer input ByteBuffer containing decrypted data @param position current stream position @param iv initialization vector array @return calculated padding byte @throws IOException if an I/O error occurs
+69 Resets stream offset and prepares buffers for decryption. @param offset new stream offset @throws IOException if an I/O error occurs
+70 Writes encrypted data to the output stream. @param b byte array containing data to write @param off starting offset in the byte array @param len number of bytes to write @throws IOException if an I/O error occurs or stream is closed
+71 Flushes encrypted data to the output stream. Ensures all buffered data is processed and written securely. @throws IOException if an I/O error occurs during flushing or encryption
+72 Compiles a glob pattern into a regular expression. @param globPattern the glob pattern to compile @return Compiled Pattern object for matching
+73 Retrieves bytes read based on distance. @param distance the distance category for byte reads @return number of bytes read for the specified distance
+74 Creates a file in the Hadoop file system. @param f path to the file @param absolutePermission permissions for the new file @param flag set of CreateFlag options @param bufferSize buffer size for data transfer @param replication number of replicas for the file @param blockSize block size for the file @param progress progress callback @param checksumOpt checksum option @return FSDataOutputStream for writing to the file @throws IOException if an I/O error occurs
+75 Constructs an AbstractFileSystem instance. @param uri original URI to validate and modify @param supportedScheme expected scheme for the URI @param authorityNeeded flag indicating if authority is required @param defaultPort default port to use if not specified in URI @throws URISyntaxException if URI construction fails
+76 Encodes input byte arrays into output byte arrays using erasure coding. @param inputs array of input data to be encoded @param outputs array of buffers for encoded output @throws IOException if encoding fails
+77 Encodes input ByteBuffers into output ByteBuffers using erasure coding. @param inputs array of input ByteBuffers @param outputs array of output ByteBuffers @throws IOException if an I/O error occurs during encoding
+78 Constructs an ArrayPrimitiveWritable instance with the given array. @param value the input array to be stored and validated
+79 Returns the canonicalized URI of the Hadoop file system. @return canonicalized URI with default port if necessary
+80 Checks if the underlying stream supports a specific capability. @param capability the capability to check @return true if supported, false otherwise
+81 Releases a BufferData object back to the pool. @param data the BufferData to release
+82 Releases BufferData objects that are in the DONE state. Iterates through all allocated buffers, checks their state, and releases those marked as DONE back to the pool.
+83 Initializes the CachingBlockManager with provided parameters. @param blockManagerParameters configuration settings for block management
+84 Retrieves a file block into the provided buffer. @param blockNumber identifier for the block to retrieve @param buffer ByteBuffer to store the retrieved data @throws IOException if an I/O error occurs during retrieval
+85 Calculates the absolute position of the buffer within the file. @return absolute position in the file
+86 Checks if the buffer has been fully read. @return true if buffer is fully read, false otherwise
+87 Sets the buffer position to an absolute file offset. @param pos absolute file position to set @return true if position is valid and within buffer, false otherwise
+88 Retrieves the current I/O statistics context for the thread. @return Non-null IOStatisticsContext for the current thread
+89 Sets or removes I/O statistics context for the current thread. @param statisticsContext context to set, or null to remove existing
+90 Retrieves instance-specific metrics configurations. @param type metric type identifier @return Map of instance names to their respective MetricsConfig subsets
+91 Parses command-line arguments from a specific position. @param args array of command-line arguments @param pos starting position for parsing @return list of parsed parameters
+92 Increments error count and displays an error message. @param message the error message to be displayed
+93 Creates a PathHandle for a file. @param stat FileStatus object representing the file @param opts optional HandleOpt configurations @return LocalFileSystemPathHandle instance or throws exceptions for invalid input
+94 Creates and returns an array of HandleOpt instances with change allowance disabled. @return Array containing HandleOpt objects configured to disallow changes
+95 Returns an array of HandleOpt instances with specific configurations. @return Array containing options for handling file changes and movements
+96 Returns an array of HandleOpt instances with specific options. @return Array containing HandleOpt objects configured for changes and location immutability
+97 Returns an array of HandleOpt objects with change and move allowances enabled. @return Array containing configured HandleOpt instances
+98 Initializes a ShellCommandExecutor with specified command, directory, environment, and timeout. @param execString array of strings representing the shell command to execute @param dir working directory for the command execution @param env environment variables for the command execution @param timeout maximum time allowed for command execution in milliseconds @param inheritParentEnv flag indicating whether to inherit parent environment variables
+99 Initializes the disk space usage refresh thread. @param runImmediately if true, starts thread without initial delay
+100 Creates a private token by cloning the current token and associating it with a new service. @param newService the service associated with the private token @return the cloned private token
+101 Validates that the path does not have a scheme with a relative component. Throws an exception if both conditions are met.
+102 Checks if the path is absolute and has no scheme or authority. @return true if conditions are met, false otherwise
+103 Checks if the path is absolute. @return true if the path is absolute, false otherwise
+104 Validates file system paths. @param path the path to validate @throws InvalidPathException if the path is invalid
+105 Writes file status to a DataOutput stream. Converts the current FileStatus object to its protocol buffer representation, writes the serialized size, and then the serialized data. @param out DataOutput stream to write to @throws IOException if I/O error occurs during conversion or writing
+106 Validates arguments for a file put operation. @param filePath destination path in the Hadoop file system @param inputStream data stream to upload @param partNumber current part number of the multipart upload @param uploadId unique identifier for the multipart upload @param lengthInBytes size of the data to upload
+107 Aborts all uploads under a specified path. @param path the directory path where uploads are to be aborted @return CompletableFuture with result -1 indicating no uploads were aborted @throws IOException if an I/O error occurs during path validation
+108 Skips forward by 'n' bytes in the input stream, ensuring position does not exceed file length. Adjusts skip amount if necessary and returns actual number of bytes skipped. @param n number of bytes to skip @return actual number of bytes skipped @throws IOException if an I/O error occurs
+109 Applies a file system permission mask to this permission. @param umask the permission mask to apply @return new FsPermission with masked permissions
+110 Retrieves file permissions from an SFTP entry. @param sftpFile LsEntry representing the file or directory @return FsPermission object with the file's permissions
+111 Constructs an FsPermission object from an integer representation. @param mode integer representation of file permissions
+112 Returns default file permissions. @return FsPermission object with full read/write/execute permissions for all
+113 Returns default directory permissions. @return FsPermission object with full read/write/execute for all users
+114 Returns default file permissions. @return FsPermission object with read and write access for all users
+115 Returns default cache pool permissions. @return FsPermission object with mode 00755
+116 Converts a Unix symbolic permission string to an FsPermission object. @param unixSymbolicPermission Unix symbolic permission string @return FsPermission object or null if input is null @throws IllegalArgumentException if the input length is incorrect
+117 Prints ACL entries for a single scope. @param aclStatus status of the ACL for a file or directory @param fsPerm file system permissions @param entries list of ACL entries to print
+118 Converts a list of ACL entries to a comma-separated string. @param aclSpec list of AclEntry objects @return formatted string representation of ACL entries
+119 Constructs an FsPermission object from a string representation. @param mode string representation of file permissions
+120 Reads bytes into a buffer. @param b destination buffer @param offset start position in the buffer @param length number of bytes to read @return actual number of bytes read or -1 if end reached @throws IOException if stream is closed or invalid input
+121 Calculates the compressed size of data written. @return The difference between current position and start position as a long value. @throws IOException if an I/O error occurs while calculating positions.
+122 Adjusts column widths for file listing based on item attributes. @param items array of PathData objects representing filesystem items @throws IOException if an I/O error occurs while processing items
+123 Retrieves quota usage for a specified path. @param f Path to the file or directory @return QuotaUsage object with quota details
+124 Retrieves the total length of the content at the specified path. @param path Path to the file or directory @return Total length as a long value @throws IOException if an I/O error occurs
+125 Initializes an AbstractLaunchableService with a specified name. @param name unique identifier for the service
+126 Transitions service to a new state. @param proposed New desired state for the service @return Previous state before transition
+127 Instantiates a service using provided configuration. @param conf Configuration object for service initialization @return The instantiated Service object
+128 Checks equality with another binary comparable object. @param other the object to compare against @return true if equal, false otherwise
+129 Sets new byte data with specified offset and length. @param newData source byte array @param offset starting index in the source array @param length number of bytes to copy
+130 Sets and retrieves key data into a BytesWritable object. @param key destination for the key data @return length of the key copied @throws IOException if buffer operations fail
+131 Lists files in a directory. @param dir the directory to list @return array of file names @throws IOException if access denied or I/O error occurs
+132 Validates directory access permissions. @param dir the File object representing the directory to check @throws DiskErrorException if directory lacks read, write, or execute permissions
+133 Locks memory pages associated with a direct ByteBuffer in place. @param buffer the direct ByteBuffer to lock @param len length of the memory region to lock @throws IOException if native code is not loaded or buffer is not direct
+134 Creates a SharedFileDescriptorFactory with the given prefix and paths. @param prefix file descriptor prefix @param paths array of storage paths for descriptors @return SharedFileDescriptorFactory instance @throws IOException if no valid path is found or initialization fails
+135 Writes data chunks with checksums. @param b input byte array @param off starting offset in the byte array @param len number of bytes to write @throws IOException if an I/O error occurs
+136 Calculates chunked checksums for a ByteBuffer. @param data source ByteBuffer containing the data to checksum @param checksums destination ByteBuffer for storing computed checksums
+137 Frees resources used by buffers and cleans buffer pool.
+138 Constructs a BoundedByteArrayOutputStream with specified capacity. @param capacity total size of the buffer and limit
+139 Decodes a base64-encoded URL string into this Token object. @param newValue base64-encoded URL string to decode @throws IOException if an I/O error occurs during decoding
+140 Retrieves erased blocks from a block group. @param blockGroup ECBlockGroup containing data and parity blocks @return Array of erased ECBlock objects
+141 Skips to the next marker in the compressed stream. @param marker long value representing the marker to find @param markerBitLength number of bits for the marker @return true if marker is found, false otherwise @throws IOException if an I/O error occurs @throws IllegalArgumentException if markerBitLength exceeds 63
+142 Constructs a new CBZip2OutputStream. Validates and sets block size, initializes output stream. @param out underlying output stream for compressed data @param blockSize compression block size (1-9) @throws IOException if I/O error occurs or invalid block size
+143 Initializes a BlockCompressorStream with default buffer size and overhead. @param out underlying output stream for compressed data @param compressor compression algorithm to use
+144 Initializes a BlockDecompressorStream with an input stream and decompressor. @param in the underlying input stream containing compressed data @param decompressor the decompression algorithm to use @param bufferSize size of the internal buffer for decompressed data @throws IOException if an I/O error occurs or parameters are invalid
+145 Writes data to the compression stream. Handles input validation, chunking, and compression. @param b byte array containing the data to write @param off starting offset in the byte array @param len number of bytes to write @throws IOException if an I/O error occurs during writing or compression
+146 Initializes a ZStandardCompressor with specified compression level and buffer size. @param level compression level @param bufferSize size of the input and output buffers
+147 Creates a compression output stream using a codec and configuration. @param codec the compression codec to use @param conf configuration settings @param out underlying output stream @return CompressionOutputStream instance @throws IOException if an I/O error occurs
+148 Closes resources used for writing to a SequenceFile. Ensures all serializers and streams are properly closed or flushed.
+149 Creates a CompressionInputStream with a codec pool. @param codec compression codec to use @param conf configuration settings @param in input stream to compress @return CompressionInputStream instance
+150 Closes the reader and releases resources. Returns decompressors to the pool and closes deserializers and input stream.
+151 Retrieves a Zlib compressor instance based on configuration. @param conf Hadoop configuration object @return Compressor instance using native or built-in Zlib, depending on availability and settings
+152 Retrieves a Zlib direct decompressor. @param conf Hadoop configuration object @return DirectDecompressor instance if native Zlib is loaded, otherwise null
+153 Returns a decompressor instance based on native Zlib library availability. @param conf Hadoop configuration object @return ZlibDecompressor if native Zlib is available, otherwise BuiltInZlibInflater
+154 Stores a delegation key by serializing it and adding it to the SQL database and local cache. @param key DelegationKey to be stored @throws IOException if an I/O or SQL error occurs during storage
+155 Updates a delegation key by storing it in the SQL database and local cache. @param key DelegationKey object to be updated @throws IOException if an I/O error occurs during serialization or database update
+156 Reads a string safely from the input stream. @param in DataInput source to read from @param maxLength maximum allowed length of the string @return decoded String or throws IOException/IllegalArgumentException
+157 Skips bytes in the input stream based on a variable-length integer. @param in DataInput source to read from @throws IOException if an I/O error occurs
+158 Reads and buffers compressed data from input stream. @param buffer DataInputBuffer to store read data @param filter CompressionInputStream for decompression @throws IOException if an I/O error occurs
+159 Reads a string from the input stream with a specified maximum length. @param in DataInput source to read from @param maxLength maximum allowed length of the string @return decoded String or throws IOException if reading fails
+160 Writes a string to the output stream. @param out DataOutput stream to write to @param s String value to serialize @throws IOException if an I/O error occurs
+161 Builds a token service string from an InetSocketAddress. @param addr socket address containing host and port @return Text object with formatted token service
+162 Converts a Protobuf TokenProto to a Hadoop Token. @param tokenProto Protobuf representation of the token @return Hadoop Token object
+163 Writes an enum value to the output stream. @param out DataOutput stream to write to @param enumVal the enum value to write @throws IOException if an I/O error occurs during writing
+164 Writes user, group, and permission details to a DataOutput stream. @param out DataOutput stream to write to @param username the username associated with the permissions @param groupname the group name associated with the permissions @param permission the file system permissions object @throws IOException if writing fails
+165 Constructs a Text object from a UTF-8 byte array. @param utf8 source byte array containing UTF-8 encoded data
+166 Constructs a new Text object by copying content from another. @param utf8 source Text object to copy data from
+167 Reads a line from the input stream with specified length and byte constraints. @param str Text object to store the read line @param maxLineLength maximum length of the line to read @param maxBytesToConsume maximum bytes to consume while reading @return number of bytes consumed, or -1 if end of stream @throws IOException on I/O error
+168 Returns the length of the UTF-8 encoded text. @return Length of the text in characters
+169 Constructs a new SortedMapWritable instance by copying another. @param other the source SortedMapWritable to copy from
+170 Constructs a new MapWritable instance by copying another. @param other source MapWritable to copy from
+171 Creates a retry policy with fixed sleep intervals. @param maxTime maximum duration for retries @param sleepTime duration to wait between retries @param timeUnit unit of time for sleep duration @return RetryPolicy configured with the specified parameters
+172 Creates a dynamic proxy instance with retry capabilities. @param iface interface to be proxied @param proxyProvider FailoverProxyProvider for managing proxies @param retryPolicy Retry policy for handling failures @return Proxy object implementing the specified interface
+173 Creates a dynamic proxy with retry capabilities for a specified interface. @param iface Interface to be proxied @param implementation Initial implementation of the interface @param methodNameToPolicyMap Map of method names to their respective retry policies @return Proxy object implementing the specified interface with retry logic
+174 Initializes the Writer with an output stream and settings. @param fout file output stream to write data @param compressionName name of the compression algorithm to use @param conf configuration settings for writing @throws IOException if the output file is not at zero offset or I/O error occurs
+175 Constructs a TFileIndex from a DataInput stream. @param entryCount number of entries in the index @param in DataInput to read from @param comparator comparator for key comparison @throws IOException if reading fails
+176 Checks for end-of-file condition in the input stream. @return true if EOF is reached, false otherwise @throws IOException if reading fails
+177 Flushes the internal buffer to the output stream. @throws IOException if an I/O error occurs during flushing
+178 Compares this entry's key with another RawComparable's key. @param key the other key to compare with @return result of comparison (-1, 0, or 1)
+179 Constructs a UTF8 object with the given string. @param string input string to initialize the UTF-8 encoded data
+180 Computes the MD5 hash of a UTF-8 encoded string. @param string input string to hash @return MD5Hash object containing the computed hash
+181 Synchronizes buffered records to output stream. Writes record count, keys, values, and flushes the stream. Resets internal buffers after synchronization. @throws IOException if I/O error occurs
+182 Generates a unique tracking ID for the token. Uses MD5 hash of the token's byte array if not already set. @return String representation of the tracking ID
+183 Encodes the current token to a URL-safe Base64 string. @return URL-encoded Base64 string representation of the token @throws IOException if an I/O error occurs during encoding
+184 Adds a node to the network topology. @param node Node object to be added
+185 Removes a node from the network topology. @param node the node to be removed Throws IllegalArgumentException if an inner node is attempted to be removed.
+186 Decommissions a node from the network topology. @param node the Node object to decommission
+187 Sorts nodes by distance from a reader node. @param reader source node for distance calculation @param nodes array of target nodes to sort @param activeLen length of active nodes in the array @param secondarySort optional consumer for secondary sorting
+188 Sorts nodes by distance from a reader node using network location. @param reader source node for distance calculation @param nodes array of target nodes to sort @param activeLen length of active nodes in the array @param secondarySort optional consumer for secondary sorting
+189 Initializes a new SocketInputStream. @param channel the ReadableByteChannel to read from @param timeout the timeout duration in milliseconds @throws IOException if the channel is invalid or cannot be configured
+190 Initializes a SocketOutputStream with a writable byte channel and timeout. @param channel writable byte channel for data transfer @param timeout operation timeout in milliseconds @throws IOException if the channel is invalid or initialization fails
+191 Retrieves RPC response for a given call. @param call the RPC call object @param connection the network connection @param timeout wait time for response @param unit time unit for timeout @return Writable containing response data or null on timeout @throws IOException if an I/O error occurs
+192 Constructs a new ScriptBasedMapping with default raw mapping.
+193 Constructs a new ScriptBasedMappingWithDependency using a raw script-based mapping. Initializes with default settings and dependencies.
+194 Creates a parent node with specified name. @param parentName unique identifier for the parent node @return newly created InnerNodeImpl instance
+195 Adds a DomainSocket with its handler for monitoring. @param sock the DomainSocket instance to add @param handler the event handler for the socket
+196 Removes a domain socket from monitoring. @param sock the socket to be removed
+197 Selects I/O operations on a channel with a timeout. @param channel selectable network channel @param ops operation set to select (e.g., SelectionKey.OP_READ) @param timeout maximum time in milliseconds to wait for an operation @return number of keys selected or 0 if the timeout expires @throws IOException if an I/O error occurs
+198 Retrieves the default IP address for a specified network interface. @param strInterface name of the network interface @return default IP address as a string @throws UnknownHostException if the interface is not found
+199 Retrieves hostnames for a specified network interface. @param strInterface name of the network interface @return array of hostnames or cached hostname if none found @throws UnknownHostException if no such network interface exists
+200 Retrieves the default host for a specified network interface. @param strInterface name of the network interface or "default" @param nameserver optional nameserver to use for DNS queries @param tryfallbackResolution if true, attempts fallback resolution @return default hostname or cached hostname if none found @throws UnknownHostException if no such network interface exists
+201 Loads the first available metrics configuration file. @param prefix metric property prefix @param fileNames list of configuration file names to try @return MetricsConfig object or empty config if none found
+202 Loads and caches user group information. @param user username of the user @return Set of group names associated with the user @throws Exception if an error occurs or user has no groups
+203 Shuts down the JVM metrics system by unregistering the singleton instance.
+204 Stops the server, interrupts handlers and listeners, and shuts down executors.
+205 Stops the HTTP server and associated resources. Handles exceptions during shutdown and logs errors.
+206 Initializes MutableQuantiles with specified parameters. @param name metric name @param description metric description @param sampleName sample name component @param valueName value name component @param interval update interval in seconds
+207 Creates a new mutable metric. @param name unique metric name @param desc metric description @param sampleName sample identifier @param valueName value identifier @param extended flag for extended metrics @return MutableStat object representing the created metric
+208 Constructs a MutableStat with specified metrics. @param name metric name @param description metric description @param sampleName sample identifier @param valueName value identifier
+209 Sets the context for metrics. @param name context name to be set @return updated MetricsRegistry instance
+210 Adds or updates a metric tag with a given name, description, and value. @param name metric name @param description metric description @param value tag value associated with the metric @param override flag to allow overriding existing tags @return MetricsRegistry instance for chaining
+211 Adds elapsed time for a metric. @param name metric identifier @param elapsed time in milliseconds
+212 Publishes metrics to registered sinks. @param buffer MetricsBuffer containing metric data @param immediate Flag indicating whether to publish immediately
+213 Copies statistical data to another SampleStat instance. @param other target SampleStat instance to receive the copied data
+214 Logs slow RPC calls based on processing time and threshold. @param methodName Name of the method being processed @param call Call object containing client information @param details ProcessingDetails object with timing data
+215 Refreshes the netgroups cache by clearing existing mappings and caching updated ones. @throws IOException if an I/O error occurs during cache refresh
+216 Ends the current log section with a separator line.
+217 Prints a formatted title with surrounding separators. @param format message format string @param args arguments for the format string
+218 Logs an error and throws a KerberosDiagsFailure exception. @param category error category @param message error message template @param args arguments for the message template
+219 Creates a UserGroupInformation object for a remote user. @param user the username of the remote user @param authMethod the authentication method used @return UserGroupInformation object representing the user @throws IllegalArgumentException if the username is null or empty
+220 Starts the token management threads. Ensures the system is not already running, updates the master key, and initializes a daemon thread for expired token removal. @throws IOException if an I/O error occurs during key update
+221 Rolls the current master key for delegation token management. Updates the expiry date and ensures the key is stored. @throws IOException if an I/O error occurs during storage
+222 Constructs a new DelegationTokenAuthenticatedURL with default settings.
+223 Constructs a new DelegationTokenAuthenticatedURL with default connection configuration. @param authenticator existing authenticator or null to create a new one
+224 Constructs a new DelegationTokenAuthenticatedURL with default authenticator. @param connConfigurator configuration for HTTP connections
+225 Reads data from the input stream into the specified byte array. @param b buffer to store read bytes @return number of bytes read or -1 if end of stream @throws IOException on I/O errors
+226 Checks if user credentials are from a keytab file. @return true if Kerberos is enabled, Hadoop login is active, and keytab is present; false otherwise
+227 Checks if user credentials are from a ticket. @return true if using Kerberos and Hadoop login without keytab, false otherwise
+228 Initializes the default SSL socket factory with a specified channel mode. @param preferredMode desired SSL channel mode @throws IOException if initialization fails due to algorithm or key issues
+229 Constructs a CommandFactory with default configuration.
+230 Constructs a HarFileSystem object. Note: Requires calling #initialize() to set up the underlying file system.
+231 Constructs a HarFileSystem with specified FileSystem. @param fs underlying file system to use
+232 Constructs an FsShell instance with default configuration.
+233 Constructs GetGroupsBase with configuration and default output stream. @param conf Configuration object for Hadoop settings
+234 Initializes command with default output and error streams.
+235 Resolves a hostname to an InetAddress object. Handles IP addresses, rooted hosts, domain names, and simple hosts. @param host the hostname or IP address to resolve @return InetAddress object for the given host @throws UnknownHostException if resolution fails
+236 Writes access control list string to output stream. @param out DataOutput stream to write to @throws IOException if an I/O error occurs during writing
+237 Creates a ZooKeeper instance with optional SSL configuration. @param truststoreKeystore keystore and truststore details (optional) @return a new ZooKeeper object @throws IOException if connection or SSL config fails
+238 Returns the size of the value queue for a given key. @param keyName unique identifier for the value queue @return size of the queue or 0 if not found
+239 Retrieves at most 'num' values for the specified key. Handles concurrent access and refills if needed. @param keyName unique identifier for the value queue @param num maximum number of values to retrieve @return list of retrieved values @throws IOException if an I/O error occurs @throws ExecutionException if execution fails
+240 Drains and clears all tasks associated with a key. @param keyName unique identifier for the key
+241 Adds an element to the call queue. Handles client backoff and server failover scenarios. @param e the element to add @throws InterruptedException if interrupted while adding
+242 Ensures the Writable RPC engine is initialized. Initializes if not already done.
+243 Returns the elapsed time in the specified unit. @param timeUnit desired time unit for conversion @return elapsed time converted to the specified unit
+244 Retrieves protocol signature for version validation. @param clientMethodsHashCode hash code of methods on the client side @param serverVersion version of the server protocol @param protocol RPC protocol class @return ProtocolSignature object or null if no match
+245 Decays current call costs and updates scheduling metrics. Applies decay factor to tracked costs, cleans up zero-cost entries, and refreshes schedule cache and average response times.
+246 Determines the priority level for an RPC call. @param obj Schedulable object representing the RPC @return Priority level as an integer, with negative values capped at 0
+247 Removes and returns the next element from the queue based on priority. @return The removed element or null if no elements are available
+248 Closes the connection and releases associated resources. Logs errors and cleans up calls if necessary.
+249 Initializes a new Globber instance. @param fs FileSystem to operate on @param pathPattern pattern for file paths @param filter PathFilter to apply @param resolveSymlinks whether to resolve symbolic links
+250 Initializes MachineList with host entries. @param hostEntries comma-separated list of IP addresses and/or CIDR ranges
+251 Creates a new instance of SysInfo tailored to the current operating system. @return SysInfoLinux or SysInfoWindows based on detected OS
+252 Retrieves the physical memory size in bytes. @return Physical memory size excluding corrupt and huge pages
+253 Calculates total available virtual memory size. @return Sum of physical and free swap memory in bytes
+254 Transforms an XML document using a provided stylesheet. @param styleSheet InputStream containing the XSLT stylesheet @param xml InputStream containing the XML document @param out Writer to receive the transformation output @throws TransformerConfigurationException if factory creation fails @throws TransformerException if transformation fails
+255 Generates a string representation of storage metrics. @param qOption include quota usage if true @param hOption use human-readable size format if true @param tOption include types quota usage if true @param xOption exclude snapshot counts if true @param types list of StorageType to consider @return formatted summary string
+256 Generates a formatted snapshot summary. @param hOption true for human-readable size, false for raw value @return formatted snapshot information as string
+257 Computes capacity based on current max memory and specified percentage. @param percentage percentage of max memory to use @param mapName name of the map for logging @return computed capacity as an integer
+258 Fills the internal buffer with data from the file stream. Reads a chunk of data and verifies its checksum. @throws IOException if an I/O error occurs during reading
+259 Reads and discards a specified number of bytes from the input stream. @param len number of bytes to discard @return actual number of bytes discarded @throws IOException if an I/O error occurs
+260 Converts UTF-8 encoded bytes to a string. @return decoded string representation of the byte array
+261 Converts UTF-8 encoded byte array to a string. @return decoded string representation of the byte array @throws IOException if an I/O error occurs during decoding
+262 Converts UTF-8 encoded byte array to a String. @param bytes UTF-8 encoded byte array @return decoded String @throws IOException if an I/O error occurs during decoding
+263 Reads a UTF-8 encoded string from a DataInput stream. @param in DataInput source @return decoded String @throws IOException if an I/O error occurs
+264 Validates the RPC response header. @param header RPC response header to validate @throws IOException if validation fails
+265 Converts a single byte to a hexadecimal string. @param b input byte @return hexadecimal string representation of the byte
+266 Handles uncaught exceptions by logging and terminating the service. @param thread Thread where the exception occurred @param exception The uncaught Throwable
+267 Exits the application with a usage error message. @param EXIT_USAGE status code indicating a usage error @param USAGE_MESSAGE guidance on correct usage
+268 Handles uncaught exceptions in Hadoop threads. Logs errors and triggers shutdown procedures as needed. @param thread the thread where the exception occurred @param exception the uncaught Throwable
+269 Exits the JVM with the specified status and message. @param exitCode the exit code to return @param message the error message to display
+270 Terminates JVM with specified exit status. @param status exit code indicating error nature @throws ExitException if system exit is disabled
+271 Logs an error message and terminates the JVM. @param status exit code indicating error nature @param msg error message describing the exception
+272 Initiates JVM termination with a specified status. @param status exit code indicating the reason for termination @throws HaltException if systemHaltDisabled is false
+273 Sorts elements using quicksort algorithm. @param s the IndexedSortable instance to sort @param p starting index of the range to sort @param r ending index of the range to sort
+274 Initializes an AclStatus object with specified parameters. @param owner file/directory owner @param group file/directory group @param stickyBit indicates if the sticky bit is set @param entries iterable of ACL entries @param permission FsPermission object representing permissions
+275 Parses ACL strings into a list of ZooKeeper ACLs. @param aclString comma-separated string of ACL components @return List of ACL objects @throws BadAclFormatException if ACL format is invalid
+276 Parses a comma-separated authentication string into a list of ZKAuthInfo objects. @param authString formatted authentication string @return List of ZKAuthInfo objects or empty list if input is null @throws BadAuthFormatException if the input string is not properly formatted
+277 Preserves file attributes from source to destination. @param src source PathData object @param target destination PathData object @param preserveRawXAttrs flag to preserve raw extended attributes @throws IOException if an I/O error occurs
+278 Constructs minimal ACL entries based on file permissions. @param perm file system permissions @return List of AclEntry objects representing user, group, and other permissions
+279 Tracks duration of operations based on key. @param key identifier for the operation @param count number of operations to increment @return DurationTracker instance for tracking or stub if key not found
+280 Initializes a StatisticDurationTracker with given statistics store and key. @param iostats IOStatisticsStore to track operation statistics @param key identifier for the operation being tracked
+281 Constructs a DurationInfo with INFO level logging. @param log Logger instance for logging messages @param format Format string for the duration text @param args Arguments for the format string
+282 Waits for the specified CompletableFuture to complete. @param future the CompletableFuture to wait on @throws IOException if task is cancelled or fails with an IOException
+283 Waits for a CompletableFuture to complete, ignoring any exceptions. @param future the CompletableFuture to wait on
+284 Creates a new CRC composer for specified data type. @param type the data checksum type @param bytesPerCrcHint hint for bytes per CRC segment @return CrcComposer instance configured with appropriate parameters @throws IOException if CRC polynomial retrieval fails
+285 Updates the composite CRC with new data. @param crcB CRC value of the new data block @param bytesPerCrc size of the data block in bytes @throws IOException if stripe boundary is exceeded without alignment
+286 Formats and appends time difference to a given finish time. @param dateFormat FastDateFormat instance for formatting @param finishTime end time in milliseconds @param startTime start time in milliseconds @return formatted string with optional time difference
+287 Escapes special characters in a string. @param str the input string to process @return escaped string with specified characters replaced
+288 Unescapes a string by removing escape characters. @param str the input string to unescape @return unescaped string or throws IllegalArgumentException if invalid
+289 Generates a startup message for a service. @param classname name of the starting class @param args list of command-line arguments @return formatted startup message as a string
+290 Retrieves the next element from the source iterator. Throws NoSuchElementException if no more elements are available. Handles I/O exceptions by cleaning up resources and rethrowing the exception. @return the next element from the source iterator @throws IOException if an I/O error occurs during retrieval
+291 Awaits and retrieves the result of a future, handling exceptions. @param future the Future to await @return the result of the future @throws InterruptedIOException if interrupted during wait @throws IOException if an I/O error occurs @throws RuntimeException for other execution errors
+292 Awaits and retrieves results from a collection of futures. @param collection the collection of futures to await @return list of results from the futures @throws InterruptedIOException if interrupted during wait @throws IOException if an I/O error occurs @throws CancellationException if any future is cancelled @throws RuntimeException for other execution errors
+293 Awaits the completion of a future with a specified timeout. @param future the Future to await @param timeout maximum time to wait @param unit time unit for the timeout @return result of the future if completed within timeout @throws InterruptedIOException if interrupted while waiting @throws IOException if an I/O error occurs during execution @throws RuntimeException for other exceptions @throws TimeoutException if the future does not complete in time
+294 Awaits completion of all futures in the collection within a specified timeout. @param collection futures to await @param duration maximum time to wait for each future @return list of results from completed futures @throws InterruptedIOException if interrupted while waiting @throws IOException if an I/O error occurs during execution @throws CancellationException if any future is cancelled @throws TimeoutException if any future does not complete in time
+295 Cancels all futures and awaits their completion. @param collection of futures to cancel and await @param interruptIfRunning whether to interrupt running tasks @param duration maximum time to wait for each future @return list of results from completed futures
+296 Creates a new instance of a class with specified arguments and configuration. @param theClass class to instantiate @param conf configuration object @param argTypes parameter types for constructor @param values arguments for constructor @return new instance of the class
+297 Retrieves the class of keys used in sequence files. @return Class object representing the key type
+298 Retrieves the value class for sequence file keys. @return Class object representing the value class or throws RuntimeException on error
+299 Loads a class by name and handles errors. @param name fully qualified class name @return SUCCESS if loaded, E_NOT_FOUND if not found, or E_LOAD_FAILED on other errors
+300 Creates an instance of a class by name. @param name fully qualified class name @return SUCCESS if instance created, error code otherwise
+301 Creates and returns a new Configuration instance. @return Configuration object with default settings
+302 Loads configuration for file system logging. @return Configuration object initialized with appropriate settings
+303 Constructs a new FindClass instance using default Hadoop configuration.
+304 Constructs a ReconfigurableBase with default configuration.
+305 Constructs a ReconfigurableBase object with the given configuration. @param conf Configuration object to be used; defaults to a new Configuration if null
+306 Retrieves the canonical path of the qualified executable within Hadoop bin. @param executable name of the executable to find @return canonical path as a String @throws IOException if any directory or file is missing or invalid
+307 Executes a shell command with specified environment and directory. Handles timeouts, error streams, and process management.
+308 Adds a new progress phase with a specified status. @param status initial status of the new phase @return newly created Progress instance representing the phase
+309 Recursively creates a root directory in ZooKeeper. @param path full node path to create @throws Exception if an error occurs during creation
+310 Checks if a file system has a specific capability for a given path. @param fs the file system object @param path the path to check capability for @param capability the capability to verify @return true if the file system has the capability, false otherwise
+311 Checks if an object supports a specific capability. @param object the object to check capabilities for @param capability the capability to verify @return true if the object has the capability, false otherwise
+312 Retrieves I/O statistics counters from a specified source. @param source the data source to retrieve statistics from @return a map of I/O statistic names and their corresponding values
+313 Retrieves I/O statistics gauges. @param source the source for which to retrieve statistics @return a map of gauge names and their corresponding values
+314 Retrieves I/O statistics minimum values. @param source data source for statistics @return map of minimum I/O statistics
+315 Retrieves maximum I/O statistics from a given source. @param source the data source for I/O statistics @return map of I/O metrics with their maximum values
+316 Retrieves I/O statistics means from a specified source. @param source the data source containing I/O statistics @return map of statistic names to mean values (entry key and value)
+317 Invokes a static method with specified arguments. @param args the arguments to pass to the method @return the result of the method invocation @throws IllegalStateException if the method is not static
+318 Sets method implementation by class name and parameter types. @param className full class name @param argClasses parameter types of the method @return this Builder instance
+319 Binds a hidden method by class name and parameter types. @param className fully qualified target class name @param argClasses parameter types of the method @return this Builder instance for chaining
+320 Loads a static method for invocation. @param source the class containing the method @param returnType the expected return type of the method @param name the name of the method @param parameterTypes the parameter types of the method @return UnboundMethod instance or NOOP if not found
+321 Checks if an object is a valid source for I/O statistics. @param object the object to check @return true if object is a valid source and I/O stats are available, false otherwise
+322 Checks if I/O statistics are available and valid. @param object target object to check @return true if I/O statistics are available and enabled, false otherwise
+323 Checks if an I/O statistics snapshot can be created for the given object. @param object the Serializable object to check @return true if I/O statistics are available and snapshot creation is possible, false otherwise
+324 Checks if I/O statistics context is enabled. @return true if both I/O stats are available and the context method returns true, false otherwise
+325 Deletes files in bulk with a specified page size. @param fileSystem Hadoop FileSystem to operate on @param path directory path containing files to delete @return number of files deleted @throws IOException if an I/O error occurs
+326 Performs a bulk delete operation on specified paths. @param fs FileSystem instance to perform the deletion @param base Base path for relative deletions @param paths Collection of paths to delete @return List of deleted paths with status messages @throws IOException if an I/O error occurs during deletion
+327 Opens a file using the provided FileSystem. @param fs FileSystem instance @param path Path to the file @param policy File access policy @param status Optional FileStatus object @param length Optional file length @param options Optional map of additional options @return FSDataInputStream for reading the file @throws IOException if an I/O error occurs
+328 Reads fully into a ByteBuffer from an InputStream at a specified position. @param in the input stream to read from @param position the starting position within the file @param buf the buffer to read data into @throws IOException if an I/O error occurs
+329 Checks if I/O statistics snapshot creation is available. @throws UnsupportedOperationException if the feature is not supported
+330 Checks if I/O statistics context is available. @throws UnsupportedOperationException if not available
+331 Constructs a LightWeightCache with default Timer. @param recommendedLength initial cache capacity @param sizeLimit maximum entries allowed in the cache @param creationExpirationPeriod time before an entry expires after creation @param accessExpirationPeriod time before an entry expires after last access
+332 Initializes a Bloom filter with specified parameters. @param vectorSize size of the bit vector @param nbHash number of hash functions @param hashType type of hash algorithm
+333 Removes a key from the filter if it exists. @param key the element to delete @throws NullPointerException if key is null @throws IllegalArgumentException if key is not a member
+334 Adds multiple false positive keys to the filter. @param coll collection of keys to be added as false positives @throws NullPointerException if the collection is null
+335 Adds a list of false positive keys to the filter. @param keys List of keys to be added as false positives @throws NullPointerException if the list or any key is null
+336 Adds multiple false positive keys to the filter. @param keys array of keys to be added as false positives @throws NullPointerException if the keys array is null
+337 Clears the bit at a specified index, removing associated keys and updating metrics. @param index the position in the bit vector to clear
+338 Removes element with the lowest ratio from hash array. @param h hash values of elements @return index of element with minimum ratio
+339 Executes a program based on command-line arguments. @param argv command-line arguments for the program @throws Throwable if an error occurs during execution
+340 Retrieves a credential entry by name from the provider. Handles deprecated keys and logs deprecation warnings. @param provider the CredentialProvider instance @param name the configuration key name @return CredentialEntry object or null if not found
+341 Adds a deprecation warning for a configuration key. @param key the original configuration key being deprecated @param newKeys array of new keys replacing the deprecated one @param customMessage custom message for users about the deprecation
+342 Opens listeners for the server. Binds each listener to a specified or range of ports. @throws Exception if binding fails
+343 Validates and initializes configuration arguments. @param argStr configuration string for SSH connection @throws BadFencingConfigurationException if invalid configuration
+344 Recursively deletes the parent ZooKeeper node directory. @throws IOException if deletion fails @throws InterruptedException if thread is interrupted during execution
+345 Fences out the old active node if it exists and does not contain current app data. @return Stat object of the fenced node or null if no fencing was needed @throws InterruptedException if thread is interrupted during execution @throws KeeperException if ZooKeeper operation fails after retries
+346 Reads file range into a ByteBuffer asynchronously. Validates the range and reads data from the stream. @param stream source of file data @param range specifies the file section to read @param allocate function to create ByteBuffer of appropriate size @return CompletableFuture containing the read ByteBuffer @throws EOFException if end of file is reached before reading
+347 Requests caching for a given buffer data. @param data BufferData to be cached
+348 Sets the prefetch action future. @param actionFuture future representing the prefetch operation
+349 Marks buffer as ready for use. @param expectedCurrentState valid states for current buffer @throws IllegalStateException if checksum is already set
+350 Returns the size of a block. @param blockNumber the block number to query @return size of the specified block in bytes
+351 Calculates relative offset within a block. @param blockNumber the block number to calculate offset for @param offset the absolute offset @return relative offset within the specified block
+352 Initializes BlockData with file and block sizes. @param fileSize total size of the file @param blockSize size of each data block
+353 Retrieves the block number based on buffer's start offset. Validates buffer state before calculation. @return block number corresponding to the buffer's start offset
+354 Closes all FileSystem instances in the cache. @throws IOException if any FileSystem close operation fails
+355 Closes all FileSystem instances for a given UserGroupInformation. @param ugi user group information for filtering FileSystems @throws IOException if any I/O error occurs during closing
+356 Writes a character sequence to a file using UTF-8 encoding. @param fileContext FileContext instance for file operations @param path Path where the file will be written @param charseq Character sequence to write @return FileContext instance after writing @throws IOException if an I/O error occurs
+357 Writes a byte array to a specified file path. @param fs FileSystem instance @param path destination file path @param bytes data to write @return the provided FileSystem instance @throws IOException if an I/O error occurs
+358 Writes lines to a file in the specified filesystem. @param fs FileSystem instance where the file is written @param path Path of the target file @param lines Iterable of CharSequence containing lines to write @param cs Charset used for encoding the text @return The same FileSystem instance @throws IOException if an I/O error occurs
+359 Writes a character sequence to a specified file path. @param fs FileSystem instance @param path destination file path @param charseq content to write @param cs character set for encoding @return the FileSystem instance @throws IOException if an I/O error occurs
+360 Constructs a BlockLocation with specified parameters. @param names array of block names, interned if not null @param hosts array of block hosts, interned if not null @param topologyPaths array of network paths, interned if not null @param offset starting offset of the block @param length length of the block @param corrupt true if the block is corrupted
+361 Creates a new counter metric with specified name, description, and initial value. @param name metric name @param desc metric description @param iVal initial integer value for the counter @return MutableCounterInt instance
+362 Creates and returns a new mutable counter. @param name metric name @param desc metric description @param iVal initial value of the counter @return MutableCounterLong instance
+363 Creates a new gauge metric. @param name metric name @param desc metric description @param iVal initial value of the gauge @return MutableGaugeLong instance
+364 Creates a new mutable gauge metric with specified name and description. @param name metric name @param desc metric description @param iVal initial floating-point value for the gauge @return MutableGaugeFloat instance representing the created gauge
+365 Creates a new mutable integer gauge with specified name and description. @param name metric name @param desc metric description @param iVal initial integer value for the gauge @return MutableGaugeInt instance
+366 Creates a copy of this MeanStatistic instance. @return a new MeanStatistic with the same data as the current instance
+367 Logs I/O statistics at debug level. @param log Logger instance for logging @param message Custom log message @param source Object containing I/O statistics
+368 Generates a string representation of the FSInputStream object. Includes I/O statistics if applicable. @return String representation of the stream and its statistics
+369 Converts I/O statistics to a formatted string. @param statistics IOStatistics object or null @return Pretty-printed string of statistics or empty string if null
+370 Measures duration of an invocation. @param factory optional DurationTrackerFactory instance @param statistic key for the operation to track @param input function to execute and measure @return Duration object representing execution time @throws IOException if input function throws an IO exception
+371 Tracks duration of a supplier operation. @param factory optional DurationTrackerFactory instance @param statistic key for the operation to track @param input supplier function to execute @return result of the supplier function
+372 Adds a block entry to the linked list and evicts if necessary. @param entry the block entry to be added
+373 Initializes IOStatisticsStore with specified metrics. @param counters list of counter keys @param gauges list of gauge keys @param minimums list of minimum keys @param maximums list of maximum keys @param meanStatistics list of mean statistic keys
+374 Reads decrypted data into a byte array. @param b destination buffer @param off offset in the buffer @param len number of bytes to read @return number of bytes read or -1 if end of stream @throws IOException if an I/O error occurs
+375 Decrypts data from the input buffer at a specified position. @param position current stream position @param buffer input buffer containing encrypted data @param offset starting offset in the buffer @param length number of bytes to decrypt @throws IOException if an I/O error occurs during decryption
+376 Decrypts data from a ByteBuffer at a specified file position. @param filePosition current position in the file @param buf buffer containing encrypted data @param length number of bytes to decrypt @param start starting index in the buffer for decryption @throws IOException if an I/O error occurs during decryption
+377 Decrypts data from ByteBuffer using provided decryptor. @param buf input buffer containing encrypted data @param length number of bytes to decrypt @param start starting position in the buffer @throws IOException if an I/O error occurs during decryption
+378 Seeks to a specified position in the stream. @param pos new position to seek to @throws IOException if an I/O error occurs or if seeking is unsupported
+379 Skips over n bytes in the input stream. @param n number of bytes to skip @return actual number of bytes skipped @throws IOException if an I/O error occurs
+380 Initializes the GlobFilter with a specified file pattern and default filter. @param filePattern the glob pattern to match file paths against @throws IOException if the file pattern is illegal
+381 Constructs a new GlobFilter with a specified pattern and optional user-defined filter. @param filePattern the glob pattern to match file paths against @param filter optional PathFilter for additional filtering criteria @throws IOException if the file pattern is illegal
+382 Untars an input stream into a specified directory. @param inputStream data to be extracted @param untarDir destination directory for extraction @param gzipped indicates if the input is gzip compressed @throws IOException, InterruptedException, ExecutionException on failure
+383 Retrieves all statistics from file systems. @return Map of URI to Statistics mappings
+384 Clears statistics by resetting all registered Statistics objects.
+385 Encodes input ECChunk arrays into output ECChunk arrays using erasure coding. @param inputs array of ECChunk objects representing data chunks @param outputs array of ECChunk objects to store encoded data @throws IOException if an I/O error occurs during encoding
+386 Creates a new instance of BlockingThreadPoolExecutorService. @param activeTasks max concurrent tasks allowed @param waitingTasks max waiting tasks in queue @param keepAliveTime time for idle threads to wait before termination @param unit unit of time for keepAliveTime @param prefixName base name for daemon threads @return BlockingThreadPoolExecutorService instance
+387 Sets the data and initializes buffer position. @param bufferData contains the buffer with file data @param startOffset starting offset of the buffer in the file @param readOffset initial read position within the buffer
+388 Retrieves the current I/O statistics context for the thread. @return Non-null IOStatisticsContext for the current thread
+389 Resets the I/O statistics context for the current thread.
+390 Captures a snapshot of the current I/O statistics context. @return Serializable snapshot of the current thread's IOStatisticsContext
+391 Aggregates I/O statistics from a source into the current thread's context. @param source object containing or providing I/O statistics @return true if aggregation was successful, otherwise false
+392 Executes tasks in parallel on a collection of items. Handles exceptions, manages execution contexts, and ensures efficient task processing. @param task the task to execute on each item @return true if all tasks succeeded, false otherwise
+393 Sets or removes I/O statistics context for the current thread. @param statisticsContext context to set, or null to remove existing
+394 Sets I/O statistics context for the current thread. @param ioStatisticsContext context to set, or null to remove existing
+395 Resets I/O statistics context for the current thread. @param ioStatisticsContext the current I/O statistics context to reset
+396 Handles and displays an error message for a given exception. Adds the exception to the exceptions list, checks for specific types, logs debug information, and formats the error message for display. @param e the Throwable exception to be handled
+397 Retrieves a path handle for the given file status. @param stat file status object @param opt optional handle options @return PathHandle instance
+398 Adds a token to the credentials map. @param alias unique identifier for the token @param t the token to add
+399 Encrypts data using OpenSSL CTR mode. @param inBuffer ByteBuffer containing plaintext data @param outBuffer ByteBuffer to store ciphertext @throws IOException on encryption errors
+400 Decrypts data using OpenSSL CTR mode. @param inBuffer ByteBuffer containing encrypted data @param outBuffer ByteBuffer to store decrypted result @throws IOException on cryptographic errors
+401 Initializes the mount point with source and destination paths. @throws IOException if regex compilation fails or interceptor initialization fails
+402 Constructs a Path by resolving a child path against a parent path. @param parent the parent Path @param child the child Path to resolve
+403 Constructs a Path object from a given file system path string. Validates and normalizes the path, handling Windows drive letters. @param pathString the file system path to construct @throws IllegalArgumentException if the path is invalid
+404 Constructs a Path object with the specified components. @param scheme URI scheme or null @param authority authority part of the URI @param path file system path
+405 Converts URI to string representation. @return string representation of the URI
+406 Retrieves the URI path and validates it. @param p Path object to process @return URI path as a String @throws InvalidPathException if path or name is invalid
+407 Resolves a file system path. @param p the path to resolve @return Path object representing the resolved location @throws FileNotFoundException if the file does not exist @throws UnresolvedLinkException if there is an unresolved symbolic link @throws AccessControlException if access is denied @throws IOException for other I/O errors
+408 Creates a file with specified options. @param f file path to create @param createFlag flags for file creation @param opts optional parameters for file creation @return FSDataOutputStream for writing to the created file @throws various exceptions on invalid operations or errors
+409 Applies a file system permission mask to the given mode. @param mode original file permissions @param umask the permission mask to apply @return FsPermission with applied umask or original if already unmasked
+410 Creates directories recursively. @param f path of directory to create @return true if successful, false otherwise
+411 Sets file permissions. @param permission new FsPermission object, uses default if null
+412 Creates a file non-recursively with default permissions. @param f path to the file @param overwrite flag indicating if file should be overwritten @param bufferSize buffer size for data transfer @param replication replication factor @param blockSize block size @param progress progress monitor @return FSDataOutputStream for writing to the file @throws IOException if operation fails or is unsupported
+413 Creates an immutable file system permission. @param permission short representation of file permissions @return ImmutableFsPermission object with specified permissions
+414 Appends a key-value pair to the SequenceFile. @param key the key object to be written @param val the value object to be written @throws IOException if there's an I/O error or class mismatch
+415 Retrieves the compressed size of the data block. @return The compressed size as a long value. @throws IOException if an I/O error occurs during retrieval.
+416 Skips over n bytes in the input stream, ensuring not to exceed file length. @param n number of bytes to skip @return actual number of bytes skipped
+417 Retrieves the total length of the content at the specified HAR file path. @param path Path to the file or directory within the HAR archive @return Total length as a long value @throws IOException if an I/O error occurs
+418 Retrieves total length of content at specified Hadoop path. @param path Path to the file or directory @return Total length as a long value @throws IOException if an I/O error occurs
+419 Initializes and starts the JvmPauseMonitor with a default configuration. Simulates an infinite loop to trigger GC activities for monitoring.
+420 Starts the service if not already started. Handles state transitions and notifies listeners on success.
+421 Transitions the service to a new state. @param newState desired new state for the service @return previous state before transition
+422 Prints the default Kerberos realm. @throws KerberosDiagsFailure if an error occurs during retrieval
+423 Checks equality with another BytesWritable object. @param right_obj the object to compare against @return true if equal, false otherwise
+424 Checks equality with another Text object. @param o the object to compare against @return true if both objects are instances of Text and equal, false otherwise
+425 Updates byte data from another BytesWritable instance. @param newData source BytesWritable object
+426 Decodes erasure-coded data from input ByteBuffers. @param inputs array of input ByteBuffers containing encoded data @param erasedIndexes indices of erased blocks to be reconstructed @param outputs array of output ByteBuffers for decoded data @throws IOException if an I/O error occurs during decoding
+427 Initiates the decoding process for erasure-coded data. @param inputs array of input byte arrays containing encoded data @param erasedIndexes indices of erased or missing blocks @param outputs array to store decoded output data @throws IOException if an I/O error occurs during decoding
+428 Skips to the next block marker in the compressed stream. @return true if marker is found, false otherwise @throws IOException if an I/O error occurs
+429 Constructs a new CBZip2OutputStream with default block size. @param out underlying output stream for compressed data @throws IOException if I/O error occurs
+430 Constructs a BlockDecompressorStream with default buffer size. @param in the underlying input stream @param decompressor the decompression algorithm to use @throws IOException if an I/O error occurs or parameters are invalid
+431 Creates a compression output stream using LZ4 codec. @param out underlying output stream @return CompressionOutputStream instance @throws IOException if an I/O error occurs
+432 Creates a BZip2 compression output stream. @param out underlying output stream @return CompressionOutputStream instance @throws IOException if an I/O error occurs
+433 Creates a compression output stream using ZStandard codec. @param out underlying output stream @return CompressionOutputStream instance @throws IOException if an I/O error occurs
+434 Creates a compression output stream using Snappy codec. @param out underlying output stream @return CompressionOutputStream instance @throws IOException if an I/O error occurs
+435 Closes the writer and releases resources. Ensures both data and index are properly closed.
+436 Finalizes the writing process by flushing and closing resources.
+437 Creates a LZ4 compression input stream. @param in input stream to compress @return CompressionInputStream instance for LZ4
+438 Creates a BZip2 compression input stream. @param in input stream to compress @return CompressionInputStream instance using BZip2 codec
+439 Creates a CompressionInputStream for ZStandard. @param in input stream to compress @return CompressionInputStream instance using codec pool
+440 Creates a decompression input stream using Snappy codec. @param in input stream to decompress @return CompressionInputStream instance for decompression
+441 Closes the reader and releases resources. Ensures both index and data streams are properly closed.
+442 Closes the input stream and sets it to null. @throws IOException if an I/O error occurs while closing the stream
+443 Creates a direct decompressor using Zlib. @return DirectDecompressor instance or null if native Zlib is not loaded
+444 Writes the file header to the output stream. Includes version, class names, compression flags, codec name (if compressed), and metadata. @throws IOException if an I/O error occurs during writing
+445 Serializes credentials to a DataOutput stream. Writes tokens and secret keys with their sizes and values.
+446 Reads a block of data from a sequence file. Handles lazy decompression and sync checks. @throws IOException if an I/O error occurs
+447 Seeks to the current value in the sequence file. Handles both compressed and uncompressed scenarios. @throws IOException if an I/O error occurs
+448 Reads a string from the input stream. @param in DataInput source to read from @return decoded String or throws IOException if reading fails
+449 Retrieves a delegation key by ID, first checking the local cache and then the SQL database. @param keyId unique identifier of the delegation key @return DelegationKey object or null if not found
+450 Selects a delegation token for the given URL. @param url target web service URL @param creds user credentials containing tokens @return selected delegation token or null if not found
+451 Retrieves a server token for authentication. @param authType type of SASL authentication @return Token object or null if no token is available @throws IOException on errors during token retrieval
+452 Sets the service for a given token based on an InetSocketAddress. @param token the token to update @param addr socket address containing host and port
+453 Converts Protobuf TokenProto to a Hadoop Token. @param tokenProto Protobuf representation of the token @return Hadoop Token object
+454 Retrieves or creates a fixed ByteString for a given Text key. @param key source Text object to convert @return cached or newly created ByteString representation
+455 Copies a token by cloning its components. @param other the source Token object to copy from
+456 Reads a line from the input stream with specified length constraints. @param str Text object to store the read line @param maxLineLength maximum length of the line to read @return number of bytes consumed, or -1 if end of stream @throws IOException on I/O error
+457 Reads a line from the input stream. @param str Text object to store the read line @return number of bytes consumed, or -1 if end of stream @throws IOException on I/O error
+458 Constructs an InstrumentedLock with default locking mechanism. @param name unique identifier for the lock @param logger Logger instance for recording events @param minLoggingGapMs minimum time between log entries @param lockWarningThresholdMs threshold for issuing warnings on long lock durations
+459 Creates a dynamic proxy with retry capabilities. @param iface interface to be proxied @param implementation initial implementation object @param retryPolicy policy for handling failures @return Proxy object implementing the specified interface
+460 Processes wait time and retry information for a method call. @return CallReturn enum indicating the result of processing @throws InterruptedIOException if interrupted while waiting
+461 Initializes a Writer for TFiles. @param fsdos file system output stream @param minBlockSize minimum block size @param compressName compression algorithm name @param comparator key comparator class name @param conf Hadoop configuration @throws IOException if initialization fails
+462 Determines if the current data chunk is the last one. @return true if it's the last chunk, false otherwise @throws IOException if an I/O error occurs while checking EOF
+463 Checks for end-of-file and returns remaining data length. @return number of bytes remaining in the current chunk @throws IOException if reading fails
+464 Compares this entry's key with a byte array slice. @param buf source byte array @param offset starting index in the buffer @param length length of the byte array slice @return result of comparison (-1, 0, or 1)
+465 Closes writer resources and synchronizes buffered data. Ensures all data is flushed to the output stream before closing. @throws IOException if I/O error occurs during synchronization or closing
+466 Appends a key-value pair to the output buffers. @param key Object representing the key @param val Object representing the value @throws IOException if an I/O error occurs or class types do not match
+467 Appends raw key-value pair to the output buffer. @param keyData byte array containing key data @param keyOffset offset in keyData where key starts @param keyLength length of the key @param val ValueBytes object containing value data @throws IOException if an I/O error occurs
+468 Clones data from one Writable object to another. @param dst destination Writable object to clone into @param src source Writable object to clone from @throws IOException if an I/O error occurs during cloning
+469 Selects a random node within a specified scope, excluding certain nodes. @param scope the hierarchical scope for selection @param excludedNodes collection of nodes to exclude @return randomly chosen Node or null if not found
+470 Sorts nodes by distance from a reader node. @param reader source node for distance calculation @param nodes array of target nodes to sort @param activeLen length of active nodes in the array
+471 Sorts nodes by distance from a reader node using network location. @param reader source node for distance calculation @param nodes array of target nodes to sort @param activeLen length of active nodes in the array
+472 Initializes a new SocketInputStream. @param socket the Socket to read from @param timeout the timeout duration in milliseconds @throws IOException if the socket's channel is invalid or cannot be configured
+473 Initializes a new SocketInputStream from a given Socket. @param socket the Socket to read from @throws IOException if the socket's channel or timeout cannot be configured
+474 Initializes a SocketOutputStream with a socket and timeout. @param socket network socket for data transfer @param timeout operation timeout in milliseconds @throws IOException if initialization fails
+475 Adds a node to the network topology. @param node Node to be added Throws IllegalArgumentException if node is null, an inner node, or at an illegal location.
+476 Performs I/O operations on a buffer with timeout management. @param buf ByteBuffer containing data to read/write @param ops operation set (e.g., SelectionKey.OP_READ) @return number of bytes processed or -1 if closed, throws IOException on error
+477 Connects to a socket channel with a timeout. @param channel the SocketChannel to connect @param endpoint the remote address to connect to @param timeout maximum time in milliseconds to wait for connection @throws IOException if an I/O error occurs or connection times out
+478 Waits for I/O operations with a specified timeout. @param ops operation set to wait for (e.g., SelectionKey.OP_READ) @throws IOException if an I/O error occurs or timeout expires
+479 Retrieves default host for a specified network interface. @param strInterface name of the network interface or "default" @return default hostname @throws UnknownHostException if no such network interface exists
+480 Retrieves the default host for a specified network interface without fallback resolution. @param strInterface name of the network interface or "default" @param nameserver optional nameserver to use for DNS queries @return default hostname or cached hostname if none found @throws UnknownHostException if no such network interface exists
+481 Reattaches and registers UgiMetrics instance.
+482 Initializes a new instance of MutableInverseQuantiles with specified parameters. @param name metric name @param description metric description @param sampleName sample name component @param valueName value name component @param intervalSecs update interval in seconds
+483 Creates a new MutableQuantiles metric. @param name metric name @param desc metric description @param sampleName sample name component @param valueName value name component @param interval update interval in seconds @return newly created MutableQuantiles object @throws MetricsException if interval is non-positive or name validation fails
+484 Creates a new mutable metric without extended features. @param name unique metric name @param desc metric description @param sampleName sample identifier @param valueName value identifier @return MutableStat object representing the created metric
+485 Adds or updates a metric tag without overriding existing tags. @param name metric name @param description metric description @param value tag value associated with the metric @return MetricsRegistry instance for chaining
+486 Adds elapsed time for a metric. @param name metric identifier @param value time in milliseconds
+487 Records the queue time for a given priority level. @param priority the priority level of the RPC request @param queueTime the time spent in the queue in milliseconds
+488 Records processing time for a given priority level. @param priority scheduling priority level @param processingTime time taken to process in milliseconds
+489 Records overall processing time for an RPC call. @param rpcCallName name of the RPC call @param overallProcessingTime time in milliseconds
+490 Validates Kerberos configuration file path. Logs and checks system properties and environment variables for Kerberos config. Dumps the file content if found.
+491 Verifies a condition and logs an error if not met. @param condition boolean to check @param category error category @param message error message template @param args arguments for the message template @return true if condition is met, false otherwise
+492 Throws an exception if the specified condition is true. @param condition boolean condition to check @param category error category @param message error message template @param args arguments for the message template
+493 Creates a UserGroupInformation object for a remote user using SIMPLE auth. @param user the username of the remote user @return UserGroupInformation object representing the user
+494 Verifies a delegation token's password. @param identifier unique token identifier @param password byte array representing the token password @throws InvalidToken if token password does not match stored password
+495 Spawns an auto-renewal thread for keytab credentials. Checks if re-login is needed and retrieves the TGT. Schedules a renewal task if valid TGT exists.
+496 Constructs a Count object with command-line arguments and configuration. @param cmd array of command-line arguments @param pos starting position in the args array @param conf Configuration object for command execution
+497 Establishes a connection to ZooKeeper with authentication. @return connected ZooKeeper instance @throws IOException if connection fails @throws KeeperException for ZooKeeper errors
+498 Retrieves the next value from the specified key's queue. @param keyName unique identifier for the value queue @return the next value in the queue @throws IOException if an I/O error occurs @throws ExecutionException if execution fails
+499 Resolves a hostname to an InetAddress. @param hostname the hostname to resolve @return InetAddress for the given hostname @throws UnknownHostException if resolution fails
+500 Retrieves protocol signature for version validation. @param server RPC server implementing VersionedProtocol @param protocol fully qualified name of the protocol class @param clientVersion version of the client protocol @param clientMethodsHash hash code of methods on the client side @return ProtocolSignature object or null if no match @throws IOException if protocol class cannot be found
+501 Checks if a method is supported on the server. @param methodName name of the method to check @param parameterTypes parameter types of the method @return true if method is supported, false otherwise @throws IOException if communication fails or method is unsupported
+502 Validates RPC request headers. Throws exception if headers are missing required fields or have invalid operations.
+503 Deserializes a message from a buffer. @param message prototype message object @param buffer input buffer containing serialized data @return deserialized message of type T @throws RpcServerException if decoding fails
+504 Retrieves and removes the highest priority element from the queue. Attempts to acquire semaphore before removing; returns null if unsuccessful. @return The removed element or null if no elements are available or semaphore is not acquired
+505 Sets up a response for version mismatch between server and client. @param clientVersion the version of the client @throws IOException if an I/O error occurs during response setup
+506 Calculates total virtual memory size. Includes physical memory and swap space. @return Virtual memory size in bytes
+507 Initializes a HAR file input stream. @param fs Hadoop FileSystem instance @param p Path to the HAR file @param start Starting position in the file @param length Length of data to read @param bufsize Buffer size for reading @throws IOException if an I/O error occurs
+508 Evicts expired entries from the cache up to a limit. Uses monotonic time for expiration checks and ensures consistency.
+509 Evicts entries until cache size is within limit. @param sizeLimit maximum allowed cache size
+510 Generates a string representation of storage metrics. @param qOption include quota usage if true @param hOption use human-readable size format if true @param xOption exclude snapshot counts if true @return formatted summary string
+511 Generates a string representation of storage metrics. @param qOption include quota usage if true @param hOption use human-readable size format if true @param tOption include types quota usage if true @param types list of StorageType to consider @return formatted summary string
+512 Generates formatted quota usage string. @param hOption true for human-readable format, false for raw numbers @param tOption true to include specific storage types @param types list of StorageType enums (used if tOption is true) @return formatted quota and space usage string
+513 Waits for all provided CompletableFutures to complete. @param futures list of CompletableFutures to wait on @throws IOException if any task is cancelled or fails with an IOException
+514 Conditionally waits for a CompletableFuture to complete. @param future the CompletableFuture to wait on, or null to skip waiting @throws IOException if task is cancelled or fails with an IOException
+515 Updates CRC from a byte array. @param crcBuffer source byte array containing CRC data @param offset starting position in the byte array @param length number of bytes to process @param bytesPerCrc size of each CRC block in bytes @throws IOException if input validation fails or stripe boundary is exceeded
+516 Updates CRC with multiple data blocks from input stream. @param checksumIn DataInputStream containing CRC values @param numChecksumsToRead number of CRC values to read @param bytesPerCrc size of each data block in bytes @throws IOException if stripe boundary is exceeded without alignment
+517 Creates a new instance of a class with default arguments. @param theClass class to instantiate @param conf configuration object @return new instance of the class
+518 Retrieves the class of keys used in sequence files. @return Class object representing the key type
+519 Retrieves the value class for sequence file keys. @return Class object representing the value class or throws RuntimeException on error
+520 Executes actions based on command line inputs. @param args command line arguments: action and target name @return status code indicating success or error
+521 Constructs a FutureDataInputStreamBuilderImpl with file context and path. @param fc non-null file system context @param path non-null file system path @throws IOException if an I/O error occurs
+522 Creates a DataChecksum instance from a byte array. @param bytes source byte array containing checksum data @param offset starting index in the byte array @return DataChecksum object or throws InvalidChecksumSizeException if invalid
+523 Creates a DataChecksum instance from input stream. @param in DataInputStream containing checksum type and size @return DataChecksum object or throws InvalidChecksumSizeException if creation fails
+524 Executes shell command periodically. Checks interval before running; sets environment for macOS compatibility.
+525 Aggregates I/O statistics from a snapshot. @param snapshot the I/O statistics snapshot @param statistics additional statistics to aggregate @return true if aggregation is successful, false otherwise @throws UnsupportedOperationException if feature is not supported
+526 Creates an I/O statistics snapshot. @return Serializable object representing the snapshot @throws UnsupportedOperationException if feature is unavailable
+527 Creates an I/O statistics snapshot from the given source. @param source the source object for creating the snapshot @return Serializable representation of the I/O statistics snapshot @throws UnsupportedOperationException if snapshot creation is not supported
+528 Converts I/O statistics snapshot to JSON string. @param snapshot the I/O statistics snapshot object @return JSON representation of the snapshot @throws UncheckedIOException if an I/O error occurs @throws UnsupportedOperationException if feature is not supported
+529 Converts JSON string to I/O statistics snapshot. @param json JSON representation of the statistics @return Serializable I/O statistics snapshot object @throws UncheckedIOException if an IO error occurs @throws UnsupportedOperationException if feature is not supported
+530 Loads an I/O statistics snapshot for a specified file system and path. @param fs the FileSystem to load statistics from @param path the Path within the file system @return Serializable object representing the statistics snapshot @throws UncheckedIOException if an I/O error occurs @throws UnsupportedOperationException if the feature is not supported
+531 Retrieves an I/O statistics snapshot from the given source. @param source the source object to retrieve statistics from @return a Serializable object representing the I/O statistics snapshot @throws UnsupportedOperationException if I/O statistics retrieval is not supported
+532 Saves an I/O statistics snapshot to a file. @param snapshot the statistics snapshot to save (nullable) @param fs the FileSystem where the snapshot will be saved @param path the Path specifying the location of the snapshot file @param overwrite flag indicating if existing file should be overwritten @throws UncheckedIOException if an I/O error occurs @throws UnsupportedOperationException if saving snapshots is not supported
+533 Converts I/O statistics to a pretty string representation. @param statistics the I/O statistics object to convert @return a formatted string of I/O statistics
+534 Retrieves current I/O statistics context. @throws UnsupportedOperationException if I/O stats are not available
+535 Sets the I/O statistics context for the current thread. @param statisticsContext the context to set or null to clear it @throws UnsupportedOperationException if I/O statistics context is not available
+536 Resets I/O statistics context. Checks if context is available and invokes reset method. @throws UnsupportedOperationException if context not available
+537 Creates an I/O statistics context snapshot. @return Serializable object representing the snapshot @throws UnsupportedOperationException if I/O stats are unavailable
+538 Aggregates I/O statistics from a given source. @param source the source object containing I/O statistics @return true if aggregation is successful, false otherwise
+539 Compares two version strings. @param version1 the first version string @param version2 the second version string @return negative if version1 < version2, zero if equal, positive if version1 > version2
+540 Initializes a Counting Bloom Filter with specified parameters. @param vectorSize size of the bit vector @param nbHash number of hash functions @param hashType type of hash algorithm
+541 Constructs a Bloom filter with specified parameters. @param vectorSize size of the bit vector @param nbHash number of hash functions @param hashType type of hash algorithm
+542 Checks if a key is likely present in the Bloom filter. @param key the key to check for potential presence @return true if the key might be present, false otherwise
+543 Removes a key from the Bloom filter based on a specified removal scheme. @param k the key to remove @param scheme the removal strategy (RANDOM, MINIMUM_FN, MAXIMUM_FP, RATIO)
+544 Adds a deprecation warning for a configuration key. @param key the original configuration key being deprecated @param newKey the new key replacing the deprecated one @param customMessage custom message for users about the deprecation
+545 Adds a deprecation warning for a configuration key. @param key the original configuration key being deprecated @param newKeys array of new keys replacing the deprecated one
+546 Adds a deprecation warning for a configuration key. @param key the original configuration key being deprecated @param newKey the new key replacing the deprecated one
+547 Starts the HTTP server and initializes metrics. @throws IOException if an I/O error occurs during startup
+548 Writes a breadcrumb znode to indicate local node's activity. @param oldBreadcrumbStat existing znode stat or null if none exists @throws KeeperException if ZooKeeper operation fails @throws InterruptedException if thread is interrupted
+549 Attempts to delete the active node's breadcrumb in ZooKeeper. Ensures the node data matches expected app data before deletion. Handles exceptions and logs warnings if deletion fails.
+550 Reads multiple file ranges into ByteBuffers. Validates and sorts ranges, then reads data asynchronously. @param stream source of file data @param ranges list of FileRange objects to read @param allocate function to create ByteBuffer of appropriate size @throws EOFException if end of file is reached before reading
+551 Cancels all prefetch operations and caches ready blocks. @param none @return void
+552 Retrieves and returns buffer data for a specified block. @param blockNumber the block number to retrieve @return BufferData object containing the block's data @throws IOException if an I/O error occurs during retrieval
+553 Initializes FilePosition with file and block sizes. Validates that fileSize is non-negative and blockSize is positive if fileSize > 0. Resets buffer state to invalid initially. @param fileSize total size of the file @param blockSize size of each data block
+554 Checks if the current buffer's block is the last in the file. Utilizes block number derived from buffer's start offset. @return true if it's the last block, false otherwise
+555 Closes all FileSystem instances in the cache. Logs debug information before closing. @throws IOException if any FileSystem close operation fails
+556 Writes a character sequence to a specified file path using UTF-8 encoding. @param fs FileSystem instance @param path destination file path @param charseq content to write @return the FileSystem instance @throws IOException if an I/O error occurs
+557 Constructs a BlockLocation with specified parameters. @param names array of block names, interned if not null @param hosts array of block hosts, interned if not null @param offset starting offset of the block @param length length of the block @param corrupt true if the block is corrupted
+558 Constructs a non-corrupted BlockLocation. @param names array of block names, interned if not null @param hosts array of block hosts, interned if not null @param topologyPaths array of network paths, interned if not null @param offset starting offset of the block @param length length of the block
+559 Aggregates two mean statistics by copying the first and merging the second. @param l left MeanStatistic to copy @param r right MeanStatistic to merge into the copy of l @return aggregated MeanStatistic combining both inputs
+560 Takes a snapshot of IO statistics from the source. @param source the source IOStatistics object to snapshot
+561 Logs I/O statistics at debug level using a predefined logger. @param message Custom log message @param source Object containing I/O statistics
+562 Logs I/O statistics at a specified level. @param log Logger instance for logging @param level Logging level (INFO, ERROR, WARN) @param source Object containing I/O statistics
+563 Cleans up a remote iterator by logging statistics and closing it. @param source RemoteIterator to be cleaned up
+564 Tracks the duration of an invocation using a specified factory and statistic key. @param factory optional DurationTrackerFactory instance @param statistic key for the operation to track @param input function to execute and measure @throws IOException if input function throws an IO exception
+565 Reads and decrypts data from a specified position in the input stream. @param position starting position in the stream @param buffer destination buffer for decrypted data @param offset start index in the buffer @param length number of bytes to read and decrypt @return number of bytes read or -1 if end of stream is reached @throws IOException if an I/O error occurs or positioned read is unsupported
+566 Reads and decrypts data from a specified position in the stream. @param position starting position in the stream @param buffer destination buffer for decrypted data @param offset offset within the buffer to start writing @param length number of bytes to read and decrypt @throws IOException if an I/O error occurs or positioned reading is unsupported
+567 Reads and decrypts data from a specified position. @param position file position to read from @param buf buffer to store decrypted data @return number of bytes read or -1 if end of stream @throws IOException if an I/O error occurs
+568 Reads and decrypts data from a specified position in the input stream. @param position file position to read from @param buf buffer to store decrypted data @throws IOException if an I/O error occurs or positioned reads are unsupported
+569 Reads decrypted data into a ByteBuffer. @param buf destination buffer for decrypted data @return number of bytes read or -1 if end of stream @throws IOException if an I/O error occurs during reading or decryption
+570 Writes an object to a DataOutput stream. Handles various types including arrays, primitives, enums, and Writable objects. @param out the DataOutput stream to write to @param instance the object to serialize @param declaredClass the class of the object @param conf configuration settings @param allowCompactArrays flag to compact primitive arrays @throws IOException if an I/O error occurs
+571 Attempts to acquire a BufferData object for a specific block. @param blockNumber the block number to acquire @return BufferData object or null if not acquired immediately
+572 Returns the count of available BufferData objects. Releases buffers in DONE state before counting. @return number of available buffers
+573 Executes a task on a collection of items either sequentially or in parallel. @param task the task to execute for each item @return true if all tasks completed successfully, false otherwise @throws E if an exception occurs during task execution and not suppressed @throws IOException if an IO error occurs while iterating through items
+574 Processes multiple file system paths. @param parent parent PathData object @param items variable number of PathData objects to process @throws IOException if an I/O error occurs during processing
+575 Resolves file status to path handle using given options. @param fs FileSystem instance @param opt optional handling options for file resolution @return Function that resolves FileStatus to PathHandle based on options
+576 Creates a ShellCommandExecutor to fetch groups for a user. @param userName username to retrieve group information for @return ShellCommandExecutor instance configured with the command and timeout
+577 Creates a ShellCommandExecutor to fetch group IDs for a user. @param userName the username @return ShellCommandExecutor configured with command and timeout
+578 Reads credentials from a DataInput stream. @param in input stream containing serialized credentials @throws IOException if an I/O error occurs
+579 Collects delegation tokens from the issuer and its children. @param issuer the token issuer @param renewer entity that can renew the token @param credentials where tokens are stored @param tokens list to collect tokens into @throws IOException if an I/O error occurs during retrieval
+580 Adds a token to the user's credentials. @param alias unique identifier for the token @param token the token to add @return always true after adding the token
+581 Converts a relative path to an absolute path using the specified working directory. @param workDir the base directory for conversion @param path the path to convert @return the absolute path
+582 Makes a given path absolute using a working directory. @param workDir the base directory for relative paths @param path the path to be made absolute @return an absolute Path object
+583 Converts a Hadoop Path to a local Java File. @param path Hadoop Path object to convert @return Java File object representing the same path
+584 Fixes relative paths based on the working directory. @param p input path to be fixed @return absolute path if input is relative, otherwise unchanged
+585 Makes a path fully qualified using default URI and working directory. @param defaultUri default URI for the file system @param workingDir current working directory @return fully qualified Path object
+586 Returns the current working directory URI as a Path object. @return Path representing the working directory
+587 Returns the home directory path. Constructs and returns a Path object using the URI's string representation. @return Path representing the home directory
+588 Retrieves the current working directory on the SFTP server. @param channel the active SFTP channel @return Path object representing the home directory or null if an error occurs
+589 Retrieves file status for a given path. @param fs FileSystem instance to operate on @param pathString the path to check @param ignoreFNF flag to ignore FileNotFoundException @return FileStatus object or null if not found and ignored
+590 Returns the file path associated with this exception. @return Path object representing the affected file path
+591 Retrieves the target path as a Path object. @return Path object representing the target file path or null if not set
+592 Retrieves total length of content at root directory. @return Total length as a long value @throws IOException if an I/O error occurs
+593 Initializes a ChRootedFileSystem with a specified root directory. @param fs underlying FileSystem @param uri URI representing the root path @throws IOException if an I/O error occurs
+594 Constructs the remaining path from an array of path components. @param path array of path components @param startIndex index to start constructing the remaining path @return constructed Path object or SlashPath if startIndex exceeds path length
+595 Constructs a merged path from directory links. @return Path object representing the combined target link
+596 Constructs a Path by resolving a child path against a parent path. @param parent the parent directory as a string @param child the child path as a string to resolve
+597 Constructs a Path by resolving a child path against a parent path. @param parent the parent Path @param child the child path as a String
+598 Constructs a Path by resolving a child path against a parent string. @param parent the parent directory as a String @param child the child Path to resolve
+599 Renames a MapFile directory. @param fs FileSystem instance @param oldName current directory name @param newName new directory name @throws IOException if rename fails
+600 Converts a File object to a Path object. @param f the File to convert @return Path representation of the given File
+601 Unnests a URI, removing any nested authority part. @param nestedUri the original URI with potential nesting @return a new Path object representing the unnested URI
+602 Converts an array of strings to an array of Paths. @param str array of file system path strings @return array of Path objects or null if input is null
+603 Removes scheme and authority from a given path. @param path original file system path @return Path object without scheme and authority
+604 Merges two paths, ensuring proper URI components. @param path1 base path @param path2 path to append @return merged Path object
+605 Checks if the path exists and meets directory requirements. @param typeRequirement specifies the expected file type (directory or not) @throws PathIOException if path does not exist or does not meet requirements
+606 Generates a string for a child path. @param childPath the child path to process @return concatenated string of parent and child paths
+607 Throws an exception if the specified path does not exist. @param item PathData object representing the file or directory @throws PathNotFoundException if the path is not found
+608 Retrieves the AbstractFileSystem for a given path. @param absOrFqPath absolute or fully qualified file system path @return AbstractFileSystem object @throws UnsupportedFileSystemException if the file system is not supported @throws IOException if an I/O error occurs
+609 Creates a directory with specified permissions. @param fs FileSystem instance @param dir Path of the directory to create @param permission FsPermission for the new directory @return true if successful, false otherwise
+610 Constructs a LocatedFileStatus object with detailed file attributes and block locations. @param length size of the file in bytes @param isdir true if the path is a directory, false otherwise @param block_replication replication factor for blocks @param blocksize size of each block in bytes @param modification_time last modification time in milliseconds since epoch @param access_time last access time in milliseconds since epoch @param permission file permissions @param owner user who owns the file @param group group associated with the file @param symlink path to a symlink if this represents one, null otherwise @param path full path of the file or directory @param attr set of attribute flags for the file @param locations array of block locations
+611 Appends a key-value pair to the SequenceFile. @param key the key object to be written @param val the value object to be written @throws IOException if there's an I/O error or class mismatch
+612 Writes key-value pairs from an iterator to a SequenceFile. @param records iterator providing raw key-value data @param writer destination for writing the sequence file @throws IOException if an I/O error occurs during writing
+613 Initializes the service with a configuration. @param conf Configuration object to be applied
+614 Stops the service if not already stopped. Handles exceptions and notifies listeners of state changes.
+615 Checks if this private token is a clone of the given public service. @param thePublicService the public service to compare against @return true if this token is a clone of the provided public service, false otherwise
+616 Checks if the token's service matches the given alias. @param token the delegation token to check @param alias the text alias to compare against @return true if the alias is null or matches the token's service, false otherwise
+617 Matches service name with URL or given service text. @param fetcher DtFetcher instance to retrieve service name @param service Text representing the service to match @param url String URL to compare against @return true if service matches, false otherwise
+618 Validates and creates a directory if it doesn't exist. @param dir the File object representing the directory to check/create @throws DiskErrorException if directory cannot be created or lacks proper permissions
+619 Checks and validates directory with disk I/O operations. @param dir the File object representing the directory to validate @throws DiskErrorException if validation fails or directory issues are detected
+620 Flushes all buffered data to the file system. @throws IOException if an I/O error occurs during flushing
+621 Validates decoded data by comparing it with original input. @param inputs array of ByteBuffer objects containing encoded data @param erasedIndexes indices of erased blocks to be reconstructed @param outputs array of output ByteBuffers for decoded data @throws IOException if an I/O error occurs during validation
+622 Decodes erasure-coded data from ECChunk arrays. Converts chunks to ByteBuffers and delegates decoding. @param inputs array of input ECChunks containing encoded data @param erasedIndexes indices of erased blocks to be reconstructed @param outputs array of output ECChunks for decoded data @throws IOException if an I/O error occurs during decoding
+623 Closes the block appender, finalizing data writing and updating block register. @throws IOException if an I/O error occurs during closure
+624 Cleans up resources by closing streams and deleting segment files if input preservation is disabled. @throws IOException if an I/O error occurs during cleanup
+625 Closes the BlockReader, releasing resources. Ensures proper resource management by finalizing block processing.
+626 Reads credentials from input stream. @param in DataInput source to read from @throws IOException if an I/O error occurs
+627 Reads the next raw key from a sequence file. Handles both compressed and uncompressed blocks. @param key buffer to store the read key @return length of the key or -1 if end reached @throws IOException if an I/O error occurs
+628 Retrieves the current value from the sequence file. @param val Writable object to store the retrieved value @throws IOException if an I/O error occurs during retrieval
+629 Retrieves the current value from the sequence file. @param val object to deserialize and configure @return deserialized value @throws IOException if an I/O error occurs
+630 Reads the next key-value pair from a sequence file. Handles both block-compressed and non-block compressed formats. @param key buffer to store the key data @param val buffer to store the value data @return length of the record or -1 if end reached @throws IOException if an I/O error occurs
+631 Reads the next raw value from a sequence file. @param val ValueBytes object to store the read value @return Length of the value read @throws IOException if an I/O error occurs
+632 Retrieves delegation token information from SQL. @param ident token identifier @return DelegationTokenInformation object @throws NoSuchElementException if token not found @throws RuntimeException on SQL or I/O errors
+633 Reads permission status from input stream. @param in DataInput stream to read data from @return PermissionStatus object initialized with data from the stream @throws IOException if an I/O error occurs while reading
+634 Reads an enum value from the input stream. @param in DataInput source to read from @param enumType class of the enum type @return enum value or throws IOException if reading fails
+635 Reads and processes access control list data from input. @param in DataInput source to read from
+636 Retrieves or creates a fixed ByteString for a given Text key. @param key source Text object to convert @return cached or newly created ByteString representation
+637 Converts a Token to its Protobuf representation. @param tok the input token object @return TokenProto object representing the token
+638 Constructs a delegation token identifier with specified attributes. @param kind type of the delegation token @param owner token owner @param renewer token renewer @param realUser associated user
+639 Invokes the method once with retry handling. @return CallReturn object containing result or exception
+640 Checks and reads the next key in TFile. @throws IOException if an I/O error occurs or end of file is reached
+641 Reads the value data into a BytesWritable object. @param value container for the read value data @return length of the value data in bytes @throws IOException if an I/O error occurs
+642 Writes the value data to an output stream. @param out OutputStream to write the value data to @return Total number of bytes written @throws IOException if I/O error occurs during writing
+643 Compares this entry's key with a byte array. @param buf source byte array @return result of comparison (-1, 0, or 1)
+644 Checks equality with another Entry based on key comparison. @param other object to compare @return true if keys are equal, false otherwise
+645 Retrieves a delegation token for secure authentication. @param url target URL for the operation @param token authentication token @param renewer user allowed to renew the token @param doAsUser user to impersonate @return delegation token object @throws IOException if an I/O error occurs @throws AuthenticationException if authentication fails
+646 Renews a delegation token. @param url target URL for the operation @param token authentication token @param dToken delegation token object @param doAsUser user to impersonate @return new expiration time of the token in milliseconds @throws IOException if an I/O error occurs @throws AuthenticationException if authentication fails
+647 Cancels a delegation token. @param url target URL for the operation @param token authentication token @param dToken delegation token object @param doAsUser user to impersonate @throws IOException if an I/O error occurs
+648 Selects a random node within a specified scope. @param scope hierarchical scope for selection @return randomly chosen Node or null if not found
+649 Sorts nodes by distance from a reader node. Adjusts reader if not in NetworkTopology tree. @param reader source node for distance calculation @param nodes array of target nodes to sort @param activeLen length of active nodes in the array
+650 Wraps a socket's input stream with a timeout. @param socket the socket to wrap @param timeout read timeout in milliseconds @return SocketInputWrapper instance @throws IOException if an I/O error occurs
+651 Retrieves an OutputStream for the given socket with a specified timeout. @param socket network socket for data transfer @param timeout operation timeout in milliseconds @return OutputStream for writing data to the socket @throws IOException if I/O error occurs
+652 Establishes a socket connection with a specified timeout. @param socket the Socket object to connect @param endpoint the remote address to connect to @param localAddr the local address to bind, or null if not needed @param timeout maximum time in milliseconds to wait for connection @throws IOException if an I/O error occurs or connection times out
+653 Registers an MBean with the platform MBean server. @param serviceName name of the service @param nameName base name of the metric @param properties extra attributes for the MBean @param theMbean the MBean instance to register @return ObjectName of registered MBean or null if registration fails
+654 Creates a new inverse quantiles metric. @param name unique metric name @param desc metric description @param sampleName sample name component @param valueName value name component @param interval update interval in seconds @return MutableQuantiles object @throws MetricsException if invalid interval or duplicate name
+655 Initializes a new RetryCache with specified parameters. @param cacheName name of the cache @param percentage memory usage percentage for capacity calculation @param expirationTime time before an entry expires
+656 Initializes metrics based on a given protocol. @param protocol the class representing the protocol
+657 Initializes metrics with given names. @param names array of metric identifiers
+658 Aggregates local metrics to global metrics. @param localStats concurrent map of local statistics
+659 Creates or retrieves a MutableRate metric. @param name metric name @param desc metric description @param extended flag for extended metrics @return MutableRate object
+660 Initializes rate metrics for methods in a given protocol. @param protocol the class representing the protocol
+661 Adds metrics for annotated methods in the source object. @param source object containing methods to be monitored @param method specific method to add metrics for
+662 Validates Kerberos authentication for a given UGI. @param messagePrefix prefix for error messages @param user UserGroupInformation object to validate
+663 Verifies if a file is valid for use. @param file the File to check @param category error category @param text description of the file being checked @return true if file exists, is a non-empty file, and is readable; false otherwise
+664 Validates the short name of a Kerberos principal. Logs warnings for non-simple names and throws exceptions on errors.
+665 Retrieves the UserGroupInformation for the token owner. @return UserGroupInformation object or null if owner is invalid
+666 Initializes a new Find instance with recursion enabled by default.
+667 Default constructor initializes the Count command with default streams.
+668 Forces a re-login using keytab. @throws IOException if an I/O error occurs during re-login
+669 Forces re-login using ticket cache, bypassing time checks. @throws IOException if an I/O error occurs during re-login
+670 Initiates a re-login using ticket cache. @throws IOException if an I/O error occurs during re-login
+671 Creates a socket address for a given host and port. Resolves the hostname using static resolution if available. @param host the hostname to resolve @param port the port number @return InetSocketAddress with resolved IP or unresolved if fails
+672 Retrieves the InetAddress for a given host if it is a local address. @param host hostname to resolve @return InetAddress of the local host or null if not found @throws SocketException on socket error
+673 Sends an RPC request over the network. @param call the RPC call to send @throws InterruptedException if thread is interrupted during sending @throws IOException if I/O error occurs while sending
+674 Processes incoming RPC requests, deserializes them, and prepares for execution. Handles tracing and caller context setup. Throws exceptions on errors. @param header request header containing metadata @param buffer contains serialized request data
+675 Sets up RPC response based on request status. @param call RPC call object @param status RPC status @param erCode error code proto @param rv writable response value @param errorClass exception class name @param error error message @throws IOException if I/O error occurs during setup
+676 Resets IP list and updates cache expiry. Reloads IPs from source and recalculates expiry time.
+677 Demonstrates system information retrieval on Linux. Initializes SysInfoLinux and prints various system metrics.
+678 Generates a string representation of storage metrics. @param qOption include quota usage if true @param hOption use human-readable size format if true @return formatted summary string
+679 Reads data from the input stream into a byte array. Handles multiple read operations until the requested length is met or end of stream is reached. @param b byte array to store read data @param off offset in the byte array @param len length of data to read @return number of bytes read or -1 if end of stream @throws IOException if an I/O error occurs
+680 Creates an expression instance. @param expressionClass class of the expression to create @param conf configuration object @return Expression instance or null if class is null
+681 Retrieves or creates a command instance by name. @param cmdName unique command identifier @param conf configuration object @return Command object or null if not found
+682 Creates a new instance of the key class. @return new instance of WritableComparable
+683 Creates a new instance of a Writable class. @param c Class type of the Writable instance @param conf configuration object @return new Writable instance configured with provided settings
+684 Retrieves a SocketFactory instance from a configuration property. @param conf Hadoop configuration object @param propValue fully qualified class name of the SocketFactory @return SocketFactory instance or throws RuntimeException if not found
+685 Decodes the token identifier. @return TokenIdentifier object or null if decoding fails
+686 Retrieves or creates a DiskValidator instance for the specified class. Uses a cache to ensure singleton-like behavior per class type. @param clazz subclass of DiskValidator to instantiate @return cached or newly created DiskValidator instance
+687 Constructs a DynamicBloomFilter with specified parameters. @param vectorSize size of the bit vector @param nbHash number of hash functions @param hashType type of hash algorithm @param nr initial number of records to manage
+688 Adds a new row to the Bloom filter matrix. Initializes a new BloomFilter and appends it to the existing matrix.
+689 Initializes a Retouched Bloom Filter with specified parameters. @param vectorSize size of the bit vector @param nbHash number of hash functions @param hashType type of hash algorithm
+690 Loads configuration properties into the provided Properties object. Handles resource loading and overlay updates. @param props target Properties object to load into @param startIdx index to start loading from in the resources list @param fullReload flag indicating whether to reload default resources
+691 Exits the election process. @param needFence indicates if fencing is required
+692 Reads multiple file ranges into ByteBuffers. @param ranges list of FileRange objects to read @param allocate function to create ByteBuffer of appropriate size @throws IOException if an I/O error occurs during reading
+693 Constructs a non-corrupted BlockLocation with specified parameters. @param names array of block names, interned if not null @param hosts array of block hosts, interned if not null @param offset starting offset of the block @param length length of the block
+694 Constructs a DurationStatisticSummary instance. @param key unique identifier for the statistic @param success indicates if the operation was successful @param count number of occurrences @param max maximum duration observed @param min minimum duration observed @param mean MeanStatistic object representing average duration, cloned if provided
+695 Aggregates statistics from another IOStatistics instance. @param source the source IOStatistics to aggregate data from @return true if aggregation was successful, false if source is null
+696 Constructs an IOStatisticsSnapshot. @param source the source IOStatistics object to snapshot, or null to initialize empty maps
+697 Iterates over a remote iterator, applying a consumer to each element. @param source RemoteIterator containing elements to process @param consumer Consumer function to apply to each element @return Count of processed elements
+698 Writes an object to a DataOutput stream. @param out the DataOutput stream to write to @param instance the object to serialize @param declaredClass the class of the object @param conf configuration settings @throws IOException if an I/O error occurs
+699 Requests a prefetch for a specified block number. @param blockNumber identifier of the block to prefetch
+700 Acquires a BufferData object for the specified block. @param blockNumber target block number to acquire @return acquired BufferData or throws exception if not successful
+701 Processes a single file system path argument. @param item PathData object representing the file or directory to process @throws IOException if an I/O error occurs during processing
+702 Processes multiple file system paths with optional grouping. @param parent parent PathData object @param itemsIterator RemoteIterator of PathData objects to process @throws IOException if an I/O error occurs during processing
+703 Resolves partial group names for a given user. @param userName username to resolve groups for @param errMessage error message if resolution fails @param groupNames comma-separated group names @return set of resolved group names @throws PartialGroupNameException if resolution fails due to errors or unsupported OS
+704 Executes a shell command with default settings. @param cmd array of strings representing the shell command to execute @return Command output as a string or empty if no output is available @throws IOException if command execution fails
+705 Executes a shell command with specified environment. @param env environment variables for the command execution @param cmd array of strings representing the shell command to execute @return Command output as a string or empty if no output is available @throws IOException if command execution fails
+706 Adds all credentials from another Credentials object. @param other the source Credentials object to copy from
+707 Merges credentials from another Credentials object. @param other source Credentials object to merge from
+708 Adds delegation tokens to the provided credentials. @param renewer entity that can renew the token @param credentials where tokens are stored @return array of added tokens @throws IOException if an I/O error occurs during retrieval
+709 Adds a token to the user's credentials. @param token the token to add @return true if token is added, false otherwise
+710 Sets the current working directory. @param newDir the new working directory path
+711 Sets the modification and access times of a file. @param p Hadoop Path object representing the file @param mtime new modification time in milliseconds, or -1 to leave unchanged @param atime new access time in milliseconds, or -1 to leave unchanged @throws IOException if an I/O error occurs or file does not exist
+712 Converts a Hadoop Path to a local Java File. @param path Hadoop Path object to convert @return Java File object representing the same path
+713 Converts a file path to its absolute URI representation. @param p the input file path @return the absolute path as a URI string
+714 Deprecated. Makes a path fully qualified using FileSystem's URI and working directory. @param fs FileSystem object containing URI and working directory @return fully qualified Path object
+715 Makes a given path fully qualified using the default file system URI and working directory. @param path the path to be qualified @return fully qualified Path object
+716 Makes a given path fully qualified using the file system's URI. @param path the path to qualify @return fully qualified Path object
+717 Lists file statuses in a directory. @param f the directory path to list @return FileStatus array of files and directories @throws IOException if an I/O error occurs
+718 Deletes a file or directory. @param f the path to delete @param recursive if true, deletes directories recursively @return true if deletion is successful, false otherwise @throws AccessControlException if permission is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+719 Opens a file for reading. @param f the path of the file to open @return FSDataInputStream for reading the file @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+720 Opens a file for reading. @param f the path to the file @param bufferSize size of the buffer used for reading @return FSDataInputStream for reading the file @throws IOException if an I/O error occurs
+721 Truncates a file to a specified length. @param f the path of the file to truncate @param newLength the new length for the file @return true if truncation is successful, false otherwise @throws IOException if an I/O error occurs
+722 Sets the replication factor for a file. @param f the file path @param replication the desired replication factor @return true if successful, false otherwise
+723 Sets file permissions. @param f the file path @param permission new file permissions @throws AccessControlException if access is denied @throws FileNotFoundException if file does not exist @throws UnsupportedFileSystemException if operation is unsupported @throws IOException for other I/O errors
+724 Sets the owner of a file or directory. @param f path to the file or directory @param username new owner's username @param groupname new owner's group name @throws AccessControlException if permission is denied @throws UnsupportedFileSystemException if operation is not supported @throws FileNotFoundException if file does not exist @throws IOException for other I/O errors
+725 Sets modification and access times of a file. @param f the path to the file @param mtime new modification time in milliseconds since epoch @param atime new access time in milliseconds since epoch
+726 Retrieves the checksum of a file. @param f the file path @return FileChecksum object or null if not found @throws AccessControlException if access is denied @throws FileNotFoundException if file does not exist @throws IOException for other I/O errors
+727 Retrieves the status of a file or directory. @param f path to the file or directory @return FileStatus object describing the file's metadata @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+728 Checks access permissions for a given path. @param path the file or directory path to check @param mode the required access mode (e.g., read, write) @throws AccessControlException if access is denied @throws FileNotFoundException if the path does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+729 Retrieves the status of a file or symlink. @param f path to the file or symlink @return FileStatus object representing the file or symlink @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+730 Retrieves the target path of a symbolic link. @param f the input file path @return the target Path of the symlink @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+731 Retrieves block locations for a specified file range. @param f the file path @param start the starting byte position @param len the length of the range in bytes @return an array of BlockLocation objects @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException if an I/O error occurs
+732 Retrieves file system status for a given path. @param f the input path to check @return FsStatus object representing the status of the file or directory @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+733 Creates a symbolic link. @param target the path to the target file or directory @param link the path where the symlink should be created @param createParent if true, parent directories will be created if missing @throws IOException if an I/O error occurs
+734 Lists file statuses under a given path. @param f the path to list files from @return an iterator of FileStatus objects @throws IOException if an I/O error occurs
+735 Lists corrupt file blocks for a given path. @param path the file or directory path to check @return an iterator of paths representing corrupt blocks
+736 Lists located status of files in a directory. @param f path to the directory or file @return iterator over LocatedFileStatus objects
+737 Resolves and returns a set of AbstractFileSystem instances for the given path. @param f the input file path @return a set of AbstractFileSystem objects associated with the path @throws IOException if an I/O error occurs during resolution
+738 Modifies ACL entries for a given path. @param path the file or directory path @param aclSpec list of ACL entries to modify @throws IOException if an I/O error occurs
+739 Removes specified ACL entries from a file or directory. @param path the target path @param aclSpec list of ACL entries to remove @throws IOException if an I/O error occurs
+740 Removes default ACL from a file or directory path. @param path the file or directory path to remove default ACL from @throws IOException if an I/O error occurs
+741 Removes access control list from a file or directory. @param path the path to remove ACL from @throws IOException if an I/O error occurs
+742 Sets ACL for a specified path. @param path the file or directory path @param aclSpec list of ACL entries to set @throws IOException if an I/O error occurs
+743 Retrieves ACL status for a specified path. @param path the file or directory path @return AclStatus object representing the ACL settings @throws IOException if an I/O error occurs
+744 Sets an extended attribute on a file. @param path the target file path @param name the attribute name @param value the attribute value as bytes @param flag flags for setting the attribute
+745 Retrieves extended attribute value for a given path. @param path the file or directory path @param name the name of the extended attribute @return the value of the attribute as a byte array @throws IOException if an I/O error occurs
+746 Retrieves extended attributes for a file. @param path the path of the file to query @return a map of attribute names and values, or empty if none exist
+747 Retrieves extended attributes for a file. @param path the file path @param names list of attribute names to retrieve @return map of attribute names and their values @throws IOException if an I/O error occurs
+748 Removes an extended attribute from a file. @param path the file path (can be relative) @param name the name of the extended attribute to remove @throws IOException if an I/O error occurs
+749 Lists extended attributes of a file. @param path the file path to query @return list of attribute names or empty if none exist @throws IOException if an I/O error occurs
+750 Creates a snapshot of the specified path. @param path the path to create a snapshot for @param snapshotName name of the snapshot @return Path object representing the created snapshot
+751 Renames a snapshot of a file or directory. @param path the path to the file or directory containing the snapshot @param snapshotOldName current name of the snapshot @param snapshotNewName new name for the snapshot @throws IOException if an I/O error occurs
+752 Deletes a specified snapshot of a file or directory. @param path the path to the file or directory @param snapshotName name of the snapshot to delete @throws IOException if an I/O error occurs
+753 Ensures the storage policy is satisfied for a given path. @param path the file or directory path to satisfy storage policy for @throws IOException if an I/O error occurs
+754 Sets storage policy for a file or directory. @param path the file or directory path @param policyName the name of the storage policy to apply @throws IOException if an I/O error occurs
+755 Unsets storage policy for a file. @param src the source path of the file
+756 Retrieves the storage policy for a given file path. @param path the file path to check @return BlockStoragePolicySpi object representing the storage policy @throws IOException if an I/O error occurs
+757 Checks if a path has the specified capability. @param path file system path @param capability capability to check @return true if path supports capability, false otherwise @throws IOException on I/O errors
+758 Retrieves server defaults for a given file system path. @param path the input path to evaluate @return FsServerDefaults object containing server configuration settings @throws IOException on I/O errors during resolution
+759 Creates a multipart uploader for the specified base path. @param basePath root directory for uploads @return MultipartUploaderBuilder instance @throws IOException on I/O errors
+760 Retrieves the working directory on the SFTP server. Always returns the home directory as state is not maintained. @param client active SFTP channel @return Path object representing the working directory or null if an error occurs
+761 Refreshes file status by looking up the current path's metadata. @return FileStatus object representing the refreshed status @throws IOException if an I/O error occurs during lookup
+762 Retrieves total length of content at root directory. @return Total length as a long value @throws IOException if an I/O error occurs
+763 Resolves source path to destination using regex patterns and interceptors. @param srcPath original source file system path @param resolveLastComponent whether to resolve only the last component of the path @return ResolveResult object or null if no valid resolution can be found
+764 Checks if a file exists in any of the local directories. @param pathStr file path as a string @param conf Hadoop configuration @return true if file exists, false otherwise
+765 Deletes a MapFile directory and its associated data and index files. @param fs FileSystem instance for file operations @param name directory path of the MapFile to delete
+766 Determines the current log directory based on date and roll interval. @param now current date @return Path to the current log directory
+767 Creates a FileOutputStream for writing to a file with specified permissions. @param f the File object representing the target file @param permissions file permission mode @return FileOutputStream for writing @throws IOException if operation fails or security is skipped and an I/O error occurs
+768 Checks if source and target paths are in reserved raw directories. Throws PathOperationException if one path is in RESERVED_RAW and the other is not. @param src source file path @param target destination file path @return true if both paths are in RESERVED_RAW, false otherwise
+769 Retrieves the parent path. @return Parent Path object or null if at root or empty
+770 Retrieves the optional parent path of the current path. @return Optional containing the parent Path object or empty if at root or empty
+771 Retrieves an iterator for directory contents. @throws IOException if an I/O error occurs or path is not a directory
+772 Constructs FSDataOutputStreamBuilder with file context and path. @param fc FileContext for file system operations @param p Path to the file in the Hadoop file system @throws IOException if an I/O error occurs during setup
+773 Sets checksum verification for a file. @param verifyChecksum flag to enable or disable checksum verification @param f the file path @throws AccessControlException if access is denied @throws FileNotFoundException if the file does not exist @throws UnsupportedFileSystemException if the file system is unsupported @throws IOException for other I/O errors
+774 Reads file status fields from input stream. @param in DataInput to read from @throws IOException if an I/O error occurs
+775 Constructs a LocatedFileStatus object with detailed file attributes and block locations. @param length size of the file in bytes @param isdir true if the path is a directory, false otherwise @param block_replication replication factor for blocks @param blocksize size of each block in bytes @param modification_time last modification time in milliseconds since epoch @param access_time last access time in milliseconds since epoch @param permission file permissions @param owner user who owns the file @param group group associated with the file @param symlink path to a symlink if this represents one, null otherwise @param path full path of the file or directory @param hasAcl true if the file has an ACL @param isEncrypted true if the file is encrypted @param isErasureCoded true if the file uses erasure coding @param locations array of block locations
+776 Appends a key-value pair to the MapFile. @param key the key object to be written @param val the value object to be written @throws IOException if there's an I/O error during writing
+777 Closes the service by stopping it. Handles exceptions and notifies listeners of state changes.
+778 Writes a single byte to the buffer. Flushes the buffer when it's full. @param b byte to write @throws IOException if an I/O error occurs
+779 Writes data to the output stream. @param b input byte array @param off starting offset in the byte array @param len number of bytes to write @return number of bytes written @throws IOException if an I/O error occurs
+780 Validates decoded data by converting ECChunk arrays to ByteBuffers. @param inputs array of ECChunk objects containing encoded data @param erasedIndexes indices of erased blocks to be reconstructed @param outputs array of output ECChunk objects for decoded data @throws IOException if an I/O error occurs during validation
+781 Finalizes a data block by compressing and closing it. @param bForceFinish flag to force block finalization regardless of size @throws IOException if an I/O error occurs during finalization
+782 Reads token storage from a DataInputStream. @param in input stream containing serialized tokens @throws IOException if an I/O error occurs or unsupported format is found
+783 Retrieves stale delegation tokens for cleanup. @return Map of TokenIdent to DelegationTokenInformation for expired or unused tokens
+784 Reads the next raw value from the sequence file. @param rawValue ValueBytes object to store the read value @return Length of the value read @throws IOException if an I/O error occurs
+785 Writes credentials to a DataOutput stream in Protobuf format. @param out the DataOutput stream to write to @throws IOException if an I/O error occurs
+786 Converts a Token to its Protobuf representation. @param tok the input token object @return TokenProto object representing the token
+787 Retrieves the next key-value entry from TFile. @return Entry object containing key and value @throws IOException if an I/O error occurs or end of file is reached
+788 Compares the current cursor key to another RawComparable. @param other the RawComparable to compare against @return result of comparison (-1, 0, or 1) @throws IOException if an I/O error occurs
+789 Retrieves both key and value from the entry. @param key container for the retrieved key data @param value container for the retrieved value data @throws IOException if an I/O error occurs
+790 Advances within the block by skipping n records. @param n number of records to skip @throws IOException if an I/O error occurs or end of file is reached
+791 Retrieves a delegation token for secure authentication. @param url target URL for the operation @param token authentication token @param renewer user allowed to renew the token @return delegation token object @throws IOException if an I/O error occurs @throws AuthenticationException if authentication fails
+792 Renews a delegation token. @param url target URL for the operation @param token authentication token @param dToken delegation token object @return new expiration time of the token in milliseconds @throws IOException if an I/O error occurs @throws AuthenticationException if authentication fails
+793 Cancels a delegation token without impersonation. @param url target URL for the operation @param token authentication token @param dToken delegation token object @throws IOException if an I/O error occurs
+794 Wraps a socket's input stream with its current timeout. @param socket the socket to wrap @return SocketInputWrapper instance @throws IOException if an I/O error occurs
+795 Retrieves an OutputStream for the given socket with default timeout. @param socket network socket for data transfer @return OutputStream for writing data to the socket @throws IOException if I/O error occurs
+796 Establishes a socket connection with a specified timeout. @param socket the Socket object to connect @param address the remote address to connect to @param timeout maximum time in milliseconds to wait for connection @throws IOException if an I/O error occurs or connection times out
+797 Collects and returns metrics from all registered sources. Clears existing metrics, captures snapshots, and builds a metrics buffer. @return MetricsBuffer containing aggregated metrics data
+798 Registers an MBean with default properties. @param serviceName name of the service @param nameName base name of the metric @param theMbean the MBean instance to register @return ObjectName of registered MBean or null if registration fails
+799 Retrieves or creates disk read/write metrics for a directory. @param dirName the directory name to monitor @return ReadWriteDiskValidatorMetrics instance for the specified directory
+800 Initializes RPC metrics for multiple priority levels. @param numLevels number of priority levels to initialize
+801 Collects and aggregates thread-local metrics to global metrics.
+802 Creates or retrieves a MutableRate metric with default description and non-extended flag. @param name metric name @return MutableRate object
+803 Creates or retrieves a MutableRate metric. @param name metric name @param description metric description @return MutableRate object
+804 Examines and prints details of a Kerberos keytab file. @param keytabFile the File representing the keytab to examine @throws IOException if an I/O error occurs during processing
+805 Validates JAAS configuration. @param jaasRequired flag indicating if JAAS is mandatory @throws IOException if file operations fail
+806 Determines the real owner of a delegation token. @param id TokenIdent object representing the token @return Real owner's username as a String
+807 Ensures the parent ZooKeeper node exists for election. Creates nodes recursively if they don't exist, sets ACLs. @throws IOException if creation or ACL setting fails @throws InterruptedException if thread is interrupted @throws KeeperException for ZooKeeper errors
+808 Retrieves active node data from ZooKeeper. Establishes connection if not present, then fetches data with retries. @return byte array of active node data @throws ActiveNotFoundException if active node does not exist @throws KeeperException for ZooKeeper errors @throws InterruptedException if thread is interrupted during execution @throws IOException if I/O error occurs
+809 Checks TGT validity and attempts synchronized re-login using keytab. @throws IOException if an I/O error occurs during re-login
+810 Attempts synchronized re-login using keytab without TGT validity check. @throws IOException if an I/O error occurs during re-login
+811 Retrieves a connectable address for a given socket address. Resolves unresolved addresses and replaces wildcard addresses with localhost. @param addr the input InetSocketAddress @return resolved InetSocketAddress suitable for connection
+812 Updates the connection address based on hostname and port. Logs a warning if the address changes. @throws IOException if socket creation fails
+813 Returns a canonical URI by resolving the hostname and normalizing the port. @param uri original URI to process @param defaultPort port to use if none is specified in the URI @return URI with canonical host and normalized port
+814 Initiates an RPC call to a remote service. @param rpcKind type of RPC (e.g., synchronous, asynchronous) @param rpcRequest request object to be sent @param remoteId unique identifier for the remote service @param serviceClass class of the service @param fallbackToSimpleAuth flag to enable simple authentication if needed @param alignmentContext context for RPC call alignment @return response data or null in asynchronous mode @throws IOException if an I/O error occurs during communication
+815 Waits for a cache entry to complete or adds a new one. @param newEntry the entry to process @return the completed or added cache entry
+816 Adds a new cache entry for a retryable request. @param clientId unique client identifier as a byte array @param callId unique identifier for the call
+817 Generates a string representation of storage metrics. @param qOption include quota usage if true @return formatted summary string without human-readable size format
+818 Retrieves an expression instance by name. @param expressionName name of the expression to retrieve @param conf configuration object @return Expression instance or null if not found
+819 Creates an Expression instance from a class name. @param expressionClassname fully qualified class name of the expression @param conf configuration object @return Expression instance or throws IllegalArgumentException if invalid classname
+820 Builds a description of recognized expressions. @param factory ExpressionFactory instance to create expressions @return Detailed description as a string
+821 Retrieves an Expression instance using the provided class. @param expressionClass class of the Expression to create @return Expression object or null if creation fails
+822 Retrieves or creates a command instance by name using default configuration. @param cmd unique command identifier @return Command object or null if not found
+823 Deserializes an object from a DataInput stream. @param in data input stream to read from @param objectWritable ObjectWritable instance (optional) @param conf Hadoop configuration settings @return deserialized object or null if reading fails
+824 Creates a new instance of a Writable class. @param c Class type of the Writable instance @return new Writable instance without configuration
+825 Decodes the identifier from a given token. @param token the token containing the identifier to be decoded @return TokenIdentifier object or null if decoding fails @throws IOException if an I/O error occurs during decoding
+826 Prints credentials to a stream. @param creds Credentials object containing tokens @param alias optional text alias to filter tokens by @param out PrintStream for output @throws IOException if an I/O error occurs during printing
+827 Retrieves a DiskValidator instance based on the specified name. @param diskValidator name of the validator to retrieve @return DiskValidator instance or throws DiskErrorException if not found
+828 Constructs an empty BlockLocation with default values.
+829 Retrieves block locations for a specified file range. @param file FileStatus object representing the file @param start Starting offset of the range @param len Length of the range @return Array of BlockLocation objects or empty array if no blocks found
+830 Fetches duration statistics for a given key and success status. @param source IOStatistics data source @param key unique identifier for the statistic @param success indicates if the operation was successful @return DurationStatisticSummary object containing statistical data
+831 Takes a snapshot of the current I/O statistics. @return IOStatisticsSnapshot object containing aggregated stats
+832 Creates an I/O statistics snapshot. @param statistics source IOStatistics object to snapshot @return IOStatisticsSnapshot of the provided statistics
+833 Creates an IOStatisticsSnapshot from a given source. @param source the source object, must be of type IOStatistics or null @return Serializable IOStatisticsSnapshot instance
+834 Converts a RemoteIterator to a List. @param source RemoteIterator containing elements to convert @return List of elements from the RemoteIterator @throws IOException if an I/O error occurs during iteration
+835 Processes a file system path argument. @param item PathData object representing the file or directory to process @throws IOException if an I/O error occurs during processing
+836 Retrieves Unix groups for a given user. @param user username to fetch group information for @return Set of group names or empty set if retrieval fails @throws IOException if an I/O error occurs during execution
+837 Executes a script command with multiple arguments in batches. @param args list of arguments to pass to the script @param commandScriptName name of the script to execute @return combined output of all executed commands or null on failure
+838 Reads the target of a symbolic link. @param f File object representing the symbolic link @return Target path as a string or empty if an error occurs
+839 Sets file permissions using native or shell commands. @param p Hadoop Path object @param permission FsPermission object representing new permissions @throws IOException if operation fails
+840 Executes shell command to fetch users for a given netgroup. @param netgroup name of the netgroup (without '@') @return command output as a string or empty if no output is available @throws IOException if command execution fails
+841 Creates a new Credentials object by copying from another. @param credentials source Credentials object to copy from
+842 Adds credentials to the user's credential set. @param credentials Credentials object containing new credentials
+843 Converts Hadoop Path to local Java File. @return Java File object or throws exception if not local path
+844 Ensures a directory exists and has the correct permissions. @param localFS LocalFileSystem instance @param dir Path to the directory @param expected Expected FsPermission for the directory @throws IOException if an I/O error occurs
+845 Retrieves file link status. @param f path to the file @param dereference whether to follow symbolic links @return FileStatus object with file details @throws IOException if an I/O error occurs
+846 Retrieves the root directory enclosing a given path. Qualifies paths for consistency across file systems. @param path the input path to evaluate @return fully qualified root Path object @throws IOException if an I/O error occurs
+847 Processes files marked for deletion on exit. Calls `delete` method for each file and clears the list.
+848 Checks if a file or directory exists. @param f path to the file or directory @return true if the file or directory exists, false otherwise
+849 Sets the current working directory. @param newWDir new working directory path @throws IOException if an I/O error occurs or if the path is invalid
+850 Checks destination path validity for file operations. @param srcName source file name, null if directory check only @param dst destination path @param overwrite flag to allow overwriting existing files @throws AccessControlException if access is denied @throws IOException for other I/O errors or existence conflicts
+851 Retrieves content summary for a given path. @param f path to the file or directory @return ContentSummary object with total length, file count, and directory count @throws IOException if an I/O error occurs
+852 Retrieves delegation tokens for a given path. @param p file path for which to fetch tokens @param renewer entity that can renew the token @return list of delegation tokens or empty list if none found
+853 Sets an extended attribute on a file with default flags. @param path the target file path @param name the attribute name @param value the attribute value as bytes
+854 Creates a snapshot of the specified path. @param path the path to create a snapshot for @return Path object representing the created snapshot
+855 Initializes the MultipartUploaderBuilderImpl with file context and path. @param fc FileContext for file operations @param p Path to the file system location @throws IOException on I/O errors during initialization
+856 Waits for file recovery and truncation completion. @throws IOException if an I/O error occurs during the process
+857 Attempts to resolve a source path using registered regex mount points. @param srcPath original source file system path @param resolveLastComponent whether to resolve only the last component of the path @return ResolveResult object if resolved, otherwise null
+858 Checks file existence in a local directory. @param pathStr file path as a string @param conf Hadoop configuration @return true if file exists, false otherwise
+859 Retrieves the relative path within a HAR archive. @param path original file path @return relative path inside the HAR or null if not found
+860 Generates the path for the checksum file associated with a given file. @param file the original file path @return Path object representing the checksum file
+861 Checks if the parent directory or file exists. @return true if the parent exists, false otherwise
+862 Creates a directory with specified permissions. @param f path to the directory @param absolutePermission permissions for the directory @param createParent flag to indicate if parent directories should be created @throws IOException if directory creation fails or parent does not exist
+863 Renames a source path to a destination path with optional overwrite. @param src source file or directory path @param dst destination file or directory path @param options rename options (e.g., OVERWRITE) @throws IOException if an I/O error occurs
+864 Constructs the path for the checksum file associated with a given file. @param file the original file path @return Path object representing the checksum file
+865 Validates if a path is under a given base path. @param p the path to validate @param basePath the base path to compare against @return true if p is under or equals basePath, false otherwise
+866 Checks if the path is at the root. @return true if the path has no parent, false otherwise
+867 Appends a suffix to the current path. @param suffix string to append @return new Path object with the appended suffix
+868 Qualifies symlink target path. @param pathURI URI of the source path @param pathWithLink path containing the symlink @param target symlink target path @return qualified Path object or original target if already qualified
+869 Renames a source path to a destination path. Handles overwrite and checks for various exceptions. @param src source path @param dst destination path @param overwrite flag to allow overwriting the destination @throws AccessControlException if access is denied @throws FileAlreadyExistsException if destination exists and not overwritten @throws FileNotFoundException if source does not exist @throws ParentNotDirectoryException if parent of destination is a file @throws UnresolvedLinkException if symlink cannot be resolved @throws IOException on I/O errors
+870 Constructs a FileStatus object for a non-symlink file or directory. @param length size of the file in bytes @param isdir true if the path is a directory, false otherwise @param block_replication replication factor for blocks @param blocksize size of each block in bytes @param modification_time last modification time in milliseconds since epoch @param access_time last access time in milliseconds since epoch @param permission file permissions @param owner user who owns the file @param group group associated with the file @param path full path of the file or directory
+871 Constructs a new FileStatus object by copying attributes from another FileStatus. @param other source FileStatus to copy from @throws IOException if symlink path retrieval fails
+872 Constructs a LocatedFileStatus object with detailed file attributes and block locations. @param stat FileStatus object containing basic file metadata @param locations Array of BlockLocation objects representing data block locations
+873 Constructs a LocatedFileStatus object with specified file attributes. @deprecated Use the constructor with explicit ACL, encryption, and erasure coding flags. @param length size of the file in bytes @param isdir true if the path is a directory, false otherwise @param block_replication replication factor for blocks @param blocksize size of each block in bytes @param modification_time last modification time in milliseconds since epoch @param access_time last access time in milliseconds since epoch @param permission file permissions @param owner user who owns the file @param group group associated with the file @param symlink path to a symlink if this represents one, null otherwise @param path full path of the file or directory @param locations array of block locations
+874 Appends a Writable object to the MapFile. @param value the Writable object to append @throws IOException if there's an I/O error during writing
+875 Writes data to the output stream. @param b input byte array @param off starting offset in the byte array @param len number of bytes to write @throws IOException if an I/O error occurs or array index is out of bounds
+876 Ensures proper finalization of Bzip2 compression. Calls finish() to complete the compression process and releases resources.
+877 Moves cursor to end of TFile. @throws IOException if an I/O error occurs
+878 Closes the Scanner by parking the cursor at EOF. @throws IOException if an I/O error occurs
+879 Reads token storage from a file. @param filename file containing serialized tokens @param conf configuration settings (unused) @return Credentials object populated with tokens @throws IOException if an I/O error occurs
+880 Advances to the next record within the current block. @param key target key for comparison @param greater true if seeking a key greater than or equal to the target @return true if matching key found, false otherwise @throws IOException if an I/O error occurs
+881 Publishes metrics immediately to all registered sinks. Collects current metrics and publishes them without delay.
+882 Initializes metrics tracking for a specified RPC protocol. @param protocol the class representing the RPC protocol to track
+883 Aggregates thread-local metrics to global metrics.
+884 Adds a data point to a metric. @param name metric name @param value data point to be added
+885 Updates statistics for token owners. @param id TokenIdent object representing the token
+886 Decrements the count of tokens for a given owner's stats. @param id TokenIdent object representing the token to be removed
+887 Retrieves the current active service target. @return HAServiceTarget object representing the active service or null if not found @throws IOException for I/O errors during ZooKeeper interaction @throws InterruptedException if thread is interrupted during execution
+888 Initializes the ActiveStandbyElector with ZooKeeper configuration. Validates and sets up necessary parameters, establishes a ZooKeeper connection. @param zookeeperHostPorts comma-separated list of ZooKeeper host:port pairs @param zookeeperSessionTimeout session timeout in milliseconds @param parentZnodeName parent znode name for election coordination @param acl access control list for ZooKeeper nodes @param authInfo authentication information for ZooKeeper connection @param app callback interface for application-specific logic @param maxRetryNum maximum number of retries for establishing connection @param failFast if true, attempts to create a connection immediately; otherwise, retries with backoff @param truststoreKeystore keystore configuration for secure connections @throws IOException if connection fails or is interrupted @throws HadoopIllegalArgumentException for invalid arguments @throws KeeperException for ZooKeeper errors
+889 Creates a socket address for a given target with hostname resolution. @param target the string representation of the target @param defaultPort the default port to use if not specified in target @param configName configuration property name for error messages @param useCacheIfPresent whether to cache and reuse existing URIs @return InetSocketAddress with resolved IP or unresolved if fails
+890 Retrieves connectable address for given server. @param server the input Server object @return resolved InetSocketAddress suitable for connection
+891 Initiates an RPC call to a remote service. @param rpcKind type of RPC (e.g., synchronous, asynchronous) @param rpcRequest request object to be sent @param remoteId unique identifier for the remote service @param fallbackToSimpleAuth flag to enable simple authentication if needed @return response data or null in asynchronous mode @throws IOException if an I/O error occurs during communication
+892 Processes a retryable request by checking if it should be skipped or added to the cache. @param cache RetryCache instance managing the requests @param clientId unique client identifier @param callId unique call identifier @return CacheEntry object for the processed request or null if skipped or invalid cache
+893 Processes a request for caching retryable calls. @param cache RetryCache instance managing the cache entries @param payload data associated with the request @param clientId unique client identifier @param callId unique call identifier @return CacheEntryWithPayload object or null if skipped
+894 Retrieves an Expression instance by name using the configuration. @param expressionName name of the expression to retrieve @return Expression instance or null if not found
+895 Retrieves a comparator for the specified class. @param c class of WritableComparable to compare @param conf configuration settings @return WritableComparator instance for the given class
+896 Initializes a WritableComparator. @param keyClass class of keys to compare
+897 Initializes a LocalDirAllocator with a specific context configuration item. @param contextCfgItemName name of the context configuration item
+898 Updates deprecated properties using new keys. Applies values from new keys to deprecated keys in both main and overlay configurations.
+899 Creates a copy of the given Configuration. @param other Configuration object to clone
+900 Adds a configuration resource from another Configuration object. @param conf source Configuration object to add resources from
+901 Retrieves alternative configuration names for a given key. @param name the original configuration key @return array of alternative keys or null if none exist
+902 Retrieves property sources by name. @param name the configuration property key @return array of source paths or null if not found
+903 Returns the number of configuration properties. @return int count of configuration settings
+904 Clears all configuration properties and overlay settings.
+905 Returns an iterator over configuration properties as string key-value pairs. @return Iterator of Map.Entry<String, String> containing config settings
+906 Retrieves configuration values matching a regex pattern. @param regex regular expression to filter keys @return Map of matched key-value pairs with variable substitution applied
+907 Reads multiple file ranges into ByteBuffers with checksum validation. @param ranges list of FileRange objects to read @param allocate function to create ByteBuffer of appropriate size @throws IOException if an I/O error occurs during reading
+908 Retrieves buffer data for a given block number with retry mechanism. @param blockNumber target block number to retrieve @return BufferData object if successful, throws IOException or IllegalStateException on failure
+909 Waits for files in the waitList to reach the desired replication level. Prints status and warnings during the process.
+910 Retrieves block locations for a specified path range. @param p Path object representing the file @param start Starting offset of the range @param len Length of the range @return Array of BlockLocation objects or empty array if no blocks found
+911 Fetches success duration statistics for a given key. @param source IOStatistics data source @param key unique identifier for the statistic @return DurationStatisticSummary object containing statistical data for successful operations
+912 Creates an IOStatisticsSnapshot from null source. @return Serializable IOStatisticsSnapshot instance with default values
+913 Retrieves and converts I/O statistics to a snapshot. @param source object containing or providing I/O statistics @return Serializable IOStatisticsSnapshot instance or null if stats are unavailable
+914 Converts a RemoteIterator to an array. @param source RemoteIterator containing elements to convert @param a array to hold the converted elements @return array of elements from the RemoteIterator @throws IOException if an I/O error occurs during iteration
+915 Renews a delegation token. @param token the token to be renewed @param renewer user attempting to renew the token @return new expiration time of the token in milliseconds @throws InvalidToken if the token is invalid or expired @throws IOException if an I/O error occurs
+916 Cancels a delegation token. @param token Token to cancel @param canceller User attempting to cancel the token @return TokenIdent of the canceled token @throws IOException if operation fails
+917 Processes a list of file system path arguments. Iterates through each PathData, calls processArgument, and handles exceptions by displaying errors. @param args LinkedList of PathData objects to process @throws IOException if an I/O error occurs during processing
+918 Retrieves groups for a specified user. @param userName username to fetch group information for @return List of group names or empty list if retrieval fails @throws IOException if an I/O error occurs during execution
+919 Retrieves the number of hard links for a given file. @param fileName the file to check @return count of hard links or throws IOException if an error occurs
+920 Creates a symbolic link. @param target path to the target file or directory @param linkname path where the symlink should be created @return exit code of the shell command execution @throws IOException if an I/O error occurs
+921 Changes file or directory permissions. @param filename path to the file or directory @param perm permission string (e.g., "755") @param recursive true if applied recursively @return exit code of the shell command execution @throws IOException if an I/O error occurs during execution
+922 Checks if the 'setsid' command is supported on the current system. Uses ShellCommandExecutor to test execution. Returns false for Windows. Handles IOException, SecurityException, and specific Error cases.
+923 Sets the owner and/or group of a file. @param file target file to modify @param username new user owner (can be null) @param groupname new group owner (can be null) @throws IOException if setting ownership fails
+924 Retrieves users for a specified netgroup. @param netgroup name of the netgroup (without '@') @return list of usernames or empty if no users found @throws IOException if command execution fails
+925 Retrieves and returns user credentials, filtering out private tokens. @return Credentials object with non-private tokens
+926 Lists file statuses in a directory and filters them. @param f the directory path to list @param filter PathFilter to apply to files @return array of filtered FileStatus objects @throws AccessControlException if access is denied @throws FileNotFoundException if the directory does not exist @throws IOException if an I/O error occurs
+927 Lists file statuses for multiple paths. @param files array of file paths to check @param filter PathFilter to apply to each path @return array of filtered FileStatus objects @throws AccessControlException if access is denied @throws FileNotFoundException if a path does not exist @throws IOException if an I/O error occurs
+928 Resolves a filesystem path to its target. @param p the file system path to resolve @param resolveLastComponent whether to resolve only the last component of the path @return ResolveResult object with resolved details @throws IOException if an I/O error occurs during resolution
+929 Sets the replication factor for a file and its checksum file. @param src source file path @param replication desired replication factor @return true if successful, false otherwise
+930 Deletes a file or directory from the filesystem. @param f Path to the file or directory to delete @param recursive if true, delete directories recursively @return true if deletion is successful, false otherwise
+931 Renames a file or directory and its associated checksum file. @param src source path to rename from @param dst destination path to rename to @return true if rename is successful, false otherwise
+932 Deletes a file or directory in the Hadoop file system. Handles checksum files associated with regular files. @param f Path to the file or directory @param recursive if true, deletes directories recursively @return true if deletion is successful, false otherwise
+933 Determines if the source path is an ancestor of the target path. @param source PathData object representing the potential ancestor @param target PathData object representing the descendant @return true if source is an ancestor of target, false otherwise
+934 Constructs a full path by combining the root path and given path. @param path relative or absolute path to be combined with the root @return Path object representing the full path in the file system
+935 Strips the root path from a given file path. @param p Path object representing the file or directory @return String with the root path removed, or empty if at root
+936 Strips the root directory from a given file path. @param p Path object representing the file or directory @return String with root directory removed, empty if at root @throws IOException if path validation fails
+937 Resolves symbolic links for a given file path. @param fc FileContext object managing the filesystem operations @param path Path to be resolved @return Resolved path or original path if no symlinks are present @throws IOException if an I/O error occurs or symlink resolution fails
+938 Renames a source path to a destination path with specified options. Parses options for overwrite permission and delegates to renameInternal. @param src source path @param dst destination path @param options optional Rename options (e.g., OVERWRITE) @throws AccessControlException if access is denied @throws FileAlreadyExistsException if destination exists and not overwritten @throws FileNotFoundException if source does not exist @throws ParentNotDirectoryException if parent of destination is a file @throws UnresolvedLinkException if symlink cannot be resolved @throws IOException on I/O errors
+939 Converts HarStatus to FileStatus. @param h HarStatus object representing archive entry @return FileStatus object with metadata from HAR entry @throws IOException if an I/O error occurs during conversion
+940 Constructs a FileStatus object for an FTP file. @param ftpFile the FTP file to create status for @param parentPath the path of the parent directory @return FileStatus object representing the FTP file's metadata
+941 Verifies token storage file. @param tokenFile file containing serialized tokens @param conf configuration settings (unused) @param category error category @param message error message template @return true if verification passes, false otherwise
+942 Prints delegation tokens from a file to a stream. @param tokenFile file containing serialized tokens @param alias optional text alias to filter tokens by @param conf configuration settings (unused) @param out PrintStream for output @throws IOException if an I/O error occurs
+943 Syncs local cache with ZooKeeper for delegation tokens. @param ident TokenIdent object containing token details
+944 Initializes a MetricsSystemImpl with a given prefix. @param prefix unique identifier for the metrics system
+945 Processes an RPC call by invoking the specified method on a service. @param server the RPC server handling the request @param connectionProtocolName name of the protocol used for communication @param request buffer containing the serialized request data @param methodName name of the method to be invoked @param protocolImpl implementation details of the RPC protocol @return wrapped response from the service or null if deferred @throws Exception if an error occurs during processing
+946 Adds an elapsed time to a metric. @param name metric name @param elapsed time in milliseconds
+947 Adds a persisted delegation token. @param identifier token identifier @param renewDate token renewal timestamp @throws IOException if adding fails or SecretManager is running
+948 Synchronizes token owner statistics by clearing and updating them.
+949 Removes expired delegation tokens and logs the cleanup. @throws IOException if an I/O error occurs during removal
+950 Initializes the ActiveStandbyElector with ZooKeeper configuration. @param zookeeperHostPorts comma-separated list of ZooKeeper host:port pairs @param zookeeperSessionTimeout session timeout in milliseconds @param parentZnodeName parent znode name for election coordination @param acl access control list for ZooKeeper nodes @param authInfo authentication information for ZooKeeper connection @param app callback interface for application-specific logic @param maxRetryNum maximum number of retries for establishing connection @param truststoreKeystore keystore configuration for secure connections @throws IOException if connection fails or is interrupted @throws HadoopIllegalArgumentException for invalid arguments @throws KeeperException for ZooKeeper errors
+951 Joins the leader election process. Validates input data and initiates internal election logic. @param data application-specific data for election participation @throws HadoopIllegalArgumentException if data is null
+952 Creates a socket address with hostname resolution. @param target string representation of the target @param defaultPort default port to use if not specified in target @param configName configuration property name for error messages @return InetSocketAddress with resolved IP or unresolved if fails
+953 Invokes a remote method using RPC. @param proxy client-side proxy object @param method method to invoke remotely @param args arguments for the method call @return deserialized response message or null if asynchronous @throws ServiceException if an error occurs during invocation
+954 Invokes a remote method via RPC. @param proxy proxy object for the remote service @param method Method object representing the remote procedure to be invoked @param args array of arguments for the method call (RpcController + Message) @return deserialized Protobuf Message instance or null in asynchronous mode @throws ServiceException if an error occurs during invocation
+955 Parses expressions from a deque of arguments. @param args deque containing search expression arguments @return parsed Expression object @throws IOException if an unexpected argument is encountered
+956 Retrieves a comparator for the specified class using default configuration. @param c class of WritableComparable to compare @return WritableComparator instance for the given class
+957 Authenticates user using delegation tokens or fallbacks to another handler. @param request HTTP servlet request object @param response HTTP servlet response object @return AuthenticationToken if authentication is successful, null otherwise @throws IOException if I/O error occurs during token processing @throws AuthenticationException if authentication fails
+958 Handles configuration key deprecation. @param deprecations context for deprecated configuration keys @param name original configuration property name @return array of updated property names, including deprecated replacements
+959 Sets configuration properties as environment variables. @param env map to store environment variables

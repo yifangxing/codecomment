@@ -1,0 +1,1246 @@
+1 This is a convenience method that will get the dictionary object that is expected to be a string. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The name converted to a string.
+2 @see PDField#PDField(PDAcroForm) @param acroForm The acroform.
+3 Sets the optional Matrix entry for the form XObject. @param transform the transformation matrix
+4 Set the default style string. Providing null as the value will remove the default style string. @param defaultStyleString a string describing the default style.
+5 Creates a new JPEG Image XObject from a byte array containing JPEG data. @param document the document where the image will be created @param byteArray bytes of JPEG image @return a new Image XObject @throws IOException if the input stream cannot be read
+6 Returns a COS array which represent the geometric relevant components of the matrix. The last column of the matrix is ignored, only the first two columns are returned. This is analog to the Matrix(COSArray) constructor. @return a COSArray representing the geometric relevant components of the matrix
+7 This will set an object at a specific index. @param index zero based index into array. @param object The object to set.
+8 Set the fields rich text value. <p> Setting the rich text value will not generate the appearance for the field. <br> You can set {@link PDAcroForm#setNeedAppearances(Boolean)} to signal a conforming reader to generate the appearance stream. </p> Providing null as the value will remove the default style string. @param richTextValue a rich text string
+9 This will set the origin of the coordinate system. @param coordSystemOrigin the origin
+10 Default constructor.
+11 @see PDField#PDField(PDAcroForm) @param acroForm The acroform.
+12 Sets the value of this field. This may be of any kind which is valid for this field's children. <p> <b>Note:</b> while non-terminal fields <b>do</b> inherit field values, this method returns the local value, without inheritance. @param object the new value
+13 Sets the default of this field. This may be of any kind which is valid for this field's children. <p> <b>Note:</b> while non-terminal fields <b>do</b> inherit field values, this method returns the local value, without inheritance. @param value the default value
+14 Constructor from COS object. @param array the array containing the XYZ values
+15 This will create a new destination depending on the type of COSBase that is passed in. @param base The base level object. @return A new destination. @throws IOException If the base cannot be converted to a Destination.
+16 This will take a COS dictionary and convert it into COSDictionaryMap. All cos objects will be converted to their primitive form. @param map The COS mappings. @return A standard java map. @throws IOException If there is an error during the conversion.
+17 Update the key and object maps. @param key The key, that shall be added. @param object The object, that shall be added. @return The actual key, the object has been added for.
+18 @see PDTerminalField#PDTerminalField(PDAcroForm) @param acroForm The acroForm for this field.
+19 This will get the string of one of the available options. A required element. @return An available option.
+20 Returns the color component values as a COS array @return the color component values as a COS array
+21 Creates a new DeviceN color space.
+22 Creates a new gamma. Defaults all values to 0, 0, 0.
+23 @see PDField#PDField(PDAcroForm) @param acroForm The acroform.
+24 Returns a list of alternate color spaces for non-conforming readers. WARNING: Do not use the information in a conforming reader. @return A list of alternateColorSpace color spaces. @throws IOException If there is an error getting the alternateColorSpace color spaces.
+25 Creates a new Indexed color space. Default DeviceRGB, hival 255.
+26 creates a range array with default values (-100..100 -100..100). @return the new range array.
+27 Creates a new pattern color space. @param resources The current resources.
+28 Creates a new Separation color space.
+29 Set the value in the array as an integer. @param index The index into the array. @param value The value to set.
+30 This is a convenience method that will get the dictionary object that is expected to be a name and convert it to a string. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The name converted to a string.
+31 Constructor. Defaults all values to 0, 0, 0.
+32 This will get the string of default appearance string. A required element. @return A default appearance string.
+33 Returns the selected values, or an empty List, for the given key.
+34 This will decrypt an array. @param array The array to decrypt. @param objNum The object number. @param genNum The object generation number. @throws IOException If there is an error accessing the data.
+35 This will set the widget field flags that are associated with this field. The 'F' entry in the FDF field dictionary. @param f The new value for the field flags.
+36 Creates a new JPEG PDImageXObject from a BufferedImage and a given quality. <p> Do not read a JPEG image from a stream/file and call this method; you'll get more speed and quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument, java.io.InputStream) createFromStream()} instead. The image will be created with a dpi value of 72 to be stored in metadata. @param document the document where the image will be created @param image the BufferedImage to embed @param quality The desired JPEG compression quality; between 0 (best compression) and 1 (best image quality). See {@link ImageWriteParam#setCompressionQuality(float)} for more details. @return a new Image XObject @throws IOException if the JPEG data cannot be written
+37 Generates the first intermediate curl for a cloudy polygon.
+38 Returns a template for intermediate curls in a cloudy polygon.
+39 This will set the string for an available option. @param opt One of the available options.
+40 Sets the colour by edge index. @param index the edge index @param colour the colour
+41 This will set the size of the font. @param size The new size of the font.
+42 Sets the color space attributes. If null is passed in then all attribute will be removed. @param attributes the color space attributes, or null
+43 This will set the alternate color space. @param cs The alternate color space.
+44 Sets the r value of the tristimulus. @param r the r value for the tristimulus
+45 Sets the g value of the tristimulus. @param g the g value for the tristimulus
+46 Sets the b value of the tristimulus. @param b he b value for the tristimulus
+47 This will set the default appearance string. @param da The default appearance string.
+48 This will set the upper right y coordinate. @param value The upper right y.
+49 This will set the upper right x coordinate. @param value The upper right x .
+50 This will set the lower left y coordinate. @param value The lower left y.
+51 Sets the direction in which the specified transition effect shall move. Only for {@link PDTransitionStyle#Wipe}, {@link PDTransitionStyle#Glitter}, {@link PDTransitionStyle#Fly}, {@link PDTransitionStyle#Cover}, {@link PDTransitionStyle#Uncover} and {@link PDTransitionStyle#Push}. @param direction the direction in which the specified transition effect shall move
+52 @param duration The duration of the transition effect, in seconds.
+53 This will get an object from this dictionary. If the object is a reference then it will dereference it and get it from the document. If the object is COSNull then null will be returned. @param key The key to the object that we are getting. @return The object that matches the key.
+54 @param scale The starting or ending scale at which the changes shall be drawn. Only for {@link PDTransitionStyle#Fly}.
+55 @param opaque If true, the area that shall be flown in is rectangular and opaque. Only for {@link PDTransitionStyle#Fly}.
+56 Set the value in the array as a name. @param index The index into the array. @param name The name to set in the array.
+57 This will add all objects to this array. @param objectList The list of objects to add.
+58 Set the value in the array as a string. @param index The index into the array. @param string The string to set in the array.
+59 This will set the minimum value for the range. @param min The new minimum for the range.
+60 This will set the maximum value for the range. @param max The new maximum for the range.
+61 This will set the lower left x coordinate. @param value The lower left x.
+62 {@inheritDoc}
+63 This is a special case of getDictionaryObject that takes multiple keys, it will handle the situation where multiple keys could get the same value, ie if either CS or ColorSpace is used to get the colorspace. This will get an object from this dictionary. If the object is a reference then it will dereference it and get it from the document. If the object is COSNull then null will be returned. @param firstKey The first key to try. @param secondKey The second key to try. @return The object that matches the key.
+64 Creates a matrix from a 6-element (a b c d e f) COS array. @param array source array, elements must be or extend COSNumber
+65 Returns true, if the given {@link COSBase} is a registered object of this compression pool. @param object The object, that shall be checked. @return True, if the given {@link COSBase} is a registered object of this compression pool.
+66 Get the Perms entry in the encryption dictionary. @return A 16 byte array or null if there is no Perms entry. @throws IOException If there is an error accessing the data.
+67 This will get the page number or null if it does not exist. @return The page number.
+68 Returns the COS value of this field. @return The COS value of the field, maybe <code>null</code>. @throws IOException If there is an error getting the value.
+69 This will get the 'Ff' entry of the FDF field dictionary. If it is not present then this method will return null. @return The field flags.
+70 This will get the 'SetFf' entry of the FDF field dictionary. If it is not present then this method will return null. @return The field flags.
+71 This will get the 'ClrFf' entry of the FDF field dictionary. If it is not present then this method will return null. @return The field flags.
+72 This will get the 'F' entry of the FDF field dictionary. If it is not present then this method will return null. @return The widget field flags.
+73 This will get the UE entry in the standard encryption dictionary. @return A 32 byte array or null if there is no user encryption key. @throws IOException If there is an error accessing the data.
+74 This will get the 'SetF' entry of the FDF field dictionary. If it is not present then this method will return null. @return The field flags.
+75 This will get the default width. The default value for the default width is 1000. @return The default width for the glyphs in this font.
+76 Returns the process color space @return the process color space @throws IOException if the color space cannot be read
+77 Returns the group color space or null if it isn't defined. @param resources useful for its cache. Can be null. @return the group color space. @throws IOException if the colorspace could not be created
+78 Creates a new instance based on a given {@link COSDictionary}. @param dict the dictionary
+79 Creates a new instance based on a given {@link COSDictionary}. @param dict the dictionary
+80 This will get the overprint control mode. @return The overprint control mode or null if one has not been set.
+81 Returns the soft mask stored in the COS dictionary @return the soft mask or null if there isn't any.
+82 This will get the 'ClrF' entry of the FDF field dictionary. If it is not present then this method will return null. @return The widget field flags.
+83 Determine the highest object number from the imported page to avoid mixed up numbers when saving the new pdf. @param importedPage the imported page.
+84 This will get the OE entry in the standard encryption dictionary. @return A 32 byte array or null if there is no owner encryption key. @throws IOException If there is an error accessing the data.
+85 Will get the EncryptMetaData dictionary info. @return true if EncryptMetaData is explicitly set (the default is true)
+86 Get the zoom value. Return values of 0 or -1 imply that the current zoom will be used. @return The zoom value for the page.
+87 This will get the page number for this destination. A page destination can either reference a page (for a local destination) or a page number (when doing a remote destination to another PDF). If this object is referencing by page number then this method will return that number, otherwise -1 will be returned. @return The zero-based page number for this destination.
+88 This will get the page for this destination. A page destination can either reference a page (for a local destination) or a page number (when doing a remote destination to another PDF). If this object is referencing by page number then this method will return null and {@link #getPageNumber()} should be used. @return The page for this destination.
+89 Returns the colorant name. @return the name of the colorant
+90 This is a convenience method that will get the dictionary object that is expected to be a name. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The COS name.
+91 This is a convenience method that will get the dictionary object that is expected to be a COSDictionary. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The COSDictionary.
+92 This is a convenience method that will get the dictionary object that is expected to be a COSStream. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The COSStream.
+93 This is a convenience method that will get the dictionary object that is expected to be a COSArray. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The COSArray.
+94 This is a convenience method that will get the dictionary object that is expected to be a name. Default is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The COS name.
+95 This is a convenience method that will get the dictionary object that is expected to be an integer. If the dictionary value is null then the default value will be returned. @param key The key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The integer value.
+96 This is a convenience method that will get the dictionary object that is expected to be an float. If the dictionary value is null then the default value will be returned. @param key The key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The float value.
+97 Returns the content streams which make up this page. @return content stream iterator
+98 Returns true if this page has one or more content streams. @return true if the page has a non empty content stream, otherwise false
+99 Returns the class names together with their revision numbers (C). @return the class names as a list, never null.
+100 Returns the K entry. This can be a dictionary representing a structure element, or an array of them. To get it as a list of PDStructureElement objects, use {@link #getKids()} instead. @return the K entry.
+101 Returns the property value. @return the property value
+102 This will get a float item from the dictionary. @param key The key to the item. @return The value for that item.
+103 This is a convenience method that will get the dictionary object that is expected to be a name and convert it to a string. Null is returned if the entry does not exist in the dictionary or if the date was invalid. @param key The key to the item in the dictionary. @return The name converted to a date.
+104 Return an iterator for the determined {@link #objects} contained in this {@link COSIncrement}. @return An iterator for the determined {@link #objects} contained in this {@link COSIncrement}.
+105 This will add the object until the size of the array is at least as large as the parameter. If the array is already larger than the parameter then nothing is done. @param size The desired size of the array. @param object The object to fill the array with.
+106 If the value in the /P entry is a string, this will get a named destination in the current document that provides the page number of the file attachment annotation. @return a named destination or null if the /P entry value is missing or not a string.
+107 Returns the /Contents string as a byte array, i.e. the embedded signature between the byterange gap. @return a byte array containing the signature, or an empty array if there isn't any.
+108 Get the XFA resource, the XFA resource is only used for PDF 1.5+ forms. @return The xfa resource or null if it does not exist.
+109 Returns the given attribute, inheriting from parent nodes if necessary. @param key the key to look up @return COS value for the given key
+110 Default constructor.
+111 Returns the COSBase value of the "V" entry. <p> <b>Note:</b> while non-terminal fields <b>do</b> inherit field values, this method returns the local value, without inheritance. @return the COSBase value of the "V" entry
+112 Returns the default value of this field. This may be of any kind which is valid for this field's children. <p> <b>Note:</b> while non-terminal fields <b>do</b> inherit field values, this method returns the local value, without inheritance. @return the new default value
+113 Creates a blank font setting, font will be null, size will be 1.
+114 Closes the visual signature COSDocument, if any. Do not call this before you're saved your signed PDF document, or saving will fail because COSStream objects held both by the COSDocument and by the signed document would no longer be available. @throws IOException if the document could not be closed
+115 This will write a COS object for a predefined key. @param key The key of the object to write. @param obj The object to write. @throws IOException if the output cannot be written
+116 Returns the {@link COSObjectKey}, that is registered for the given {@link COSBase} in this compression pool. @param object The {@link COSBase} a {@link COSObjectKey} is registered for in this compression pool. @return The {@link COSObjectKey}, that is registered for the given {@link COSBase} in this compression pool, if such an object is contained.
+117 {@inheritDoc} <p><b>Note:</b> while non-terminal fields <b>do</b> inherit field values, this method returns the local value, without inheritance.
+118 Constructor with an initial range of 0..1.
+119 Clear the current contents of the COSArray and set it with the float[]. @param value The new value of the float array.
+120 Returns the stream of the XRef. @return the XRef stream @throws IOException if something went wrong
+121 This will get the transfer function of the /TR dictionary. @return The transfer function. According to the PDF specification, this is either a single function (which applies to all process colorants) or an array of four functions (which apply to the process colorants individually). The name Identity may be used to represent the identity function.
+122 This will get the transfer function of the /TR2 dictionary. @return The transfer function. According to the PDF specification, this is either a single function (which applies to all process colorants) or an array of four functions (which apply to the process colorants individually). The name Identity may be used to represent the identity function, and the name Default denotes the transfer function that was in effect at the start of the page.
+123 Returns the backdrop color. @return the backdrop color
+124 This will specify whether to open the destination document in a new window, in the same window, or behave in accordance with the current user preference. @return A flag specifying how to open the destination document.
+125 The annotation or annotations to be hidden or shown @return The T entry of the specific thread action dictionary.
+126 This will specify whether to open the destination document in a new window, in the same window, or behave in accordance with the current user preference. @return A flag specifying how to open the destination document.
+127 This will specify whether to open the destination document in a new window, in the same window, or behave in accordance with the current user preference. @return A flag specifying how to open the destination document.
+128 This will add an object to the array. @param object The object to add to the array.
+129 Creates {@link COSWriterObjectStream}s for all currently registered objects of this pool, that have been marked as fit for being compressed in this manner. Such object streams may be added to a PDF document and shall be declared in a document's {@link PDFXRefStream} accordingly. The objects contained in such a stream must not be added to the document separately. @return The created {@link COSWriterObjectStream}s for all currently registered compressible objects.
+130 This will set the widget field flags that are associated with this field. The 'SetF' entry in the FDF field dictionary. @param ff The new value for the "set widget field flags".
+131 Sets the linear interpretation matrix. Passing in null will clear the matrix. @param matrix the new linear interpretation matrix, or null
+132 Sets the gamma value. @param gamma the new gamma value
+133 Determines the blend mode from the BM entry in the COS ExtGState. @param cosBlendMode name or array @return blending mode
+134 Set the gamma value. @param value The new gamma value.
+135 {@inheritDoc}
+136 Default Constructor.
+137 Constructor. Creates empty COSDictionary if dict is null. @param dict The dictionary that fulfils this file specification.
+138 This will set the range values. @param rangeValues The new range values.
+139 This will set the domain values. @param domainValues The new domain values.
+140 This will set the encode values. @param encodeValues The new encode values.
+141 This will set the decode values. @param decodeValues The new decode values.
+142 Removes an attribute object. @param attributeObject the attribute object
+143 Removes a class name. @param className the class name
+144 Appends a COS base kid. @param object the COS base
+145 Inserts an COS base kid before a reference kid. @param newKid the COS base @param refKid the reference kid
+146 Removes a COS base kid. @param object the COS base @return <code>true</code> if the kid was removed, <code>false</code> otherwise
+147 Sets the K entry. @param k the K value
+148 Set the line dash pattern associated with this box style. @param dashArray The patter for this box style.
+149 {@inheritDoc}
+150 Constructor for embedding.
+151 Sets the optional Matrix entry for the Pattern. @param transform the transformation matrix
+152 Sets the visibility policy name. Valid names are AllOff, AllOn, AnyOff, AnyOn (default). @param visibilityPolicy the visibility policy name
+153 Creates a new optional content membership dictionary (OCMD).
+154 Creates a group object with /Transparency subtype entry.
+155 Update the P reference to the new parent dictionary. @param kArray the kids array @param newParent the new parent @param newStructureType the new structure type in /S or null so it doesn't get replaced
+156 This will set the rich text value. @param rv The rich text value for the stream.
+157 This will set the crypt filter method. Allowed values are: NONE, V2, AESV2, AESV3 @param cfm name of the crypt filter method.
+158 This will set the document information for this document. <p> In PDF 2.0 this is deprecated except for two entries, /CreationDate and /ModDate. For any other document level metadata, a metadata stream should be used instead, see {@link PDDocumentCatalog#setMetadata(org.apache.pdfbox.pdmodel.common.PDMetadata) PDDocumentCatalog#setMetadata(PDMetadata)}. @param info The updated document information.
+159 Constructor. Internal PDFBox use only! If you need to get the document catalog, call {@link PDDocument#getDocumentCatalog()}. @param doc The document that this catalog is part of.
+160 Sets the base color space. @param base the base color space
+161 This will set the CropBox for this page. @param cropBox The new CropBox for this page.
+162 This will parse the next token in the stream. @return The next token in the stream or null if there are no more tokens in the stream. @throws IOException If an io error occurs while parsing the stream.
+163 This will set the BBox (bounding box) for this Pattern. @param bbox The new BBox for this Pattern.
+164 This will set the character set for the font. @param charSet The new character set for the font.
+165 This will set the font stretch. @param fontStretch The new stretch for the font.
+166 This will set interior color of the drawn area. @param color The interior color of the circle.
+167 Set the coordinates of individual words or group of words. The quadliterals shall encompasses a word or group of contiguous words in the text underlying the annotation. The coordinates for each quadrilateral shall be given in the order x1 y1 x2 y2 x3 y3 x4 y4. @param coords an array of 8 􏰍 n numbers specifying the coordinates of n quadrilaterals.
+168 This will set the FDF id. @param id The new id for the FDF.
+169 This will set the differences stream. @param diff The new differences stream.
+170 You should pass a String, or a List&lt;String&gt; to set the value. @param value The value that should populate when imported. @throws IOException If there is an error setting the value.
+171 Sets the COS value of this field. @param value COS value.
+172 This will set the field flags that are associated with this field. The 'Ff' entry in the FDF field dictionary. @param ff The new value for the field flags.
+173 This will set the field flags that are associated with this field. The 'SetFf' entry in the FDF field dictionary. @param ff The new value for the "set field flags".
+174 This will set the field flags that are associated with this field. The 'ClrFf' entry in the FDF field dictionary. @param ff The new value for the "clear field flags".
+175 Constructor for embedding.
+176 This will set the javascript code the will get execute after the import. @param after A reference to some javascript code.
+177 This will set the javascript code the will get execute before the import. @param before A reference to some javascript code.
+178 This will set the rich text value. @param rv The rich text value for the stream.
+179 This will set interior color of the line endings defined in the LE entry. @param color The interior color of the line endings.
+180 This will set the coordinates of the the vertices. @param vertices array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.
+181 This will set interior color of the drawn area. @param color The interior color of the drawn area.
+182 This will set the coordinates of the vertices. @param vertices array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.
+183 This will set the font family. @param fontFamily The font family.
+184 Sets the filter entry of the encryption dictionary. @param filter The filter name.
+185 This will set the font name. @param fontName The new name for the font.
+186 This will set the O entry in the standard encryption dictionary. @param o A 32 byte array or null if there is no owner key. @throws IOException If there is an error setting the data.
+187 This will set the U entry in the standard encryption dictionary. @param u A 32 byte array. @throws IOException If there is an error setting the data.
+188 This will set the OE entry in the standard encryption dictionary. @param oe A 32 byte array or null if there is no owner encryption key. @throws IOException If there is an error setting the data.
+189 This will set the UE entry in the standard encryption dictionary. @param ue A 32 byte array or null if there is no user encryption key. @throws IOException If there is an error setting the data.
+190 This will set the Recipients field of the dictionary. This field contains an array of string. @param recipients the array of bytes arrays to put in the Recipients field. @throws IOException If there is an error setting the data.
+191 Package-private constructor, for embedding.
+192 Sets the name of the filter which is used for de/encrypting streams. @param streamFilterName the name of the filter
+193 Returns the list of colorants. @return the list of colorants
+194 Set the fonts bounding box. @param rect The new bounding box.
+195 Sets the name of the filter which is used for de/encrypting strings. @param stringFilterName the name of the filter
+196 remove CF, StmF, and StrF entries. This is to be called if V is not 4 or 5.
+197 Default constructor.
+198 Set the annotation color. @param c The annotation color.
+199 This will set the rich text stream which is displayed in the popup window. @param rc the rich text stream.
+200 This will set interior color of the drawn area. @param color The interior color of the circle.
+201 This will set the coordinates of the callout line. @param callout An array of four or six numbers specifying a callout line attached to the free text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending coordinates of the line in default user space, Four numbers [ x1 y1 x2 y2 ] represent the starting and ending coordinates of the line.
+202 This will set start and end coordinates of the line (or leader line if LL entry is set). @param line array of 4 floats [x1, y1, x2, y2] line start and end points in default user space.
+203 This will get the alternate color space for this separation. @return The alternate color space. @throws IOException If there is an error getting the alternate color space.
+204 visitFromObjRef method comment. @param obj The object that is being visited. @throws IOException If there is an exception while visiting this object.
+205 This will set interior color of the line endings defined in the LE entry. @param color The interior color of the line endings.
+206 Set the Perms entry in the encryption dictionary. @param perms A 16 byte array. @throws IOException If there is an error setting the data.
+207 This will set the background. @param newBackground the new background
+208 This will set the field flags that are associated with this field. The 'ClrF' entry in the FDF field dictionary. @param ff The new value for the "clear widget field flags".
+209 This will set the color space for the shading. @param colorSpace the color space
+210 This will take an COSArray of numbers and convert it to a float[]. @return This COSArray as an array of float numbers.
+211 This will return a list of float values if the COSArray consists of COSNumbers only. @return the list of float values of the COSArray of COSNumbers
+212 This will return a list of int values if the COSArray consists of COSNumbers only. @return the list of int values of the COSArray of COSNumbers
+213 This will get the minimum value of the range. @return The min value.
+214 This will get the maximum value of the range. @return The max value.
+215 Gets the colour by edge index. @param index edge index @return the colour
+216 This will get the display values from the options. <p> For options with an array of text strings the display value and export value are the same.<br> For options with an array of two-element arrays the display value is the second entry in the two-element array. </p> @return List containing all the display values.
+217 This will get the option values "Opt". <p> For a choice field the options array can either be an array of text strings or an array of a two-element arrays.<br> The method always only returns either the text strings or, in case of two-element arrays, an array of the first element of the two-element arrays </p> <p> Use {@link #getOptionsExportValues()} and {@link #getOptionsDisplayValues()} to get the entries of two-element arrays. </p> @return List containing the export values.
+218 Default constructor.
+219 <p>(Optional; PDF 1.6) A time stamp dictionary containing two entries. URL which is a ASCII string specifying the URL to a rfc3161 conform timestamp server and Ff to indicate if a timestamp is required or optional.</p> @param timestamp dictionary
+220 <p>(Optional; PDF 1.6) A dictionary containing a single entry whose key is P and whose value is an integer between 0 and 3. A value of 0 defines the signatures as an author signature. The value 1 through 3 shall be used for certification signatures and correspond to the value of P in a DocMDP transform parameters dictionary.</p> <p>If this MDP key is not present or the MDP dictionary does not contain a P entry, no rules shall be defined regarding the type of signature or its permissions.</p> @param mdp dictionary
+221 This will set the BBox (bounding box) for this Shading. @param newBBox the new BBox
+222 (Optional) The signature handler that shall be used to sign the signature field. @param filter is the filter that shall be used by the signature handler
+223 Default constructor.
+224 This will set the dash style used for drawing the border. @param dashArray the dash style to use
+225 Constructor for embedding.
+226 This will set the set of quadpoints which encompass the areas of this annotation. @param quadPoints an array representing the set of area covered
+227 Some applications may not wrap their page content in a save/restore (q/Q) pair which can lead to problems with coordinate system transformations when content is appended. This method lets you add a q/Q pair around the existing page's content. @param page the page @throws IOException if an I/O error occurs
+228 This will set the encryption dictionary, this should only be called when encrypting the document. @param encDictionary The encryption dictionary.
+229 Constructor. @param doc The document that this form is part of.
+230 Sets the colorant name. @param name the name of the colorant
+231 Set the RGB text color for this node. @param textColor The text color for this node.
+232 Sets the contents. @param bytes contents to be used
+233 Sets the byte range. @param range the byte range to be used
+234 Set a subfilter that specify the signature that should be used. @param subfilter the subfilter that shall be used.
+235 Set the filter. @param filter the filter to be used
+236 Set the dictionary type. @param type is the dictionary type.
+237 Default constructor.
+238 Sets the alternate color space. @param colorSpace The alternate color space.
+239 Sets the x value of the tristimulus. @param x the x value for the tristimulus
+240 Sets the y value of the tristimulus. @param y the y value for the tristimulus
+241 Sets the z value of the tristimulus. @param z the z value for the tristimulus
+242 This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ). @param key The key to the dictionary object. @param value The value to the dictionary object.
+243 This will set an item in the dictionary. @param key The key to the dictionary object. @param value The value to the dictionary object.
+244 This will set an item in the dictionary. @param key The key to the dictionary object. @param value The value to the dictionary object.
+245 This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ). @param key The key to the dictionary object. @param value The value to the dictionary object.
+246 This is a convenience method that will convert the value to a COSName object. If it is null then the object will be removed. @param key The key to the object, @param value The string value for the name.
+247 This is a convenience method that will convert the value to a COSString object. If it is null then the object will be removed. @param key The key to the object, @param value The string value for the name.
+248 This is a convenience method that will convert the value to a COSInteger object. @param key The key to the object, @param value The int value for the name.
+249 This is a convenience method that will convert the value to a COSInteger object. @param key The key to the object, @param value The int value for the name.
+250 This is a convenience method that will convert the value to a COSFloat object. @param key The key to the object, @param value The int value for the name.
+251 Creates a new COSStream using the current configuration for scratch files. Not for public use. Only COSParser should call this method. @param dictionary the corresponding dictionary @param startPosition the start position within the source @param streamLength the stream length @return the new COSStream @throws IOException if the random access view can't be read
+252 This will set the document ID. This should be an array of two strings. This method cannot be used to remove the document id by passing null or an empty array; it will be recreated. Only the first existing string is used when writing, the second one is always recreated. If you don't want this, you'll have to modify the {@code COSWriter} class, look for {@link COSName#ID}. @param id The document id.
+253 This will set the difference between the annotations "outer" rectangle defined by /Rect and the border. @param differenceLeft left difference from the annotations /Rect entry @param differenceTop top difference from the annotations /Rect entry @param differenceRight right difference from the annotations /Rect entry @param differenceBottom bottom difference from the annotations /Rect entry
+254 This will set the numbers that shall represent the alternating horizontal and vertical coordinates. @param points an array with the numbers that shall represent the alternating horizontal and vertical coordinates.
+255 Set the relationship between the current document and the target (which may be an intermediate target). @param relationship Valid values are P (the target is the parent of the current document) and C (the target is a child of the current document). throws IllegalArgumentException if the parameter is not P or C.
+256 @param b The destination.
+257 @param d The destination.
+258 @param array the array of fields
+259 Sets the sound object. @param sound the sound object defining the sound that shall be played.
+260 This will set the markup annotation which this popup relates to. @param annot the markup annotation.
+261 @param h hide flag
+262 @param t annotation or annotations
+263 Constructor.
+264 This will set the transfer function of the /TR2 dictionary. @param transfer2 The transfer function. According to the PDF specification, this is either a single function (which applies to all process colorants) or an array of four functions (which apply to the process colorants individually). The name Identity may be used to represent the identity function, and the name Default denotes the transfer function that was in effect at the start of the page.
+265 This will set a float object. @param key The key to the data that we are setting. @param value The value that we are setting.
+266 Set the blending mode. @param bm blend mode
+267 Default constructor, creates blank graphics state.
+268 This will set the decode values. @param decodeValues the new decode values
+269 Sets the Coords entry for this shading. @param newCoords the coordinates array
+270 Sets the optional Domain entry for this shading. @param newDomain the domain array
+271 Sets the optional Extend entry for this shading. @param newExtend the extend array
+272 Sets the optional Domain entry for the function based shading. @param newDomain the domain array
+273 Sets the optional Matrix entry for the function based shading. @param transform the transformation matrix
+274 This will set the functions COSArray for the color conversion. @param newFunctions the new COSArray containing all functions
+275 This will set the transfer function of the /TR dictionary. @param transfer The transfer function. According to the PDF specification, this is either a single function (which applies to all process colorants) or an array of four functions (which apply to the process colorants individually). The name Identity may be used to represent the identity function.
+276 Constructor. @param dict The annotations dictionary.
+277 @param array the array of fields
+278 This will set start and end coordinates of the line (or leader line if LL entry is set). @param l array of 4 floats [x1, y1, x2, y2] line start and end points in default user space.
+279 This will set the difference between the annotations "outer" rectangle defined by /Rect and the border. @param differenceLeft left difference from the annotations /Rect entry @param differenceTop top difference from the annotations /Rect entry @param differenceRight right difference from the annotations /Rect entry @param differenceBottom bottom difference from the annotations /Rect entry
+280 Sets the paths that make this annotation. @param inkList An array of arrays, each representing a stroked path. Each array shall be a series of alternating horizontal and vertical coordinates. If the parameter is null the entry will be removed.
+281 This will set the rectangle for this annotation. @param rectangle The new rectangle values.
+282 This will set the difference between the annotations "outer" rectangle defined by /Rect and the border. @param differenceLeft left difference from the annotations /Rect entry @param differenceTop top difference from the annotations /Rect entry @param differenceRight right difference from the annotations /Rect entry @param differenceBottom bottom difference from the annotations /Rect entry
+283 This will set the coordinates of the callout line. (PDF 1.6 and higher) Only relevant if the intent is FreeTextCallout. @param callout An array of four or six numbers specifying a callout line attached to the free text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending coordinates of the line in default user space, four numbers [ x1 y1 x2 y2 ] represent the starting and ending coordinates of the line.
+284 This will set the set of quadpoints which encompass the areas of this annotation which will activate. @param quadPoints an array representing the set of area covered.
+285 This will set the rich text stream which is displayed in the popup window. @param rc the rich text stream.
+286 This will set the border array. @param borderArray the border array to set.
+287 This will set the numbers that shall represent the alternating horizontal and vertical coordinates. @param points an array with the numbers that shall represent the alternating horizontal and vertical coordinates.
+288 This will set interior color of the drawn area color is in DeviceRGB colorspace. @param ic color in the DeviceRGB color space.
+289 This will set the distances. @param distances distances
+290 This will set interior color. @param ic color.
+291 This will set the areas. @param areas areas
+292 This will set interior color of the line endings defined in the LE entry. color is in DeviceRGB color space. @param ic color in the DeviceRGB color space.
+293 This will set interior color of the line endings defined in the LE entry. @param ic color.
+294 This will set the background color. @param c the background color
+295 Creates a clone of the source. @param src source dictionary or array. @param dstParent for the /P entry; parameter needed because arrays don't keep a parent. @param currentPageDict used to remember whether we have a page parent somewhere or not. Starts with null. @return a clone, or null if source is null or if there is no clone because it belongs to a different page or to no page.
+296 This will set the angles. @param angles angles
+297 Set the RGB text color for this node. @param textColor The text color for this node.
+298 Sets the tint transform function. @param tint the tint transform function
+299 This will set the tint transform function. @param tint The tint transform function.
+300 This will set the color used in drawing various elements. As of PDF 1.6 these are : Background of icon when closed Title bar of popup window Border of a link annotation Colour is in DeviceRGB colourspace @param c colour in the DeviceRGB colourspace
+301 Build widths with Identity CIDToGIDMap (for embedding full font).
+302 This will set the dash pattern for the graphics state. @param dashPattern The dash pattern
+303 This will set the font for this font setting. @param font The new font.
+304 This will set the changes along the x-axis. @param changeXs changes along the x-axis
+305 Creates a new JPEG Image XObject from an input stream containing JPEG data. The input stream data will be preserved and embedded in the PDF file without modification. @param document the document where the image will be created @param stream a stream of JPEG data @return a new Image XObject @throws IOException if the input stream cannot be read
+306 Get the RGB text color of this node. Default is black and this method will never return null. @return The structure element of this node.
+307 This will add null values until the size of the array is at least as large as the parameter. If the array is already larger than the parameter then nothing is done. @param size The desired size of the array.
+308 This will get the valid range for the "b" component. If none is found then the default will be returned, which is -100..100. @return the "b" range.
+309 Set the color space instance for this box style. This must be a PDDeviceRGB! @param color The new colorspace value.
+310 This will set the changes along the y-axis. @param changeYs changes along the y-axis
+311 This will set the sloaps of a line. @param lineSloaps the sloaps of a line
+312 Creates a new uncolored tiling pattern color space. @param resources The current resources. @param colorSpace The underlying color space.
+313 Returns the range for a certain component number. This will never return null. If it is not present then the range 0..1 will be returned. @param n the component number to get the range for @return the range for this component
+314 Creates a new ICC color space with an empty stream. @param doc the document to store the ICC data
+315 Gets a single colour or four colours. @param name the attribute name @return the single ({@link PDGamma}) or a ({@link PDFourColours})
+316 This will get the valid range for the "a" component. If none is found then the default will be returned, which is -100..100. @return the "a" range.
+317 This will set the border color. @param c the border color
+318 Add an OutputIntent to the list. If there is not OutputIntent, the list is created and the first element added. @param outputIntent the OutputIntent to add.
+319 Set the page for a local destination. For an external destination, call {@link #setPageNumber(int) setPageNumber(int pageNumber)}. @param page The page for a local destination.
+320 Returns the sign date. @return the sign date
+321 Writes a single operator token. @param op The operator to write to the stream. @throws IOException If there is an error writing to the stream.
+322 This will set the horizontal offset of the caption. @param offset the horizontal offset of the caption
+323 This will set the vertical offset of the caption. @param offset vertical offset of the caption
+324 Indicates the operating system. The string format isn't specified yet. Value will be stored as first item of the array, as specified in PDF Signature Build Dictionary Specification for PDF v1.7. @param os is a string with the system id or name.
+325 This will return the whitepoint tristimulus. As this is a required field this will never return null. A default of 1,1,1 will be returned if the pdf does not have any values yet. @return the whitepoint tristimulus
+326 This will return the BlackPoint tristimulus. This is an optional field but has defaults so this will never return null. A default of 0,0,0 will be returned if the pdf does not have any values yet. @return the blackpoint tristimulus
+327 (Optional) byte array containing DER-encoded X.509v3 certificate that is acceptable for signing. works like {@link #setSubject(List)} but one byte array @param subject byte array containing DER-encoded X.509v3 certificate
+328 (Optional; PDF 1.7) specifies an acceptable key-usage extension that must be presennt in the signing certificate for works like {@link #setKeyUsage(List)} but takes only one string @param keyUsageExtension String that consist only of {0, 1, X}
+329 array of bytes containing DER-encoded X.509v3 certificates of acceptable issuers. If the signer’s certificate chains up to any of the specified issuers (either directly or indirectly), the certificate is considered acceptable for signing. @param issuer A byte array containing DER-encoded X.509v3 certificate
+330 works like {@link #setOID(List)} but for one object @param oid Object Identifier of a certificate policy to be added
+331 Sets the range for this color space. @param range the new range for the a component @param n the component to set the range for
+332 This will retrieve the date and time the annotation was created. @return the creation date/time.
+333 The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset) to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref at the beginning of the file. Last the root object is parsed. @throws InvalidPasswordException If the password is incorrect. @throws IOException If something went wrong.
+334 The annotation create date. @return The date of the creation of the annotation date @throws IOException If there is an error converting the string to a Calendar object.
+335 This will get the modification date of the document. This will return null if no modification date exists. @return The modification date of the document.
+336 This will set the vertical offset of the caption. @param offset vertical offset of the caption
+337 This will set the horizontal offset of the caption. @param offset the horizontal offset of the caption
+338 Sets the crypt filter with the given name. @param cryptFilterName the name of the crypt filter @param cryptFilterDictionary the crypt filter to set
+339 Get the RGB color to be used for the guidelines. This is guaranteed to not return null. The default color is [0,0,0]. @return The guideline color.
+340 Sets the property value. @param value the property value
+341 Returns the gamma value. If none is present then the default of 1,1,1 will be returned. @return the gamma value
+342 Returns a map of colorants and their associated Separation color space. @param resources resources, can be null. @return map of colorants to color spaces, never null. @throws IOException If there is an error reading a color space
+343 Adds a user property. @param userProperty the user property
+344 Get the page actions. @return The Actions for this Page
+345 Constructor. @param cat The document catalog that this dictionary is part of.
+346 @return The Additional Actions for this Document
+347 Returns the document's article threads. @return a list of all threads of the document
+348 This will get the document info dictionary. If it doesn't exist, an empty document info dictionary is created in the document trailer. <p> In PDF 2.0 this is deprecated except for two entries, /CreationDate and /ModDate. For any other document level metadata, a metadata stream should be used instead, see {@link PDDocumentCatalog#getMetadata()}. @return The documents /Info dictionary, never null.
+349 This is a convenience method that will get the dictionary object that is expected to be a name and convert it to a string. Null is returned if the entry does not exist in the dictionary or if the date was invalid. @param key The key to the item in the dictionary. @return The name converted to a date.
+350 This is a convenience method that will get the dictionary object that is expected to be a date. @param key The key to the item in the dictionary. @param defaultValue The default value to return if the entry does not exist in the dictionary or if the date was invalid. @return The name converted to a date.
+351 This will get the creation date of the document. This will return null if no creation date exists. @return The creation date of the document.
+352 Helper to get kids from malformed PDFs. @param node page tree node @return list of kids
+353 Set the highest value for the key in the map. @param upper The new highest value for a key in the map.
+354 Sets the name of the person or authority signing the document. According to the PDF specification, this value should be used only when it is not possible to extract the name from the signature. @param name the name to be used
+355 This will set the line ending style for the start point, see the LE_ constants for the possible values. @param style The new style.
+356 This will set the mapping name of the field. @param mappingName the mapping name of the field
+357 This will set the alternate name of the field ("shall be used in place of the actual field name wherever the field shall be identified in the user interface (such as in error or status messages referring to the field)"). The text appears as a tool tip in Adobe Reader. Because of the usage for error or status messages, it should be different for each field. @param alternateFieldName the alternate name of the field.
+358 This will set the partial name of the field. @param name The new name for the field. @throws IllegalArgumentException If the name contains a period character.
+359 Sets the default value of this field. @param value The name of the selected item.
+360 Set the default appearance. @param daValue a string describing the default appearance
+361 Set the title for this node. @param title The new title for this node.
+362 Sets the contact info provided by the signer to enable a recipient to contact the signer to verify the signature, e.g. a phone number. @param contactInfo the contact info to be used
+363 Sets the reason for the signing, such as (I agree...). @param reason the reason to be used
+364 Sets the CPU host name or physical location of the signing. @param location the location to be used
+365 Sets the URL. @param url the URL to be set as URL
+366 (Optional) A URL, the use for which is defined by the URLType entry. @param url String of the URL
+367 The build date of the software module. This string is normally produced by the compiler. @param date is the build date of the software module
+368 This will set the alternate caption. @param caption the alternate caption
+369 Sets the plain text value of this field. @param value Plain text @throws IOException if the value could not be set
+370 This will set the rollover caption. @param caption the rollover caption
+371 This will set the annotation state model. Allowed values are "Marked" and "Review" @param stateModel the annotation state model
+372 This will set the annotation state. @param state the annotation state
+373 This will set the short description of the subject of the annotation. @param subj short description of the subject.
+374 Set the string used as the title of the popup window shown when open and active (by convention this identifies who added the annotation). @param t The title of the popup.
+375 Set the default style string. Providing null as the value will remove the default style string. @param defaultStyleString a string describing the default style.
+376 Set the default appearance. @param daValue a string describing the default appearance.
+377 This will set the name, a string intended to uniquely identify each annotation within a page. Not to be confused with some annotations Name entry which impact the default image drawn for them. @param nm The identifying name for the annotation.
+378 This will set the date and time the annotation was modified. @param m the date and time the annotation was created. Date values used in a PDF shall conform to a standard date format, which closely follows that of the international standard ASN.1 (Abstract Syntax Notation One), defined in ISO/IEC 8824. A date shall be a text string of the form (D:YYYYMMDDHHmmSSOHH'mm). Alternatively, use {@link #setModifiedDate(java.util.Calendar)}
+379 Set the "contents" of the field. @param value the value of the contents.
+380 Set the parameter to pass the executable. @param param The parameter for the executable.
+381 Set the operation to perform.. @param op The operation to perform on the file.
+382 Set the dir to launch from. @param dir The dir of the executable/document to launch.
+383 Set the file to launch. @param file The executable/document to launch.
+384 This will set the normal caption. @param caption the normal caption
+385 Set the plain text value of this field, and try to update the visual appearance. @param value Plain text @throws IOException if the value could not be set
+386 Sets the default value of this field. @param value Plain text
+387 Set the default appearance. This will set the local default appearance for the variable text field only, not affecting a default appearance in the parent hierarchy. Providing null as the value will remove the local default appearance. <p> This method can also be used to change the font of a field, by replacing the font name from this string with another font name found in the AcroForm default resources <u>before</u> calling {@link #setValue(java.lang.String) setValue(String)}, see also <a href="https://stackoverflow.com/questions/47995062/pdfbox-api-how-to-handle-cyrillic-values">this stackoverflow answer</a>. For example, "/Helv 10 Tf 0 g" can be replaced with "/F1 10 Tf 0 g". Performance may go down (see <a href="https://issues.apache.org/jira/browse/PDFBOX-4508">PDFBOX-4508)</a> if this is done for many fields and with a very large font (e.g. ArialUni); to avoid this, save and reload the file after changing all fields. @param daValue a string describing the default appearance
+388 This will set the font flags. @param flags The new font flags.
+389 This will set the field flags that are associated with this field. The 'ClrF' entry in the FDF field dictionary. @param ff The new value for the "clear field flags".
+390 This will set the widget field flags that are associated with this field. The 'SetF' entry in the FDF field dictionary. @param ff The new value for the "set widget field flags".
+391 This will set the field flags that are associated with this field. The 'F' entry in the FDF field dictionary. @param f The new value for the field flags.
+392 This will set the field flags that are associated with this field. The 'ClrFf' entry in the FDF field dictionary. @param ff The new value for the "clear field flags".
+393 This will set the field flags that are associated with this field. The 'SetFf' entry in the FDF field dictionary. @param ff The new value for the "set field flags".
+394 This will set the field flags that are associated with this field. The 'Ff' entry in the FDF field dictionary. @param ff The new value for the field flags.
+395 This will set the clockwise rotation in degrees. @param rotation The number of degrees of clockwise rotation.
+396 This will set the form of quadding (justification) of the annotation text. @param justification The quadding of the text.
+397 This will set the page. @param page The page number.
+398 This will set the permissions bit mask. @param permissions The new permissions bit mask
+399 This will set the R entry of the encryption dictionary.<br><br> See PDF Reference 1.4 Table 3.14. <br><br> <b>Note: This value is used to decrypt the pdf document. If you change this when the document is encrypted then decryption will fail!.</b> @param revision The new encryption version.
+400 This will set the number of bits to use for the encryption algorithm. @param length The new key length.
+401 This will set the V entry of the encryption dictionary.<br><br> See PDF Reference 1.4 Table 3.13. <br><br> <b>Note: This value is used to decrypt the pdf document. If you change this when the document is encrypted then decryption will fail!.</b> @param version The new encryption version.
+402 This will set the number of bits to use for the crypt filter algorithm. @param length The new key length.
+403 Sets the next key in the parent tree. This is a number greater than any existing key, and which shall be used for the next entry to be added to the tree. @param parentTreeNextkey The next key in the parent tree.
+404 Sets the revision number (R). @param revisionNumber the revision number
+405 Sets the marked content identifier. @param mcid the marked content identifier
+406 Set the number of bits that the output value will take up. Valid values are 1,2,4,8,12,16,24,32. @param bps The number of bits for each output value.
+407 Sets the start value for page numbering in this page range. @param start a positive integer representing the start value. @throws IllegalArgumentException if {@code start} is not a positive integer
+408 Constructor for reading. @param root A page tree root. @param document The document which contains "root".
+409 This will set the rotation for this page. @param rotation The new rotation for this page in degrees.
+410 This will set the key for this page in the structural parent tree. @param structParents The new key for this page.
+411 This is a convenience method that will convert the value to a COSInteger object. @param embeddedDictionary The embedded dictionary. @param key The key to the object, @param value The int value for the name.
+412 This is a convenience method that will convert the value to a COSInteger object. @param key The key to the object, @param value The int value for the name.
+413 This will set the scale ration. @param scaleRatio the scale ratio.
+414 This will get the value of the /NM entry in the annotation dictionary. @param name the /NM value of an annotation dictionary or null if the entry is to be removed.
+415 Sets the glyph widths in the font dictionary.
+416 Sets the name of the file as found in the EmbeddedFiles name tree. This is only to be used if the target is a child of the current document. @param filename a filename or null if the entry is to be deleted.
+417 This will set a parameter string to be passed to the application designated by the F entry. This entry should be omitted if F designates a document. @param p The parameter string.
+418 This will set the file name. You should also call {@link #setFileUnicode(java.lang.String) setFileUnicode(String)} for cross-platform and cross-language compatibility. @param file The name of the file.
+419 This will set the unicode file name. If you call this, then do not forget to also call {@link #setFile(java.lang.String) setFile(String)} or the attachment will not be visible on some viewers. @param file The name of the file.
+420 Sets the page label prefix for this page range. @param prefix the page label prefix for this page range, or {@code null} to unset the prefix.
+421 This will set the producer of the document. @param producer The new producer for the document.
+422 This will set the creator of the document. @param creator The new creator for the document.
+423 This will set the keywords of the document. @param keywords The new keywords for the document.
+424 This will set the subject of the document. @param subject The new subject for the document.
+425 This will set the author of the document. @param author The new author for the document.
+426 This will set the title of the document. @param title The new title for the document.
+427 Sets the Language for the document. @param language The new document language.
+428 This is a convenience method that will convert the value to a COSString object. If it is null then the object will be removed. @param embedded The embedded dictionary to set the item in. @param key The key to the object, @param value The string value for the name.
+429 This is a convenience method that will convert the value to a COSString object. If it is null then the object will be removed. @param key The key to the object, @param value The string value for the name.
+430 Set the date object. @param key The key to the date. @param date The date to set.
+431 Set the file description. @param description The file description
+432 Sets the direction of motion for the specified transition effect. Only for {@link PDTransitionStyle#Split}, {@link PDTransitionStyle#Blinds} and {@link PDTransitionStyle#Fly}. @param motion the direction of motion for the specified transition effect
+433 Sets the dimension in which the specified transition effect shall occur. Only for {@link PDTransitionStyle#Split} and {@link PDTransitionStyle#Blinds}. @param dimension the dimension in which the specified transition effect shall occur
+434 creates a new transition with the given style. @param style the style to be used to create the new transition
+435 This will set the name of the viewport. @param name the name of the viewport
+436 Constructor.
+437 This will set the subtype of the measure dictionary. @param subtype the subtype of the measure dictionary
+438 Constructor.
+439 Sets the element identifier (ID). @param id the element identifier
+440 Sets the title (T). @param title the title
+441 Sets the language (Lang). @param language the language
+442 This will set the string specifying the operation to perform: open to open a document print to print a document If the F entry designates an application instead of a document, this entry is ignored and the application is launched. Default value: open. @param o The operation to perform.
+443 This will set the string specifying the default directory in standard DOS syntax. @param d The default directory.
+444 This will set the file name to be launched or the document to be opened or printed, in standard Windows pathname format. If the name string includes a backslash character (\), the backslash must itself be preceded by a backslash. This value must be a single string; it is not a file specification. @param f The file name to be launched.
+445 @param sAction The JavaScript.
+446 Creates a new optional content properties dictionary.
+447 Sets the name of the optional content group. @param name the name
+448 This will set the name of the referenced page. @param name The referenced page name.
+449 This will set the partial field name. @param partial The partial field name.
+450 This will set the target frame in the browser to open this document. @param target The new target frame.
+451 This will set the status string. @param status The new status string.
+452 This will set the annotation state model. Allowed values are "Marked" and "Review" @param stateModel the annotation state model
+453 This will set the annotation state. @param state the annotation state
+454 This will set the caption positioning. Allowed values are: "Inline" and "Top" @param captionStyle caption positioning
+455 Set the default style string. @param style The new default style string.
+456 Set the default appearance string. @param appearance The new default appearance string.
+457 This will set the symbol that shall be associated with the caret. @param symbol the symbol
+458 A short description of the annotation. @param subject The annotation subject.
+459 Set a unique title for an annotation. @param title The annotation title.
+460 Set the contents, or a description, for an annotation. @param contents The annotation contents, or a description.
+461 Set a unique name for an annotation. @param name The unique annotation name.
+462 The annotation modification date. @param date The date to store in the FDF annotation.
+463 Sets the actual text (ActualText). @param actualText the actual text
+464 Sets the expanded form (E). @param expandedForm the expanded form
+465 Sets the alternate description (Alt). @param alternateDescription the alternate description
+466 This will set the uniform resource identifier to resolve, encoded in 7-bit ASCII. @param uri The uniform resource identifier.
+467 Constructor for an existing document outline. @param dic The storage dictionary.
+468 Default constructor.
+469 Default constructor.
+470 Default constructor.
+471 Default constructor.
+472 Default constructor.
+473 Default constructor.
+474 Default constructor.
+475 Default constructor.
+476 Default constructor.
+477 Default constructor.
+478 Default constructor.
+479 Default constructor.
+480 Default constructor.
+481 Removes an objectable kid. @param objectable the objectable @return <code>true</code> if the kid was removed, <code>false</code> otherwise
+482 Inserts an objectable kid before a reference kid. @param newKid the objectable @param refKid the reference kid
+483 Appends an objectable kid. @param objectable the objectable
+484 A file specification can either be a COSString or a COSDictionary. This will create the file specification either way. @param base The cos object that describes the fs. @return The file specification for the COSBase object. @throws IOException If there is an error creating the file spec.
+485 This will get the document CATALOG. This is guaranteed to not return null. @return The documents /Root dictionary
+486 Creates an empty PDF document. You need to add at least one page for the document to be valid.
+487 Get the width from a type3 charproc stream. @return the glyph width. @throws IOException if the stream could not be read, or did not have d0 or d1 as first operator, or if their first argument was not a number.
+488 Calculate the bounding box of this glyph. This will work only if the first operator in the stream is d1. @return the bounding box of this glyph, or null if the first operator is not d1. @throws IOException If an io error occurs while parsing the stream.
+489 This will parse all the tokens in the stream. This will close the stream when it is finished parsing. @return All of the tokens in the stream. @throws IOException If there is an error while parsing the stream.
+490 Merges two objects of the same type by deep-cloning its members. <br> Base and target must be instances of the same class. @param base the base object to be cloned @param target the merge target @throws IOException if an I/O error occurs
+491 Default constructor.
+492 Build vertical metrics with Identity CIDToGIDMap (for embedding full font).
+493 Constructor for embedding.
+494 Draws an ellipse without a cloudy border effect.
+495 Creates a corner curl for polygons and ellipses.
+496 Creates a new JPEG PDImageXObject from a BufferedImage. <p> Do not read a JPEG image from a stream/file and call this method; you'll get more speed and quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument, java.io.InputStream) createFromStream()} instead. @param document the document where the image will be created @param image the BufferedImage to embed @return a new Image XObject @throws IOException if the JPEG data cannot be written
+497 This will retrieve the border array. If none is available then it will create and return a default array, which is [0 0 1]. The array consists of at least three numbers defining the horizontal corner radius, vertical corner radius, and border width. The array may have a fourth element, an optional dash array defining a pattern of dashes and gaps that shall be used in drawing the border. If the array has less than three elements, the original array will be copied and missing elements with value 0 will be added. @return the border array, never null.
+498 @see PDField#PDField(PDAcroForm) @param acroForm The acroform.
+499 @see PDField#PDField(PDAcroForm) @param acroForm The acroform.
+500 @see PDField#PDField(PDAcroForm) @param acroForm The acroform.
+501 This will set the difference between the annotations "outer" rectangle defined by /Rect and the border. <p> This will set an equal difference for all sides</p> @param difference from the annotations /Rect entry
+502 This will set the difference between the annotations "outer" rectangle defined by /Rect and the border. <p>This will set an equal difference for all sides</p> @param difference from the annotations /Rect entry
+503 This will set the difference between the annotations "outer" rectangle defined by /Rect and boundaries of the underlying. <p>This will set an equal difference for all sides</p> @param difference from the annotations /Rect entry
+504 Creates a PDWidget from a COSDictionary, expected to be a correct object definition for a field in PDF. @param field the PDF object to represent as a field.
+505 Creates an arbitrary annotation from a COSDictionary, expected to be a correct object definition for some sort of annotation. @param dic The dictionary which represents this Annotation.
+506 Creates a popup annotation from a COSDictionary, expected to be a correct object definition. @param field the PDF object to represent as a field.
+507 Constructor. @param dict The annotations dictionary.
+508 Creates a Link annotation from a COSDictionary, expected to be a correct object definition. @param field the PDF object to represent as a field.
+509 Constructor.
+510 Constructor.
+511 Constructor.
+512 Constructor.
+513 This will set the non stroking alpha constant. @param alpha The new non stroking alpha constant.
+514 This will set the stroking alpha constant. @param alpha The new stroking alpha constant.
+515 This will set the smoothness tolerance. @param smoothness The new smoothness tolerance
+516 This will set the flatness tolerance. @param flatness The new flatness tolerance
+517 This will set the miter limit for the graphics state. @param miterLimit The new miter limit value
+518 This will set the line width. @param width The line width for the object.
+519 This will read a COSStream from the input stream using length attribute within dictionary. If length attribute is a indirect reference it is first resolved to get the stream length. This means we copy stream data without testing for 'endstream' or 'endobj' and thus it is no problem if these keywords occur within stream. We require 'endstream' to be found after stream data is read. @param dic dictionary that goes with this stream. @return parsed pdf stream. @throws IOException if an error occurred reading the stream, like problems with reading length attribute, stream does not end with 'endstream' after data read, stream too short etc.
+520 This will set the CYX factor. @param cyx CYX factor
+521 This will set the border width in points, 0 = no border. There is a bug in Adobe Reader DC, float values are ignored for text field widgets. As a workaround, floats that are integers (e.g. 2.0) are written as integer in the PDF. <p> In Adobe Acrobat DC, the values are shown as "0 = Invisible, 1 = Thin, 2 = Medium, 3 = Thick" for widget and link annotations. @param w float the width in points
+522 This will set top index "TI" value. @param topIndex the value for the top index, null will remove the value.
+523 This will set the flags for this field. @param flags The new flags.
+524 This will set the document-wide default value for the quadding/justification of variable text fields. See the QUADDING constants of {@link PDVariableText}. @param q The justification of the variable text fields.
+525 Set the open count. This number is automatically managed for you when you add items to the outline. @param openCount The new open count.
+526 Sets if a timestamp is reuqired or not. @param flag true if a timestamp is required
+527 Set the P value. @param p the value to be set as P
+528 This will set the rotation. @param rotation the rotation as a multiple of 90
+529 This will set the quadding/justification of the text. Please see the QUADDING_CONSTANTS in {@link PDVariableText }. @param q The new text justification.
+530 This will set the key for this annotation in the structural parent tree. @param structParent The new key for this annotation.
+531 This will set the flags for this field. @param flags The new flags.
+532 This will set the index (zero-based) of the annotation in the /Annots array of the page specified by the /P entry. @param index the zero based index. If this is &lt; 0 then the entry is removed.
+533 Set the page number (zero-based) in the current document containing the file attachment annotation. @param pageNumber the zero based page number. If this is &lt; 0 then the entry is removed.
+534 @param flags the flags
+535 Sets the maximum number of characters of the text field. @param maxLen the maximum number of characters
+536 @param flags the flags
+537 This will set the line join style. @param style The new line join style.
+538 This will set the line cap style for the graphics state. @param style The new line cap style to set.
+539 Set the number of bits per coordinate. @param bitsPerCoordinate the number of bits per coordinate
+540 Set the number of bits per component. @param bitsPerComponent the number of bits per component
+541 Set the number of vertices per row. @param verticesPerRow the number of vertices per row
+542 Set the number of bits per flag. @param bitsPerFlag the number of bits per flag
+543 This will set the shading type. @param shadingType the new shading type
+544 This will set the tiling type. @param tilingType The new tiling type.
+545 This will set the paint type. @param paintType The new paint type.
+546 This will set the pattern type. @param patternType The new pattern type.
+547 This will set the paint type. @param paintType The new paint type.
+548 This will set the overprint mode(OPM). @param overprintMode The overprint mode
+549 This will set the quadding/justification of the text. See QUADDING constants. @param q The new text justification.
+550 This is a convenience method that will convert the value to a COSInteger object. @param key The key to the object, @param value The int value for the name.
+551 This will write the trailer to the PDF document. @param doc The document to create the trailer for. @throws IOException If there is an IOError while writing the document.
+552 This will set the constant opacity value used when rendering the annotation (excluing any popup). @param ca the constant opacity value.
+553 This will set the length of the leader line offset. @param leaderLineOffsetLength length of the leader line offset
+554 This will set the length of the leader line extensions. @param leaderLineExtensionLength length of the leader line extensions
+555 This will set the length of the leader line. @param leaderLineLength length of the leader line
+556 Gets the volume at which to play the sound, in the range −1.0 to 1.0. @param volume The volume at which to play the sound, in the range −1.0 to 1.0. @throws IllegalArgumentException if the volume parameter is outside of the range −1.0 to 1.0.
+557 This will set the YStep value. @param yStep The new YStep value.
+558 This will set the XStep value. @param xStep The new XStep value.
+559 This will set the missing width for the font. @param missingWidth The new missing width for the font.
+560 This will set the max width for the font. @param maxWidth The new max width for the font.
+561 This will set the average width for the font. @param averageWidth The new average width for the font.
+562 This will set the stem H for the font. @param stemH The new stem h for the font.
+563 This will set the stem V for the font. @param stemV The new stem v for the font.
+564 This will set the x height for the font. @param xHeight The new x height for the font.
+565 This will set the cap height for the font. @param capHeight The new cap height for the font.
+566 This will set the leading for the font. @param leading The new leading for the font.
+567 This will set the descent for the font. @param descent The new descent for the font.
+568 This will set the ascent for the font. @param ascent The new ascent for the font.
+569 This will set the italic angle for the font. @param angle The new italic angle for the font.
+570 Set the weight of the font. @param fontWeight The new weight of the font.
+571 This will set the length of the leader line offset. @param leaderOffset length of the leader line offset
+572 This will set the length of the leader line extensions. @param leaderExtend length of the leader line extensions
+573 This will set the length of the leader line. @param leaderLength length of the leader line
+574 Set the annotation opacity. @param opacity The new opacity value.
+575 Set the guideline width. @param width The width in default user space units.
+576 Get the user unit. This is a positive number that shall give the size of default user space units, in multiples of 1/72 inch. This is supported by PDF 1.6 and higher. @param userUnit throws IllegalArgumentException if the parameter is not positive.
+577 This is a convenience method that will convert the value to a COSFloat object. @param key The key to the object, @param value The int value for the name.
+578 The software module revision number, used to determinate the minimum version of software that is required in order to process this signature. <p> NOTE: this entry is deprecated for PDF v1.7 </p> @param revision is the software module revision number
+579 The software module revision number, corresponding to the Date attribute. @param revision is the software module revision number
+580 (Optional) The minimum required capability of the signature field seed value dictionary parser. A value of 1 specifies that the parser shall be able to recognize all seed value dictionary entries in a PDF 1.5 file. A value of 2 specifies that it shall be able to recognize all seed value dictionary entries specified. @param minimumRequiredCapability is the minimum required capability of the signature field seed value dictionary parser
+581 Default Constructor.
+582 (Optional; PDF 1.7) A name indicating the usage of the URL entry. There are standard uses and there can be implementation-specific uses for this URL. The following value specifies a valid standard usage: <ul> <li>Browser, The URL references content that should be displayed in a web browser to allow enrolling for a new credential if a matching credential is not found. The Ff attribute’s URL bit is ignored for this usage.</li> <li>ASSP, The URL references a signature web service that can be used for server-based signing. If the Ff attribute’s URL bit indicates that this is a required constraint, this implies that the credential used when signing must come from this server.</li> </ul> Third parties can extend the use of this attribute with their own attribute values, which must conform to the guidelines specified in <a href="http://www.adobe.com/content/dam/acom/en/devnet/pdf/PDF32000_2008.pdf#page=681">PDF Spec 1.7 Appendix E (PDF Name Registry)</a> if urlType is not set the default is Browser for URL @param urlType String of the urlType
+583 The name of the software module that was used to create the signature. @param name is the name of the software module
+584 This will set the file in which the destination is located. @param fs The file specification.
+585 This will set the destination to jump to. @param d The destination. @throws IllegalArgumentException if the destination is not a page dictionary object.
+586 Sets the target directory. @param targetDirectory the target directory
+587 This will set the file in which the destination is located. @param fs The file specification.
+588 This will set the destination to jump to. @param d The destination. @throws IllegalArgumentException if the destination is not a page dictionary object.
+589 This will set the font setting for this graphics state. @param fs The new font setting.
+590 This will set the function for the color conversion. @param newFunction the new function
+591 This will set the resources for this pattern. @param resources The new resources for this pattern.
+592 This will set the shading resources for this pattern. @param shadingResources The new shading resources for this pattern.
+593 This will set the external graphics state for this pattern. @param extendedGraphicsState The new extended graphics state for this pattern.
+594 This will set the BlackPoint tristimulus. @param blackpoint the BlackPoint tristimulus
+595 This will set the whitepoint tristimulus. As this is a required field, null should not be passed into this function. @param whitepoint the whitepoint tristimulus. @throws IllegalArgumentException if null is passed as argument.
+596 This will set the application to be launched or the document to be opened or printed. It is required if none of the entries Win, Mac or Unix is present. If this entry is absent and the viewer application does not understand any of the alternative entries it should do nothing. @param fs The file specification.
+597 Set a stream containing a CIDSet. @param stream The font program stream.
+598 Set the true type font program. @param ttfStream The true type stream.
+599 Set the type 1 font program. @param type1Stream The type 1 stream.
+600 This will set the template reference. @param tRef The template reference.
+601 This will set the page info. @param info The new page info dictionary.
+602 This will set the file specification for this named page reference. @param fs The file specification to set.
+603 This will set frational space to allocate. @param space The space to allocate.
+604 This will set the additional actions that are associated with this field. @param aa The additional actions.
+605 This will set the action that is associated with this field. @param a The new action.
+606 This will set the icon fit 'IF' entry. @param fit The icon fit object.
+607 This will set the named page references. @param ref The named page references.
+608 This will set the appearance dictionary. @param ap The appearance dictionary.
+609 This will set the FDF catalog for this FDF document. @param cat The FDF catalog.
+610 Set a stream containing a font program that is not true type or type 1. @param stream The font program stream.
+611 This will set a dictionary containing Windows-specific launch parameters. @param win The action to be performed.
+612 This will set the file in which the destination is located. @param fs The file specification.
+613 This will set the file in which the destination is located. @param fs The file specification.
+614 Set the attached file. @param file The file that is attached.
+615 This will set the corresponding page for this annotation. This is optional but recommended. Not doing it <a href="https://stackoverflow.com/questions/74836898/">can cause trouble when PDFs get signed</a>. @param page is the corresponding page
+616 Sets the optional content group or optional content membership dictionary for the annotation. @param oc The optional content group or optional content membership dictionary.
+617 This will set the appearance associated with this annotation. @param appearance The appearance dictionary for this annotation.
+618 This will set a named destination in the current document that provides the page number of the file attachment annotation. @param dest a named destination or null if the entry is to be removed.
+619 Sets the target directory. @param targetDirectory the target directory or null if the current document is the target file containing the destination.
+620 This will set an action to be performed when the page is closed. This action applies to the page being closed, and is executed before any other page opened. @param c The action to be performed.
+621 This will set an action to be performed when the page is opened. This action is independent of any that may be defined by the OpenAction entry in the document catalog, and is executed after such an action. @param o The action to be performed.
+622 This will set a JavaScript action to be performed in order to recalculate the value of this field when that of another field changes. The order in which the document's fields are recalculated is defined by the CO entry in the interactive form dictionary. The name C stands for "calculate". @param c The action to be performed.
+623 This will set a JavaScript action to be performed when the field's value is changed. This allows the new value to be checked for validity. The name V stands for "validate". @param v The action to be performed.
+624 This will set a JavaScript action to be performed before the field is formatted to display its current value. This allows the field's value to be modified before formatting. @param f The action to be performed.
+625 This will set a JavaScript action to be performed when the user types a keystroke into a text field or combo box or modifies the selection in a scrollable list box. This allows the keystroke to be checked for validity and rejected or modified. @param k The action to be performed.
+626 This will set a JavaScript action to be performed after printing a document. The name DP stands for "did print". @param dp The action to be performed.
+627 This will set a JavaScript action to be performed before printing a document. The name WP stands for "will print". @param wp The action to be performed.
+628 This will set a JavaScript action to be performed after saving a document. The name DS stands for "did save". @param ds The action to be performed.
+629 This will set a JavaScript action to be performed before saving a document. The name WS stands for "will save". @param ws The action to be performed.
+630 This will set a JavaScript action to be performed before closing a document. The name WC stands for "will close". @param wc The action to be performed.
+631 This will set an action to be performed when the page containing the annotation is no longer visible in the viewer application's user interface. @param pi The action to be performed.
+632 This will set an action to be performed when the page containing the annotation becomes visible in the viewer application's user interface. @param pv The action to be performed.
+633 This will set an action to be performed when the page containing the annotation is closed. The action is executed before the C action in the page's additional actions dictionary, if present. @param pc The action to be performed.
+634 This will set an action to be performed when the page containing the annotation is opened. The action is executed after the O action in the page's additional actions dictionary and the OpenAction entry in the document catalog, if such actions are present. @param po The action to be performed.
+635 This will set an action to be performed when the annotation loses the input focus. The name Bl stands for "blurred". @param bl The action to be performed.
+636 This will set an action to be performed when the annotation receives the input focus. @param fo The action to be performed.
+637 This will set an action to be performed when the mouse button is released inside the annotation's active area. The name U stands for "up". @param u The action to be performed.
+638 This will set an action to be performed when the mouse button is pressed inside the annotation's active area. The name D stands for "down". @param d The action to be performed.
+639 This will set an action to be performed when the cursor exits the annotation's active area. @param x The action to be performed.
+640 This will set an action to be performed when the cursor enters the annotation's active area. @param e The action to be performed.
+641 Set the F action. @param action Get the F action.
+642 This will set the file in which the destination is located. @param fs The file specification.
+643 This will set the JavaScript entry. @param js The javascript entries.
+644 This will set the border effect dictionary, specifying effects to be applied when drawing the line. This is supported by PDF 1.6 and higher. @param be The border effect dictionary to set.
+645 This will set the file specification. @param fs The file specification.
+646 This will set the FDF document. @param fdf The new FDF dictionary.
+647 Sets the document level URI. @param uri The new document level URI.
+648 Set information about the doc's usage of tagged features. @param markInfo The new MarkInfo data.
+649 Sets the names dictionary for the document. @param names The names dictionary that is associated with this document.
+650 Sets the additional actions for the document. @param actions The actions that are associated with this document.
+651 Sets the Document Open Action for this object. @param action The action you want to perform.
+652 Sets the metadata for this object. This can be null. @param meta The meta data for this object.
+653 Sets the document outlines. @param outlines The new document outlines.
+654 Sets the viewer preferences. @param prefs The new viewer preferences.
+655 Sets the AcroForm for this catalog. @param acroForm The new AcroForm.
+656 This will set an item in the dictionary. If value is null then the result will be the same as removeItem( key ). @param key The key to the dictionary object. @param value The value to the dictionary object.
+657 This will dispatch to the correct method. @param obj The object to decrypt. @param objNum The object number. @param genNum The object generation Number. @return the encrypted/decrypted COS object @throws IOException If there is an error getting the stream data.
+658 Sets the colour for the end edge. @param colour the colour for the end edge
+659 Sets the colour for the start edge. @param colour the colour for the start edge
+660 Sets the document's structure tree root. @param treeRoot The new structure tree.
+661 Sets the colour for the after edge. @param colour the colour for the after edge
+662 This will create a translated rectangle based off of this rectangle, such that the new rectangle retains the same dimensions(height/width), but the lower left x,y values are zero. <br> 100, 100, 400, 400 (llx, lly, urx, ury ) <br> will be translated to 0,0,300,300 @return A new rectangle that has been translated back to the origin.
+663 Set the lowest value for the key in the map. @param lower The new lowest value for a key in the map.
+664 Set the highest value for the key in the map. @param upper The new highest value for a key in the map.
+665 This will set the line ending style for the end point, see the LE_ constants for the possible values. @param style The new style.
+666 This will set the line ending style for the start point, see the LE_ constants for the possible values. @param style The new style.
+667 This will set the line ending style for the end point, see the LE_ constants for the possible values. @param style The new style.
+668 This will set the line ending style for the start point, see the LE_ constants for the possible values. @param style The new style.
+669 This will set the line ending style for the end point, see the LE_ constants for the possible values. @param style The new style.
+670 This will set the line ending style for the start point, see the LE_ constants for the possible values. @param style The new style.
+671 This will set the line ending style for the end point, see the LE_ constants for the possible values. @param style The new style.
+672 Sets the colour for the before edge. @param colour the colour for the before edge
+673 Sets the page label descriptor for the document. @param labels the new page label descriptor to set.
+674 Set the named destinations that are associated with this document. @param dests The destination names.
+675 Set the named embedded files that are associated with this document. @param ef The new embedded files
+676 This will set the fringe rectangle. Giving the difference between the annotations rectangle and where the drawing occurs. (To take account of any effects applied through the BE entry for example) @param fringe the fringe
+677 This will set the fringe rectangle. Giving the difference between the annotations rectangle and where the drawing occurs. (To take account of any effects applied through the BE entry for example) @param fringe the fringe
+678 This will set the fringe rectangle. Giving the difference between the annotations rectangle and where the drawing occurs. (To take account of any effects applied through the BE entry for example) @param fringe the fringe
+679 This will set the fringe rectangle. Giving the difference between the annotations rectangle and where the drawing occurs. @param fringe the fringe
+680 This will set the border effect dictionary, describing the effect applied to the border described by the BS entry. @param be the border effect dictionary to set.
+681 This will set the border style dictionary, specifying the width and dash pattern used in drawing the annotation. @param bs the border style dictionary to set.
+682 Set the rectangle associated with this annotation. @param rectangle The annotation rectangle.
+683 Sets the parent tree.<p> The keys correspond to a single page of the document or to an individual object, e.g. an annotation or an XObject, which have a <b>/StructParent</b> or <b>/StructParents</b> entry.<p> The values of type {@link PDParentTreeValue} are either a dictionary or an array. It's a dictionary for individual objects like an annotation or an XObject, and an array for a page object or a content stream containing marked-content sequences identified by an MCID. <p> To create an empty parent tree, call {@code new PDNumberTreeNode(PDParentTreeValue.class)}. @param parentTree the parent tree
+684 Sets the page on which some or all of the content items designated by the K entry shall be rendered (Pg). @param page the page on which some or all of the content items designated by the K entry shall be rendered.
+685 Sets the parent in the structure hierarchy (P). @param structureNode the parent in the structure hierarchy
+686 Sets the page on which the object shall be rendered. This is optional and overrides the /PG entry in the structure element containing the object reference; shall be used if the structure element contained no such entry. @param page
+687 Sets the referenced XObject. @param xobject the referenced XObject
+688 Sets the referenced annotation. @param annotation the referenced annotation
+689 Sets the page. @param page the page
+690 Sets the value of a given named resource.
+691 Convenient method to set a transition and the display duration @param transition The new transition to set on this page. @param duration The maximum length of time, in seconds, that the page shall be displayed during presentations before the viewer application shall automatically advance to the next page.
+692 @param transition The new transition to set on this page.
+693 Set the page actions. @param actions The actions for the page.
+694 Set the metadata for this object. This can be null. @param meta The meta data for this object.
+695 This will set the contents of this page. @param contents The new contents of the page.
+696 This will set the ArtBox for this page. @param artBox The new ArtBox for this page.
+697 This will set the TrimBox for this page. @param trimBox The new TrimBox for this page.
+698 This will set the BleedBox for this page. @param bleedBox The new BleedBox for this page.
+699 This will set the mediaBox for this page. @param mediaBox The new mediaBox for this page.
+700 This will set the resources for this page. @param resources The new resources for this page.
+701 Creates a new instance of PDPage for embedding. @param mediaBox The MediaBox of the page.
+702 Set the named javascript entries that are associated with this document. @param js The new Javascript entries.
+703 This will set the signature that is associated with this catalog. @param sig The new signature.
+704 This will set the rectangle difference rectangle. Giving the difference between the annotations rectangle and where the drawing occurs. (To take account of any effects applied through the BE entry for example) @param rd the rectangle difference
+705 Set the annotation action. Either this or the destination entry should be set, but not both. @param action The annotation action.
+706 This will set the border style dictionary, specifying the width and dash pattern used in drawing the line. @param bs the border style dictionary to set.
+707 Sets the numbering style for this page range. @param style one of the STYLE_* constants or {@code null} if no page numbering is desired.
+708 This will set the trapped of the document. This will be 'True', 'False', or 'Unknown'. @param value The new trapped value for the document. @throws IllegalArgumentException if the parameter is invalid.
+709 Sets the PDF specification version this document conforms to. @param version the PDF version (e.g. "1.4")
+710 Sets the page layout. @param layout The new page layout.
+711 Sets the page mode. @param mode The new page mode.
+712 This is a convenience method that will convert the value to a COSName object. If it is null then the object will be removed. @param key The key to the object, @param value The string value for the name.
+713 Sets an array of float numbers. @param name the attribute name @param values the float numbers
+714 Sets an array of name values. @param name the attribute name @param values the array of name values
+715 Sets an array of strings. @param name the attribute name @param values the array of strings
+716 Set the display doc title preference. @param value Set the display doc title preference.
+717 Set the center window preference. @param value Set the center window preference.
+718 Set the fit window preference. @param value Set the fit window preference.
+719 Set the window UI preference. @param value Set the window UI preference.
+720 Creates a new instance with a given type. @param type the type (Type)
+721 Set the menubar preference. @param value Set the menubar preference.
+722 Set the NeedAppearances value. If this is false, PDFBox will create appearances for all field widget. @param value the value for NeedAppearances
+723 If true, the application was in trusted mode when signing took place. @param trustedMode true if the application is in trusted mode.
+724 If true, the reader should not display a warning about fonts not being embedded. @param noEmbedFontWarning true if there is a Legal dictionary in the catalog and the NonEmbeddedFonts attribute has a non-zero value Documentation says: (Optional; PDF 1.5) If there is a LegalPDF dictionary in the catalog of the PDF file and the NonEmbeddedFonts attribute in this dictionary has a non zero value, and the viewing application has a preference set to suppress the display of this warning then the value of this attribute will be set to true. @see <a href="https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/Acrobat_Signature_BuildDict.pdf#page=6">Digital Signature Build Dictionary Specification</a> @see #getNonEFontNoWarn() @see COSName#NON_EFONT_NO_WARN
+725 A flag that can be used by the signature handler or software module to indicate that this signature was created with unrelease software. @param preRelease is true if the signature was created with a unrelease software, otherwise false.
+726 This will set initial state of the annotation, open or closed. @param open Boolean value, true = open false = closed
+727 This will set if the contents are shown as a caption to the line. @param cap Boolean value.
+728 The flag specifying whether to mix this sound with any other sound already playing. If this flag is false, any previously playing sound shall be stopped before starting this sound; this can be used to stop a repeating sound (see Repeat). Default value: false. @param mix whether to mix this sound with any other sound already playing. (false).
+729 A flag specifying whether to repeat the sound indefinitely. @param repeat Whether to repeat the sound indefinitely.
+730 A flag specifying whether to play the sound synchronously or asynchronously. When true, the reader allows no further user interaction other than canceling the sound until the sound has been completely played. @param synchronous Whether to play the sound synchronously (true) or asynchronously (false).
+731 This will specify whether to open the destination document in a new window. @param value The flag value.
+732 This will specify whether to open the destination document in a new window. @param value The flag value.
+733 This will specify whether to open the destination document in a new window. @param value The flag value.
+734 This will set the text knockout flag. @param tk The text knockout flag.
+735 Set the toolbar preference. @param value Set the toolbar preference.
+736 Sets the owner of the attributes. @param owner the owner of the attributes
+737 Default constructor
+738 Default Constructor.
+739 This will set the subtype of the external data dictionary. @param subtype the subtype of the external data dictionary
+740 Constructor.
+741 This will set the border style, see the STYLE_* constants for valid values. @param s the border style to use
+742 Sets the highlighting mode. <dl> <dt><code>N</code></dt> <dd>(None) No highlighting.</dd> <dt><code>I</code></dt> <dd>(Invert) Invert the contents of the annotation rectangle.</dd> <dt><code>O</code></dt> <dd>(Outline) Invert the annotation's border.</dd> <dt><code>P</code></dt> <dd>(Push) Display the annotation's down appearance, if any. If no down appearance is defined, the contents of the annotation rectangle shall be offset to appear as if it were pushed below the surface of the page</dd> <dt><code>T</code></dt> <dd>(Toggle) Same as <code>P</code> (which is preferred).</dd> </dl> @param highlightingMode the highlighting mode the defined values
+743 This will set the name (and hence appearance, AP taking precedence) For this annotation. See the NAME_XXX constants for valid values. @param name The name of the annotation
+744 This will set the name (and hence appearance, AP taking precedence) For this annotation. See the NAME_XXX constants for valid values. @param name The name of the rubber stamp.
+745 This will set the intent of the annotation The values and meanings are specific to the actual annotation See the IT_* constants for the annotation classes. @param it the intent
+746 This will set the Reply Type (relationship) with the annotation in the IRT entry See the RT_* constants for the available values. @param rt the reply type.
+747 Set the highlight mode. See the HIGHLIGHT_MODE_XXX constants. @param mode The new highlight mode.
+748 This will set the caption positioning. Allowed values are: "Inline" and "Top" @param captionPositioning caption positioning
+749 This will set the line ending style. @param style The new style.
+750 Set the name used to draw the attachment icon. See the ATTACHMENT_NAME_XXX constants. @param name The name of the visual icon to draw.
+751 This will set the annotations appearance state name. @param as The name of the appearance stream.
+752 This will set the sub type (and hence appearance, AP taking precedence) For this annotation. See the SUB_TYPE_XXX constants for valid values. @param subType The subtype of the annotation
+753 This will set the type of action that the actions dictionary describes. @param s The new type of action.
+754 This will set the type of PDF object that the actions dictionary describes. If present must be Action for an action dictionary. @param type The new Type for the PDF object.
+755 Creates a new Pattern dictionary.
+756 This will set the scale type. See the SCALE_TYPE_XXX constants. @param scale The scale type.
+757 This will set the scale option for the icon. Set the SCALE_OPTION_XXX constants. @param option The scale option.
+758 This will set the encoding. @param encoding The new encoding.
+759 This will set the version of the FDF document. @param version The new version for the FDF document.
+760 This will set the icon (and hence appearance, AP taking precedence) For this annotation. See the PDAnnotationText.NAME_XXX constants for valid values. @param icon The name of the annotation
+761 This will set the line ending style. @param style The new style.
+762 The intent of the annotation. @param intent The annotation's intent.
+763 Set the subfilter entry of the encryption dictionary. @param subfilter The value of the subfilter field.
+764 Set the style for the box. @param style The style for the box line. @see PDBoxStyle#GUIDELINE_STYLE_DASHED @see PDBoxStyle#GUIDELINE_STYLE_SOLID
+765 Constructor. @param type the type
+766 Sets the structure type (S). @param structureType the structure type
+767 This will set the alpha source flag (“alpha is shape”), that specifies whether the current soft mask and alpha constant shall be interpreted as shape values (true) or opacity values (false). @param alpha The alpha source flag.
+768 This will set the automatic stroke adjustment flag. @param sa The new automatic stroke adjustment flag.
+769 This will set the overprint control(OP). @param op The overprint control.
+770 This will set the overprint control(OP). @param op The overprint control.
+771 Set the action for this node. @param action The new action for this node.
+772 Set the page destination for this node. @param dest The new page destination for this node.
+773 Set the next sibling, this will be maintained by this class. @param outlineNode The new next sibling.
+774 Set the previous sibling, this will be maintained by this class. @param outlineNode The new previous sibling.
+775 PDF signature build dictionary. Provides information about the signature handler. @param propBuild the prop build
+776 (Optional) A certificate seed value dictionary containing information about the certificate to be used when signing. @param certificate dictionary
+777 Set the build data dictionary for the viewing application software module. @param app is the PDPropBuildApp
+778 Set the build data dictionary for the PubSec Software module. @param pubSec is the PDPropBuildPubSec
+779 Set the build data dictionary for the signature handler. This entry is optional but is highly recommended for the signatures. @param filter is the PDPropBuildFilter
+780 This will set the down appearance when there is down appearance to be shown. @param ap The appearance stream to show.
+781 This will set a list of appearances. If you would like to set the single appearance then you should use the key "default", and when the PDF is written back to the filesystem then there will only be one stream. @param entry appearance stream or subdictionary
+782 This will set the rollover appearance when there is rollover appearance to be shown. @param ap The appearance stream to show.
+783 This will set a list of appearances. If you would like to set the single appearance then you should use the key "default", and when the PDF is written back to the filesystem then there will only be one stream. @param entry appearance stream or subdictionary
+784 This will set the normal appearance when there is only one appearance to be shown. @param ap The appearance stream to show.
+785 This will set a list of appearances. If you would like to set the single appearance then you should use the key "default", and when the PDF is written back to the filesystem then there will only be one stream. @param entry appearance stream or subdictionary
+786 Set the parent field of a widget annotation. This is only required if this widget annotation is one of multiple children in a field, and not to be set otherwise. You will usually not need this, because in most cases, fields have only one widget and share a common dictionary. A usage can be found in the CreateMultiWidgetsForm example. @param field the parent field. @throws IllegalArgumentException if setParent() was called for a field that shares a dictionary with its only widget.
+787 This will set the border style dictionary, specifying the width and dash pattern used in drawing the line. @param bs the border style dictionary to set.
+788 Set the actions of the field. @param actions The field actions.
+789 Set the annotation action. As of PDF 1.6 this is only used for Widget Annotations @param action The annotation action.
+790 Sets the appearance characteristics dictionary. @param appearanceCharacteristics the appearance characteristics dictionary
+791 This will set the rectangle difference rectangle. Giving the difference between the annotations rectangle and where the drawing occurs. (To take account of any effects applied through the BE entry for example) @param rd the rectangle difference
+792 This will set the border effect dictionary, specifying effects to be applied when drawing the line. This is supported by PDF 1.5 and higher. @param be The border effect dictionary to set.
+793 This will set the border effect dictionary, specifying effects to be applied when drawing the line. This is supported by PDF 1.5 and higher. @param be The border effect dictionary to set.
+794 This will set the border style dictionary, specifying the width and dash pattern used in drawing the line. @param bs the border style dictionary to set.
+795 This will set the external data dictionary. @param externalData the external data dictionary
+796 This will set the annotation to which this one is "In Reply To" the actual relationship is specified by the RT entry. @param irt the annotation this one is "In Reply To".
+797 This will set the popup annotation used for entering/editing the text for this annotation. @param popup the popup annotation.
+798 This will set the previous URI action, in case it needs to be retrieved at later date. @param pa The previous URI.
+799 The new destination value. Either this or the action entry should be set, but not both. @param dest The updated destination.
+800 Set the structure element for this node. @param structureElement The new structure element for this node.
+801 Set the lowest value for the key in the map. @param lower The new lowest value for a key in the map.
+802 Set the last child, this will be maintained by this class. @param outlineNode The new last child.
+803 This will set the AntiAlias value. @param antiAlias the new AntiAlias value
+804 This will set if the fields can be renamed. @param value The flag value.
+805 This will tell the icon to scale. @param value The flag value.
+806 This will set if the contents are shown as a caption to the line. @param cap Boolean value.
+807 Set the EncryptMetaData dictionary info. @param encryptMetaData true if EncryptMetaData shall be set.
+808 Tell if the underlying file is volatile and should not be cached by the reader application. Default: false @param fileIsVolatile The new value for the volatility of the file.
+809 This will set the value indication if the denominator of the fractional value is reduced/truncated . The denominator may not be reduced/truncated if true @param fd fd
+810 This will set the initial state of the annotation, open or closed. @param open Boolean value, true = open false = closed.
+811 This will specify whether to track the mouse position when the URI is resolved. @param value The flag value.
+812 Set the value of the suspects property. See PDF Reference 1.6 section 10.6 "Logical Structure" for more information about this property. @param suspect The new "Suspects" value.
+813 Set if the structure elements contain user properties. @param userProps The new value for this property.
+814 Set if this is a tagged PDF. @param value The new marked value.
+815 Set the rectangle on the page that this bead covers. @param rect The portion of the page that this bead covers.
+816 Set the page that this bead is part of. This is a required property and must be set when creating a new bead. The PDPage object also has a list of beads in the natural reading order. It is recommended that you add this object to that list as well. @param page The page that this bead is on.
+817 Set the previous bead in the thread. @param previous The previous bead.
+818 Set the next bead in the thread. @param next The next bead.
+819 Set the thread that this bead is part of. This is only required for the first bead in a thread. Note: This property is set for you by the PDThread.setFirstBead() method. @param thread The thread that this bead is part of.
+820 Set the thread info, can be null. @param info The info dictionary about this thread.
+821 This will set the measure dictionary. @param measure the measure dictionary
+822 This will set the rectangle specifying the location of the viewport. @param rectangle the rectangle specifying the location.
+823 Set the actions of the field. @param actions The field actions.
+824 <p>(Optional; PDF 1.) A seed value dictionary containing information that constrains the properties of a signature that is applied to the field.</p> @param sv is the seed value dictionary as PDSeedValue
+825 Sets the default value of this field to be the given signature. @param value is the PDSignatureField
+826 Sets the value of this field to be the given signature. @param value is the PDSignatureField @throws IOException if the new value could not be applied
+827 Set the XFA resource, this is only used for PDF 1.5+ forms. @param xfa The xfa resource.
+828 This will set the default resources for the acroform. @param dr The new default resources.
+829 Set the first child, this will be maintained by this class. @param outlineNode The new first child.
+830 Tell if the dictionary is a PDF or FDF catalog. @param dictionary the dictionary to be tested @return true if the given dictionary is a root dictionary
+831 This will retrieve the rollover icon. @return the rollover icon
+832 This will get the stroking alpha constant. @return The stroking alpha constant or null if one has not been set.
+833 This will get the smothness tolerance. @return The smothness tolerance or null if one has not been set.
+834 This will get the flatness tolerance. @return The flatness tolerance or null if one has not been set.
+835 This will get the miter limit. @return null or the ML value in the dictionary.
+836 This will get the line width. This will return null if there is no line width @return null or the LW value of the dictionary.
+837 Creates a property list from the given dictionary. @param dict COS dictionary @return a new instance of a PDPropertyList using the given dictionary
+838 Returns the group color space or null if it isn't defined. @return the group color space. @throws IOException if the colorspace could not be created
+839 Process the page to extract the region text. @param page The page to extract the regions from. @throws IOException If there is an error while extracting text.
+840 @return The starting or ending scale at which the changes shall be drawn or the default 1 if no scale is found. Only for {@link PDTransitionStyle#Fly}.
+841 @return The duration in seconds of the transition effect or the default 1 if no duration is found.
+842 This will retrieve the border width in points, 0 = no border. @return The width of the border in points.
+843 This will retrieve the constant opacity value used when rendering the annotation (excluing any popup). @return the constant opacity value.
+844 This will retrieve the length of the leader line offset. @return the length of the leader line offset
+845 This will retrieve the length of the leader line extensions. @return the length of the leader line extensions
+846 This will get the descent for the font. @return The descent.
+847 This will get the leading for the font. @return The leading.
+848 This will get the CapHeight for the font. @return The cap height.
+849 This will get the x height for the font. @return The x height.
+850 This will get the stemV for the font. @return The stem v value.
+851 This will get the stemH for the font. @return The stem h value.
+852 This will get the non stroking alpha constant. @return The non stroking alpha constant or null if one has not been set.
+853 This will get the average width for the font. @return The average width value.
+854 This will get the missing width for the font from the /MissingWidth dictionary entry. @return The missing width value, or 0 if there is no such dictionary entry.
+855 This will get the gamma value. If none is present then the default of 1 will be returned. @return The gamma value.
+856 This will return the XStep value. @return The XStep value
+857 This will return the YStep value. @return The YStep value
+858 Sets the volume. @return The volume at which to play the sound, in the range −1.0 to 1.0. Default value: 1.0.
+859 This will retrieve the length of the leader line. @return the length of the leader line
+860 This will get the max width for the font. @return The max width value.
+861 This will get the ascent for the font. @return The ascent.
+862 This will write a COS object. @param obj The object to write. @throws IOException if the output cannot be written
+863 Creates an attribute object. @param dictionary the dictionary @return the attribute object
+864 This will always return "Font" for fonts. @return The type of object that this is.
+865 The PostScript name of the font. @return The postscript name of the font.
+866 This will get the scale type. See the SCALE_TYPE_XXX constants. This is guaranteed to never return null. Default: Proportional @return The scale type.
+867 This will get the scale option. See the SCALE_OPTION_XXX constants. This is guaranteed to never return null. Default: Always @return The scale option.
+868 The encoding to be used for a FDF field. The default is PDFDocEncoding and this method will never return null. @return The encoding value.
+869 This will get the version that was specified in the catalog dictionary. @return The FDF version.
+870 This will retrieve the line ending style. @return The ending style for the start point.
+871 Get the intent of the annotation. @return The intent of the annotation.
+872 Create the correct FDFAnnotation. @param fdfDic The FDF dictionary. @return A newly created FDFAnnotation
+873 Get the name of the subfilter. @return The subfilter name contained in this encryption dictionary.
+874 Get the name of the filter. @return The filter name contained in this encryption dictionary.
+875 Gets the subtype (Subtype). @return the subtype
+876 Gets the type (Type). @return the type
+877 Gets the language (Lang). @return the language
+878 Returns the property name. @return the property name
+879 This is a convenience method that will get the dictionary object that is expected to be a name and convert it to a string. @param key The key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The name converted to a string.
+880 Check if the cross reference stream can be found at the current offset. @param startXRefOffset the expected start offset of the XRef stream @return the revised offset @throws IOException if something went wrong
+881 Returns the page display mode. @return the PageMode of the document, if not present PageMode.USE_NONE is returned
+882 Returns the page layout. @return the PageLayout of the document, if not present PageLayout.SINGLE_PAGE is returned
+883 Returns the PDF specification version this document conforms to. @return the PDF version (e.g. "1.4")
+884 This will get the trapped value for the document. This will return null if one is not found. @return The trapped value for the document.
+885 This is a convenience method that will get the dictionary object that is expected to be a name and convert it to a string. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The name converted to a string.
+886 This will get the export values from the options. <p> For options with an array of text strings the display value and export value are the same.<br> For options with an array of two-element arrays the export value is the first entry in the two-element array. </p> @return List containing all export values.
+887 Gets the type. @return the type
+888 Returns the owner of the attributes. @return the owner of the attributes
+889 Returns the structure type (S). @return the structure type
+890 Creates a node in the structure tree. Can be either a structure tree root, or a structure element. @param node the node dictionary @return the structure node
+891 Returns the type. @return the type
+892 Returns the numbering style for this page range. @return one of the STYLE_* constants
+893 This will get the italic angle for the font. @return The italic angle.
+894 The weight of the font. According to the PDF spec "possible values are 100, 200, 300, 400, 500, 600, 700, 800 or 900" Where a higher number is more weight and appears to be more bold. @return The font weight.
+895 Get the opacity value. @return The opacity of the annotation.
+896 This will retrieve the set of quadpoints which encompass the areas of this annotation which will activate. @return An array of floats representing the quad points.
+897 This will retrieve the horizontal offset of the caption. @return the horizontal offset of the caption
+898 This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section. @return The ending style for the end point, LE_NONE if missing, never null.
+899 This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section. @return The ending style for the start point, LE_NONE if missing, never null.
+900 This will retrieve the start and end coordinates of the line (or leader line if LL entry is set). @return array of floats [x1, y1, x2, y2] line start and end points in default user space.
+901 Get one or more disjoint paths that make this annotation. @return An array of arrays, each representing a stroked path. Each array shall be a series of alternating horizontal and vertical coordinates.
+902 This will get the coordinates of the callout line. (PDF 1.6 and higher) Only relevant if the intent is FreeTextCallout. @return An array of four or six numbers specifying a callout line attached to the free text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending coordinates of the line in default user space, four numbers [ x1 y1 x2 y2 ] represent the starting and ending coordinates of the line.
+903 This will get the margin between the annotations "outer" rectangle defined by /Rect and the border. @return the differences. If the entry hasn't been set am empty array is returned.
+904 This will get the margin between the annotations "outer" rectangle defined by /Rect and the boundaries of the underlying caret. @return the differences. If the entry hasn't been set am empty array is returned.
+905 An array identifying which fields to include in the submission or which to exclude, depending on the setting of the Include/Exclude flag in the Flags entry @return the array of fields
+906 An array identifying which fields to include in the submission or which to exclude, depending on the setting of the Include/Exclude flag in the Flags entry @return the array of fields
+907 This will get the font setting of the graphics state. @return The font setting.
+908 Returns all decode values as COSArray. @return the decode array
+909 This will get the Coords values for this shading. @return the coordinate values
+910 This will get the optional Domain values for this shading. @return the domain values
+911 This will get the optional Extend values for this shading. @return the extend values
+912 This will get the optional Domain values of a function based shading. @return the domain values
+913 This will get the list of FDF Pages. This will return a list of FDFPage objects. @return A list of FDF pages.
+914 This will get the list of kids. This will return a list of FDFField objects. This will return null if the underlying list is null. @return The list of kids.
+915 This will return a list of options for a choice field. The values in the list will be 1 of 2 types:<ul> <li><code>String</code> </li> <li>{@link FDFOptionElement}</li> </ul> @return A list of all options.
+916 This will get a list of FDFTemplage objects that describe the named pages that serve as templates. @return A list of templates.
+917 This will get a list of fields that are part of this template. @return A list of fields.
+918 This will retrieve the numbers that shall represent the alternating horizontal and vertical coordinates. @return An array of floats representing the alternating horizontal and vertical coordinates.
+919 The widths of the characters. This will be null for the standard 14 fonts. @return The widths of the characters.
+920 Returns the linear interpretation matrix, which is an array of nine numbers. If the underlying dictionary contains null then the identity matrix will be returned. @return the linear interpretation matrix
+921 Returns the names of the color components. @return the names of the color components
+922 This will return the background. @return the background
+923 PDF 2.0: This will retrieve the arrays that shall represent the alternating horizontal and vertical coordinates for path building. @return An array of float arrays, each supplying the operands for a path building operator (m, l or c). The first array should have 2 elements, the others should have 2 or 6 elements.
+924 This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section. @return The ending style for the start point, LE_NONE if missing, never null.
+925 This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section. @return The ending style for the end point, LE_NONE if missing, never null.
+926 This will return the angles. @return angles
+927 This will return the sloaps of a line. @return the sloaps of a line
+928 This will return the origin of the coordinate system. @return the origin
+929 Get the visibility policy name. Valid names are AllOff, AllOn, AnyOff, AnyOn (default). @return the visibility policy, never null.
+930 This is a convenience method that will get the dictionary object that is expected to be an long. -1 is returned if there is no value. @param key The key to the item in the dictionary. @return The long value.
+931 This is a convenience method that will get the dictionary object that is expected to be an long. -1 is returned if there is no value. @param key The key to the item in the dictionary. @return The long value.
+932 This will return the areas. @return areas
+933 This is a convenience method that will get the dictionary object that is expected to be an integer. If the dictionary value is null then the default value will be returned. @param key The key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The integer value.
+934 Sets the byte position of the first XRef (has to be called after very last startxref was read). This is used to resolve chain of active XRef/trailer. In case startxref position is not found we output a warning and use all XRef/trailer objects combined in byte position order. Thus for incomplete PDF documents with missing startxref one could call this method with parameter value -1. @param startxrefBytePosValue starting position of the first XRef
+935 This is a convenience method that will get the dictionary object that is expected to be an float. -1 is returned if there is no value. @param key The key to the item in the dictionary. @return The float value.
+936 This is a convenience method that will get the dictionary object that is expected to be an float. -1 is returned if there is no value. @param key The key to the item in the dictionary. @return The float value.
+937 This is a convenience method that will get the dictionary object that is expected to be a float. If the dictionary value is null then the default value will be returned. @param key The key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The float value.
+938 Get the user unit. This is a positive number that shall give the size of default user space units, in multiples of 1/72 inch, or 1 if it hasn't been set. This is supported by PDF 1.6 and higher. @return the user unit.
+939 Get the width of the of the guideline in default user space units. The default is 1. @return The width of the guideline.
+940 This will get the subtype of font. @return the subtype
+941 This will return the distances. @return distances
+942 This will return the changes along the x-axis. @return changes along the x-axis
+943 This will retrieve the numbers that shall represent the alternating horizontal and vertical coordinates. @return An array of floats representing the alternating horizontal and vertical coordinates.
+944 This will get the differences between the annotations "outer" rectangle defined by /Rect and the border. @return the differences. If the entry hasn't been set am empty array is returned.
+945 This will retrieve the set of quadpoints which encompass the areas of this annotation. @return An array of floats representing the quad points.
+946 If <b>SubFilter</b> is not null and the {@link #isSubFilterRequired()} indicates this entry is a required constraint, then the first matching encodings shall be used when signing; otherwise, signing shall not take place. If {@link #isSubFilterRequired()} indicates that this is an optional constraint, then the first matching encoding shall be used if it is available. If it is not available, a different encoding may be used instead. @return the subfilter that shall be used by the signature handler
+947 An array of names indicating acceptable digest algorithms to use when signing. The value shall be one of <b>SHA1</b>, <b>SHA256</b>, <b>SHA384</b>, <b>SHA512</b>, <b>RIPEMD160</b>. The default value is implementation-specific. @return the digest method that shall be used by the signature handler
+948 If the Reasons array is provided and {@link #isReasonRequired()} indicates that Reasons is a required constraint, one of the reasons in the array shall be used for the signature dictionary; otherwise signing shall not take place. If the {@link #isReasonRequired()} indicates Reasons is an optional constraint, one of the reasons in the array may be chose or a custom reason can be provided. @return the reasons that should be used by the signature handler
+949 This will return the changes along the y-axis. @return changes along the y-axis
+950 (Optional, PDF 1.6) An array of text strings that specifying possible legal attestations. @return the reasons that should be used by the signature handler
+951 Returns list of key usages of certificate strings where each string is 9 characters long and each character is one of these values {0, 1, X} 0 for must not set, 1 for must set, X for don't care. each index in the string represents a key usage: <ol> <li>digitalSignature</li> <li>non-Repudiation</li> <li>keyEncipherment</li> <li>dataEncipherment</li> <li>keyAgreement</li> <li>keyCertSign</li> <li>cRLSign</li> <li>encipherOnly</li> <li>decipherOnly</li> </ol> @return list of key usages of certificate strings
+952 Returns list of array of bytes of DER-encoded X.509v3 certificates @return list of array of bytes of DER-encoded X.509v3 certificates
+953 Returns A list of array of bytes that contain Object Identifiers (OIDs) of the certificate policies that must be present in the signing certificate @return list of array of bytes that contain Object Identifiers of the certificate policies
+954 Read out the byterange from the file. @return an integer array with the byterange, or an empty array if there is none.
+955 Return the calculation order in which field values should be recalculated when the value of any field changes. (Read about "Trigger Events" in the PDF specification) @return field list. Note these objects may not be identical to PDField objects retrieved from other methods (depending on cache setting). The best strategy is to call {@link #getCOSObject()} to check for identity. The list is not backed by the /CO COSArray in the document.
+956 This will get the indices of the selected options - the 'I' key. <p> This is only needed if a choice field allows multiple selections and two different items have the same export value or more than one values is selected. </p> <p>The indices are zero-based</p> @return List containing the indices of all selected options.
+957 Returns list of byte arrays that contains DER-encoded X.509v3 certificates @return list of byte arrays containing DER-encoded X.509v3 certificates
+958 Get the font name. @return The name of the font.
+959 A string representing the preferred font stretch. According to the PDF Spec: The font stretch value; it must be one of the following (ordered from narrowest to widest): UltraCondensed, ExtraCondensed, Condensed, SemiCondensed, Normal, SemiExpanded, Expanded, ExtraExpanded or UltraExpanded. @return The stretch of the font.
+960 Returns the PostScript name of the font. @return the PostScript name of the font
+961 Indicates the operating system. The string format isn't specified yet. In its PDF Signature Build Dictionary Specifications Adobe differently specifies the value type to store operating system string:<ul> <li>Specification for PDF v1.5 specifies type as string;</li> <li>Specification for PDF v1.7 specifies type as array and provided example for <code>/PropBuild</code> dictionary indicate it as array of names.</li> </ul> This method supports both types to retrieve the value. @return the operating system id or name.
+962 The build date of the software module. This string is normally produced by the compiler that is used to compile the software, for example using the Date and Time preprocessor flags. As such, this not likely to be in PDF Date format. @return the build date of the software module
+963 This will retrieve the alternate caption. @return the alternate caption.
+964 This will retrieve the rollover caption. @return the rollover caption.
+965 This will retrieve the normal caption. @return the normal caption.
+966 This will retrieve the annotation state model. @return the annotation state model
+967 This will retrieve the annotation state. @return the annotation state
+968 This will retrieve the short description of the subject of the annotation. @return the subject.
+969 Retrieve the string used as the title of the popup window shown when open and active (by convention this identifies who added the annotation). @return The title of the popup.
+970 Get the default style string. The default style string defines the default style for rich text fields. @return the DS element of the dictionary object
+971 Get the default appearance. @return a string describing the default appearance.
+972 This will get the name, a string intended to uniquely identify each annotation within a page. Not to be confused with some annotations Name entry which impact the default image drawn for them. @return The identifying name for the Annotation.
+973 This will retrieve the date and time the annotation was modified. @return the modified date/time (often in date format, but can be an arbitrary string).
+974 Get the "contents" of the field. @return the value of the contents.
+975 A parameter to pass the executable. @return The parameter to pass the executable.
+976 The dir to launch from. @return The dir of the executable/document to launch.
+977 The file to launch. @return The executable/document to launch.
+978 Removes a user property. @param userProperty the user property
+979 Returns the PDF name for the state. @return the name of the state
+980 Returns list of maps that contains subject distinguished names like [(cn: John Doe, o: Doe), (cn: John Smith)] both keys are typically of the form 'cn', 'o', 'email', '2.5.4.43'; and values are text strings. @return list maps that contains subject distinguished names
+981 Lists all optional content group names. @return an array of all names
+982 This will get the string specifying the default directory in standard DOS syntax. @return The D entry of the specific Windows launch parameter dictionary.
+983 This will get the string specifying the operation to perform: open to open a document print to print a document If the F entry designates an application instead of a document, this entry is ignored and the application is launched. Default value: open. @return The O entry of the specific Windows launch parameter dictionary.
+984 This will get a parameter string to be passed to the application designated by the F entry. This entry should be omitted if F designates a document. @return The P entry of the specific Windows launch parameter dictionary.
+985 This will get the uniform resource identifier to resolve. It should be encoded in 7-bit ASCII, but UTF-8 and UTF-16 are supported too. @return The URI entry of the specific URI action dictionary or null if there isn't any.
+986 Get the name of the file as found in the EmbeddedFiles name tree. This is only to be used if the target is a child of the current document. @return a filename or null if there is none.
+987 If the value in the /A entry is a string, this will get the value of the /NM entry in the annotation dictionary. @return the /NM value of an annotation dictionary or null if the /A entry value is missing or not a string.
+988 This will get the file name to be launched or the document to be opened or printed, in standard Windows pathname format. If the name string includes a backslash character (\), the backslash must itself be preceded by a backslash. This value must be a single string; it is not a file specification. @return The F entry of the specific Windows launch parameter dictionary.
+989 returns String of the URL @return string of the URL
+990 Returns the URL. @return the URL
+991 Returns the name of the person or authority signing the document. According to the PDF specification, this value should be used only when it is not possible to extract the name from the signature. @return the name
+992 Gets a number or a name value. @param name the attribute name @param defaultValue the default name @return a Float or a String
+993 Gets a number or an array of numbers. @param name the attribute name @param defaultValue the default value @return a Float or an array of floats
+994 Gets a colour. @param name the attribute name @return the colour
+995 Returns a unique key for a new resource.
+996 Gets a name value or array of name values. @param name the attribute name @param defaultValue the default value @return a String or array of Strings
+997 Returns the entry as an appearance subdictionary. @return the entry as an appearance subdictionary @throws IllegalStateException if this entry is not an appearance subdictionary
+998 Returns the destination corresponding to the parameter. @param name The destination name. @return The destination for that name, or null if there isn't any. @throws IOException if something goes wrong when creating the destination object.
+999 This will get the destination to jump to. @return The D entry of the specific go-to action dictionary. @throws IOException If there is an error creating the destination.
+1000 This will get the destination to jump to. @return The D entry of the specific go-to action dictionary. @throws IOException If there is an error creating the destination.
+1001 Get the destination to be displayed when the annotation is activated. Either this or the action entry should be set, but not both. @return The destination for this annotation. @throws IOException If there is an error creating the destination.
+1002 Get the page destination of this node. @return The page destination of this node. @throws IOException If there is an error creating the destination.
+1003 Creates a new XObject instance of the appropriate type for the COS stream. @param base The stream which is wrapped by this XObject. @param resources the resources of this XObject @return A new XObject instance. @throws java.io.IOException if there is an error creating the XObject.
+1004 removes a subject from the list @param subject byte array containing DER-encoded X.509v3 certificate
+1005 Gets an array of strings. @param name the attribute name @return the array of strings
+1006 Gets the attribute value for a given name. @param attrName the given attribute name @param defaultValue the default value @return the attribute value for a given name
+1007 Returns the CPU host name or physical location of the signing. @return the location
+1008 Returns the reason for the signing, such as (I agree...). @return the reason
+1009 Returns the contact info provided by the signer to enable a recipient to contact the signer to verify the signature, e.g. a phone number. @return the contact info
+1010 Get the title of this node. @return The title of this node.
+1011 Returns the partial name of the field. @return the name of the field
+1012 Gets the alternate name of the field ("shall be used in place of the actual field name wherever the field shall be identified in the user interface (such as in error or status messages referring to the field)"). @return the alternate name of the field
+1013 Is the attribute with the given name specified in this attribute object? @param name the attribute name @return <code>true</code> if the attribute is specified, <code>false</code> otherwise
+1014 Gets the mapping name of the field. The mapping name shall be used when exporting interactive form field data from the document. @return the mapping name of the field
+1015 This will return the scale ration. @return the scale ratio.
+1016 Returns the role map. @return the role map
+1017 Returns the selected values, or an empty List. This list always contains a single item unless {@link #isMultiSelect()} is true. @return A non-null string.
+1018 Returns the default values, or an empty List. This list always contains a single item unless {@link #isMultiSelect()} is true. @return A non-null string.
+1019 Nice method, gives you every object you want Arrays works properly too. Try "P/Annots/[k]/Rect" where k means the index of the Annots array. @param objPath the relative path to the object. @return the object
+1020 Gets the attribute value for a given name. @param attrName the given attribute name @return the attribute value for a given name
+1021 Get the default style string. The default style string defines the default style for rich text fields. @return the DS element of the dictionary object
+1022 This will get the list of FDF Fields. This will return a list of FDFField objects. @return A list of FDF fields.
+1023 Removes a key usage extension @param keyUsageExtension ASCII string that consists of {0, 1, X}
+1024 removes an OID from the list @param oid Object Identifier of the certificate policy to be removed
+1025 This will get the unicode file name. @return The file name.
+1026 Returns the page label prefix for this page range. @return the page label prefix for this page range, or {@code null} if no prefix has been defined.
+1027 This will get the producer of the document. This will return null if no producer exists. @return The producer of the document.
+1028 This will get the creator of the document. This will return null if no creator exists. @return The creator of the document.
+1029 This will get the keywords of the document. This will return null if no keywords exists. @return The keywords of the document.
+1030 This will get the subject of the document. This will return null if no subject exists. @return The subject of the document.
+1031 This will get the author of the document. This will return null if no author exists. @return The author of the document.
+1032 This will get the title of the document. This will return null if no title exists. @return The title of the document.
+1033 Returns the language for the document, or null. @return the language of the document if present, otherwise null
+1034 This is a convenience method that will get the dictionary object that is expected to be a string. @param key The key to the item in the dictionary. @param defaultValue The default value to return. @return The name converted to a string.
+1035 This is a convenience method that will get the dictionary object that is expected to be a string. Null is returned if the entry does not exist in the dictionary. @param key The key to the item in the dictionary. @return The name converted to a string.
+1036 Get the Duplex preference. See DUPLEX enumeration. @return the Duplex preference.
+1037 This will retrieve the name of the viewport. @return the name of the viewport
+1038 {@inheritDoc} <p><b>Note:</b> while non-terminal fields <b>do</b> inherit field values, this method returns the local value, without inheritance.
+1039 Returns the subfilter. @return the subfilter
+1040 Returns the filter. @return the filter
+1041 A name indicating the usage of the URL entry. There are standard uses and there can be implementation-specific use for this URL. The following value specifies a valid standard usage: <ul> <li>Browser, The URL references content that should be displayed in a web browser to allow enrolling for a new credential if a matching credential is not found. The Ff attribute’s URL bit is ignored for this usage.</li> <li>ASSP, The URL references a signature web service that can be used for server-based signing. If the Ff attribute’s URL bit indicates that this is a required constraint, this implies that the credential used when signing must come from this server.</li> </ul> @return string of URL type
+1042 Returns the PostScript name of the font. @return the PostScript name of the font
+1043 Returns the PostScript name of the font. @return the PostScript name of the font
+1044 Returns the PostScript name of the font. @return the PostScript name of the font
+1045 Returns true if this is an NChannel (PDF 1.6) color space. @return true if this is an NChannel color space.
+1046 This will get the type of PDF object that the actions dictionary describes. If present must be Action for an action dictionary. @return The Type of PDF object.
+1047 This will get the file name. @return The file name.
+1048 This will get the type of action that the actions dictionary describes. @return The S entry of actions dictionary.
+1049 This will retrieve the subtype of the annotation. @return The subtype of this annotation, see the SUB_TYPE_XXX constants.
+1050 This will retrieve the caption positioning. @return the caption positioning
+1051 This will retrieve the intent of the annotation The values and meanings are specific to the actual annotation See the IT_* constants for the annotation classes. @return the intent
+1052 returns the subtype of the external data dictionary. @return the subtype of the external data dictionary
+1053 The name of the software module that was used to create the signature. @return the name of the software module
+1054 If <b>Filter</b> is not null and the {@link #isFilterRequired()} indicates this entry is a required constraint, then the signature handler specified by this entry shall be used when signing; otherwise, signing shall not take place. If {@link #isFilterRequired()} indicates that this is an optional constraint, this handler may be used if it is available. If it is not available, a different handler may be used instead. @return the filter that shall be used by the signature handler
+1055 This will create the correct type of action based on the type specified in the dictionary. @param action An action dictionary. @return An action of the correct type.
+1056 This will get the name representing a Dos file. @return The file name.
+1057 This will get the name representing a Mac file. @return The file name.
+1058 This will get the name representing a Unix file. @return The file name.
+1059 Get the default appearance string. @return The default appearance of the annotation.
+1060 Get the default style string. @return The default style of the annotation.
+1061 This will retrieve the caption positioning. @return the caption positioning
+1062 This will retrieve the annotation state. @return the annotation state
+1063 This will retrieve the annotation state model. @return the annotation state model
+1064 This will get the status string to be displayed as the result of an action. @return The status.
+1065 This will get the clockwise rotation in degrees. @return The number of degrees of clockwise rotation.
+1066 This will get the target frame in the browser to open this document. @return The target frame.
+1067 This will get the name of the referenced page. A required parameter. @return The name of the referenced page.
+1068 A string representing the preferred font family. @return The font family.
+1069 This will get the character set for the font. @return The character set value.
+1070 Get the lowest value for a key in the name map. @return The lowest value for a key in the map.
+1071 Get the highest value for a key in the name map. @return The highest value for a key in the map.
+1072 This will get the "T" entry in the field dictionary. A partial field name. Where the fully qualified field name is a concatenation of the parent's fully qualified field name and "." as a separator. For example<br> Address.State<br> Address.City<br> @return The partial field name.
+1073 Removes an issuer from the issuers list @param issuer A byte array containing DER-encoded X.509v3 certificate
+1074 This will retrieve the symbol that shall be associated with the caret. @return the symbol
+1075 Get the annotation title. @return The title of the annotation.
+1076 This will get the description. @return The file description.
+1077 Returns the element identifier (ID). @return the element identifier
+1078 Returns the title (T). @return the title
+1079 Returns the language (Lang). @return the language
+1080 Returns the alternate description (Alt). @return the alternate description
+1081 Returns the expanded form (E). @return the expanded form
+1082 Get the description of the annotation. @return The subject of the annotation.
+1083 Returns the actual text (ActualText). @return the actual text
+1084 Gets the actual text (ActualText). @return the actual text
+1085 Gets the alternate description (Alt). @return the alternate description
+1086 Gets the expanded form (E). @return the expanded form
+1087 Modification date. @return The date as a string.
+1088 Get the annotation name. @return The unique name of the annotation.
+1089 Get the text, or a description, of the annotation. @return The text, or a description, of the annotation.
+1090 Returns the string for the property value. @return the string for the property value
+1091 This is the FDF id. @return The FDF ID.
+1092 This will retrieve the vertical offset of the caption. @return the vertical offset of the caption
+1093 This will retrieve the interior color of the drawn area. @return object representing the color.
+1094 Returns the parent tree.<p> The keys correspond to a single page of the document or to an individual object, e.g. an annotation or an XObject, which have a <b>/StructParent</b> or <b>/StructParents</b> entry.<p> The values of type {@link PDParentTreeValue} are either a dictionary or an array. It's a dictionary for individual objects like an annotation or an XObject, and an array for a page object or a content stream containing marked-content sequences identified by an MCID. @return the parent tree.
+1095 Returns the ID tree. @return the ID tree
+1096 Returns the page on which some or all of the content items designated by the K entry shall be rendered (Pg). @return the page on which some or all of the content items designated by the K entry shall be rendered
+1097 Get the page on which the object shall be rendered. @return the referenced page or null.
+1098 Gets the page. @return the page
+1099 Returns the resource names of the given kind.
+1100 Returns the resource with the given name and kind, or null.
+1101 Returns the resource with the given name and kind as an indirect object, or null.
+1102 @return The page transition associated with this page or null if no transition is defined
+1103 Get the document level JavaScript name tree. When the document is opened, all the JavaScript actions in it shall be executed, defining JavaScript functions for use by other scripts in the document. @return The document level JavaScript name tree.
+1104 Get the embedded files named tree node. The values in this name tree will be PDComplexFileSpecification objects. @return The embedded files name tree node.
+1105 Get the destination named tree node. The values in this name tree will be PDPageDestination objects. @return The destination name tree node.
+1106 Get the optional content properties dictionary associated with this document. @return the optional properties dictionary or null if it is not present
+1107 Get the document's structure tree root, or null if none exists. @return the structure tree root if present, otherwise null
+1108 Returns the document-level URI. @return the document level URI if present, otherwise null
+1109 Get info about doc's usage of tagged features. This will return null if there is no information. @return The new mark info.
+1110 Sets the ClassMap. @return the ClassMap, never null. The elements are either {@link PDAttributeObject} or lists of it.
+1111 @return The named destinations dictionary for this document or null if none exists.
+1112 Returns the crypt filter with the given name. @param cryptFilterName the name of the crypt filter @return the crypt filter with the given name if available
+1113 This will retrieve the border style dictionary, describing the effect applied to the border described by the BS entry. @return the border effect dictionary.
+1114 Get the target directory. If this entry is absent, the current document is the target file containing the destination. @return the target directory or null if the current document is the target file containing the destination.
+1115 This will get a dictionary containing Windows-specific launch parameters. @return The Win entry of of the specific launch action dictionary.
+1116 Get the target directory. @return the target directory or null if there is none.
+1117 This will get the resources for this pattern. This will return null if no resources are available at this level. @return The resources for this pattern.
+1118 This will get the external graphics state for this pattern. @return The extended graphics state for this pattern.
+1119 @param destination to be rendered @return state or null if undefined
+1120 Returns the DeviceN Process Dictionary, or null if it is missing. @return the DeviceN Process Dictionary, or null if it is missing.
+1121 Returns the dictionary containing all streams to be used to render the glyphs. @return the dictionary containing all glyph streams.
+1122 Returns the optional resources of the type3 stream. @return the resources bound to be used when parsing the type3 stream
+1123 Returns the Panose entry of the Style dictionary, if any. @return A Panose wrapper object.
+1124 Returns the CIDSystemInfo, or null if it is missing (which isn't allowed but could happen). @return the CIDSystemInfo, or null
+1125 This is the template reference. @return The template reference.
+1126 This will get a list of additional actions that will get executed based on events. @return The 'AA' entry in this FDF field dictionary or null.
+1127 This will get the icon fit that is associated with this field. @return The 'IF' entry.
+1128 This will get named page references. @return The named page references or <code>null</code>.
+1129 This will get the appearance dictionary that specifies the appearance of a pushbutton field. @return The AP entry of this dictionary.
+1130 This will get the java script entry. @return The java script entry describing javascript commands.
+1131 This will get the signature or null if there is none. @return The signature.
+1132 This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the annotation. @return the border style dictionary.
+1133 @return The names dictionary for this document or null if none exist.
+1134 Get the viewer preferences associated with this document or null if they do not exist. @return The document's viewer preferences.
+1135 Get the documents AcroForm. This will return null if no AcroForm is part of the document. Dependent on setting <code>acroFormFixup</code> some fixing/changes will be done to the AcroForm. If you need to ensure that there are no fixes applied call <code>getAcroForm</code> with <code>null</code>. Using <code>getAcroForm(PDDocumentFixup acroFormFixup)</code> might change the original content and subsequent calls with <code>getAcroForm(null)</code> will return the changed content. @param acroFormFixup the fix up action or null @return The document's AcroForm.
+1136 This will parse a PDF dictionary. @param isDirect indicates whether the dictionary to be read is a direct object @return The parsed dictionary, never null. @throws IOException If there is an error reading the stream.
+1137 Returns the blending mode stored in the COS dictionary @return the blending mode
+1138 Gets the colour for the end edge. @return the colour for the end edge
+1139 Gets the colour for the start edge. @return the colour for the start edge
+1140 Gets the colour for the after edge. @return the colour for the after edge
+1141 Gets the colour for the before edge. @return the colour for the before edge
+1142 Read a vertex from the bit input stream performs interpolations. @param input bit input stream @param maxSrcCoord max value for source coordinate (2^bits-1) @param maxSrcColor max value for source color (2^bits-1) @param rangeX dest range for X @param rangeY dest range for Y @param colRangeTab dest range array for colors @param matrix the pattern matrix concatenated with that of the parent content stream @param xform the affine transformation @return a new vertex with the flag and the interpolated values @throws IOException if something went wrong
+1143 Read a single patch from a data stream, a patch contains information of its coordinates and color parameters. @param input the image source data stream @param isFree whether this is a free patch @param implicitEdge implicit edge when a patch is not free, otherwise it's not used @param implicitCornerColor implicit colors when a patch is not free, otherwise it's not used @param maxSrcCoord the maximum coordinate value calculated from source data @param maxSrcColor the maximum color value calculated from source data @param rangeX range for coordinate x @param rangeY range for coordinate y @param colRange range for color @param matrix the pattern matrix concatenated with that of the parent content stream @param xform transformation for user to device space @param controlPoints number of control points, 12 for type 6 shading and 16 for type 7 shading @return a single patch @throws IOException when something went wrong
+1144 {@inheritDoc}
+1145 {@inheritDoc}
+1146 Creates a new line dash pattern from a dash array and phase. @param array the dash array @param phase the phase
+1147 Constructor. @param array An array of numbers as specified in the PDF Reference for a rectangle type.
+1148 Convenience method to be used when creating a matrix from unverified data. If the parameter is a COSArray with at least six numbers, a Matrix object is created from the first six numbers and returned. If not, then the identity Matrix is returned. @param base a COS object, preferably a COSArray with six numbers. @return a Matrix object.
+1149 This is a convenience method that will get the dictionary object that is expected to be a COSDictionary. Null is returned if the entry does not exist in the dictionary. @param firstKey The first key to the item in the dictionary. @param secondKey The second key to the item in the dictionary. @return The COSDictionary.
+1150 This is a convenience method that will get the dictionary object that is expected to be a COSBoolean and convert it to a primitive boolean. @param firstKey The first key to the item in the dictionary. @param secondKey The second key to the item in the dictionary. @param defaultValue The value returned if the entry is null. @return The entry converted to a boolean.
+1151 This is a convenience method that will get the dictionary object that is expected to be an integer. If the dictionary value is null then the default value will be returned. @param firstKey The first key to the item in the dictionary. @param secondKey The second key to the item in the dictionary. @param defaultValue The value to return if the dictionary item is null. @return The integer value.
+1152 The initial parse will first parse only the trailer, the xrefstart and all xref tables to have a pointer (offset) to all the pdf's objects. It can handle linearized pdfs, which will have an xref at the end pointing to an xref at the beginning of the file. Last the root object is parsed. @throws IOException If something went wrong.
+1153 This will get the encryption dictionary if the document is encrypted or null if the document is not encrypted. @return The encryption dictionary.
+1154 This will tell if this is an encrypted document. @return true If this document is encrypted.
+1155 Returns the annotations appearance state, which selects the applicable appearance stream from an appearance subdictionary. @return the annotations appearance state
+1156 Get the relationship between the current document and the target (which may be an intermediate target). @return the relationship as a name. Valid values are P (the target is the parent of the current document) and C (the target is a child of the current document). Invalid values or null are also returned.
+1157 Returns the subtype of the soft mask (Alpha, Luminosity) - S entry @return the subtype of the soft mask
+1158 Returns the Unicode character sequence which corresponds to the given character code. @param code character code @return Unicode character(s)
+1159 Returns the name of the filter which is used for de/encrypting strings. Default value is "Identity". @return the name of the filter
+1160 Returns the name of the filter which is used for de/encrypting streams. Default value is "Identity". @return the name of the filter
+1161 This will get the appearance dictionary associated with this annotation. This may return null. @return This annotations appearance.
+1162 This will return the crypt filter method. Allowed values are: NONE, V2, AESV2, AESV3 @return the name of the crypt filter method.
+1163 Get the coordinates of individual words or group of words. @see #setCoords(float[]) @return the array of 8 􏰍 n numbers specifying the coordinates of n quadrilaterals.
+1164 This will get the color space or null if none exists. @return the color space for the shading @throws IOException if there is an error getting the color space
+1165 Returns A list of filters applied to this stream. @return A (possibly empty) list of filters applied to this stream, never null.
+1166 Returns true if the node is a page tree node (i.e. and intermediate).
+1167 This will retrieve the corresponding page of this annotation. See also <a href="https://stackoverflow.com/a/36894982/535646">this answer</a> about what to do if the page isn't available. @return The corresponding page or null if not available.
+1168 This will get the FDF page info object. @return The Page info.
+1169 This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line. @return the border style dictionary.
+1170 This will get the document ID. @return The document id.
+1171 This will retrieve the alternate icon. @return the alternate icon.
+1172 This will retrieve the border effect dictionary, specifying effects to be applied used in drawing the line. @return The border effect dictionary
+1173 This will retrieve the normal icon. @return the normal icon.
+1174 Gets the sound object. @return The sound object defining the sound that shall be played.
+1175 Get the CIDSet stream. @return A stream containing a CIDSet.
+1176 Get the list of OutputIntents defined in the document. @return The list of PDOutputIntent, never null.
+1177 This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section. @return The ending style for the start point.
+1178 A stream containing a true type font program. @return A stream containing a true type font program.
+1179 This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section. @return The ending style for the end point.
+1180 This will retrieve the interior color of the line endings defined in the LE entry. @return object representing the color.
+1181 A stream containing a Type 1 font program. @return A stream containing a Type 1 font program.
+1182 This will get the incremental updates since the PDF was last opened. @return The differences entry of the FDF dictionary.
+1183 Get the metadata that is part of the document catalog. This will return null if there is no meta data for this object. @return The metadata for this object.
+1184 Get the metadata that is part of the document catalog. This will return null if there is no meta data for this object. @return The metadata for this object.
+1185 Get the page that this bead is part of. @return The page that this bead is part of.
+1186 A stream containing a font program that is not true type or type 1. @return A stream containing a font program.
+1187 This will get a list of PDThreadBead objects, which are article threads in the document. This will return an empty list if there are no thread beads. @return A list of article threads on this page, never null. The returned list is backed by the beads COSArray, so any adding or deleting in this list will change the document too.
+1188 Get the viewports. @return a list of viewports or null if there is no /VP entry.
+1189 Return the children of this node. This list will contain PDNameTreeNode objects. @return The list of children or null if there are no children.
+1190 Returns all bounds values as COSArray. @return the bounds array.
+1191 Returns all functions values as COSArray. @return the functions array.
+1192 Returns all decode values as COSArray. @return the decode array.
+1193 The "Size" entry, which is the number of samples in each input dimension of the sample table. @return A List of java.lang.Integer objects.
+1194 Returns all domains for the input values as COSArray. Required for all function types. @return the domains array.
+1195 Returns all ranges for the output values as COSArray . Required for type 0 and type 4 functions @return the ranges array.
+1196 Get the lowest value for a key in the number map. @return The lowest value for a key in the map or null if missing.
+1197 Get the highest value for a key in the number map. @return The highest value for a key in the map or null if missing.
+1198 Returns the user properties. @return the user properties
+1199 Is the artifact attached to the given edge? @param edge the edge @return <code>true</code> if the artifact is attached to the given edge, <code>false</code> otherwise
+1200 Get the annotation color. @return The annotation color, or null if there is none.
+1201 This will retrieve the interior color of the drawn area. @return object representing the color.
+1202 This will get the coordinates of the callout line. @return An array of four or six numbers specifying a callout line attached to the free text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending coordinates of the line in default user space, Four numbers [ x1 y1 x2 y2 ] represent the starting and ending coordinates of the line.
+1203 Get the paths making up the freehand "scribble". @see #setInkList(List) @return the List of arrays representing the paths.
+1204 This will return a map of numbers on this level. The key will be a java.lang.Integer, the value will depend on where this class is being used. @return A map of COS objects. @throws IOException If there is a problem creating the values.
+1205 This will retrieve the start and end coordinates of the line (or leader line if LL entry is set). @return array of floats [x1, y1, x2, y2] line start and end points in default user space.
+1206 Return the children of this node. This list will contain PDNumberTreeNode objects. @return The list of children or null if there are no children.
+1207 This will return a map of names on this level. The key will be a string, and the value will depend on where this class is being used. @return ordered map of COS objects or <code>null</code> if the dictionary contains no 'Names' entry on this level. @throws IOException If there is an error while creating the sub types. @see #getKids()
+1208 Returns all encode values as COSArray. @return the encode array.
+1209 This will retrieve the horizontal offset of the caption. @return the horizontal offset of the caption
+1210 This will get the previous bead. If this bead is the first bead in the list then this will return the last bead. @return The previous bead in the list or the last bead if this is the first bead.
+1211 Get the structure element of this node. @return The structure element of this node.
+1212 This will get the default resources for the AcroForm. @return The default resources or null if there is none.
+1213 @return true if the node has at least one child
+1214 This will retrieve the vertical offset of the caption. @return the vertical offset of the caption
+1215 PDF signature build dictionary. Provides information about the signature handler. @return the pdf signature build dictionary.
+1216 <p>(Optional; PDF 1.6) A time stamp dictionary containing two entries. URL which is a ASCII string specifying the URL to a rfc3161 conform timestamp server and Ff to indicate if a timestamp is required or optional.</p> @return the timestamp dictionary as PDSeedValueTimeStamp
+1217 (Optional) A certificate seed value dictionary containing information about the certificate to be used when signing. @return dictionary
+1218 <p>(Optional; PDF 1.6) A dictionary containing a single entry whose key is P and whose value is an integer between 0 and 3. A value of 0 defines the signatures as an author signature. The value 1 through 3 shall be used for certification signatures and correspond to the value of P in a DocMDP transform parameters dictionary.</p> <p>If this MDP key is not present or the MDP dictionary does not contain a P entry, no rules shall be defined regarding the type of signature or its permissions.</p> @return the mdp dictionary as PDSeedValueMDP
+1219 A build data dictionary for the viewing application software module that was used to create the parent signature. @return the App as PDPropBuildApp object
+1220 A build data dictionary for the PubSec software module that was used to create the parent signature. @return the PubSec as PDPropBuildPubSec object
+1221 A build data dictionary for the signature handler that was used to create the parent signature. @return the Filter as PDPropBuildFilter object
+1222 This will retrieve the border effect dictionary, specifying effects to be applied used in drawing the line. @return The border effect dictionary
+1223 This will return a list of appearances. In the case where there is only one appearance the map will contain one entry whose key is the string "default". @return A list of key(java.lang.String) value(PDAppearanceStream) pairs
+1224 This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line. @return the border style dictionary.
+1225 Get the additional actions for this field. This will return null if there are no additional actions for this field. As of PDF 1.6 this is only used for Widget Annotations. @return The actions of the field.
+1226 Returns the appearance characteristics dictionary. @return the appearance characteristics dictionary
+1227 This will retrieve the interior color of the line endings defined in the LE entry. @return object representing the color.
+1228 This method prepares and writes COS data to the object stream by selecting appropriate specialized methods for the content. @param output The stream, that shall be written to. @param object The content, that shall be written. @param topLevel True, if the currently written object is a top level entry of this object stream. @throws IOException Shall be thrown, when an exception occurred for the write operation.
+1229 Returns the signature contained in this field. @return A signature dictionary.
+1230 This will get the next bead. If this bead is the last bead in the list then this will return the first bead. @return The next bead in the list or the first bead if this is the last bead.
+1231 This will get the thread that this bead is part of. This is only required for the first bead in a thread, so other beads 'may' return null. @return The thread that this bead is part of.
+1232 This will set the previous URI action, in case it's needed. @return The previous URI.
+1233 This will get the coordinates of the vertices. @return array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.
+1234 This will get interior color of the drawn area. @return object representing the color.
+1235 This will get the coordinates of the the vertices. @return array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.
+1236 This will return the external data dictionary. @return the external data dictionary
+1237 Get the additional actions for this field. This will return null if there are no additional actions for this field. @return The actions of the field.
+1238 Get the first bead in the thread, or null if it has not been set yet. This is a required field for this object. @return The first bead in the thread.
+1239 This will retrieve the measure dictionary. @return the measure dictionary
+1240 This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line. @return the border style dictionary.
+1241 This will retrieve the line ending style for the start point, possible values shown in the LE_ constants section. @return The ending style for the start point.
+1242 This will retrieve the line ending style for the end point, possible values shown in the LE_ constants section. @return The ending style for the end point.
+1243 <p>(Optional; PDF 1.5) A seed value dictionary containing information that constrains the properties of a signature that is applied to the field.</p> @return the seed value dictionary as PDSeedValue
+1244 Returns the default value, if any. @return A signature dictionary.
+1245 Get info about the thread, or null if there is nothing. @return The thread information.
+1246 This will retrieve the border effect dictionary, specifying effects to be applied used in drawing the line. @return The border effect dictionary

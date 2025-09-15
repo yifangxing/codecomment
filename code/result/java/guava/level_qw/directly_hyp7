@@ -1,0 +1,100 @@
+1 Writes byte array to file. @param from source byte array @param to destination file @throws IOException if an I/O error occurs
+2 Computes hash using provided function. @param hashFunction the hashing algorithm to use @return computed HashCode @throws IOException if an I/O error occurs during copying
+3 Copies file content to an output stream. @param from source File object @param to destination OutputStream object @throws IOException if I/O error occurs
+4 Copies data from a URL to an OutputStream. @param from source URL @param to destination OutputStream @throws IOException if I/O error occurs during copying
+5 Copies a file from one location to another. @param from source file @param to destination file @throws IOException if an I/O error occurs
+6 Converts a File to a byte array. @param file the File to read @return byte array containing file content @throws IOException if an I/O error occurs
+7 Converts a URL to a byte array. @param url source URL to read from @return byte array containing data from the URL @throws IOException if an I/O error occurs
+8 Reads bytes from a file using a processor. @param file the file to read @param processor the processor to process the bytes @return result of processing or null if not applicable @throws IOException if an I/O error occurs
+9 Compares two files for equality. @param file1 first file to compare @param file2 second file to compare @return true if files are equal, false otherwise
+10 Compares two paths for equality by content. @param path1 first file path to compare @param path2 second file path to compare @return true if contents are equal, false otherwise @throws IOException if an I/O error occurs
+11 Writes a CharSequence to a file using specified charset. @param from the CharSequence to write @param to the target File @param charset the Charset to use for writing @throws IOException if an I/O error occurs
+12 Appends a character sequence to a file using specified charset. @param from CharSequence to append @param to File to append to @param charset Charset for encoding @throws IOException if an I/O error occurs
+13 Copies file content to an appendable destination. @param from source file @param charset character set for reading the file @param to destination appendable @throws IOException if an I/O error occurs
+14 Reads the first line of a file using a specified charset. @param file the file to read from @param charset the character set to use for reading @return the first line of the file or null if empty @throws IOException if an I/O error occurs
+15 Reads all lines from a file using specified charset. @param file the file to read from @param charset character set for reading the file @return list of lines from the file @throws IOException if an I/O error occurs
+16 Reads lines from a file using a specified charset and processor. @param file the file to read @param charset the character set to use for reading @param callback the LineProcessor to process each line @return result of the LineProcessor or null if not applicable @throws IOException if an I/O error occurs
+17 Reads lines from a URL and processes them. @param url the source URL to read from @param charset character set for reading the file @param callback processor for each line @return result of processing or null if not applicable @throws IOException if an I/O error occurs
+18 Maps a file into memory. @param file the file to map @param mode the mapping mode (READ_ONLY, READ_WRITE, PRIVATE) @return a MappedByteBuffer representing the mapped file @throws IOException if an I/O error occurs
+19 Maps a file to a memory-mapped buffer. @param file the file to map @param mode the mapping mode (e.g., READ_ONLY) @param size the number of bytes to map @return MappedByteBuffer representing the mapped file region @throws IOException if an I/O error occurs
+20 Adds a delayed shutdown hook for the executor service. @param service the ExecutorService to be shut down @param terminationTimeout the timeout duration before shutting down @param timeUnit the unit of time for the termination timeout
+21 Filters entries in a multimap based on a value predicate. @param unfiltered the original multimap to filter @param valuePredicate predicate for filtering values @return a new multimap with filtered entries
+22 Creates a compound ordering from an iterable of comparators. @param comparators iterable of comparators to combine @return CompoundOrdering object that combines the given comparators
+23 Creates an immutable bi-directional map from the given map. @param map source map to copy entries from @return ImmutableBiMap containing the same entries as the input map
+24 Converts collection to array of specified type. @param type Class object specifying the array component type @return Array containing all elements in the collection
+25 Converts an iterator to an array. @param iterator source iterator @param type desired component type of the array @return array containing elements from the iterator
+26 Converts the collection to an immutable sorted set. @param comparator comparator for sorting elements @return ImmutableSortedSet containing all elements in sorted order
+27 Creates an immutable sorted set from iterable elements using natural ordering. @param elements the iterable source of elements @return ImmutableSortedSet containing elements in natural order
+28 Creates an immutable sorted set from a collection and comparator. @param comparator the comparator to sort elements @param elements the collection of elements to include @return ImmutableSortedSet with sorted elements
+29 Returns a map of rows with columns and values. @return SortedMap where key is row, value is Map of column to value
+30 Returns a string representation of the object. Uses lazy initialization to ensure thread safety. @return String representation of the object
+31 Returns a synchronized version of the specified sorted set multimap. @param multimap the multimap to be wrapped in a synchronized view @return a synchronized SortedSetMultimap with no mutex specified
+32 Reads content from a stream and returns it as a string. @return content read from the stream @throws IOException if an I/O error occurs
+33 Creates a CompactLinkedHashMap with an expected size. @param expectedSize the approximate number of entries @return a new CompactLinkedHashMap instance
+34 Creates a CompactLinkedHashSet from a given collection. @param collection the source collection of elements @return a new CompactLinkedHashSet containing all elements from the collection
+35 Creates a TreeMultimap with natural ordering for keys and values. @return TreeMultimap instance with natural key and value orderings
+36 Creates a TreeMultimap with specified key and value comparators. @param keyComparator comparator for keys @param valueComparator comparator for values @return TreeMultimap instance
+37 Checks if the sequence matches any of the defined patterns. @param sequence input to be checked against patterns @return true if sequence matches at least one pattern, false otherwise
+38 Removes all characters from the input sequence that are not in this set. @param sequence the input character sequence @return a new string with only the retained characters
+39 Replaces occurrences of a substring in a sequence. @param sequence the original character sequence @param replacement the replacement string @return new string with replacements or original if no match
+40 Coerces an InetAddress to an Inet4Address. @param ip input IP address @return IPv4 address or null if coercion fails
+41 Creates a rate limiter with specified permits per second and warmup period. @param permitsPerSecond number of permits issued per second @param warmupPeriod duration for rate limiter to reach full capacity @return RateLimiter instance configured with given parameters
+42 Returns a set of map entries. @return Set containing all key-value pairs in the map
+43 Schedules a task to run after a specified delay. @param command the Runnable task to execute @param delay the time from now to delay execution @param unit the time unit of the delay parameter @return ListenableScheduledFuture representing scheduled task
+44 Builds a loading cache with the specified loader. @param loader cache loader to fetch values @return LoadingCache instance configured with the given loader
+45 Builds and returns a cache instance. @param <K1> key type extending K @param <V1> value type extending V @return Cache object configured with current settings
+46 Creates a Builder with a specified comparator for ordering. @param comparator Comparator to define element order @return Builder instance configured with the comparator
+47 Returns a builder for a comparator in reverse natural order. @return Builder instance with reverse natural ordering
+48 Creates a builder with natural ordering. @return Builder instance configured for natural order
+49 Creates a bidirectional map from a given map. @param map input map with enum keys and values @return EnumBiMap containing the entries of the input map
+50 Creates an EnumHashBiMap from a given map. @param map input map with enum keys and values @return EnumHashBiMap containing entries from the input map
+51 Replaces all values associated with a key. @param key key whose values are to be replaced @param values new values to associate with the key @return updated set of values or empty if key not found
+52 Checks if two lists are permutations of each other. @param first first list to compare @param second second list to compare @return true if lists contain same elements with same frequencies, false otherwise
+53 Creates an empty ArrayListMultimap. @param <K> key type @param <V> value type @return a new instance of ArrayListMultimap
+54 Creates an ArrayListMultimap from a given Multimap. @param multimap the source Multimap to copy entries from @return a new ArrayListMultimap containing the same key-value pairs as the input
+55 Creates an empty HashMultimap. @param <K> key type @param <V> value type @return a new HashMultimap instance
+56 Creates and returns an empty LinkedListMultimap. @param <K> key type with nullable elements @param <V> value type with nullable elements @return a new instance of LinkedListMultimap
+57 Creates a LinkedListMultimap from an existing Multimap. @param multimap the source Multimap to copy @return a new LinkedListMultimap containing the same mappings
+58 Creates a LinkedHashMultimap from another Multimap. @param multimap source Multimap to copy entries from @return new LinkedHashMultimap with the same entries as the input
+59 Builds and returns a mutable network. @param <N1> node type extending N @param <E1> edge type extending E @return MutableNetwork instance
+60 Constructs a mutable graph using the provided builder. @param builder configuration for building the graph
+61 Builds and returns a mutable value graph. @param <N1> node type extending N @param <V1> edge value type extending V @return MutableValueGraph instance
+62 Adds all entries from the given table. @param table source of entries to add @return this builder instance
+63 Adds all entries to the builder. @param entries iterable of key-value pairs to add @return this Builder instance for method chaining
+64 Adds all entries from the specified map. @param map source of entries to add @return this Builder instance for chaining
+65 Adds all entries from the given iterable. @param entries collection of key-value pairs to add @return current Builder instance
+66 Filters entries in a map based on a predicate. @param map the original AbstractFilteredMap to filter @param entryPredicate additional condition for filtering entries @return new FilteredEntryMap with combined predicates
+67 Adds all ranges from the given RangeSet to this builder. @param ranges RangeSet containing the ranges to add @return this Builder instance for method chaining
+68 Returns a subset of ranges that overlap with the specified range. @param range the range to intersect with @return an ImmutableRangeSet containing overlapping ranges or an empty set if none
+69 Creates a contiguous set of integers from lower to upper inclusive. @param lower the lower bound of the range @param upper the upper bound of the range @return ContiguousSet containing all integers between lower and upper bounds
+70 Creates a contiguous set of Longs from lower to upper inclusive. @param lower the lower bound of the range @param upper the upper bound of the range @return ContiguousSet containing all Longs in the specified range
+71 Creates a contiguous set of integers from lower (inclusive) to upper (exclusive). @param lower the inclusive lower bound @param upper the exclusive upper bound @return ContiguousSet containing integers in the specified range
+72 Creates a contiguous set of Long from lower (inclusive) to upper (exclusive). @param lower the inclusive lower bound @param upper the exclusive upper bound @return ContiguousSet containing Long values in the specified range
+73 Combines a range with adjacent ranges if they have the same value. @param range the initial range to consider @param value the value associated with the range @return a new Range that may include coalesced segments
+74 Adds a node to the network and initializes its connections. @param node the node to be added @return NetworkConnections object for the added node
+75 Creates an immutable copy of the given map. @param map the source map to copy @return an ImmutableMap containing the same key-value pairs as the input map
+76 Retrieves a row from the map by key. @param rowKey key of the row to retrieve @return ImmutableMap representing the row or empty map if not found
+77 Returns greatest element less than the given element. @param e element to compare against @return greatest element less than e or null if no such element exists
+78 Returns the greatest element less than or equal to the given element. @param e the element to compare with @return the greatest element <= e or null if no such element exists
+79 Creates an immutable list from an iterator. @param elements the source iterator @return an ImmutableList containing the elements
+80 Builds an ImmutableRangeMap from sorted entries. @return ImmutableRangeMap object containing non-overlapping ranges and associated values
+81 Builds an immutable range set from a list of ranges. @return ImmutableRangeSet containing merged, non-overlapping ranges
+82 Parses the Java class path into a list of URLs. @return ImmutableList of URLs representing class path entries
+83 Retrieves method parameters with annotations. @return ImmutableList of Parameter objects representing method parameters
+84 Returns a list of generic exception types. @return ImmutableList of TypeToken representing exception types
+85 Wraps a collection of tasks into an immutable list. @param tasks collection of Callable tasks @return ImmutableList of wrapped Callable tasks
+86 Creates a sorted immutable list from an iterable of comparable elements. @param elements iterable of elements to sort @return Immutable list of sorted elements
+87 Creates a sorted immutable list from elements. @param comparator sorting criteria @param elements iterable source of elements @return ImmutableList with sorted elements
+88 Creates an immutable sorted set from iterator. @param comparator sorting order for elements @param elements iterator of elements to include @return ImmutableSortedSet with sorted elements
+89 Creates an ImmutableMap from an array of entries. @param n number of entries to include @param entryArray array containing map entries @param throwIfDuplicateKeys flag to throw exception on duplicate keys @return ImmutableMap created from the entries
+90 Retrieves the index of the public suffix. @return Index of the public suffix or SUFFIX_NOT_INITIALIZED if not found
+91 Retrieves the index of the registry suffix. Uses cached value if already initialized; otherwise, finds and caches it. @return Index of the registry suffix
+92 Creates an ImmutableSortedMap from entries with a specified comparator. @param comparator key comparator for sorting @param sameComparator flag indicating if the comparator is the same as in the entries @param entries iterable of map entries @return ImmutableSortedMap with sorted entries
+93 Creates a new TreeBasedTable with the same comparators and content. @param table existing TreeBasedTable to copy from @return new TreeBasedTable with copied data
+94 Creates a Bloom filter with the specified funnel and expected insertions. @param funnel defines how to extract bytes from inserted objects @param expectedInsertions estimated number of elements to be inserted @return a new BloomFilter instance
+95 Collects the k greatest elements based on a comparator. @param k number of top elements to collect @param comparator comparison criteria for elements @return Collector for top k elements
+96 Returns the k smallest elements from the iterable. @param iterable source of elements to compare @param k number of smallest elements to retrieve @return list containing the k smallest elements
+97 Finds the k greatest elements from an iterator. @param iterator source of elements @param k number of top elements to find @return list of k greatest elements
+98 Catches exceptions and executes a fallback function. @param <X> type of exception to catch @param exceptionType class of the exception to catch @param fallback function to execute if exception occurs @param executor executor for asynchronous execution @return ClosingFuture with result from fallback or original computation
+99 Waits until the component has stopped.
+100 Waits for the service to stop within a specified time. @param timeout maximum time to wait @param unit time unit of the timeout @throws TimeoutException if the service does not stop within the timeout
